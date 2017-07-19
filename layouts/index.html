@@ -1,0 +1,7 @@
+{{ partial "header.html" }}
+
+	{{ range first 10 .Pages }}
+		<h1>{{ .Title }}</h1>
+	{{ end }}
+
+{{ partial "footer.html" }}

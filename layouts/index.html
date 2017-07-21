@@ -1,7 +1,43 @@
-{{ partial "header.html" }}
+{{ define "content" }}
+	<div class="container">
+		<section class="card about">
+			<div class="row">
+				<div class="four columns">a</div>
+				<div class="four columns">
+					<img src="https://placekitten.com/g/300/200" alt="me">
+				</div>
+				<div class="four columns">a</div>
+			</div>
+		</section>
 
-	{{ range first 10 .Pages }}
-		<h1>{{ .Title }}</h1>
-	{{ end }}
+		<section class="card highlights">
+			{{ range first 6 .Pages }}
+				<p>{{ .Type }} - {{ .Title }}</p>
+			{{ end }}
+		</section>
 
-{{ partial "footer.html" }}
+		<section class="card contact">
+			<form>
+				<div class="row">
+					<div class="six columns">
+						<label for="name">Your name</label>
+						<input type="text" placeholder="John Doe" class="u-full-width" />
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="twelve columns">
+						<label for="exampleMessage">Message</label>
+						<textarea class="u-full-width" placeholder="Hi Bas ..." id="exampleMessage"></textarea>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="twelve columns">
+						<input class="button-primary" type="submit" value="Submit">
+					</div>
+				</div>
+			</form>
+		</section>
+	</div>
+{{ end }}

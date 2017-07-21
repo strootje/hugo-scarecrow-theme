@@ -1,0 +1,74 @@
+html,
+body {
+	padding: 0;
+	margin: 0;
+	height: 100%;
+}
+
+:root {
+  --accent-color: brown;
+  --border-width: .4rem;
+}
+
+/* --- layout --- */
+
+.layout {
+	height: 100%;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+}
+
+.layout .main {
+	border-top: var(--border-width) solid var(--accent-color);
+}
+
+/* --- header --- */
+
+.layout header {
+}
+
+.layout header nav .item
+.layout header nav .logo {
+	text-align: center;
+}
+
+/* --- navigation --- */
+
+nav ul {
+	list-style: none;
+}
+
+nav a {
+	display: block;
+	font-size: 2rem;
+	text-align: center;
+
+	/*tmp*/background-color: #ccc;
+}
+
+/* --- content --- */
+
+.layout .content {
+}
+
+.layout .content > .container > .card {
+}
+
+/* --- footer --- */
+
+.layout footer {
+	border-bottom: var(--border-width) solid var(--accent-color);
+}
+
+
+
+.card {
+	padding: 1.5rem;
+	margin-bottom: 1rem;
+	border: 1px solid #333;
+}
+
+.card > header {
+}
+

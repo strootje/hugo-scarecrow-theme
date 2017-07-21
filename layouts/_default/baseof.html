@@ -1,0 +1,23 @@
+<html lang="{{ .Site.LanguageCode }}">
+	<head>
+		{{ .Hugo.Generator }}
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<title>strootje</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" crossorigin="anonymous" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" crossorigin="anonymous" />
+		<link rel="stylesheet" href="/css/layout.css" />
+	</head>
+	<body>
+		<div class="layout">
+			<div class="main">
+				<header>{{ partial "header.html" . }}</header>
+				<section class="content">{{ block "content" . }}{{ end }}</section>
+			</div>
+
+			<footer>{{ partial "footer.html" . }}</footer>
+		</div>
+	</body>
+</html>

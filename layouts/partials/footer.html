@@ -1,2 +1,44 @@
-	</body>
-</html>
+<div class="container">
+	<div class="row">
+		<section class="card four columns">
+			<header>
+				<h4>????</h4>
+			</header>
+		</section>
+
+		<section class="card four columns">
+			<header>
+				<h4>tags</h4>
+			</header>
+
+			<article>
+				<ul>
+				{{ range $name, $value := .Site.Taxonomies }}
+				{{ if eq $name "tags" }}
+				{{ range $name, $tag := $value }}
+					<li>{{ $name }}</li>
+				{{ end }}
+				{{ end }}
+				{{ end }}
+				</ul>
+			</article>
+		</section>
+
+		<section class="card four columns">
+			<header>
+				<h4>Follow me</h4>
+			</header>
+
+			<article>
+				<ul>
+					{{ range .Site.Menus.social }}
+						<li><a href="{{ .URL }}">
+							<i class="fa fa-lg fa-{{ .Name }}-square"> </i>
+							<span>{{ .Name }}</span>
+						</a></li>
+					{{ end }}
+				</ul>
+			</article>
+		</section>
+	</div>
+</div>

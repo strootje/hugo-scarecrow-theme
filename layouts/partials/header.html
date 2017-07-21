@@ -1,9 +1,13 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title></title>
-	</head>
+<div class="container">
+	<nav>
+		<ul class="row">
+			{{ range first 2 .Site.Menus.main }}
+				<li class="item two columns"><a href="{{ .URL }}">{{ .Name }}</a></li>
+			{{ end }}
 
-	<body>
+			<li class="logo four columns"><a href="{{ .Site.BaseURL }}">strootje</a></li>
+			<li class="item two columns"><a>search</a></li>
+			<li class="item two columns"><a>search</a></li>
+		</ul>
+	</nav>
+</div>

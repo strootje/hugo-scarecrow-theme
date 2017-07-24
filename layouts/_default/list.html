@@ -1,9 +1,9 @@
 {{ define "content" }}
-	<div class="container">
-		{{ range .Pages }}
-			<section class="card">
-				<a href="{{ .URL }}">{{ . }}</a>
-			</section>
-		{{ end }}
-	</div>
+<div class="container">
+	{{ range .Pages }}
+	<section class="card">
+		<a href="{{ .URL }}">{{ . }}</a>
+	</section>
+	{{ end }}
+</div>
 {{ end }}

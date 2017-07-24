@@ -1,13 +1,15 @@
 <div class="container">
-	<nav>
+	<nav class="mainnav">
 		<ul class="row">
 			{{ range first 2 .Site.Menus.main }}
 				<li class="item two columns"><a href="{{ .URL }}">{{ .Name }}</a></li>
 			{{ end }}
-
-			<li class="logo four columns"><a href="{{ .Site.BaseURL }}">strootje</a></li>
-			<li class="item two columns"><a>search</a></li>
-			<li class="item two columns"><a>search</a></li>
+			<li class="logo four columns"><a href="{{ .Site.BaseURL }}"></a></li>
+			<li class="item four columns">
+				<form>
+					<input type="text" class="u-full-width" placeholder="Search..." />
+				</form>
+			</li>
 		</ul>
 	</nav>
 </div>

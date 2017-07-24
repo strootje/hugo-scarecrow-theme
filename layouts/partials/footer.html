@@ -16,7 +16,7 @@
 				{{ range $name, $value := .Site.Taxonomies }}
 				{{ if eq $name "tags" }}
 				{{ range $name, $tag := $value }}
-					<li>{{ $name }}</li>
+					<li><a href="{{ "/" | relLangURL}}tags/{{ $name | urlize }}">{{ $name }}</a></li>
 				{{ end }}
 				{{ end }}
 				{{ end }}

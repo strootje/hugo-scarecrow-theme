@@ -75,6 +75,24 @@ a:hover {
 	background-image: url('/images/logo.jpg');
 }
 
+/* search */
+.search {
+	position: relative;
+}
+
+.search > .results {
+	width: 100%;
+	display: none;
+	position: absolute;
+	border: 1px solid #000;
+	background: #fff;
+	z-index: 1;
+}
+
+.search > .results.active {
+	display: block;
+}
+
 /* card block*/
 
 .card {

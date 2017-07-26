@@ -1,10 +1,12 @@
 {{ define "content" }}
 <div class="container">
-	<section class="card">
+	<article class="card">
 		<header>
 			<h3>{{ .Title }}</h3>
 			{{ .Content }}
 		</header>
-	</section>
+	</article>
+
+	{{ partial "pager.html" . }}
 </div>
 {{ end }}

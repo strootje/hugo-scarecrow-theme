@@ -1,3 +1,4 @@
+{{ partial "about.html" . }}
 <div class="container">
 	<div class="row">
 		<section class="card four columns">
@@ -8,17 +9,13 @@
 
 		<section class="card four columns">
 			<header>
-				<h4>tags</h4>
+				<h4>Tags</h4>
 			</header>
 
 			<article>
-				<ul>
-				{{ range $name, $value := .Site.Taxonomies }}
-				{{ if eq $name "tags" }}
-				{{ range $name, $tag := $value }}
-					<li><a href="{{ "/" | relLangURL}}tags/{{ $name | urlize }}">{{ $name }}</a></li>
-				{{ end }}
-				{{ end }}
+				<ul class="summary list">
+				{{ range $name, $value := .Site.Taxonomies.tags }}
+					<li><code><a href="{{ relLangURL "/tags/" }}{{ $name | urlize }}">{{ $name }}</a></code></li>
 				{{ end }}
 				</ul>
 			</article>
@@ -30,15 +27,21 @@
 			</header>
 
 			<article>
-				<ul>
+				<ul class="summary">
 					{{ range .Site.Menus.social }}
 						<li><a href="{{ .URL }}">
-							<i class="fa fa-lg fa-{{ .Name }}-square"> </i>
+							<i class="fa fa-fw fa-lg fa-{{ .Name }}"> </i>
 							<span>{{ .Name }}</span>
 						</a></li>
 					{{ end }}
 				</ul>
 			</article>
 		</section>
+	</div>
+
+	<div class="row">
+		<div class="card legal twelve columns">
+			{{ .Site.Params.legal | default "Bas Stroosnijder &copy; 'the current year'" | safeHTML }}
+		</div>
 	</div>
 </div>

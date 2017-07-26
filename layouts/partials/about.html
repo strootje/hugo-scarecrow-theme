@@ -1,0 +1,30 @@
+{{ if isset .Site.Params "about" }}
+{{ if .Site.GetPage "page" .Site.Params.about  }}
+
+{{ $curURL := .Page.URL }}
+{{ with .Site.GetPage "page" .Site.Params.about }}
+{{ if ne $curURL .URL }}
+<div class="hero">
+	<div class="container">
+		<div class="row">
+			<article class="card twelve columns">
+				<div class="row">
+					<div class="two columns">
+						<img src="{{ .Params.image }}" />
+					</div>
+
+					<div class="ten columns">
+						<header><h4>{{ .Title }}</h4></header>
+						<div class="content">{{ .Content }}</div>
+					</div>
+				</div>
+			</article>
+		</div>
+	</div>
+</div>
+{{ else }}
+{{ partial "contact.html" . }}
+{{ end }}
+{{ end }}
+{{ end }}
+{{ end }}

@@ -1,19 +1,22 @@
 <div class="container">
 	<nav class="mainnav">
 		<ul class="row">
+			{{ $curpage := . }}
 			{{ range first 2 .Site.Menus.main }}
-				<li class="item two columns"><a href="{{ .URL }}">{{ .Name }}</a></li>
+				<li class="item two columns{{ if in $curpage.URL .URL }} active{{ end }}">
+					<a href="{{ .URL }}">{{ .Name }}</a>
+				</li>
 			{{ end }}
-			<li class="logo four columns"><a href="{{ .Site.BaseURL }}"></a></li>
+			<li class="logo four columns">
+				<a href="{{ .Site.BaseURL }}">
+					<img src="/images/logo.jpg" />
+				</a>
+			</li>
 			<li class="item four columns">
-				<form class="search">
-					<input type="text" id="search" class="u-full-width" placeholder="Search..." />
-					<div class="results">
-						<p>test1</p>
-						<p>test2</p>
-						<p>test3</p>
-					</div>
-				</form>
+				<div id="search">
+					<input type="text" class="u-full-width" placeholder="Search..." />
+					<ul class="results"></ul>
+				</div>
 			</li>
 		</ul>
 	</nav>

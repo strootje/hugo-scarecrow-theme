@@ -1,0 +1,28 @@
+{{ $font := (.Site.Params.font | default "Poppins") }}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ $font }}" crossorigin="anonymous" />
+
+<style>
+
+:root {
+	--color-primary-1: #FFF0A3;
+	--color-primary-0: #D3BC47;
+	--color-primary-4: #8F790D;
+
+	--color-secondary-1-1: #DD8DB9;
+	--color-secondary-1-0: #AB3977;
+	--color-secondary-1-4: #740A44;
+
+	--color-secondary-2-1: #77B6B9;
+	--color-secondary-2-0: #2B7C7F;
+	--color-secondary-2-4: #085357;
+
+	--accent-color: var(--color-secondary-2-4);
+	--font-family: '{{ $font }}', sans-serif;
+	--border-width: .4rem;
+}
+
+</style>
+<link rel="stylesheet" href="/css/layout.css" />

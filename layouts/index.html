@@ -1,54 +1,20 @@
 {{ define "content" }}
 <div class="container">
-	<div class="row">
-		{{ range .Sections }}
-		<section class="twelve columns">
-			<div class="row">
-				{{ range first 3 .Pages }}
-				<article class="card feature {{ .Section }} four columns">
-					<a href="{{ .URL }}"><h4>{{ .Title }}</h4></a>
-				</article>
+	{{ range .Sections }}
+	<article class="section">
+		<h3><span>{{ .Title }}</span></h3>
+		<section class="row">
+			{{ range first 3 .Pages }}
+			<a href="{{ .URL }}" class="card feature animate four columns">
+				<img src="https://placekitten.com/g/300/200">
+				<h4><span>{{ .Title }}</span></h4>
+				{{ if isset .Params "category" }}
+				<small><span>{{ .Params.category }}</span></small>
 				{{ end }}
-			</div>
+			</a>
+			{{ end }}
 		</section>
-		{{ end }}
-	</div>
-
-	<div class="row">
-		<section class="card about six columns">
-			<div class="row">
-				<div class="four columns">
-					<img src="/images/me.png" alt="me">
-				</div>
-				<div class="eight columns">I'm a very critical person and even more so as a coder. I like to challenge the “why” of things. This is why I'm not afraid to ask the tought questions. Purposfully taking the different side just to see if there might be any benefits to be found. I have a very analytic approuch this this. Taking a step back every once in a while to realize we're not going where we want to be going.
-
-I'm very pasionate about the projects I work on and want projects to succeed. This doesn't necessarily mean the product I wanted at the start but the thing I'm happy and proud about releasing to the public. Along the way there will be a lot of lessons to be learned, this is how I keep growing as a person and a coder.</div>
-			</div>
-		</section>
-
-		<section class="card contact six columns">
-			<form>
-				<div class="row">
-					<div class="twelve columns">
-						<label for="name">Your name</label>
-						<input type="text" placeholder="John Doe" class="u-full-width" />
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="twelve columns">
-						<label for="exampleMessage">Message</label>
-						<textarea class="u-full-width" placeholder="Hi Bas ..." id="exampleMessage"></textarea>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="twelve columns">
-						<input class="button-primary" type="submit" value="Submit">
-					</div>
-				</div>
-			</form>
-		</section>
-	</div>
+	</article>
+	{{ end }}
 </div>
 {{ end }}

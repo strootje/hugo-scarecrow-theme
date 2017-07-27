@@ -18,6 +18,10 @@ a:hover {
 	text-decoration: underline;
 }
 
+.center {
+	text-align: center;
+}
+
 /* --- layout --- */
 
 .layout {
@@ -151,8 +155,8 @@ a:hover {
 
 :root {
 	--normal: 1.5rem;
-	--zoomed: 1.0rem;
-	--speed: .2s;
+	--zoomed: 1.5rem;
+	--speed: .3s;
 }
 
 .card {
@@ -172,16 +176,26 @@ a:hover {
 	background-color: var(--color-primary-1);
 }
 
-.feature.animate {
+.feature > img {
+	position: relative;
+}
+
+.feature.animate,
+.feature.animate > img {
 	transition: padding var(--speed);
+	transition: filter calc(var(--speed) * 2);
+}
+
+.feature.animate > img {
+	filter: grayscale(1);
 }
 
 .feature.animate:hover {
 	padding: var(--zoomed);
 }
 
-.feature > img {
-	position: relative;
+.feature.animate:hover > img {
+	filter: grayscale(0);
 }
 
 .feature > h4 {

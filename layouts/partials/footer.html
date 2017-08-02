@@ -1,21 +1,17 @@
 {{ partial "about.html" . }}
 <div class="container">
 	<div class="row">
-		<section class="card four columns">
-			<header>
-				<h4>????</h4>
-			</header>
-		</section>
-
-		<section class="card four columns">
+		<section class="card eight columns">
 			<header>
 				<h4>Tags</h4>
 			</header>
 
 			<article>
 				<ul class="summary list">
-				{{ range $name, $value := .Site.Taxonomies.tags }}
-					<li><code><a href="{{ relLangURL "/tags/" }}{{ $name | urlize }}">{{ $name }}</a></code></li>
+				{{ range $name, $value := first 20 .Site.Taxonomies.tags.ByCount }}
+					<li><code class="size p{{ $value.Count }}">
+						<a href="{{ relLangURL "/tags/" }}{{ $name | urlize }}">{{ $value.Term }}</a>
+					</code></li>
 				{{ end }}
 				</ul>
 			</article>
@@ -23,13 +19,13 @@
 
 		<section class="card four columns">
 			<header>
-				<h4>Follow me</h4>
+				<h4>Find me</h4>
 			</header>
 
 			<article>
 				<ul class="summary">
 					{{ range .Site.Menus.social }}
-						<li><a href="{{ .URL }}">
+						<li><a href="{{ .URL }}" target="blank">
 							<i class="fa fa-fw fa-lg fa-{{ .Name }}"> </i>
 							<span>{{ .Name }}</span>
 						</a></li>
@@ -41,7 +37,7 @@
 
 	<div class="row">
 		<div class="card legal twelve columns">
-			{{ .Site.Params.legal | default "Bas Stroosnijder &copy; 'the current year'" | safeHTML }}
+			{{ .Site.Params.author | default "" }} &copy; {{ .Date.Format "2006" }}
 		</div>
 	</div>
 </div>

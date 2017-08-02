@@ -1,0 +1,16 @@
+{{ if .Site.Params.showRelated | default false }}
+{{ $pageLink := .URL }}
+{{ $related := where .Site.Pages "Params.tags" "intersect" .Page.Params.tags }}
+{{ $other := where $related "URL" "ne" $pageLink }}
+{{ if $other }}
+<section class="card related">
+	<header>
+		<h4>Related articles</h4>
+	</header>
+
+	{{ range $other }}
+		{{ partial "list-article.html" . }}
+	{{ end }}
+</section>
+{{ end }}
+{{ end }}

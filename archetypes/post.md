@@ -1,5 +1,6 @@
 +++
 draft = true
+featured = true
 title = "{{ replace .TranslationBaseName '-' ' ' | title }}"
 date = "{{ .Date }}"
 category = ""

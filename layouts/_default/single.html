@@ -3,10 +3,14 @@
 	<article class="card">
 		<header>
 			<h3>{{ .Title }}</h3>
-			{{ .Content }}
 		</header>
+
+		<div class="content">
+			{{ .Content }}
+		</div>
 	</article>
 
+	{{ partial "related.html" . }}
 	{{ partial "pager.html" . }}
 </div>
 {{ end }}

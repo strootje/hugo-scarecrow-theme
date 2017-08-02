@@ -2,18 +2,23 @@
 	<div class="container">
 		<div class="row">
 			<section class="card contact twelve columns">
-				<form>
+				<form method="POST" action="https://formspree.io/bas+contact@strootje.com">
 					<div class="row">
-						<div class="twelve columns">
+						<div class="six columns">
 							<label for="name">Your name</label>
-							<input type="text" placeholder="John Doe" class="u-full-width" />
+							<input type="text" id="name" name="name" placeholder="John Doe" class="u-full-width" />
+						</div>
+
+						<div class="six columns">
+							<label for="email">Your email</label>
+							<input type="email" id="email" name="email" placeholder="john.doe@example.me" class="u-full-width" />
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="twelve columns">
-							<label for="exampleMessage">Message</label>
-							<textarea class="u-full-width" placeholder="Hi Bas ..." id="exampleMessage"></textarea>
+							<label for="message">Message</label>
+							<textarea id="message" name="message" placeholder="Hi Bas .. " class="u-full-width"></textarea>
 						</div>
 					</div>
 

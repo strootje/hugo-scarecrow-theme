@@ -1,21 +1,7 @@
 {{ define "content" }}
 <section class="container">
 	{{ range .Paginator.Pages }}
-	<article class="card feature">
-		<div class="row">
-			<div class="two columns">
-				<a href="{{ .URL }}"><img src="{{ .Params.image_thumbnail }}" /></a>
-			</div>
-
-			<div class="ten columns">
-				<header>
-					<h4><a href="{{ .URL }}">{{ .Title }}</a></h4>
-				</header>
-
-				<div class="content">{{ .Summary }}</div>
-			</div>
-		</div>
-	</article>
+		{{ partial "list-article.html" . }}
 	{{ end }}
 
 	{{ partial "pager.html" . }}

@@ -142,6 +142,25 @@ a:hover {
 	float: left;
 }
 
+.summary.list > li > .size {
+	font-size: 2.2em;
+}
+
+.summary.list > li > .size.p5,
+.summary.list > li > .size.p6 {
+	font-size: 1.6em;
+}
+
+.summary.list > li > .size.p3,
+.summary.list > li > .size.p4 {
+	font-size: 1.2em;
+}
+
+.summary.list > li > .size.p1,
+.summary.list > li > .size.p2 {
+	font-size: .8em;
+}
+
 /* --- hero block --- */
 
 .hero {
@@ -237,6 +256,14 @@ a:hover {
 	padding: .2rem 1.2rem;
 	color: var(--color-primary-0);
 	background-color: var(--color-secondary-2-0);
+}
+
+
+/* +++ contact +++ */
+.contact {
+	color: var(--color-secondary-2-4);
+	border-color: var(--color-secondary-2-4);
+	background-color: var(--color-secondary-2-1);
 }
 
 

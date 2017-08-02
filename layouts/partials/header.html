@@ -9,7 +9,7 @@
 			{{ end }}
 			<li class="logo four columns">
 				<a href="{{ .Site.BaseURL }}">
-					<img src="/images/logo.jpg" />
+					<img src="{{ .Site.Params.logo | default "https://placekitten.com/g/300/200" }}" />
 				</a>
 			</li>
 			<li class="item four columns">

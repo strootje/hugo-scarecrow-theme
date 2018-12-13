@@ -1,9 +1,6 @@
 {{ define "content" }}
-<section class="container">
-	{{ range .Paginator.Pages }}
-		{{ partial "list-article.html" . }}
-	{{ end }}
-
-	{{ partial "pager.html" . }}
-</section>
+	<main class="container">
+		<p>__list__</p>
+		{{ .Content }}
+	</main>
 {{ end }}

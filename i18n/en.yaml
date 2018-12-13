@@ -1,0 +1,16 @@
+# Widget: Search
+# #####################################
+Widget.Search.Title:
+  other: Search
+Widget.Search.Placeholder:
+  other: Search...
+
+# Widget: NavMain
+# #####################################
+Widget.NavMain.Title:
+  other: Navigation
+
+# Footer
+# #####################################
+Widget.PoweredBy.PoweredBy:
+  other: Powered by

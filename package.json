@@ -1,0 +1,17 @@
+{
+	"private": true,
+	"name": "hugo-scarecrow-theme",
+	"version": "0.1.0",
+	"description": "Scarecrow theme for hugo",
+
+	"scripts": {
+		"build:styles": "",
+		"build:scripts": "node-ts",
+		"build": "run-p build:styles build:scripts"
+	},
+
+	"devDependencies": {
+		"ts-node": "*",
+		"bulma": "*"
+	}
+}

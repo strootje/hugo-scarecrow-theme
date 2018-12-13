@@ -1,0 +1,18 @@
+@charset 'utf-8';
+
+* {
+	font-family: var(--font-family);
+}
+
+// Core files
+@import './layout';
+@import './layout/page';
+@import './layout/sidebar';
+
+// Widget files
+@import './widgets/about';
+@import './widgets/breadcrumbs';
+@import './widgets/nav-main';
+@import './widgets/nav-social';
+@import './widgets/poweredBy';
+@import './widgets/search';

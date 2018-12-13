@@ -1,0 +1,22 @@
+// @import './vars';
+
+.sidebar {
+	text-align: right;
+	align-items: flex-end;
+	min-width: 320px;
+	margin: { right: $spacing; };
+	padding: { right: $spacing; };
+
+	.widget {
+		width: 100%;
+
+		&:not(:first-child):before {
+			content: "";
+			width: 4rem;
+			margin: { top: $spacing; left: auto; };
+			padding: { top: $spacing; };
+			display: block;
+			border-top: 1px solid #bdbdbd;
+		}
+	}
+}

@@ -1,0 +1,18 @@
+.widget.widget-about {
+	figure {
+		margin: 0;
+		margin-top: $spacing;
+
+		& > img {
+			border: 2px dashed #333;
+		}
+
+		&.rounded > img {
+			border-radius: 20%;
+		}
+
+		&.circle > img {
+			border-radius: 50%;
+		}
+	}
+}

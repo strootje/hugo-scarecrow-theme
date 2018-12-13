@@ -1,0 +1,11 @@
+.widget.widget-poweredBy {
+	& > span:not(:first-child)::before {
+		content: "\2212";
+	}
+
+	.powered {
+		& > span:not(:first-child)::before {
+			content: "\0026";
+		}
+	}
+}

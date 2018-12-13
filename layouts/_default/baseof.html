@@ -1,22 +1,23 @@
+<!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
 	<head>
 		{{ .Hugo.Generator }}
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 		<title>strootje</title>
-
-		{{ partial "styles.html" . }}
-		{{ partial "scripts.html" . }}
+		{{ partial "_styles.html" . }}
+		{{ partial "_scripts.html" . }}
 	</head>
+
 	<body>
 		<div class="layout">
-			<div class="main">
-				<header>{{ partial "header.html" . }}</header>
-				<section class="content">{{ block "content" . }}{{ end }}</section>
-			</div>
+			{{ partial "layout/sidebar" . }}
 
-			<footer>{{ partial "footer.html" . }}</footer>
+			<div class="page">
+				{{ partial "layout/header" . }}
+				{{ block "content" . }}{{ end }}
+				{{ partial "layout/footer" . }}
+			</div>
 		</div>
 	</body>
 </html>

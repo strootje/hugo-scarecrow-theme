@@ -1,11 +1,11 @@
 +++
 draft = true
-featured = true
+featured = false
 title = "{{ replace .TranslationBaseName '-' ' ' | title }}"
 date = "{{ .Date }}"
-category = ""
+category = "Uncategorized"
 tags = []
 
-image = ""
-image_thumbnail = ""
+image = "/images/noimage.jpg"
+image_thumbnail = "/images/noimage.tbnl.jpg"
 +++

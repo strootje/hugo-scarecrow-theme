@@ -1,0 +1,13 @@
+{{ $font := (.Site.Params.font | default "Poppins") }}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous" />
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ $font }}" crossorigin="anonymous" />
+<style> :root { --font-family: '{{ $font }}', sans-serif; } </style>
+
+{{ $opts := (dict "targetPath" "/styles/bundle.css" "outputStyle" "compressed" "enableSourceMaps" true) }}
+{{ $styles := resources.Get "/styles/index.scss" | resources.ToCSS $opts }}
+{{ $minified := $styles | resources.Minify }}
+<link rel="stylesheet" href="{{ $minified.Permalink }}" />

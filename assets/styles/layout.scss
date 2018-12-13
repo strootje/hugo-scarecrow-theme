@@ -1,0 +1,43 @@
+@import './vars';
+
+/* # Layout */
+/* ================================= */
+
+.layout {
+	display: flex;
+	flex-flow: row wrap;
+
+	%layout-item {
+		min-height: 100vh;
+		display: flex;
+		flex-flow: column;
+	}
+
+	.sidebar {
+		@extend %layout-item;
+	}
+
+	.page {
+		@extend %layout-item;
+
+		main {
+			flex-grow: 1;
+		}
+
+		footer {
+			font: {
+				size: 1.1rem;
+				weight: lighter;
+			}
+
+			.widget {
+				margin: 0;
+				padding: 0;
+
+				&:not(:first-child) {
+					margin-top: 1rem;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,8 @@
+<!-- Third party libs -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.3.0/fuse.min.js" async></script>
+
+{{ $lambda := resources.Get "scripts/lambda.js" }}
+{{ $menu := resources.Get "scripts/menu.js" }}
+{{ $search := resources.Get "scripts/search.js" }}
+{{ $bundle := slice $lambda $menu $search | resources.Concat "script/bundle.js" | resources.Minify }}
+<script src="{{ $bundle.Permalink }}"></script>

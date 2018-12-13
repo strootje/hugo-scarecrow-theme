@@ -1,0 +1,21 @@
+@import './../vars';
+
+.widget.widget-nav-social {
+	.sidebar & {
+		ul {
+			direction: rtl;
+		}
+	}
+
+	header &,
+	footer & {
+		ul {
+			display: flex;
+			flex-flow: row wrap;
+
+			li:not(:first-child) {
+				margin-left: $spacing / 3;
+			}
+		}
+	}
+}

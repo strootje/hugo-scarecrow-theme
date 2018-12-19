@@ -1,17 +1,6 @@
-λ('.burger', self => self.addEventListener('click', () => {
-	console.log(self);
+$('.burger', p => p.on('click', self => {
+	const sidebar = document.getElementById(self.dataset.target);
+
+	self.classList.toggle('is-active');
+	sidebar.classList.toggle('is-active');
 }));
-
-
-// 'use strict';
-
-// (() => document.addEventListener('DOMContentLoaded', () => {
-// 	document.querySelectorAll(".burger").forEach(burger => {
-// 		burger.addEventListener('click', () => {
-// 			const target = document.getElementsByClassName(burger.dataset.target)[0];
-
-// 			burger.classList.toggle('is-active');
-// 			target.classList.toggle('is-hidden-mobile');
-// 		})
-// 	});
-// }))();

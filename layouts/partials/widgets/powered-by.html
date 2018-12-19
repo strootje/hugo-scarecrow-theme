@@ -1,17 +1,17 @@
-{{ $lang := .Site.Language.Lang }}
-{{ $defaults := .Site.Data.Defaults.Widgets.PoweredBy }}
-{{ $data := (or .Site.Data.Widgets.PoweredBy $defaults) }}
-{{ $config := ((index $data $lang) | default $data) }}
+{{ $language := .Site.Language.Lang }}
+{{ $defaults := .Site.Data.defaults.widgets.poweredBy }}
+{{ $config := ( or .Site.Data.widgets.poweredby $defaults ) }}
+{{ $data := ( index $config $language ) | default $config }}
 
-<section class="widget widget-poweredBy">
-	<span class="legal">
-		{{ .Site.Params.Author }} &copy; {{ now.Format "2006" }}
-	</span>
+<section class="widget widget-powered-by">
+	{{ with .Site.Params.Author }}
+		<section class="author">{{ . }} &copy; {{ now.Format "2006" }}</section>
+	{{ end }}
 
-	<span class="powered">
-		{{ T "Widget.PoweredBy.PoweredBy" }}
-		{{ range $config.Items }}
-			<span><a href="{{ .URL }}" target="_blank">{{ .Title }}</a></span>
+	<section class="powered">
+		{{/*  <span>{{ T "widget.poweredby.text" | default "__powered by__" }}</span>  */}}
+		{{ range $data.items }}
+			<span><a href="{{ .url }}">{{ .title }}</a></span>
 		{{ end }}
-	</span>
+	</section>
 </section>

@@ -1,0 +1,7 @@
+{{ $scope := . }}
+
+<header>
+	{{ range .Site.Params.widgets.header }}
+		{{ partial ( print "widgets/" . ) $scope }}
+	{{ end }}
+</header>

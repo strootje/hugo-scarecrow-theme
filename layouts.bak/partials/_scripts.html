@@ -4,5 +4,5 @@
 {{ $lambda := resources.Get "scripts/lambda.js" }}
 {{ $menu := resources.Get "scripts/menu.js" }}
 {{ $search := resources.Get "scripts/search.js" }}
-{{ $bundle := slice $lambda $menu $search | resources.Concat "script/bundle.js" | resources.Minify }}
+{{ $bundle := slice $lambda $menu $search | resources.Concat "script/bundle.js" | resources.ExecuteAsTemplate "/scripts/bundle.js" . | resources.Minify }}
 <script src="{{ $bundle.Permalink }}"></script>

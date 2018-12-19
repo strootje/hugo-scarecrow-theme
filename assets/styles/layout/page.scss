@@ -1,0 +1,12 @@
+.page {
+	flex-grow: 1;
+
+	.layout & {
+		display: flex;
+		flex-flow: column nowrap;
+
+		main {
+			flex-grow: 1;
+		}
+	}
+}

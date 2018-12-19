@@ -1,0 +1,17 @@
+{{ $lang := .Site.Language.Lang }}
+{{ $defaults := .Site.Data.Defaults.Widgets.PoweredBy }}
+{{ $data := (or .Site.Data.Widgets.PoweredBy $defaults) }}
+{{ $config := ((index $data $lang) | default $data) }}
+
+<section class="widget widget-poweredBy">
+	<span class="legal">
+		{{ .Site.Params.Author }} &copy; {{ now.Format "2006" }}
+	</span>
+
+	<span class="powered">
+		{{ T "Widget.PoweredBy.PoweredBy" }}
+		{{ range $config.Items }}
+			<span><a href="{{ .URL }}" target="_blank">{{ .Title }}</a></span>
+		{{ end }}
+	</span>
+</section>

@@ -1,7 +1,8 @@
 <section class="widget widget-search">
-	<header>
-		<h3 class="title">{{ T "Widget.Search.Title" | default "__Search__" }}</h3>
-	</header>
+	<input type="search" placeholder="{{ T `widget.search.placeholder` | default `__search...__` }}" data-target="search-results" />
 
-	<input type="search" class="input" placeholder='{{ T "Widget.Search.Placeholder" | default "__Search...__" }}' />
+	<div class="results" id="search-results">
+		<ul>
+		</ul>
+	</div>
 </section>

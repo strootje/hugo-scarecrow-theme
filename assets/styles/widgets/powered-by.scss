@@ -1,0 +1,28 @@
+.widget-powered-by {
+
+	.powered {
+		@extend .tags;
+
+		span {
+			@extend .tag;
+			@extend .is-light;
+		}
+
+		@include imedia(small) {
+			justify-content: center;
+		}
+	}
+
+	// .powered ul {
+	// 	display: flex;
+	// 	flex-flow: row wrap;
+	// 	justify-content: center;
+
+	// 	li {
+	// 		a {
+	// 			@extend .tag;
+	// 			@extend .is-dark;
+	// 		}
+	// 	}
+	// }
+}

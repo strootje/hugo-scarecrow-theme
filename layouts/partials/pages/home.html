@@ -1,23 +1,11 @@
 <main>
-	hello world
-</main>
+	{{ .Content }}
 
-
-<main class="container">
-	{{ range .Sections }}
-	<article class="section">
-		<h3><span>{{ .Title }}</span></h3>
-		<section class="row">
-			{{ range first 3 (where .Pages "Params.featured" true ) }}
-			<a href="{{ .URL }}" class="card feature animate four columns">
-				<img src='{{ .Params.image_thumbnail | default "/images/noimage.jpg" }}'>
-				<h4><span>{{ .Title }}</span></h4>
-				{{ if isset .Params "category" }}
-				<small><span>{{ .Params.category }}</span></small>
-				{{ end }}
-			</a>
+	<section class="posts">
+		{{ range .Page.Sections }}
+			{{ range .Paginator.Pages }}
+				<a href="{{ .Permalink | relLangURL }}">{{ .Title }}</a>
 			{{ end }}
-		</section>
-	</article>
-	{{ end }}
+		{{ end }}
+	</section>
 </main>

@@ -1,7 +1,9 @@
 {{ $scope := . }}
+{{ $defaults := slice "powered-by" }}
+{{ $widgets := ( or .Site.Params.Widgets.Footer $defaults ) }}
 
 <footer>
-	{{ range .Site.Params.widgets.footer }}
+	{{ range $widgets }}
 		{{ partial ( print "widgets/" . ) $scope }}
 	{{ end }}
 </footer>

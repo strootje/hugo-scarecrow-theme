@@ -1,22 +1,44 @@
-// @import './vars';
+.burger-container {
+	top: 0;
+	right: 0;
+	position: absolute;
+	text-align: right;
+
+	.burger {
+		@extend .navbar-burger;
+	}
+
+	@include media(small) {
+		display: none;
+	}
+}
 
 .sidebar {
-	text-align: right;
-	align-items: flex-end;
-	min-width: 320px;
-	margin: { right: $spacing; };
-	padding: { right: $spacing; };
+	min-width: 100vw;
+	display: none;
+	text-align: center;
 
-	.widget {
-		width: 100%;
+	&.is-active {
+		display: block;
+	}
 
-		&:not(:first-child):before {
-			content: "";
-			width: 4rem;
-			margin: { top: $spacing; left: auto; };
-			padding: { top: $spacing; };
-			display: block;
-			border-top: 1px solid #bdbdbd;
+	@include media(small) {
+		min-width: (16rem - $spacing);
+		margin-right: $spacing;
+		padding-right: $spacing;
+		display: block;
+		text-align: right;
+	}
+
+	.widget:not(:first-child)::before {
+		content: "";
+		display: block;
+		width: 3rem;
+		margin: $spacing auto $spacing auto;
+		border-top: 2px solid #333;
+
+		@include media(small) {
+			margin-right: 0;
 		}
 	}
 }

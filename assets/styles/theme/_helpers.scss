@@ -1,0 +1,13 @@
+@import './vars';
+
+@mixin media( $size ) {
+	@media( min-width: map-get($breakpoints, $size) ) {
+		@content;
+	}
+}
+
+@mixin imedia( $size ) {
+	@media( max-width: map-get($breakpoints, $size) ) {
+		@content;
+	}
+}

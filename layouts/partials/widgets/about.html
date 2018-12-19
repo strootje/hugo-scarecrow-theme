@@ -1,23 +1,20 @@
-{{ $lang := .Site.Language.Lang }}
-{{ $defaults := .Site.Data.Defaults.Widgets.About }}
-{{ $data := (or .Site.Data.Widgets.About $defaults) }}
-{{ $config := ((index $data $lang) | default $data) }}
+{{ $language := .Site.Language.Lang }}
+{{ $defaults := .Site.Data.defaults.widgets.about }}
+{{ $config := ( or .Site.Data.widgets.about $defaults ) }}
+{{ $data := ( index $config $language ) | default $config }}
 
-{{ $BaseURL := .Site.BaseURL | relLangURL }}
 <section class="widget widget-about">
-	{{ with $config.Logo }}
-		<a href="{{ $BaseURL }}">
-			<figure class="rounded">
-				<img src='{{ . }}' title="{{ $config.Title }}" />
+	{{ with $data }}
+		{{ with .logo }}
+			<figure>
+				<img src="{{ .src }}" alt="{{ .title }}">
 			</figure>
-		</a>
-	{{ end }}
+		{{ end }}
 
-	<a href="{{ $BaseURL }}">
-		<h2 class="title">{{ $config.Title | default .Site.Title }}</h2>
-	</a>
+		<h2>{{ .title }}</h2>
 
-	{{ with $config.Tagline }}
-		<h5 class="subtitle">{{ . }}</h5>
+		{{ with .tagline }}
+			<h3>{{ . }}</h3>
+		{{ end }}
 	{{ end }}
 </section>

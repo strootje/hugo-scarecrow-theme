@@ -1,5 +1,30 @@
-.widget.widget-search {
+.widget-search {
+	position: relative;
+
 	input {
-		width: 80%;
+		@extend .input;
+		max-width: 84%;
+	}
+
+	.results {
+		top: $spacing * 3;
+		width: 84%;
+		margin: 0 $spacing;
+		padding: ($spacing / 3) ($spacing / 6);
+		display: none;
+		position: absolute;
+		background: #ccc;
+		border: 1px solid #333;
+		border-radius: .2rem;;
+
+		&.is-active {
+			display: block;
+
+			@include media(small) {
+				left: auto;
+				right: 0;
+				margin-right: 0;
+			}
+		}
 	}
 }

@@ -5,13 +5,10 @@
 	"description": "Scarecrow theme for hugo",
 
 	"scripts": {
-		"build:styles": "",
-		"build:scripts": "node-ts",
-		"build": "run-p build:styles build:scripts"
+		"serve": "(cd ./exampleSite && hugo server -w -v --themesDir ../.. -t hugo-scarecrow-theme)"
 	},
 
 	"devDependencies": {
-		"ts-node": "*",
 		"bulma": "*"
 	}
 }

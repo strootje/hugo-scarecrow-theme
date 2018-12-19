@@ -1,16 +1,16 @@
 # Widget: Search
 # #####################################
-Widget.Search.Title:
+widget.search.title:
   other: Search
-Widget.Search.Placeholder:
+widget.search.placeholder:
   other: Search...
 
 # Widget: NavMain
 # #####################################
-Widget.NavMain.Title:
+widget.links.main.title:
   other: Navigation
 
-# Footer
+# Widget Powered By
 # #####################################
-Widget.PoweredBy.PoweredBy:
+widget.poweredby.text:
   other: Powered by

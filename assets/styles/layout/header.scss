@@ -1,0 +1,6 @@
+.page header {
+	@include imedia(small) {
+		min-height: 3.25rem;
+		text-align: center;
+	}
+}

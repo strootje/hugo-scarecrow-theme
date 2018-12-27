@@ -1,8 +1,8 @@
 $('input[type=\'search\']', p => {
-	// p.throttle('blur', 360, self => {
-	// 	const target = document.getElementById(self.dataset.target);
-	// 	target.classList.remove('is-active');
-	// });
+	p.throttle('blur', 360, self => {
+		const target = document.getElementById(self.dataset.target);
+		target.classList.remove('is-active');
+	});
 
 	fetch('/search/index.json').then(resp => resp.json().then(json => {
 		const fuse = new Fuse(json.data, {

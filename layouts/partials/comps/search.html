@@ -1,0 +1,14 @@
+<section class="widget widget-search">
+	{{ if (.Param "showHeaders") }}
+		<header>
+			<h2 class="title is-4">{{ T "widget.search.title" | default "Search" }}</h2>
+		</header>
+	{{ end }}
+
+	<input type="search" placeholder="{{ T `widget.search.placeholder` | default `__search...__` }}" data-target="search-results" />
+
+	<div class="results" id="search-results">
+		<ul>
+		</ul>
+	</div>
+</section>

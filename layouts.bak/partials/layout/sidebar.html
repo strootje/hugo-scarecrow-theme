@@ -1,7 +1,0 @@
-{{ $scope := . }}
-
-<section class="sidebar">
-	{{ range .Site.Params.widgets.sidebar }}
-		{{ partial ( print "widgets/" . ) $scope }}
-	{{ end }}
-</section>

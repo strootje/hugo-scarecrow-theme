@@ -1,0 +1,13 @@
+{{ $paginator := .Paginate (where .Pages "Type" "posts") }}
+
+<section class="posts">
+	<header>
+		<h2 class="title is-3">{{ T "comp.posts.list.title" | default "Posts" }}</h2>
+	</header>
+
+	{{ partial "comps/posts/_list" $paginator }}
+
+	<footer>
+		{{ partial "comps/paginator/nav" $paginator }}
+	</footer>
+</section>

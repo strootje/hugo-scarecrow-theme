@@ -1,0 +1,14 @@
+{{ $paginator := .Paginate (where (where .Pages "Type" "posts") "Params.pinned" true) }}
+
+<section class="posts">
+	<header>
+		<h2 class="title is-3">{{ T "comp.posts.list.title" | default "Featured Posts" }}</h2>
+	</header>
+
+	{{ partial "comps/posts/_list" $paginator }}
+
+	<footer>
+		{{ $section := (index (where .Sections "Type" "eq" "posts") 0) }}
+		<a href="{{ $section.RelPermalink }}">{{ T "comps.posts.pinned.seeMore.text" | default "See all posts" }}</a>
+	</footer>
+</section>

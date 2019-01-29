@@ -1,0 +1,24 @@
+{{ $scope := . }}
+{{ $menu := "main" }}
+{{ $data := ( index .Site.Menus $menu ) }}
+
+<section class="widget widget-nav-main">
+	{{ if (.Param "showHeaders") }}
+		<header>
+			<h2 class="title is-4">{{ T "widget.navmain.title" | default "Navigation" }}</h2>
+		</header>
+	{{ end }}
+
+	<ul>
+		{{ range $data }}
+			{{ $classNames := cond ( $scope.IsMenuCurrent $menu . ) "is-active" "" }}
+
+			<li>
+				<a class="{{ $classNames }}" href="{{ .URL | relLangURL }}">
+					{{ .Pre }}
+					{{ .Name }}
+				</a>
+			</li>
+		{{ end }}
+	</ul>
+</section>

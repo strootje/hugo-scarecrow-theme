@@ -1,0 +1,9 @@
+.paging {
+	& > a:not(:first-child) {
+		&::before {
+			content: "/";
+			margin: 0 $spacing-dense;
+			color: $primary;
+		}
+	}
+}

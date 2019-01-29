@@ -1,0 +1,10 @@
+.widget-powered-by {
+	span {
+		@extend .tag;
+		@extend .is-light;
+	}
+
+	@include ifSmallerThan(small) {
+		justify-content: center;
+	}
+}

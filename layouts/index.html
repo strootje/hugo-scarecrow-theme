@@ -1,3 +1,9 @@
 {{ define "content" }}
-	{{ partial "pages/home" . }}
+	{{ with .Content }}
+		<div class="content">
+			{{ . }}
+		</div>
+	{{ end }}
+
+	{{ partial "comps/posts/pinned" . }}
 {{ end }}

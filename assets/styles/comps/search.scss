@@ -1,0 +1,44 @@
+.widget-search {
+	$input-width: 85%;
+	position: relative;
+
+	input {
+		@extend .input;
+		max-width: $input-width;
+	}
+
+	.results {
+		top: $spacing * 3;
+		width: 100%;
+		display: none;
+		position: absolute;
+
+		@include ifLargerThan(small) {
+			right: 0;
+			width: $input-width;
+		}
+
+		ul {
+			width: $input-width;
+			padding: ($spacing / 3) ($spacing / 6);
+
+			// temp for indication
+			background: #ccc;
+			border: 1px solid #333;
+			border-radius: .2rem;
+			// ------------
+
+			@include ifSmallerThan(small) {
+				margin: 0 auto;
+			}
+
+			@include ifLargerThan(small) {
+				width: 100%;
+			}
+		}
+
+		&.is-active {
+			display: block;
+		}
+	}
+}

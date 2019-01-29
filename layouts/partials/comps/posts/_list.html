@@ -1,0 +1,5 @@
+<div class="items">
+	{{ range $i, $post := .Pages }}
+		{{ partial "comps/posts/item" $post }}
+	{{ end }}
+</div>

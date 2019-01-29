@@ -1,0 +1,19 @@
+{{ with .Site.Params.about }}
+	<section class="widget widget-about">
+		{{ with .logo }}
+		{{ $logo := . }}
+			<figure>
+				{{ $img := ( resources.Get .src ).Resize "120x" }}
+				{{ with $img }}
+					<img src="{{ $img.RelPermalink }}" alt="{{ $logo.title }}">
+				{{ end }}
+			</figure>
+		{{ end }}
+
+		<h2>{{ .title }}</h2>
+
+		{{ with .tagline }}
+			<h3>{{ . }}</h3>
+		{{ end }}
+	</section>
+{{ end }}

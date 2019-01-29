@@ -3,12 +3,13 @@
 	"name": "hugo-scarecrow-theme",
 	"version": "0.1.0",
 	"description": "Scarecrow theme for hugo",
-
 	"scripts": {
 		"serve": "(cd ./exampleSite && hugo server -w -v --themesDir ../.. -t hugo-scarecrow-theme)"
 	},
-
 	"devDependencies": {
 		"bulma": "*"
+	},
+	"dependencies": {
+		"bulma-badge": "*"
 	}
 }

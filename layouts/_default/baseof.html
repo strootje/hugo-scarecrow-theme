@@ -1,23 +1,44 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
+<html lang='{{ .Site.Language | default "en" }}'>
 	<head>
-		{{ .Hugo.Generator }}
-		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>strootje</title>
-		{{ partial "assets/styles.html" . }}
-		{{ partial "assets/scripts.html" . }}
+		<title>find a better title | strootje.com</title>
+
+		{{ partial "styles" . }}
+		{{ partial "scripts" . }}
 	</head>
 
 	<body>
 		<div class="layout">
-			{{ partial "layout/sidebar" . }}
+			<header>
+				{{ partial "comps/navbar" . }}
+			</header>
 
-			<section class="page">
-				{{ partial "layout/header" . }}
-				{{ block "content" . }}{{ end }}
-				{{ partial "layout/footer" . }}
-			</section>
+			<div class="page">
+				<aside class="top" id="sidebar">
+					{{ partial "comps/about" . }}
+					{{ partial "comps/search" . }}
+					{{ partial "comps/navmain" . }}
+				</aside>
+
+				<main>
+					{{ block "content" . }}
+					{{ end }}
+				</main>
+
+				<aside class="bottom">
+					{{ $context := . }}
+					{{ range (.Param "widgets.sidebar") }}
+						{{ partial ( printf "comps/%s" . ) $context }}
+					{{ end }}
+				</aside>
+			</div>
+
+			<footer>
+				{{ partial "comps/languages" . }}
+				{{ partial "comps/legal" . }}
+			</footer>
 		</div>
 	</body>
 </html>

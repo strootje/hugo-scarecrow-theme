@@ -1,8 +1,141 @@
-// ####################################
-// ### Layout                       ###
-// ####################################
+// layout made with help from:
+// https://stackoverflow.com/questions/35559104/flexbox-ordering-splitting-a-column
 
 .layout {
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: column nowrap;
+
+	%layout-part {
+		width: 100vw;
+	}
+
+	%centered-if-small {
+		@include ifSmallerThan(small) {
+			text-align: center;
+		}
+	}
+
+	%padding-for-sidebar {
+		@include ifLargerThan(small) {
+			padding-left: map-get($sidebar-width, small) + $spacing-dense;
+		}
+
+		@include ifLargerThan(medium) {
+			padding-left: map-get($sidebar-width, medium) + $spacing-dense;
+		}
+	}
+
+	& > header {
+		@extend %layout-part;
+		@extend %centered-if-small;
+		@extend %padding-for-sidebar;
+		margin-bottom: $spacing-dense;
+	}
+
+	& > .page {
+		@extend %layout-part;
+		display: flex;
+		flex-flow: column nowrap;
+		flex-grow: 1;
+		width: 100vw;
+		height: 100%;
+
+		@include ifLargerThan(small) {
+			flex-wrap: wrap;
+			height: calc(100% - (#{$navbar-height} + #{$spacing-dense}) - (#{$footer-height} + #{$spacing-dense}));
+		}
+
+		%page-part {
+			padding: 0 $spacing-dense;
+		}
+
+		& > main {
+			@extend %page-part;
+			flex-basis: 100%;
+
+			@include ifSmallerThan(small) {
+				margin-bottom: $spacing-dense;
+			}
+
+			@include ifLargerThan(small) {
+				order: 3;
+				width: calc(100% - #{map-get($sidebar-width, small)});
+			}
+
+			@include ifLargerThan(medium) {
+				width: calc(100% - #{map-get($sidebar-width, medium)});
+			}
+
+			header {
+				@extend %centered-if-small;
+				margin-bottom: $spacing;
+			}
+
+			footer {
+				@extend %centered-if-small;
+			}
+		}
+
+		& > aside {
+			@extend %centered-if-small;
+			@extend %page-part;
+
+			@include ifLargerThan(small) {
+				text-align: right;
+				width: map-get($sidebar-width, small);
+
+				& > .widget {
+					justify-content: flex-end;
+				}
+			}
+
+			@include ifLargerThan(medium) {
+				width: map-get($sidebar-width, medium);
+			}
+
+			&.top {
+				margin-bottom: $spacing-dense;
+
+				@include ifSmallerThan(small) {
+					display: none;
+				}
+
+				&.is-active {
+					display: block;
+				}
+			}
+
+			&.bottom {
+				@include ifLargerThan(small) {
+					order: 2;
+				}
+			}
+
+			& > .widget {
+				&.widget:not(:first-child)::before {
+					content: "";
+					display: block;
+					width: 3rem;
+					margin: $spacing auto $spacing auto;
+					border-top: 2px solid $primary;
+
+					@include ifLargerThan(small) {
+						margin-right: 0;
+					}
+				}
+
+				header {
+					margin-bottom: $spacing-dense;
+				}
+			}
+		}
+	}
+
+	& > footer {
+		@extend %layout-part;
+		@extend %centered-if-small;
+		@extend %padding-for-sidebar;
+		height: $footer-height;
+		margin-top: $spacing-dense;
+	}
 }

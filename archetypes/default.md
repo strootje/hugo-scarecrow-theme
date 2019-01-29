@@ -5,5 +5,4 @@ date = "{{ .Date }}"
 tags = []
 
 image = ""
-image_thumbnail = ""
 +++

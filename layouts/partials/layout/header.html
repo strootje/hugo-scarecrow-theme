@@ -1,9 +1,0 @@
-{{ $scope := . }}
-{{ $defaults := slice "breadcrumb" }}
-{{ $widgets := ( or .Site.Params.Widgets.Header $defaults ) }}
-
-<header>
-	{{ range $widgets }}
-		{{ partial ( print "widgets/" . ) $scope }}
-	{{ end }}
-</header>

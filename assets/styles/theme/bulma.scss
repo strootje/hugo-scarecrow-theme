@@ -1,0 +1,16 @@
+
+// Colors
+// $primary: #cccc33;
+$primary: #fce205;
+$breadcrumb-item-separator-color: $primary;
+
+// NavBar
+$navbar-breakpoint: #{32*16}px;
+
+// NavBar / Breadcrumb
+// $breadcrumb-item-separator-color: $navbar-tab-active-border-bottom-color;
+
+// Card
+.media-content {
+	overflow-x: inherit;
+}

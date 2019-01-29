@@ -1,5 +1,9 @@
 {{ define "content" }}
-	<main>
-		<p>Hello, List!</p>
-	</main>
+	{{ with .Content }}
+		<div class="content">
+			{{ . }}
+		</div>
+	{{ end }}
+
+	{{ partial "comps/posts/list" . }}
 {{ end }}

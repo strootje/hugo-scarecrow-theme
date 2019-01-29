@@ -1,0 +1,9 @@
+.widget-breadcrumb {
+	@extend .breadcrumb;
+	height: 100%;
+
+	ul {
+		height: 100%;
+		align-items: center;
+	}
+}

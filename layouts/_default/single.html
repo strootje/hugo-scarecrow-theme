@@ -1,5 +1,9 @@
 {{ define "content" }}
-	<main>
+	<header>
+		<h2 class="title is-3">{{ .Title }}</h2>
+	</header>
+
+	<div class="content">
 		{{ .Content }}
-	</main>
+	</div>
 {{ end }}

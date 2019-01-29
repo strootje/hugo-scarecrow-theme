@@ -1,0 +1,13 @@
+<section class="widget widget-powered-by">
+	{{ if (.Param "showHeaders") }}
+		<header>
+			<h2 class="title is-3">{{ T "widget.poweredby.text" | default "Powered by" }}</h2>
+		</header>
+	{{ end }}
+
+	{{ range .Site.Params.poweredBy }}
+		<span><a href="{{ .url }}" title="{{ .title }}">
+			<img src="{{ .badge }}" alt="{{ .title }}" />
+		</a></span>
+	{{ end }}
+</section>

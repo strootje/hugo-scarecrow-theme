@@ -1,4 +1,4 @@
-
+// https://www.colorhexa.com/cccc33
 
 $breakpoints: (
 	small: 32rem,
@@ -6,4 +6,13 @@ $breakpoints: (
 	large: 54rem
 );
 
+$sidebar-width: (
+	small: ((map-get($breakpoints, small) - 4rem) / 2),
+	medium: ((map-get($breakpoints, medium) - 8rem) / 2)
+);
+
 $spacing: 1.6rem;
+$spacing-dense: $spacing / 2;
+$spacing-wide: $spacing * 2;
+
+$footer-height: 2rem;

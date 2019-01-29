@@ -1,0 +1,10 @@
+{{ if .Site.IsMultiLingual }}
+	<section class="widget widget-languages">
+		{{ T "" | default "__Available Languages__" }}
+		<ul>
+			{{ range $.Site.Home.AllTranslations }}
+				<li><a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+			{{ end }}
+		</ul>
+	</section>
+{{ end }}

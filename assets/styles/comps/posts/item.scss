@@ -1,0 +1,15 @@
+.post {
+	.posts > .items > & {
+		$margin: ($spacing * 3);
+		margin-left: $margin;
+		position: relative;
+		display: flex;
+		align-items: baseline;
+
+		& > time {
+			top: 0;
+			position: absolute;
+			margin-left: -$margin;
+		}
+	}
+}

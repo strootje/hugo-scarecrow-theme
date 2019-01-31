@@ -1,4 +1,5 @@
 .posts {
-	.items {
+	& article > .title {
+		margin-bottom: .5rem;
 	}
 }

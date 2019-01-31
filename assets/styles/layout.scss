@@ -39,6 +39,7 @@
 		flex-grow: 1;
 		width: 100vw;
 		height: 100%;
+		place-content: flex-start;
 
 		@include ifLargerThan(small) {
 			flex-wrap: wrap;
@@ -66,9 +67,31 @@
 				width: calc(100% - #{map-get($sidebar-width, medium)});
 			}
 
+			@include ifLargerThan(large) {
+				max-width: map-get($breakpoints, large);
+			}
+
 			header {
 				@extend %centered-if-small;
 				margin-bottom: $spacing;
+
+				&::after {
+					content: "";
+					display: block;
+					width: 50%;
+					margin: $spacing-dense auto $spacing auto;
+					border-bottom: 2px solid $primary;
+
+					@include ifLargerThan(small) {
+						margin-left: 0;
+					}
+				}
+
+				& > p > span {
+					&::before {
+						content: attr(data-prefix);
+					}
+				}
 			}
 
 			footer {

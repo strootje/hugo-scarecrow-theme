@@ -7,12 +7,4 @@
 			border-radius: 20%;
 		}
 	}
-
-	h2 {
-		@extend .title;
-	}
-
-	h3 {
-		@extend .subtitle;
-	}
 }

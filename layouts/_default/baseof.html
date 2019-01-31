@@ -27,12 +27,14 @@
 					{{ end }}
 				</main>
 
-				<aside class="bottom">
-					{{ $context := . }}
-					{{ range (.Param "widgets.sidebar") }}
-						{{ partial ( printf "comps/%s" . ) $context }}
-					{{ end }}
-				</aside>
+				{{ $context := . }}
+				{{ with (.Param "widgets.sidebar") }}
+					<aside class="bottom">
+						{{ range . }}
+							{{ partial ( printf "comps/%s" . ) $context }}
+						{{ end }}
+					</aside>
+				{{ end }}
 			</div>
 
 			<footer>

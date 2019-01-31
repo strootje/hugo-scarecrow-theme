@@ -1,9 +1,18 @@
 {{ define "content" }}
 	<header>
 		<h2 class="title is-3">{{ .Title }}</h2>
+		<p class="subtitle is-7">
+			{{ with (.Param "categories") }}
+				<!-- {{ $categoryUrl := ("tags" | absURL)}}
+				<span data-prefix="&#35;"><a href="{{ $categoryUrl }}/{{ . | urlize }}">{{ . }}</a></span> -->
+				<span data-prefix="&#35;">{{ . }}</span>
+			{{ end }}
+		</p>
 	</header>
 
 	<div class="content">
 		{{ .Content }}
 	</div>
+
+	<!-- TODO: comments -->
 {{ end }}

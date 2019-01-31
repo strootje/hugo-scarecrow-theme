@@ -1,10 +1,19 @@
 
 
 
-# Widget: Search
+# Component: Paginator
+# #####################################
+paginator.next.text:
+  other: Older Posts
+paginator.prev.text:
+  other: Newer Posts
+
+# Component: Posts
 # #####################################
 comp.posts.list.title:
   other: Posts
+comp.posts.pinned.title:
+  other: Pinned Posts
 
 
 
@@ -20,10 +29,10 @@ widget.search.placeholder:
 
 # Widget: NavMain
 # #####################################
-widget.links.main.title:
+widget.navmain.title:
   other: Navigation
 
 # Widget Powered By
 # #####################################
-widget.poweredby.text:
+widget.poweredby.title:
   other: Powered by

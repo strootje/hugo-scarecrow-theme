@@ -1,0 +1,16 @@
+{{ $current := .Get "value" }}
+{{ $max := .Get "max" | default 100 }}
+{{ $class := .Get "class" }}
+{{ $label := .Get "label" }}
+
+<div class="progress-bar">
+	{{ with $label }}
+		<label>{{ . }}</label>
+	{{ end }}
+
+	<progress class="progress{{ with $class }} {{ . }}{{ end }}"
+	          {{ with $current }}value="{{ $current }}"{{ end }}
+	          max="{{ $max }}">{{ $current }}
+		%
+	</progress>
+</div>

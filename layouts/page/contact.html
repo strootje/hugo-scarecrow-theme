@@ -1,0 +1,34 @@
+{{ define "content" }}
+	{{ .Content }}
+
+	<form method="POST" action="https://formspree.io/info@strootje.com">
+		<div class="field">
+			<label class="label" for="email">
+				{{ T "page.contact.form.email.label" | default "__Email__" }}
+			</label>
+
+			<div class="control">
+				{{ $emailPlaceholderText := T "page.contact.form.email.placeholder" | default "__you@domain.com__" }}
+				<input class="input" type="email" name="email" id="email" placeholder="{{ $emailPlaceholderText }}" />
+			</div>
+		</div>
+
+		<div class="field">
+			<label class="label" for="message">
+				{{ T "page.contact.form.message.label" | default "__Message__" }}
+			</label>
+
+			<div class="control">
+				{{ $messagePlaceholderText := T "page.contact.form.message.placeholder" | default "__I have a very good question__" }}
+				<textarea class="textarea has-fixed-size" name="message" id="message" placeholder="{{ $messagePlaceholderText }}"></textarea>
+			</div>
+		</div>
+
+		<div class="field is-grouped">
+			<div class="control">
+				{{ $submitText := T "page.contact.form.submit.button" | default "__Submit__" }}
+				<input class="button is-primary" type="submit" value="{{ $submitText }}" />
+			</div>
+		</div>
+	</form>
+{{ end }}

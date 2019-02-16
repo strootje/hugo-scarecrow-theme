@@ -2,12 +2,17 @@
 # yarn lockfile v1
 
 
-bulma-badge@*:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/bulma-badge/-/bulma-badge-0.2.0.tgz#d71d295c5ce78c0b9b6c2f0d9efd4ebfb5644a61"
-  integrity sha512-7D3jlobs2FGug4JvY2CnP+EeDeANsMb/ONrPUvCTpuIGIERwFr32pRQ0oWQ2pzaU3ehRUsJojXJyYX1AD9tbZQ==
+bulma-timeline@*:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/bulma-timeline/-/bulma-timeline-3.0.1.tgz#f44ac532ea5cecf3b91e1d94db1aa8391393218f"
+  integrity sha512-f62bDm7z5HtvVa0VEKRclbDTOM1DO0kUD3MDp7zBLxORQPXJ6lWbzQkXoGqeX+3khIeSnOYx4uwUPACNsZEzkA==
 
 bulma@*:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.7.2.tgz#8e944377b74c7926558830d38d8e19eaf49f5fb6"
   integrity sha512-6JHEu8U/1xsyOst/El5ImLcZIiE2JFXgvrz8GGWbnDLwTNRPJzdAM0aoUM1Ns0avALcVb6KZz9NhzmU53dGDcQ==
+
+fuse.js@*:
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.4.2.tgz#d7a638c436ecd7b9c4c0051478c09594eb956212"
+  integrity sha512-WVbrm+cAxPtyMqdtL7cYhR7aZJPhtOfjNClPya8GKMVukKDYs7pEnPINeRVX1C9WmWgU8MdYGYbUPAP2AJXdoQ==

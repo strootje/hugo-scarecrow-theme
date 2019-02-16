@@ -1,6 +1,20 @@
 
 
 
+# Page: Contact
+# #####################################
+page.contact.form.email.label:
+  other: Email
+page.contact.form.email.placeholder:
+  other: you@example.com
+page.contact.form.message.label:
+  other: Message
+page.contact.form.message.placeholder:
+  other: So I was wondering...
+page.contact.form.submit.button:
+  other: Send Message
+
+
 # Component: Paginator
 # #####################################
 paginator.next.text:

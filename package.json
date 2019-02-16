@@ -4,12 +4,12 @@
 	"version": "0.1.0",
 	"description": "Scarecrow theme for hugo",
 	"scripts": {
+		"postinstall": "cp ./node_modules/fuse.js/dist/fuse.min.js ./assets/scripts/fuse.min.js",
 		"serve": "(cd ./exampleSite && hugo server -w -v --themesDir ../.. -t hugo-scarecrow-theme)"
 	},
-	"devDependencies": {
-		"bulma": "*"
-	},
 	"dependencies": {
-		"bulma-badge": "*"
+		"bulma": "*",
+		"bulma-timeline": "*",
+		"fuse.js": "*"
 	}
 }

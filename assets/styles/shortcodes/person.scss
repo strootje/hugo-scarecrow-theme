@@ -1,0 +1,28 @@
+.person {
+	margin: $spacing auto;
+
+	&.is-primary {
+		border-color: $primary !important;
+	}
+
+	@include ifLargerThan(medium) {
+		display: flex;
+	}
+
+	& > figure {
+		margin: 0;
+		margin-right: $spacing;
+		padding: 0;
+		min-width: 6rem;
+
+		& > img {
+			border-radius: 20%;
+		}
+	}
+
+	& > div {
+		@include ifSmallerThan(medium) {
+			text-align: center;
+		}
+	}
+}

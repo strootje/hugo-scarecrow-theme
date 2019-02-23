@@ -1,6 +1,8 @@
 .widget-breadcrumb {
 	@extend .breadcrumb;
 	height: 100%;
+	max-width: calc(100vw - 52px - #{$spacing});
+	overflow: hidden;
 
 	ul {
 		height: 100%;

@@ -1,0 +1,24 @@
+languageCode = "en-us"
+
+title = "scarecrow"
+
+[params]
+	[[params.poweredBy]]
+		title = "Hugo"
+		url = "https://gohugo.io"
+	[[params.poweredBy]]
+		title = "Scarecrow"
+		url = "https://strootje.com/projs/scarecrow"
+
+[[menu.main]]
+	name = "Home"
+	url = "/"
+	weight = 1
+[[menu.main]]
+	name = "About"
+	url = "/about/"
+	weight = 2
+[[menu.main]]
+	name = "Contact"
+	url = "/contact/"
+	weight = 3

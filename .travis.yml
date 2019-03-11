@@ -1,6 +1,10 @@
 language: node_js
 node_js: node
 
+addons:
+  firefox: latest
+  chrome: stable
+
 cache:
   npm: true
   directories:
@@ -9,7 +13,6 @@ cache:
 branches:
   only:
     - master
-
 
 before_install:
 - curl -L https://unpkg.com/@pnpm/self-installer | node

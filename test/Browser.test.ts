@@ -5,13 +5,13 @@ import { launch } from 'puppeteer';
 import * as ResembleJS from 'resemblejs';
 
 async function captureFirefox(url: string, dimension: { w: number, h: number }): Promise<string> {
-	const path = join(__dirname, `capture-test-firefox-${dimension.w}.jpg`);
+	const path = join(`capture-test-firefox-${dimension.w}.jpg`);
 	await spawn(`firefox -screenshot ${path} ${url} --window-size=${dimension.w},${dimension.h}`);
 	return path;
 }
 
 async function captureChrome(url: string, dimension: { w: number, h: number }): Promise<string> {
-	const path = join(__dirname, `capture-test-chrome-${dimension.w}.jpg`);
+	const path = join(`capture-test-chrome-${dimension.w}.jpg`);
 
 	const browser = await launch({ headless: true, defaultViewport: { width: dimension.w, height: dimension.h } });
 	const page = await browser.newPage();
@@ -22,8 +22,6 @@ async function captureChrome(url: string, dimension: { w: number, h: number }): 
 }
 
 // TODO:
-// Setup test script: launch hugo server -> run mocha
-// Setup travis
 // use puppeteer-firefox?
 
 describe('The homepage', () => {

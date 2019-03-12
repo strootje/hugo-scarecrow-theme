@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { ChildProcess, exec } from 'child_process';
+import { ChildProcess, spawn } from 'child_process';
 import { join } from 'path';
 import { launch as LaunchChrome } from 'puppeteer';
 import { launch as LaunchFirefox } from 'puppeteer-firefox';
@@ -69,28 +69,28 @@ function runTest(threshold: number, url: string, dims: Resolutions): Mocha.Async
 describe('Compare <firefox> and <chrome> browser:', () => {
 	let server: ChildProcess;
 
-	before(async () => {
-		server = await exec('npm run serve');
+	before(() => {
+		server = spawn('npm', ['run', 'serve'], { detached: true });
 	});
 
-	after(async () => {
-		if (server) {
-			await server.kill();
+	after(() => {
+		if (server && !server.killed) {
+			process.kill(-server.pid);
 		}
 	});
 
 	describe('The Homepage', () => {
 		it('should look the same on `fullhd` resolution', runTest(0.1, '/', 'fullhd')).timeout(0);
-		it('should look the same on `desktop` resolution', runTest(0.3, '/', 'desktop')).timeout(0);
-		it('should look the same on `tablet` resolution', runTest(0.9, '/', 'tablet')).timeout(0);
+		it('should look the same on `desktop` resolution', runTest(0.4, '/', 'desktop')).timeout(0);
+		it('should look the same on `tablet` resolution', runTest(0.6, '/', 'tablet')).timeout(0);
 		it('should look the same on `mobile` resolution', runTest(0.9, '/', 'mobile')).timeout(0);
 	});
 
 	describe('The Singlepage', () => {
 		it('should look the same on `fullhd` resolution', runTest(0.2, '/posts/hello-world', 'fullhd')).timeout(0);
 		it('should look the same on `desktop` resolution', runTest(0.4, '/posts/hello-world', 'desktop')).timeout(0);
-		it('should look the same on `tablet` resolution', runTest(0.9, '/posts/hello-world', 'tablet')).timeout(0);
-		it('should look the same on `mobile` resolution', runTest(1.0, '/posts/hello-world', 'mobile')).timeout(0);
+		it('should look the same on `tablet` resolution', runTest(0.7, '/posts/hello-world', 'tablet')).timeout(0);
+		it('should look the same on `mobile` resolution', runTest(1.1, '/posts/hello-world', 'mobile')).timeout(0);
 	});
 
 });

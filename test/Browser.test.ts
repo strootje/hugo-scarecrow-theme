@@ -31,6 +31,7 @@ describe('The homepage', () => {
 	let server: ChildProcess;
 
 	beforeEach(async () => {
+		this.timeout(0);
 		server = await exec('npm run serve');
 	})
 
@@ -39,6 +40,7 @@ describe('The homepage', () => {
 	})
 
 	it('should look the same with <firefox> and <chrome> on `desktop` resolution', async done => {
+		this.timeout(0);
 		try {
 			// Arrange
 			const ffPath = await captureFirefox('http://0.0.0.0:1313/', { w: 1920, h: 1080 });

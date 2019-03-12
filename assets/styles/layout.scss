@@ -42,7 +42,7 @@
 		place-content: flex-start;
 
 		@include ifLargerThan(small) {
-			flex-wrap: wrap;
+			flex-flow: unset;
 			height: calc(100% - (#{$navbar-height} + #{$spacing-dense}) - (#{$footer-height} + #{$spacing-dense}));
 		}
 

@@ -1,6 +1,14 @@
 version: '1.0.{build}'
 build: 'off'
 
+cache:
+- ./node_modules -> ./packages.json
+- '%USERPROFILE%/.pnpm-store -> ./package.json'
+
+branches:
+  only:
+  - master
+
 install:
 - ps: Install-Product node $env:nodejs_version
 - curl -L https://unpkg.com/@pnpm/self-installer | node

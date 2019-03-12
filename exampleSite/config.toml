@@ -3,6 +3,11 @@ languageCode = "en-us"
 title = "scarecrow"
 
 [params]
+	author = "Scarecrow"
+	logo = "/images/logo.jpg"
+	font = "Poppins"
+	showRelated = true
+	showHeaders = false
 	[[params.poweredBy]]
 		title = "Hugo"
 		url = "https://gohugo.io"

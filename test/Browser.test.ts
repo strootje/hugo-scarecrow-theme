@@ -5,24 +5,30 @@ import { launch as LaunchChrome } from 'puppeteer';
 import { launch as LaunchFirefox } from 'puppeteer-firefox';
 import * as ResembleJS from 'resemblejs';
 
-async function captureFirefox(url: string, dimension: { w: number, h: number }): Promise<string> {
-	const path = join(`capture-test-firefox-${dimension.w}.jpg`);
+async function captureFirefox(url: string, dims: { w: number, h: number }): Promise<string> {
+	const path = join(__dirname, `capture-test-firefox-${dims.w}.jpg`);
 
-	const browser = await LaunchFirefox({ headless: true, defaultViewport: { width: dimension.w, height: dimension.h } });
+	const browser = await LaunchFirefox({ defaultViewport: { width: dims.w, height: dims.h } });
 	const page = await browser.newPage();
 	await page.goto(url);
 	await page.screenshot({ fullPage: true, path: path });
+
+	await page.close();
+	await browser.close();
 
 	return path;
 }
 
-async function captureChrome(url: string, dimension: { w: number, h: number }): Promise<string> {
-	const path = join(`capture-test-chrome-${dimension.w}.jpg`);
+async function captureChrome(url: string, dims: { w: number, h: number }): Promise<string> {
+	const path = join(__dirname, `capture-test-chrome-${dims.w}.jpg`);
 
-	const browser = await LaunchChrome({ headless: true, defaultViewport: { width: dimension.w, height: dimension.h } });
+	const browser = await LaunchChrome({ defaultViewport: { width: dims.w, height: dims.h } });
 	const page = await browser.newPage();
 	await page.goto(url);
 	await page.screenshot({ fullPage: true, path: path });
+
+	await page.close();
+	await browser.close();
 
 	return path;
 }
@@ -32,10 +38,13 @@ describe('The homepage', () => {
 
 	beforeEach(async () => {
 		server = await exec('npm run serve');
+		server.on('message', console.log);
 	});
 
 	afterEach(async () => {
-		await server.kill();
+		if (server) {
+			await server.kill();
+		}
 	});
 
 	it('should look the same with <firefox> and <chrome> on `desktop` resolution', async done => {

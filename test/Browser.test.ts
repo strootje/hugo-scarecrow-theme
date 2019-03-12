@@ -31,16 +31,14 @@ describe('The homepage', () => {
 	let server: ChildProcess;
 
 	beforeEach(async () => {
-		this.timeout(0);
 		server = await exec('npm run serve');
-	})
+	});
 
 	afterEach(async () => {
 		await server.kill();
-	})
+	});
 
 	it('should look the same with <firefox> and <chrome> on `desktop` resolution', async done => {
-		this.timeout(0);
 		try {
 			// Arrange
 			const ffPath = await captureFirefox('http://0.0.0.0:1313/', { w: 1920, h: 1080 });
@@ -60,7 +58,7 @@ describe('The homepage', () => {
 		} catch(e) {
 			done(e);
 		}
-	});
+	}).timeout(0);
 
 	it('should look the same on chrome', () => {
 		// Arrange

@@ -1,9 +1,9 @@
 language: node_js
 node_js: node
 
-addons:
-  firefox: latest
-  chrome: stable
+# addons:
+#   firefox: latest
+#   chrome: stable
 
 cache:
   npm: true

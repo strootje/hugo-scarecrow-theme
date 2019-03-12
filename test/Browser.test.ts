@@ -1,19 +1,25 @@
 import { expect } from 'chai';
-import { ChildProcess, exec, spawn } from 'child_process';
+import { ChildProcess, exec } from 'child_process';
 import { join } from 'path';
-import { launch } from 'puppeteer';
+import { launch as LaunchChrome } from 'puppeteer';
+import { launch as LaunchFirefox } from 'puppeteer-firefox';
 import * as ResembleJS from 'resemblejs';
 
 async function captureFirefox(url: string, dimension: { w: number, h: number }): Promise<string> {
 	const path = join(`capture-test-firefox-${dimension.w}.jpg`);
-	await spawn(`firefox -screenshot ${path} ${url} --window-size=${dimension.w},${dimension.h}`);
+
+	const browser = await LaunchFirefox({ defaultViewport: { width: dimension.w, height: dimension.h } });
+	const page = await browser.newPage();
+	await page.goto(url);
+	await page.screenshot({ fullPage: true, path: path });
+
 	return path;
 }
 
 async function captureChrome(url: string, dimension: { w: number, h: number }): Promise<string> {
 	const path = join(`capture-test-chrome-${dimension.w}.jpg`);
 
-	const browser = await launch({ headless: true, defaultViewport: { width: dimension.w, height: dimension.h } });
+	const browser = await LaunchChrome({ headless: true, defaultViewport: { width: dimension.w, height: dimension.h } });
 	const page = await browser.newPage();
 	await page.goto(url);
 	await page.screenshot({ fullPage: true, path: path });

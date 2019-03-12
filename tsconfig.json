@@ -12,11 +12,13 @@
 		 "preserveConstEnums": true,
 		 "sourceMap": true,
 		 "emitDecoratorMetadata": true,
-		 "experimentalDecorators": true
+		 "experimentalDecorators": true,
+
+		 "rootDir": "."
 	},
 	"include": [
 		"test/**/*.ts",
-		"types/**/*.d.ts"
+		"types/*.d.ts"
 	],
 	"exclude": [
 		"node_modules"

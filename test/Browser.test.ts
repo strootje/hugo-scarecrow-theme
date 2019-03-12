@@ -8,7 +8,7 @@ import * as ResembleJS from 'resemblejs';
 async function captureFirefox(url: string, dimension: { w: number, h: number }): Promise<string> {
 	const path = join(`capture-test-firefox-${dimension.w}.jpg`);
 
-	const browser = await LaunchFirefox({ defaultViewport: { width: dimension.w, height: dimension.h } });
+	const browser = await LaunchFirefox({ headless: true, defaultViewport: { width: dimension.w, height: dimension.h } });
 	const page = await browser.newPage();
 	await page.goto(url);
 	await page.screenshot({ fullPage: true, path: path });

@@ -1,0 +1,14 @@
+version: '1.0.{build}'
+build: 'off'
+
+install:
+- ps: Install-Product node $env:nodejs_version
+- curl -L https://unpkg.com/@pnpm/self-installer | node
+- ps: Start-FileDownload 'https://github.com/gohugoio/hugo/releases/download/v0.54.0/hugo_extended_0.54.0_Windows-64bit.zip'
+- ps: 7z x hugo_extended_0.54.0_Windows-64bit.zip
+
+build_script:
+- pnpm i
+
+test_script:
+- pnpm run test

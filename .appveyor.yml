@@ -9,6 +9,9 @@ branches:
   only:
   - master
 
+artifacts:
+- path: ./test/**/*.jpg
+
 install:
 - ps: Install-Product node $env:nodejs_version x64
 - curl -L https://unpkg.com/@pnpm/self-installer | node

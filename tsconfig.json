@@ -14,11 +14,11 @@
 		 "emitDecoratorMetadata": true,
 		 "experimentalDecorators": true,
 
-		 "rootDir": "."
+		 "baseUrl": "."
 	},
 	"include": [
 		"test/**/*.ts",
-		"types/*.d.ts"
+		"types/**/*.d.ts"
 	],
 	"exclude": [
 		"node_modules"

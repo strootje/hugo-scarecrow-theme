@@ -27,9 +27,6 @@ async function captureChrome(url: string, dimension: { w: number, h: number }): 
 	return path;
 }
 
-// TODO:
-// use puppeteer-firefox?
-
 describe('The homepage', () => {
 	let server: ChildProcess;
 

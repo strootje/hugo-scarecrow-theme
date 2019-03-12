@@ -33,6 +33,30 @@ async function captureChrome(url: string, dims: { w: number, h: number }): Promi
 	return path;
 }
 
+function runTest(dims: { w: number, h: number }): Mocha.Func {
+	return async (done: Mocha.Done) => {
+		try {
+			// Arrange
+			const url = 'http://localhost:1313/';
+			const ffPath = await captureFirefox(url, dims);
+			const chPath = await captureChrome(url, dims);
+
+			// Act
+			const compare = ResembleJS(ffPath)
+				.compareTo(chPath)
+				.ignoreNothing();
+
+			// Assert
+			compare.onComplete(r => {
+				expect(r.misMatchPercentage).to.eql(0);
+				done();
+			});
+		} catch(e) {
+			done(e);
+		}
+	};
+}
+
 describe('The homepage', () => {
 	let server: ChildProcess;
 
@@ -47,35 +71,9 @@ describe('The homepage', () => {
 		}
 	});
 
-	it('should look the same with <firefox> and <chrome> on `desktop` resolution', async done => {
-		try {
-			// Arrange
-			const url = 'http://localhost:1313/';
-			const ffPath = await captureFirefox(url, { w: 1920, h: 1080 });
-			const chPath = await captureChrome(url, { w: 1920, h: 1080 });
-
-			// Act
-			const compare = ResembleJS(ffPath)
-				.compareTo(chPath)
-				.ignoreNothing();
-
-			// Assert
-			compare.onComplete(r => {
-				console.log(r);
-				expect(r.misMatchPercentage).to.eql(0);
-				done();
-			});
-		} catch(e) {
-			done(e);
-		}
-	}).timeout(0);
-
-	it('should look the same on chrome', () => {
-		// Arrange
-
-		// Act
-
-		// Assert
-	});
+	it('should look the same with <firefox> and <chrome> on `fullhd` resolution', runTest({ w: 1920, h: 1080 })).timeout(0);
+	it('should look the same with <firefox> and <chrome> on `desktop` resolution', runTest({ w: 768, h: 1024 })).timeout(0);
+	it('should look the same with <firefox> and <chrome> on `tablet` resolution', runTest({ w: 640, h: 690 })).timeout(0);
+	it('should look the same with <firefox> and <chrome> on `mobile` resolution', runTest({ w: 320, h: 480 })).timeout(0);
 
 });

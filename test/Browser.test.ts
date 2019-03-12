@@ -5,75 +5,92 @@ import { launch as LaunchChrome } from 'puppeteer';
 import { launch as LaunchFirefox } from 'puppeteer-firefox';
 import * as ResembleJS from 'resemblejs';
 
-async function captureFirefox(url: string, dims: { w: number, h: number }): Promise<string> {
-	const path = join(__dirname, `capture-test-firefox-${dims.w}.jpg`);
+interface ScreenResolution {
+	width: number;
+	height: number;
+}
 
-	const browser = await LaunchFirefox({ defaultViewport: { width: dims.w, height: dims.h } });
+type Resolutions = 'fullhd' | 'desktop' | 'tablet' | 'mobile';
+const res: { [_ in Resolutions]: ScreenResolution } = {
+	fullhd: { width: 1920, height: 1080 },
+	desktop: { width: 768, height: 1024 },
+	tablet: { width: 640, height: 690 },
+	mobile: { width: 320, height: 480 }
+};
+
+async function captureFirefox(url: string, dims: Resolutions): Promise<string> {
+	const path = join(__dirname, `firefox-${url.replace(/\//g, '_')}-${dims}.jpg`);
+
+	const browser = await LaunchFirefox({ defaultViewport: res[dims] });
 	const page = await browser.newPage();
-	await page.goto(url);
+	await page.goto(`http://localhost:1313${url}`);
 	await page.screenshot({ fullPage: true, path: path });
 
-	await page.close();
 	await browser.close();
 
 	return path;
 }
 
-async function captureChrome(url: string, dims: { w: number, h: number }): Promise<string> {
-	const path = join(__dirname, `capture-test-chrome-${dims.w}.jpg`);
+async function captureChrome(url: string, dims: Resolutions): Promise<string> {
+	const path = join(__dirname, `chrome-${url.replace(/\//g, '_')}-${dims}.jpg`);
 
-	const browser = await LaunchChrome({ defaultViewport: { width: dims.w, height: dims.h } });
+	const browser = await LaunchChrome({ defaultViewport: res[dims], args: [ '--no-sandbox', '--disable-setuid-sandbox' ] });
 	const page = await browser.newPage();
-	await page.goto(url);
+	await page.goto(`http://localhost:1313${url}`);
 	await page.screenshot({ fullPage: true, path: path });
 
-	await page.close();
 	await browser.close();
 
 	return path;
 }
 
-function runTest(dims: { w: number, h: number }): Mocha.Func {
-	return async (done: Mocha.Done) => {
-		try {
-			// Arrange
-			const url = 'http://localhost:1313/';
-			const ffPath = await captureFirefox(url, dims);
-			const chPath = await captureChrome(url, dims);
+function runTest(threshold: number, url: string, dims: Resolutions): Mocha.AsyncFunc {
+	return async (): Promise<void> => {
+		// Arrange
+		const ffPath = await captureFirefox(url, dims);
+		const chPath = await captureChrome(url, dims);
 
-			// Act
-			const compare = ResembleJS(ffPath)
-				.compareTo(chPath)
-				.ignoreNothing();
+		// Act
+		const compare = ResembleJS(ffPath)
+			.compareTo(chPath)
+			.ignoreAntialiasing();
 
-			// Assert
-			compare.onComplete(r => {
-				expect(r.misMatchPercentage).to.eql(0);
-				done();
-			});
-		} catch(e) {
-			done(e);
-		}
+		// Assert
+		compare.onComplete(r => {
+			const ratio = parseFloat(`${r.misMatchPercentage}`);
+
+			console.log(`expect ${ratio} < ${threshold}`);
+
+			expect(ratio).to.be.below(threshold);
+		});
 	};
 }
 
-describe('The homepage', () => {
+describe('Compare <firefox> and <chrome> browser:', () => {
 	let server: ChildProcess;
 
-	beforeEach(async () => {
+	before(async () => {
 		server = await exec('npm run serve');
-		server.on('message', console.log);
 	});
 
-	afterEach(async () => {
+	after(async () => {
 		if (server) {
 			await server.kill();
 		}
 	});
 
-	it('should look the same with <firefox> and <chrome> on `fullhd` resolution', runTest({ w: 1920, h: 1080 })).timeout(0);
-	it('should look the same with <firefox> and <chrome> on `desktop` resolution', runTest({ w: 768, h: 1024 })).timeout(0);
-	it('should look the same with <firefox> and <chrome> on `tablet` resolution', runTest({ w: 640, h: 690 })).timeout(0);
-	it('should look the same with <firefox> and <chrome> on `mobile` resolution', runTest({ w: 320, h: 480 })).timeout(0);
+	describe('The Homepage', () => {
+		it('should look the same on `fullhd` resolution', runTest(0.1, '/', 'fullhd')).timeout(0);
+		it('should look the same on `desktop` resolution', runTest(0.3, '/', 'desktop')).timeout(0);
+		it('should look the same on `tablet` resolution', runTest(0.9, '/', 'tablet')).timeout(0);
+		it('should look the same on `mobile` resolution', runTest(0.9, '/', 'mobile')).timeout(0);
+	});
+
+	describe('The Singlepage', () => {
+		it('should look the same on `fullhd` resolution', runTest(0.2, '/posts/hello-world', 'fullhd')).timeout(0);
+		it('should look the same on `desktop` resolution', runTest(0.4, '/posts/hello-world', 'desktop')).timeout(0);
+		it('should look the same on `tablet` resolution', runTest(0.9, '/posts/hello-world', 'tablet')).timeout(0);
+		it('should look the same on `mobile` resolution', runTest(1.0, '/posts/hello-world', 'mobile')).timeout(0);
+	});
 
 });

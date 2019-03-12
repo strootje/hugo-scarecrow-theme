@@ -88,10 +88,10 @@ describe('Compare <firefox> and <chrome> browser:', () => {
 	});
 
 	describe('The Homepage', () => {
-		it('should look the same on `fullhd` resolution', runTest(0.1, '/', 'fullhd')).timeout(0);
-		it('should look the same on `desktop` resolution', runTest(0.4, '/', 'desktop')).timeout(0);
-		it('should look the same on `tablet` resolution', runTest(0.6, '/', 'tablet')).timeout(0);
-		it('should look the same on `mobile` resolution', runTest(0.9, '/', 'mobile')).timeout(0);
+		it('should look the same on `fullhd` resolution', runTest(0.2, '/', 'fullhd')).timeout(0);
+		it('should look the same on `desktop` resolution', runTest(0.7, '/', 'desktop')).timeout(0);
+		it('should look the same on `tablet` resolution', runTest(1.1, '/', 'tablet')).timeout(0);
+		it('should look the same on `mobile` resolution', runTest(1.4, '/', 'mobile')).timeout(0);
 	});
 
 	describe('The Homepage with Searchbox', () => {
@@ -102,9 +102,9 @@ describe('Compare <firefox> and <chrome> browser:', () => {
 		};
 
 		it('should look the same on `fullhd` resolution', runTest(0.2, '/#search', 'fullhd', selectSearchBox)).timeout(0);
-		it('should look the same on `desktop` resolution', runTest(0.4, '/#search', 'desktop', selectSearchBox)).timeout(0);
-		it('should look the same on `tablet` resolution', runTest(0.7, '/#search', 'tablet', selectSearchBox)).timeout(0);
-		it('should look the same on `mobile` resolution', runTest(1.1, '/#search', 'mobile', async (page: ChromePage) => {
+		it('should look the same on `desktop` resolution', runTest(0.7, '/#search', 'desktop', selectSearchBox)).timeout(0);
+		it('should look the same on `tablet` resolution', runTest(1.1, '/#search', 'tablet', selectSearchBox)).timeout(0);
+		it('should look the same on `mobile` resolution', runTest(1.9, '/#search', 'mobile', async (page: ChromePage) => {
 			await page.click('.navbar-burger');
 			await page.waitForSelector(searchSelector);
 			await selectSearchBox(page);
@@ -114,9 +114,9 @@ describe('Compare <firefox> and <chrome> browser:', () => {
 
 	describe('The Singlepage', () => {
 		it('should look the same on `fullhd` resolution', runTest(0.2, '/posts/hello-world', 'fullhd')).timeout(0);
-		it('should look the same on `desktop` resolution', runTest(0.4, '/posts/hello-world', 'desktop')).timeout(0);
-		it('should look the same on `tablet` resolution', runTest(0.7, '/posts/hello-world', 'tablet')).timeout(0);
-		it('should look the same on `mobile` resolution', runTest(1.1, '/posts/hello-world', 'mobile')).timeout(0);
+		it('should look the same on `desktop` resolution', runTest(0.7, '/posts/hello-world', 'desktop')).timeout(0);
+		it('should look the same on `tablet` resolution', runTest(1.2, '/posts/hello-world', 'tablet')).timeout(0);
+		it('should look the same on `mobile` resolution', runTest(1.8, '/posts/hello-world', 'mobile')).timeout(0);
 	});
 
 });

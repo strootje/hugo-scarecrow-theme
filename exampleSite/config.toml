@@ -1,13 +1,25 @@
 languageCode = "en-us"
 
 title = "scarecrow"
+baseURL = "http://localhost/"
+DefaultContentLanguage = "en"
+paginate = 6
+
+[languages.en]
+languageName = "English"
+weight = 1
 
 [params]
 	author = "Scarecrow"
-	logo = "/images/logo.jpg"
+	logo = "images/scarecrow.jpg"
 	font = "Poppins"
 	showRelated = true
 	showHeaders = false
+	[params.about]
+		title = "Bas Stroosnijder"
+		tagline = "FOSS since 1991"
+		[params.about.logo]
+			src = "images/scarecrow.jpg"
 	[[params.poweredBy]]
 		title = "Hugo"
 		url = "https://gohugo.io"

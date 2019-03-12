@@ -50,8 +50,9 @@ describe('The homepage', () => {
 	it('should look the same with <firefox> and <chrome> on `desktop` resolution', async done => {
 		try {
 			// Arrange
-			const ffPath = await captureFirefox('http://0.0.0.0:1313/', { w: 1920, h: 1080 });
-			const chPath = await captureChrome('http://0.0.0.0:1313/', { w: 1920, h: 1080 });
+			const url = 'http://localhost:1313/';
+			const ffPath = await captureFirefox(url, { w: 1920, h: 1080 });
+			const chPath = await captureChrome(url, { w: 1920, h: 1080 });
 
 			// Act
 			const compare = ResembleJS(ffPath)

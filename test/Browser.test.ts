@@ -78,7 +78,7 @@ describe('Compare <firefox> and <chrome> browser:', () => {
 	let server: ChildProcess;
 
 	before(() => {
-		server = spawn('npm', ['run', 'serve'], { detached: true });
+		server = spawn('npm', ['run', 'serve'], { detached: true, shell: true });
 	});
 
 	after(() => {

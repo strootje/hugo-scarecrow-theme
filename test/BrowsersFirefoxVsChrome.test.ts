@@ -49,14 +49,14 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 			await page.waitForSelector(resultSelector, { visible: true });
 		};
 
-		it('with a `fullhd` resolution', async () => await run('/#search', 'fullhd', 0.2, firefoxBrowser, chromeBrowser, selectSearchBox));
-		it('with a `desktop` resolution', async () => await run('/#search', 'desktop', 0.7, firefoxBrowser, chromeBrowser, selectSearchBox));
-		it('with a `tablet` resolution', async () => await run('/#search', 'tablet', 1.1, firefoxBrowser, chromeBrowser, selectSearchBox));
+		it('with a `fullhd` resolution', async () => await run('/#search', 'fullhd', 0.2, firefoxBrowser, chromeBrowser, selectSearchBox)).timeout(3500);
+		it('with a `desktop` resolution', async () => await run('/#search', 'desktop', 0.7, firefoxBrowser, chromeBrowser, selectSearchBox)).timeout(3500);
+		it('with a `tablet` resolution', async () => await run('/#search', 'tablet', 1.1, firefoxBrowser, chromeBrowser, selectSearchBox)).timeout(3500);
 		it('with a `mobile` resolution', async () => await run('/#search', 'mobile', 1.9, firefoxBrowser, chromeBrowser, async (page: Page) => {
 			await page.click('.navbar-burger');
 			await page.waitForSelector(searchSelector, { visible: true });
 			await selectSearchBox(page);
-		}));
+		})).timeout(3500);
 	});
 
 	describe('the `SinglePostPage` should look the same', () => {

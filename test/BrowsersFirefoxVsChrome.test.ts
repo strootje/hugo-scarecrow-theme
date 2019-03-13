@@ -21,16 +21,22 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 	let firefoxBrowser: FirefoxBrowser;
 	let chromeBrowser: ChromeBrowser;
 
-	before(async () => {
+	before(done => {
 		server = spawn('npm', ['run', 'serve'], { detached: true });
-		firefoxBrowser = await LaunchFirefox({ headless: true });
-		chromeBrowser = await LaunchChrome({ headless: true, args:[ '--no-sandbox', '--disable-setuid-sandbox' ]});
+		Promise.all([
+			LaunchFirefox({ headless: true }).then(browser => firefoxBrowser = browser),
+			LaunchChrome({ headless: true, args:[ '--no-sandbox', '--disable-setuid-sandbox' ]}).then(browser => chromeBrowser = browser)
+		]).then(() => done());
 	});
 
-	after(async () => {
-		if (firefoxBrowser) await firefoxBrowser.close();
-		if (chromeBrowser) await chromeBrowser.close();
-		if (server && !server.killed) process.kill(-server.pid);
+	after(done => {
+		Promise.all([
+			firefoxBrowser.close(),
+			chromeBrowser.close()
+		]).then(() => {
+			if (server && !server.killed) process.kill(-server.pid);
+			done();
+		});
 	});
 
 	describe('the `HomePage` should look the same', () => {

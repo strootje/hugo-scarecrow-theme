@@ -21,7 +21,8 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 	let firefoxBrowser: FirefoxBrowser;
 	let chromeBrowser: ChromeBrowser;
 
-	before(async () => {
+	before(async function() {
+		this.timeout(0);
 		server = spawn('npm', ['run', 'serve'], { detached: true, shell: true });
 		firefoxBrowser = await LaunchFirefox({ headless: true });
 		chromeBrowser = await LaunchChrome({ headless: true, args:[ '--no-sandbox', '--disable-setuid-sandbox' ]});
@@ -64,7 +65,7 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 		it('with a `tablet` resolution', async () => await run('/posts/hello-world', 'tablet', 1.1, firefoxBrowser, chromeBrowser));
 		it('with a `mobile` resolution', async () => await run('/posts/hello-world', 'mobile', 1.8, firefoxBrowser, chromeBrowser));
 	});
-}).timeout(50000);
+});
 
 async function run(url: string, res: Resolution, threshold: number, firefoxBrowser: FirefoxBrowser, chromeBrowser: ChromeBrowser, actions?: Actions): Promise<void> {
 	const safeUrl = url.replace(/\//g, '_');

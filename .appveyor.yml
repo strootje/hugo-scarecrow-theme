@@ -22,6 +22,6 @@ build_script:
 - pnpm i
 
 before_test:
-- ps: 'Start-Process pnpm -ArgumentList run serve'
+- ps: Start-Process pnpm -ArgumentList 'run','serve'
 test_script:
 - pnpm run test

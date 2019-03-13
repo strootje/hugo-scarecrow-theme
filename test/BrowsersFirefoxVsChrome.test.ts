@@ -1,9 +1,9 @@
 import { expect } from 'chai';
+import { ChildProcess, spawn } from 'child_process';
 import { join } from 'path';
 import { Browser as ChromeBrowser, launch as LaunchChrome, Page as ChromePage, Viewport } from 'puppeteer';
 import { Browser as FirefoxBrowser, launch as LaunchFirefox, Page as FirefoxPage } from 'puppeteer-firefox';
 import * as ResembleJS from 'resemblejs';
-import { ChildProcess, spawn } from 'child_process';
 
 type Browser = FirefoxBrowser | ChromeBrowser;
 type Page = FirefoxPage | ChromePage;
@@ -18,27 +18,27 @@ const resolutions: { [_ in Resolution]: Viewport } = {
 
 describe('In the browsers <Firefox> and <Chrome>', () => {
 	let server: ChildProcess;
-	let firefoxBrowser: FirefoxBrowser;
-	let chromeBrowser: ChromeBrowser;
+	const browsers: Browser[] = [];
 
 	before(async function() {
 		this.timeout(0);
 		server = spawn('pnpm', ['run', 'serve'], { detached: true, shell: true });
-		firefoxBrowser = await LaunchFirefox({ headless: true });
-		chromeBrowser = await LaunchChrome({ headless: true, args:[ '--no-sandbox', '--disable-setuid-sandbox' ]});
+		browsers.push(await LaunchFirefox({ headless: true }));
+		browsers.push(await LaunchChrome({ headless: true, args:[ '--no-sandbox', '--disable-setuid-sandbox' ]}));
 	});
 
 	after(async () => {
-		if (firefoxBrowser) await firefoxBrowser.close();
-		if (chromeBrowser) await chromeBrowser.close();
+		for(let i = 0; i < browsers.length; i++) {
+			await browsers[i].close();
+		}
 		if(server && !server.killed) { process.kill(-server.pid); }
 	});
 
 	describe('the `HomePage` should look the same', () => {
-		it('with a `fullhd` resolution', async () => await run('/', 'fullhd', 0.2, firefoxBrowser, chromeBrowser)).timeout(0);
-		it('with a `desktop` resolution', async () => await run('/', 'desktop', 0.7, firefoxBrowser, chromeBrowser)).timeout(0);
-		it('with a `tablet` resolution', async () => await run('/', 'tablet', 1.1, firefoxBrowser, chromeBrowser)).timeout(0);
-		it('with a `mobile` resolution', async () => await run('/', 'mobile', 1.4, firefoxBrowser, chromeBrowser)).timeout(0);
+		it('with a `fullhd` resolution', async () => await run('/', 'fullhd', 0.2, browsers)).timeout(0);
+		it('with a `desktop` resolution', async () => await run('/', 'desktop', 0.7, browsers)).timeout(0);
+		it('with a `tablet` resolution', async () => await run('/', 'tablet', 1.1, browsers)).timeout(0);
+		it('with a `mobile` resolution', async () => await run('/', 'mobile', 1.4, browsers)).timeout(0);
 	});
 
 	describe('the `HomePage` with `SearchBox` should look the same', () => {
@@ -49,10 +49,10 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 			await page.waitForSelector(resultSelector, { visible: true });
 		};
 
-		it('with a `fullhd` resolution', async () => await run('/#search', 'fullhd', 0.2, firefoxBrowser, chromeBrowser, selectSearchBox)).timeout(0);
-		it('with a `desktop` resolution', async () => await run('/#search', 'desktop', 0.7, firefoxBrowser, chromeBrowser, selectSearchBox)).timeout(0);
-		it('with a `tablet` resolution', async () => await run('/#search', 'tablet', 1.1, firefoxBrowser, chromeBrowser, selectSearchBox)).timeout(0);
-		it('with a `mobile` resolution', async () => await run('/#search', 'mobile', 1.9, firefoxBrowser, chromeBrowser, async (page: Page) => {
+		it('with a `fullhd` resolution', async () => await run('/#search', 'fullhd', 0.2, browsers, selectSearchBox)).timeout(0);
+		it('with a `desktop` resolution', async () => await run('/#search', 'desktop', 0.7, browsers, selectSearchBox)).timeout(0);
+		it('with a `tablet` resolution', async () => await run('/#search', 'tablet', 1.1, browsers, selectSearchBox)).timeout(0);
+		it('with a `mobile` resolution', async () => await run('/#search', 'mobile', 1.9, browsers, async (page: Page) => {
 			await page.click('.navbar-burger');
 			await page.waitForSelector(searchSelector, { visible: true });
 			await selectSearchBox(page);
@@ -60,31 +60,37 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 	});
 
 	describe('the `SinglePostPage` should look the same', () => {
-		it('with a `fullhd` resolution', async () => await run('/posts/hello-world', 'fullhd', 0.2, firefoxBrowser, chromeBrowser)).timeout(0);
-		it('with a `desktop` resolution', async () => await run('/posts/hello-world', 'desktop', 0.7, firefoxBrowser, chromeBrowser)).timeout(0);
-		it('with a `tablet` resolution', async () => await run('/posts/hello-world', 'tablet', 1.1, firefoxBrowser, chromeBrowser)).timeout(0);
-		it('with a `mobile` resolution', async () => await run('/posts/hello-world', 'mobile', 1.8, firefoxBrowser, chromeBrowser)).timeout(0);
+		it('with a `fullhd` resolution', async () => await run('/posts/hello-world', 'fullhd', 0.2, browsers)).timeout(0);
+		it('with a `desktop` resolution', async () => await run('/posts/hello-world', 'desktop', 0.7, browsers)).timeout(0);
+		it('with a `tablet` resolution', async () => await run('/posts/hello-world', 'tablet', 1.1, browsers)).timeout(0);
+		it('with a `mobile` resolution', async () => await run('/posts/hello-world', 'mobile', 1.8, browsers)).timeout(0);
 	});
 });
 
-async function run(url: string, res: Resolution, threshold: number, firefoxBrowser: FirefoxBrowser, chromeBrowser: ChromeBrowser, actions?: Actions): Promise<void> {
+async function run(url: string, res: Resolution, threshold: number, browsers: Browser[], actions?: Actions): Promise<void> {
 	const safeUrl = url.replace(/\//g, '_');
-	const firefoxPath = join(__dirname, `firefox-[${safeUrl}]-${res}.jpg`);
-	const chromePath = join(__dirname, `chrome-[${safeUrl}]-${res}.jpg`);
 
-	await capture(firefoxBrowser, resolutions[res], url, firefoxPath, actions);
-	await capture(chromeBrowser, resolutions[res], url, chromePath, actions);
+	const firstBrowser = browsers[0];
+	const firstPath = join(__dirname, `browser[0]-[${safeUrl}]-${res}.jpg`);
+	await capture(firstBrowser, resolutions[res], url, firstPath, actions);
 
-	const results = ResembleJS(firefoxPath)
-		.compareTo(chromePath)
-		.ignoreAntialiasing();
+	for(let i = 1; i < browsers.length; i++) {
+		const browser = browsers[i];
+		const path = join(__dirname, `browser[${i}]-[${safeUrl}]-${res}.jpg`);
 
-	results.onComplete(res => {
-		const ratio = parseFloat(`${res.misMatchPercentage}`);
+		await capture(browser, resolutions[res], url, path, actions);
 
-		console.log(`expecting <${ratio}> <= <${threshold}>`);
-		expect(ratio).to.be.lessThan(threshold + 0.1)
-	});
+		const results = ResembleJS(firstPath)
+			.compareTo(path)
+			.ignoreAntialiasing();
+
+		results.onComplete(res => {
+			const ratio = parseFloat(`${res.misMatchPercentage}`);
+
+			console.log(`expecting <${ratio}> <= <${threshold}>`);
+			expect(ratio).to.be.lessThan(threshold + 0.1)
+		});
+	}
 }
 
 async function capture(browser: Browser, viewport: Viewport, url: string, path: string, actions?: Actions): Promise<Buffer> {

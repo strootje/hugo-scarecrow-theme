@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { ChildProcess, spawn } from 'child_process';
+import { ChildProcess, exec } from 'child_process';
 import { join } from 'path';
 import { Browser as ChromeBrowser, launch as LaunchChrome, Page as ChromePage, Viewport } from 'puppeteer';
 import { Browser as FirefoxBrowser, launch as LaunchFirefox, Page as FirefoxPage } from 'puppeteer-firefox';
@@ -23,7 +23,8 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 
 	before(async function() {
 		this.timeout(0);
-		server = spawn('npm', ['run', 'serve'], { detached: true, shell: true });
+		// server = spawn('npm', ['run', 'serve'], { detached: true, shell: true });
+		server = exec('npm run serve');
 		firefoxBrowser = await LaunchFirefox({ headless: true });
 		chromeBrowser = await LaunchChrome({ headless: true, args:[ '--no-sandbox', '--disable-setuid-sandbox' ]});
 	});
@@ -31,7 +32,8 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 	after(async () => {
 		if (firefoxBrowser) await firefoxBrowser.close();
 		if (chromeBrowser) await chromeBrowser.close();
-		if (server && !server.killed) process.kill(-server.pid);
+		// if (server && !server.killed) process.kill(-server.pid);
+		if (server && !server.killed) server.kill();
 	});
 
 	describe('the `HomePage` should look the same', () => {

@@ -3,6 +3,7 @@ import { join } from 'path';
 import { Browser as ChromeBrowser, launch as LaunchChrome, Page as ChromePage, Viewport } from 'puppeteer';
 import { Browser as FirefoxBrowser, launch as LaunchFirefox, Page as FirefoxPage } from 'puppeteer-firefox';
 import * as ResembleJS from 'resemblejs';
+import { ChildProcess, spawn } from 'child_process';
 
 type Browser = FirefoxBrowser | ChromeBrowser;
 type Page = FirefoxPage | ChromePage;
@@ -16,11 +17,13 @@ const resolutions: { [_ in Resolution]: Viewport } = {
 };
 
 describe('In the browsers <Firefox> and <Chrome>', () => {
+	let server: ChildProcess;
 	let firefoxBrowser: FirefoxBrowser;
 	let chromeBrowser: ChromeBrowser;
 
 	before(async function() {
 		this.timeout(0);
+		server = spawn('pnpm', ['run', 'serve'], { detached: true, shell: true });
 		firefoxBrowser = await LaunchFirefox({ headless: true });
 		chromeBrowser = await LaunchChrome({ headless: true, args:[ '--no-sandbox', '--disable-setuid-sandbox' ]});
 	});
@@ -28,6 +31,7 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 	after(async () => {
 		if (firefoxBrowser) await firefoxBrowser.close();
 		if (chromeBrowser) await chromeBrowser.close();
+		if(server && !server.killed) { process.kill(-server.pid); }
 	});
 
 	describe('the `HomePage` should look the same', () => {

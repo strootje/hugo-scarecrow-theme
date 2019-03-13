@@ -26,7 +26,5 @@ before_install:
 install:
 - pnpm i
 
-before_script:
-- pnpm run serve &
 script:
 - pnpm run test

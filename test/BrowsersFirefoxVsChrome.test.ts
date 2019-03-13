@@ -1,9 +1,9 @@
+import { expect } from 'chai';
 import { ChildProcess, spawn } from 'child_process';
-import { Browser as ChromeBrowser, Viewport, launch as LaunchChrome, Page as ChromePage } from 'puppeteer';
+import { join } from 'path';
+import { Browser as ChromeBrowser, launch as LaunchChrome, Page as ChromePage, Viewport } from 'puppeteer';
 import { Browser as FirefoxBrowser, launch as LaunchFirefox, Page as FirefoxPage } from 'puppeteer-firefox';
 import * as ResembleJS from 'resemblejs';
-import { expect } from 'chai';
-import { join } from 'path';
 
 type Browser = FirefoxBrowser | ChromeBrowser;
 type Page = FirefoxPage | ChromePage;
@@ -22,7 +22,7 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 	let chromeBrowser: ChromeBrowser;
 
 	before(async () => {
-		server = spawn('npm', ['run', 'serve'], { detached: true });
+		server = spawn('npm', ['run', 'serve'], { detached: true, shell: true });
 		firefoxBrowser = await LaunchFirefox({ headless: true });
 		chromeBrowser = await LaunchChrome({ headless: true, args:[ '--no-sandbox', '--disable-setuid-sandbox' ]});
 	});
@@ -64,7 +64,7 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 		it('with a `tablet` resolution', async () => await run('/posts/hello-world', 'tablet', 1.1, firefoxBrowser, chromeBrowser));
 		it('with a `mobile` resolution', async () => await run('/posts/hello-world', 'mobile', 1.8, firefoxBrowser, chromeBrowser));
 	});
-}).timeout(0);
+}).timeout(50000);
 
 async function run(url: string, res: Resolution, threshold: number, firefoxBrowser: FirefoxBrowser, chromeBrowser: ChromeBrowser, actions?: Actions): Promise<void> {
 	const safeUrl = url.replace(/\//g, '_');

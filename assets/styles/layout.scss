@@ -42,7 +42,7 @@
 		place-content: flex-start;
 
 		@include ifLargerThan(small) {
-			flex-wrap: wrap;
+			flex-flow: unset;
 			height: calc(100% - (#{$navbar-height} + #{$spacing-dense}) - (#{$footer-height} + #{$spacing-dense}));
 		}
 
@@ -105,7 +105,7 @@
 
 			@include ifLargerThan(small) {
 				text-align: right;
-				width: map-get($sidebar-width, small);
+				min-width: map-get($sidebar-width, small);
 
 				& > .widget {
 					justify-content: flex-end;
@@ -113,7 +113,7 @@
 			}
 
 			@include ifLargerThan(medium) {
-				width: map-get($sidebar-width, medium);
+				min-width: map-get($sidebar-width, medium);
 			}
 
 			&.top {

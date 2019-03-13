@@ -34,10 +34,10 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 	});
 
 	describe('the `HomePage` should look the same', () => {
-		it('with a `fullhd` resolution', async () => await run('/', 'fullhd', 0.2, firefoxBrowser, chromeBrowser));
-		it('with a `desktop` resolution', async () => await run('/', 'desktop', 0.7, firefoxBrowser, chromeBrowser));
-		it('with a `tablet` resolution', async () => await run('/', 'tablet', 1.1, firefoxBrowser, chromeBrowser));
-		it('with a `mobile` resolution', async () => await run('/', 'mobile', 1.4, firefoxBrowser, chromeBrowser));
+		it('with a `fullhd` resolution', async () => await run('/', 'fullhd', 0.2, firefoxBrowser, chromeBrowser)).timeout(0);
+		it('with a `desktop` resolution', async () => await run('/', 'desktop', 0.7, firefoxBrowser, chromeBrowser)).timeout(0);
+		it('with a `tablet` resolution', async () => await run('/', 'tablet', 1.1, firefoxBrowser, chromeBrowser)).timeout(0);
+		it('with a `mobile` resolution', async () => await run('/', 'mobile', 1.4, firefoxBrowser, chromeBrowser)).timeout(0);
 	});
 
 	describe('the `HomePage` with `SearchBox` should look the same', () => {
@@ -48,21 +48,21 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 			await page.waitForSelector(resultSelector, { visible: true });
 		};
 
-		it('with a `fullhd` resolution', async () => await run('/#search', 'fullhd', 0.2, firefoxBrowser, chromeBrowser, selectSearchBox));
-		it('with a `desktop` resolution', async () => await run('/#search', 'desktop', 0.7, firefoxBrowser, chromeBrowser, selectSearchBox));
-		it('with a `tablet` resolution', async () => await run('/#search', 'tablet', 1.1, firefoxBrowser, chromeBrowser, selectSearchBox));
+		it('with a `fullhd` resolution', async () => await run('/#search', 'fullhd', 0.2, firefoxBrowser, chromeBrowser, selectSearchBox)).timeout(0);
+		it('with a `desktop` resolution', async () => await run('/#search', 'desktop', 0.7, firefoxBrowser, chromeBrowser, selectSearchBox)).timeout(0);
+		it('with a `tablet` resolution', async () => await run('/#search', 'tablet', 1.1, firefoxBrowser, chromeBrowser, selectSearchBox)).timeout(0);
 		it('with a `mobile` resolution', async () => await run('/#search', 'mobile', 1.9, firefoxBrowser, chromeBrowser, async (page: Page) => {
 			await page.click('.navbar-burger');
 			await page.waitForSelector(searchSelector, { visible: true });
 			await selectSearchBox(page);
-		}));
+		})).timeout(0);
 	});
 
 	describe('the `SinglePostPage` should look the same', () => {
-		it('with a `fullhd` resolution', async () => await run('/posts/hello-world', 'fullhd', 0.2, firefoxBrowser, chromeBrowser));
-		it('with a `desktop` resolution', async () => await run('/posts/hello-world', 'desktop', 0.7, firefoxBrowser, chromeBrowser));
-		it('with a `tablet` resolution', async () => await run('/posts/hello-world', 'tablet', 1.1, firefoxBrowser, chromeBrowser));
-		it('with a `mobile` resolution', async () => await run('/posts/hello-world', 'mobile', 1.8, firefoxBrowser, chromeBrowser));
+		it('with a `fullhd` resolution', async () => await run('/posts/hello-world', 'fullhd', 0.2, firefoxBrowser, chromeBrowser)).timeout(0);
+		it('with a `desktop` resolution', async () => await run('/posts/hello-world', 'desktop', 0.7, firefoxBrowser, chromeBrowser)).timeout(0);
+		it('with a `tablet` resolution', async () => await run('/posts/hello-world', 'tablet', 1.1, firefoxBrowser, chromeBrowser)).timeout(0);
+		it('with a `mobile` resolution', async () => await run('/posts/hello-world', 'mobile', 1.8, firefoxBrowser, chromeBrowser)).timeout(0);
 	});
 });
 

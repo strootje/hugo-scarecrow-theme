@@ -1,5 +1,4 @@
-{{ $category := .Get "category" | default "" }}
-
+{{ $scope := . }}
 {{ $scratch := newScratch }}
 {{ $scratch.Set "tags" (slice) }}
 
@@ -25,7 +24,7 @@
 			{{ end }}
 		</div>
 
-		{{ with .Get "caption" }}
+		{{ with $scope.Get "caption" }}
 			<figcaption>{{- . -}}</figcaption>
 		{{ end }}
 	</figure>

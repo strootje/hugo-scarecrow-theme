@@ -1,0 +1,6 @@
+{{ $resourceName := .Get 0 }}
+{{ $resource := .Resources.GetMatch $resourceName }}
+
+<figure class="figure">
+	<img src="{{- $resource.RelPermalink -}}" />
+</figure>

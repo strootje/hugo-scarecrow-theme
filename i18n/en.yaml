@@ -5,7 +5,7 @@ app.title:
 # Layout: Single
 # #####################################
 single.readingtime.text:
-  other: Min
+  other: " min"
 
 
 # Page: Contact

@@ -1,6 +1,14 @@
-{{ $resourceName := .Get 0 }}
-{{ $resource := $.Resources.GetMatch $resourceName }}
+{{- $resourceName := .Get 0 -}}
+{{- $resource := .Page.Resources.GetMatch $resourceName -}}
 
 <figure class="figure">
-	<img src="{{- $resource.RelPermalink -}}" />
+	{{- with $resource.Resize "200x" -}}
+		<img src="{{- .RelPermalink -}}" width="{{- .Width -}}" heigh="{{- .Height -}}" />
+	{{- end -}}
+
+	{{- with .Inner -}}
+		<figcaption>
+			{{- . -}}
+		</figcaption>
+	{{- end -}}
 </figure>

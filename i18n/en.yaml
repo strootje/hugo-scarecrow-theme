@@ -2,6 +2,12 @@ app.title:
   other: " | strootje.com"
 
 
+# Layout: Single
+# #####################################
+single.readingtime.text:
+  other: " min"
+
+
 # Page: Contact
 # #####################################
 page.contact.form.email.label:

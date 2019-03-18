@@ -1,10 +1,12 @@
 .widget-powered-by {
+	justify-content: center;
+
+	@include ifLargerThan(small) {
+		justify-content: inherit;
+	}
+
 	span {
 		@extend .tag;
 		@extend .is-light;
-	}
-
-	@include ifSmallerThan(small) {
-		justify-content: center;
 	}
 }

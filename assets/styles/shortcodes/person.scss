@@ -21,8 +21,10 @@
 	}
 
 	& > div {
-		@include ifSmallerThan(medium) {
-			text-align: center;
+		text-align: center;
+
+		@include ifLargerThan(medium) {
+			text-align: inherit;
 		}
 	}
 }

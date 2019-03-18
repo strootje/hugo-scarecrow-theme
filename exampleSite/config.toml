@@ -1,4 +1,4 @@
-languageCode = "en-us"
+languageCode = "en"
 
 title = "scarecrow"
 baseURL = "http://localhost/"
@@ -8,6 +8,10 @@ paginate = 6
 [languages.en]
 languageName = "English"
 weight = 1
+
+# [languages.tp]
+# languageName = "Toki Pona"
+# weight = 99
 
 [params]
 	author = "Scarecrow"
@@ -20,6 +24,8 @@ weight = 1
 		tagline = "FOSS since 1991"
 		[params.about.logo]
 			src = "images/scarecrow.jpg"
+	# [params.widgets]
+	# 	sidebar = [ "powered-by" ]
 	[[params.poweredBy]]
 		title = "Hugo"
 		url = "https://gohugo.io"

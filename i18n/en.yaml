@@ -5,8 +5,8 @@ app.title:
 # Layout: Single
 # #####################################
 single.readingtime.text:
-  other: " min"
-
+  one: One minute read
+  other: "{{ .Count }} minute read"
 
 # Page: Contact
 # #####################################
@@ -20,7 +20,6 @@ page.contact.form.message.placeholder:
   other: So I was wondering...
 page.contact.form.submit.button:
   other: Send Message
-
 
 # Component: Paginator
 # #####################################
@@ -36,19 +35,28 @@ comp.posts.list.title:
 comp.posts.pinned.title:
   other: Pinned Posts
 
-
-
-
-
-
-# Widget: Search
+# Widget: About
 # #####################################
-widget.search.title:
-  other: Search
-widget.search.placeholder:
-  other: Search...
+# empty
 
-# Widget: NavMain
+# Widget: Breadcrums
+# #####################################
+# empty
+
+# Widget: Legal
+# #####################################
+# empty
+
+# Widget: Navbar
+# #####################################
+# empty
+
+# Widget: NavFooter
+# #####################################
+widget.navfooter.languages.title:
+  other: Languages
+
+# Widget: Navmain
 # #####################################
 widget.navmain.title:
   other: Navigation
@@ -57,3 +65,10 @@ widget.navmain.title:
 # #####################################
 widget.poweredby.title:
   other: Powered by
+
+# Widget: Search
+# #####################################
+widget.search.title:
+  other: Search
+widget.search.placeholder:
+  other: Search...

@@ -10,18 +10,20 @@
 	}
 
 	%centered-if-small {
-		@include ifSmallerThan(small) {
-			text-align: center;
+		text-align: center;
+
+		@include ifLargerThan(small) {
+			text-align: inherit;
 		}
 	}
 
 	%padding-for-sidebar {
 		@include ifLargerThan(small) {
-			padding-left: map-get($sidebar-width, small) + $spacing-dense;
+			padding-left: map-get($sidebar-width, small);
 		}
 
 		@include ifLargerThan(medium) {
-			padding-left: map-get($sidebar-width, medium) + $spacing-dense;
+			padding-left: map-get($sidebar-width, medium);
 		}
 	}
 
@@ -30,6 +32,14 @@
 		@extend %centered-if-small;
 		@extend %padding-for-sidebar;
 		margin-bottom: $spacing-dense;
+	}
+
+	& > footer {
+		@extend %layout-part;
+		@extend %centered-if-small;
+		@extend %padding-for-sidebar;
+		height: $footer-height;
+		margin-top: $spacing-dense;
 	}
 
 	& > .page {
@@ -42,7 +52,7 @@
 		place-content: flex-start;
 
 		@include ifLargerThan(small) {
-			flex-flow: unset;
+			flex-wrap: wrap;
 			height: calc(100% - (#{$navbar-height} + #{$spacing-dense}) - (#{$footer-height} + #{$spacing-dense}));
 		}
 
@@ -53,13 +63,11 @@
 		& > main {
 			@extend %page-part;
 			flex-basis: 100%;
-
-			@include ifSmallerThan(small) {
-				margin-bottom: $spacing-dense;
-			}
+			margin-bottom: $spacing-dense;
 
 			@include ifLargerThan(small) {
 				order: 3;
+				margin-bottom: unset;
 				width: calc(100% - #{map-get($sidebar-width, small)});
 			}
 
@@ -118,9 +126,10 @@
 
 			&.top {
 				margin-bottom: $spacing-dense;
+				display: none;
 
-				@include ifSmallerThan(small) {
-					display: none;
+				@include ifLargerThan(small) {
+					display: block;
 				}
 
 				&.is-active {
@@ -152,13 +161,5 @@
 				}
 			}
 		}
-	}
-
-	& > footer {
-		@extend %layout-part;
-		@extend %centered-if-small;
-		@extend %padding-for-sidebar;
-		height: $footer-height;
-		margin-top: $spacing-dense;
 	}
 }

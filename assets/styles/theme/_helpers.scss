@@ -5,9 +5,3 @@
 		@content;
 	}
 }
-
-@mixin ifSmallerThan( $size ) {
-	@media( max-width: map-get($breakpoints, $size) - .01rem ) {
-		@content;
-	}
-}

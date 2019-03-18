@@ -6,7 +6,7 @@
 				{{ $categoryUrl := ("categories" | absURL)}}
 				<span data-prefix="&#35;"><a href="{{ $categoryUrl }}/{{ . | urlize }}">{{ . }}</a></span>
 			{{ end }}
-			<span data-prefix="">{{- .ReadingTime -}}{{- T "single.readingtime.text" | default "__min__" -}}</span>
+			<span data-prefix="">{{- T "single.readingtime.text" .ReadingTime -}}</span>
 		</p>
 	</header>
 

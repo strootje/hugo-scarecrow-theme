@@ -5,3 +5,17 @@
 		@content;
 	}
 }
+
+@mixin flare($location, $width, $fallback) {
+	&::#{$location} {
+		content: "";
+		display: block;
+		width: $width;
+		margin: $spacing auto;
+		border-top: 2px solid $primary;
+
+		@include ifLargerThan(small) {
+			margin-#{$fallback}: 0;
+		}
+	}
+}

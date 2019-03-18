@@ -28,9 +28,11 @@ weight = 1
 		sidebar = [ "powered-by" ]
 	[[params.poweredBy]]
 		title = "Hugo"
+		version = "0.51.0"
 		url = "https://gohugo.io"
 	[[params.poweredBy]]
 		title = "Scarecrow"
+		version = "0.1.0"
 		url = "https://strootje.com/projs/scarecrow"
 
 [[menu.main]]

@@ -1,13 +1,12 @@
 // layout made with help from:
 // https://stackoverflow.com/questions/35559104/flexbox-ordering-splitting-a-column
 
+
+
 .layout {
 	display: flex;
 	flex-flow: column nowrap;
-
-	%layout-part {
-		width: 100vw;
-	}
+	height: 100%;
 
 	%centered-if-small {
 		text-align: center;
@@ -28,104 +27,40 @@
 	}
 
 	& > header {
-		@extend %layout-part;
+		@extend %centered-if-small;
+		@extend %padding-for-sidebar;
+		margin-top: $spacing-dense;
+	}
+
+	& > footer {
 		@extend %centered-if-small;
 		@extend %padding-for-sidebar;
 		margin-bottom: $spacing-dense;
 	}
 
-	& > footer {
-		@extend %layout-part;
-		@extend %centered-if-small;
-		@extend %padding-for-sidebar;
-		height: $footer-height;
-		margin-top: $spacing-dense;
-	}
-
 	& > .page {
-		@extend %layout-part;
+		flex-grow: 1;
 		display: flex;
 		flex-flow: column nowrap;
-		flex-grow: 1;
-		width: 100vw;
-		height: 100%;
 		place-content: flex-start;
+		min-height: inherit;
+		height: inherit;
 
 		@include ifLargerThan(small) {
 			flex-wrap: wrap;
-			height: calc(100% - (#{$navbar-height} + #{$spacing-dense}) - (#{$footer-height} + #{$spacing-dense}));
 		}
 
 		%page-part {
 			padding: 0 $spacing-dense;
 		}
 
-		& > main {
-			@extend %page-part;
-			flex-basis: 100%;
-			margin-bottom: $spacing-dense;
-
-			@include ifLargerThan(small) {
-				order: 3;
-				margin-bottom: unset;
-				width: calc(100% - #{map-get($sidebar-width, small)});
-			}
-
-			@include ifLargerThan(medium) {
-				width: calc(100% - #{map-get($sidebar-width, medium)});
-			}
-
-			@include ifLargerThan(large) {
-				max-width: map-get($breakpoints, large);
-			}
-
-			header {
-				@extend %centered-if-small;
-				margin-bottom: $spacing;
-
-				&::after {
-					content: "";
-					display: block;
-					width: 50%;
-					margin: $spacing-dense auto $spacing auto;
-					border-bottom: 2px solid $primary;
-
-					@include ifLargerThan(small) {
-						margin-left: 0;
-					}
-				}
-
-				& > p > span {
-					&::before {
-						content: attr(data-prefix);
-					}
-				}
-			}
-
-			footer {
-				@extend %centered-if-small;
-			}
-		}
-
 		& > aside {
-			@extend %centered-if-small;
 			@extend %page-part;
-
-			@include ifLargerThan(small) {
-				text-align: right;
-				max-width: map-get($sidebar-width, small);
-
-				& > .widget {
-					justify-content: flex-end;
-				}
-			}
-
-			@include ifLargerThan(medium) {
-				min-width: map-get($sidebar-width, medium);
-			}
+			width: 100vw;
+			text-align: center;
 
 			&.top {
-				margin-bottom: $spacing-dense;
+				order: 10;
 				display: none;
 
 				@include ifLargerThan(small) {
@@ -138,27 +73,55 @@
 			}
 
 			&.bottom {
+				order: 30;
+
 				@include ifLargerThan(small) {
-					order: 2;
+					order: 15;
+					flex-grow: 1;
 				}
 			}
 
-			& > .widget {
-				&.widget:not(:first-child)::before {
-					content: "";
-					display: block;
-					width: 3rem;
-					margin: $spacing auto $spacing auto;
-					border-top: 2px solid $primary;
+			@include ifLargerThan(small) {
+				width: map-get($sidebar-width, small);
+				text-align: right;
+			}
 
-					@include ifLargerThan(small) {
-						margin-right: 0;
-					}
+			@include ifLargerThan(medium) {
+				width: map-get($sidebar-width, medium);
+			}
+
+			& > .widget {
+				&.widget:not(:first-child) {
+					@include flare(after, 3rem, right);
 				}
 
 				header {
 					margin-bottom: $spacing-dense;
 				}
+			}
+		}
+
+		& > main {
+			@extend %page-part;
+			order: 20;
+			flex-grow: 1;
+			margin-bottom: $spacing-dense;
+
+			@include ifLargerThan(small) {
+				width: calc(100% - #{map-get($sidebar-width, small)});
+				flex-basis: 100%;
+			}
+
+			@include ifLargerThan(medium) {
+				width: calc(100% - #{map-get($sidebar-width, medium)});
+			}
+
+			@include ifLargerThan(large) {
+				max-width: map-get($breakpoints, large);
+			}
+
+			& header {
+				@include flare(after, 50%, left);
 			}
 		}
 	}

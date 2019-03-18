@@ -1,12 +1,27 @@
 .widget-powered-by {
-	justify-content: center;
+	& > .field {
+		justify-content: center;
 
-	@include ifLargerThan(small) {
-		justify-content: inherit;
-	}
+		@include ifLargerThan(small) {
+			justify-content: right;
+		}
 
-	span {
-		@extend .tag;
-		@extend .is-light;
+		& > .control > a {
+			@extend .tags;
+			@extend .has-addons;
+
+			& > span {
+				@extend .tag;
+
+				&:first-child {
+					@extend .is-dark;
+					margin-right: 0;
+				}
+
+				&:last-child {
+					@extend .is-light;
+				}
+			}
+		}
 	}
 }

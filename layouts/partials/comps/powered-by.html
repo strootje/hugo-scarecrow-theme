@@ -5,9 +5,16 @@
 		</header>
 	{{ end }}
 
-	{{ range .Site.Params.poweredBy }}
-		<span><a href="{{ .url }}" title="{{ .title }}">
-			<img src="{{ .badge }}" alt="{{ .title }}" />
-		</a></span>
-	{{ end }}
+	<div class="field is-grouped is-grouped-multiline">
+		{{ range .Site.Params.poweredBy }}
+			<div class="control">
+				<a href="{{ .url }}" title="{{ .title }}">
+					<span>test</span>
+					<span>
+						<img src="{{ .badge }}" alt="{{ .title }}" />
+					</span>
+				</a>
+			</div>
+		{{ end }}
+	</div>
 </section>

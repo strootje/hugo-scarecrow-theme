@@ -1,5 +1,5 @@
 <section class="widget widget-legal">
-	{{ with .Site.Params.Author }}
-		<span class="author">{{ . }} &copy; {{ now.Format "2006" }}</span>
-	{{ end }}
+	{{- with .Site.Params.Author -}}
+		<span class="author">{{- i18n "widget.legal.author" (slice . (now.Format "2006")) -}}</span>
+	{{- end -}}
 </section>

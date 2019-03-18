@@ -1,50 +1,52 @@
 <!DOCTYPE html>
-<html lang='{{ .Site.Language | default "en" }}'>
+<html lang='{{- .Site.Language | default "en" -}}'>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>
-			{{ with .Page }}
+			{{- with .Page -}}
 				{{- .Title -}}
-			{{ end }}
+			{{- end -}}
 			{{- T "app.title" | default " | A scarecrow theme" -}}
 		</title>
 
-		{{ partial "styles" . }}
-		{{ partial "scripts" . }}
+		{{- partial "styles" . -}}
+		{{- partial "scripts" . -}}
 	</head>
 
 	<body>
 		<div class="layout">
 			<header>
-				{{ partial "comps/navbar" . }}
+				{{- partial "comps/navbar" . -}}
 			</header>
 
 			<div class="page">
 				<aside class="top" id="sidebar">
-					{{ partial "comps/about" . }}
-					{{ partial "comps/search" . }}
-					{{ partial "comps/navmain" . }}
+					{{- partial "comps/about" . -}}
+					{{- partial "comps/search" . -}}
+					{{- partial "comps/navmain" . -}}
 				</aside>
 
 				<main>
-					{{ block "content" . }}
-					{{ end }}
+					{{- block "content" . -}}
+					{{- end -}}
 				</main>
 
-				{{ $context := . }}
-				{{ with (.Param "widgets.sidebar") }}
-					<aside class="bottom">
-						{{ range . }}
-							{{ partial ( printf "comps/%s" . ) $context }}
-						{{ end }}
-					</aside>
-				{{ end }}
+				{{- $context := . -}}
+				<aside class="bottom">
+					{{- partial "comps/translations" $context -}}
+
+					{{- with (.Param "widgets.sidebar") -}}
+						{{- range . -}}
+							{{- partial ( printf "comps/%s" . ) $context -}}
+						{{- end -}}
+					{{- end -}}
+				</aside>
 			</div>
 
 			<footer>
-				{{/*  {{ partial "comps/languages" . }}  */}}
-				{{ partial "comps/legal" . }}
+				{{- partial "comps/navfooter" . -}}
+				{{- partial "comps/legal" . -}}
 			</footer>
 		</div>
 	</body>

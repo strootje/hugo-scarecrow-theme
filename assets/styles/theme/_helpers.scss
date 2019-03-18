@@ -6,8 +6,16 @@
 	}
 }
 
-@mixin ifSmallerThan( $size ) {
-	@media( max-width: map-get($breakpoints, $size) - .01rem ) {
-		@content;
+@mixin flare($location, $width, $fallback) {
+	&::#{$location} {
+		content: "";
+		display: block;
+		width: $width;
+		margin: $spacing auto;
+		border-top: 2px solid $primary;
+
+		@include ifLargerThan(small) {
+			margin-#{$fallback}: 0;
+		}
 	}
 }

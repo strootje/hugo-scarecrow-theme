@@ -1,13 +1,18 @@
 <section class="widget widget-powered-by">
-	{{ if (.Param "showHeaders") }}
+	{{- if (.Param "showHeaders") -}}
 		<header>
-			<h2 class="title is-3">{{ T "widget.poweredby.title" | default "Powered by" }}</h2>
+			<h2 class="title is-3">{{- T "widget.poweredby.title" | default "Powered by" -}}</h2>
 		</header>
-	{{ end }}
+	{{- end -}}
 
-	{{ range .Site.Params.poweredBy }}
-		<span><a href="{{ .url }}" title="{{ .title }}">
-			<img src="{{ .badge }}" alt="{{ .title }}" />
-		</a></span>
-	{{ end }}
+	<div class="field is-grouped is-grouped-multiline">
+		{{- range .Site.Params.poweredBy -}}
+			<div class="control">
+				<a href="{{- .url -}}" title="{{- .title -}}">
+					<span>{{- .title -}}</span>
+					<span>{{- .version -}}</span>
+				</a>
+			</div>
+		{{- end -}}
+	</div>
 </section>

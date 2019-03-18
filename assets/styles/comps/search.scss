@@ -24,7 +24,7 @@
 
 		ul {
 			width: $input-width;
-			// margin-top: -(($spacing-dense / 2) * 3);
+			margin: inherit auto;
 			padding: ($spacing / 3) ($spacing / 6);
 			text-align: left;
 
@@ -34,9 +34,8 @@
 			border-radius: .2rem;
 			// ------------
 
-			@include ifSmallerThan(small) {
-				margin-left: auto;
-				margin-right: auto;
+			@include ifLargerThan(small) {
+				margin: inherit;
 			}
 
 			@include ifLargerThan(small) {

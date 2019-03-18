@@ -1,10 +1,27 @@
 .widget-powered-by {
-	span {
-		@extend .tag;
-		@extend .is-light;
-	}
-
-	@include ifSmallerThan(small) {
+	& > .field {
 		justify-content: center;
+
+		@include ifLargerThan(small) {
+			justify-content: right;
+		}
+
+		& > .control > a {
+			@extend .tags;
+			@extend .has-addons;
+
+			& > span {
+				@extend .tag;
+
+				&:first-child {
+					@extend .is-dark;
+					margin-right: 0;
+				}
+
+				&:last-child {
+					@extend .is-light;
+				}
+			}
+		}
 	}
 }

@@ -51,7 +51,7 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 
 		it('with a `fullhd` resolution', async () => await run('/#search', 'fullhd', 0.2, browsers, selectSearchBox)).timeout(0);
 		it('with a `desktop` resolution', async () => await run('/#search', 'desktop', 0.7, browsers, selectSearchBox)).timeout(0);
-		it('with a `tablet` resolution', async () => await run('/#search', 'tablet', 1.1, browsers, selectSearchBox)).timeout(0);
+		it('with a `tablet` resolution', async () => await run('/#search', 'tablet', 1.3, browsers, selectSearchBox)).timeout(0);
 		it('with a `mobile` resolution', async () => await run('/#search', 'mobile', 1.9, browsers, async (page: Page) => {
 			await page.click('.navbar-burger');
 			await page.waitForSelector(searchSelector, { visible: true });

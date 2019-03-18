@@ -1,0 +1,9 @@
+{{- define "content" -}}
+	{{- .Content -}}
+
+	<ul>
+		{{- range $.Site.Home.AllTranslations -}}
+			<li><a href="{{- .Permalink -}}">{{- .Language.LanguageName -}}</a></li>
+		{{- end -}}
+	</ul>
+{{- end -}}

@@ -113,7 +113,7 @@
 
 			@include ifLargerThan(small) {
 				text-align: right;
-				min-width: map-get($sidebar-width, small);
+				max-width: map-get($sidebar-width, small);
 
 				& > .widget {
 					justify-content: flex-end;

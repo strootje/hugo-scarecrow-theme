@@ -1,11 +1,7 @@
+
 <section class="widget widget-nav-footer">
-	{{- if .Site.IsMultiLingual -}}
-		{{- $languageRef := (ref . "/languages.md") -}}
-		<a href="{{- $languageRef -}}">{{- T "widget.navfooter.languages.title" -}}</a>
+	{{- $languagesPage := (index (where .Site.RegularPages ".Layout" "eq" "languages") 0) -}}
+	{{- if(and .Site.IsMultiLingual (ne $languagesPage nil)) -}}
+		<a href="{{- $languagesPage.Permalink -}}">{{- T "widget.navfooter.languages.title" -}}</a>
 	{{- end -}}
-	{{/*  <ul>
-		{{- range $.Site.Home.AllTranslations -}}
-			<li><a href="{{- .Permalink -}}">{{- .Language.LanguageName -}}</a></li>
-		{{- end -}}
-	</ul>  */}}
 </section>

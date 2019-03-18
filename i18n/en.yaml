@@ -45,7 +45,8 @@ comp.posts.pinned.title:
 
 # Widget: Legal
 # #####################################
-# empty
+widget.legal.author:
+  other: "{{ (index . 0) }} © {{ (index . 1) }}"
 
 # Widget: Navbar
 # #####################################
@@ -72,3 +73,8 @@ widget.search.title:
   other: Search
 widget.search.placeholder:
   other: Search...
+
+# Widget: Breadcrums
+# #####################################
+widget.translations.title:
+  other: "Other Languages"

@@ -91,7 +91,7 @@
 			}
 
 			& > .widget {
-				&.widget:not(:first-child) {
+				&.widget {
 					@include flare(after, 3rem, right);
 				}
 

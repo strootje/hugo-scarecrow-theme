@@ -8,6 +8,71 @@
 	flex-flow: column nowrap;
 	height: 100%;
 
+	& > .page {
+		flex-grow: 1;
+		display: flex;
+		flex-flow: column nowrap;
+		min-height: inherit;
+		height: inherit;
+
+		@include ifLargerThan(small) {
+			flex-wrap: wrap;
+		}
+
+		& > aside {
+			@include ifLargerThan(small) {
+				width: map-get($sidebar-width, small);
+			}
+
+			@include ifLargerThan(medium) {
+				width: map-get($sidebar-width, medium);
+			}
+
+			&.top {
+				order: 10;
+			}
+
+			&.bottom {
+				order: 30;
+
+				@include ifLargerThan(small) {
+					order: 15;
+					flex-grow: 1;
+				}
+			}
+		}
+
+		& > main {
+			order: 20;
+			flex-grow: 1;
+
+			@include ifLargerThan(small) {
+				width: calc(100% - #{map-get($sidebar-width, small)});
+				flex-basis: 100%;
+			}
+
+			@include ifLargerThan(medium) {
+				width: calc(100% - #{map-get($sidebar-width, medium)});
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.layout {
 	%centered-if-small {
 		text-align: center;
 
@@ -39,16 +104,7 @@
 	}
 
 	& > .page {
-		flex-grow: 1;
-		display: flex;
-		flex-flow: column nowrap;
 		place-content: flex-start;
-		min-height: inherit;
-		height: inherit;
-
-		@include ifLargerThan(small) {
-			flex-wrap: wrap;
-		}
 
 		%page-part {
 			padding: 0 $spacing-dense;
@@ -56,11 +112,9 @@
 
 		& > aside {
 			@extend %page-part;
-			width: 100vw;
 			text-align: center;
 
 			&.top {
-				order: 10;
 				display: none;
 
 				@include ifLargerThan(small) {
@@ -72,22 +126,8 @@
 				}
 			}
 
-			&.bottom {
-				order: 30;
-
-				@include ifLargerThan(small) {
-					order: 15;
-					flex-grow: 1;
-				}
-			}
-
 			@include ifLargerThan(small) {
-				width: map-get($sidebar-width, small);
 				text-align: right;
-			}
-
-			@include ifLargerThan(medium) {
-				width: map-get($sidebar-width, medium);
 			}
 
 			& > .widget {
@@ -103,18 +143,7 @@
 
 		& > main {
 			@extend %page-part;
-			order: 20;
-			flex-grow: 1;
 			margin-bottom: $spacing-dense;
-
-			@include ifLargerThan(small) {
-				width: calc(100% - #{map-get($sidebar-width, small)});
-				flex-basis: 100%;
-			}
-
-			@include ifLargerThan(medium) {
-				width: calc(100% - #{map-get($sidebar-width, medium)});
-			}
 
 			@include ifLargerThan(large) {
 				max-width: map-get($breakpoints, large);

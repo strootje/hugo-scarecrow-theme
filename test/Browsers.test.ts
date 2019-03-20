@@ -70,7 +70,7 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 		it('with a `fullhd` resolution', async () => await run('/langauges', 'fullhd', 0.2, browsers)).timeout(0);
 		it('with a `desktop` resolution', async () => await run('/langauges', 'desktop', 0.7, browsers)).timeout(0);
 		it('with a `tablet` resolution', async () => await run('/langauges', 'tablet', 1.1, browsers)).timeout(0);
-		it('with a `mobile` resolution', async () => await run('/langauges', 'mobile', 1.8, browsers)).timeout(0);
+		it('with a `mobile` resolution', async () => await run('/langauges', 'mobile', 2.0, browsers)).timeout(0);
 	});
 });
 

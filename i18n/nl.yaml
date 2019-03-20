@@ -1,0 +1,80 @@
+app.title:
+  other: " | strootje.com"
+
+
+# Layout: Single
+# #####################################
+single.readingtime.text:
+  one: One minute read
+  other: "{{ .Count }} minute read"
+
+# Page: Contact
+# #####################################
+page.contact.form.email.label:
+  other: Email
+page.contact.form.email.placeholder:
+  other: you@example.com
+page.contact.form.message.label:
+  other: Message
+page.contact.form.message.placeholder:
+  other: So I was wondering...
+page.contact.form.submit.button:
+  other: Verstuur bericht
+
+# Component: Paginator
+# #####################################
+paginator.next.text:
+  other: Oudere Berichten
+paginator.prev.text:
+  other: Nieuwere Berichten
+
+# Component: Posts
+# #####################################
+comp.posts.list.title:
+  other: Berichten
+comp.posts.pinned.title:
+  other: Gepinde Berichten
+
+# Widget: About
+# #####################################
+# empty
+
+# Widget: Breadcrums
+# #####################################
+# empty
+
+# Widget: Legal
+# #####################################
+widget.legal.author:
+  other: "{{ (index . 0) }} © {{ (index . 1) }}"
+
+# Widget: Navbar
+# #####################################
+# empty
+
+# Widget: NavFooter
+# #####################################
+widget.navfooter.languages.title:
+  other: Talen
+
+# Widget: Navmain
+# #####################################
+widget.navmain.title:
+  other: Navigatie
+
+# Widget Powered By
+# #####################################
+widget.poweredby.title:
+  other: Gebouwt met
+
+# Widget: Search
+# #####################################
+widget.search.title:
+  other: Zoeken
+widget.search.placeholder:
+  other: Zoeken...
+
+# Widget: Breadcrums
+# #####################################
+widget.translations.title:
+  other: Andere Talen

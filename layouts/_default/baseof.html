@@ -25,6 +25,10 @@
 					{{- partial "comps/about" . -}}
 					{{- partial "comps/search" . -}}
 					{{- partial "comps/navmain" . -}}
+
+					<div class="bottom">
+						{{ partial "sidebar-bottom" . }}
+					</div>
 				</aside>
 
 				<main>
@@ -32,15 +36,8 @@
 					{{- end -}}
 				</main>
 
-				{{- $context := . -}}
 				<aside class="bottom">
-					{{- partial "comps/translations" $context -}}
-
-					{{- with (.Param "widgets.sidebar") -}}
-						{{- range . -}}
-							{{- partial ( printf "comps/%s" . ) $context -}}
-						{{- end -}}
-					{{- end -}}
+					{{ partial "sidebar-bottom" . }}
 				</aside>
 			</div>
 

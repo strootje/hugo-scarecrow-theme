@@ -4,10 +4,70 @@
 
 
 .layout {
+	background-color: if($debug, gray, unset);
 	display: flex;
 	flex-flow: column nowrap;
-	height: 100%;
+	min-height: 100%;
 
+	& > .page {
+		background-color: if($debug, lightgray, unset);
+		flex-grow: 1;
+		display: flex;
+		flex-flow: column nowrap;
+		min-height: inherit;
+
+		@include ifLargerThan(small) {
+			flex-flow: row wrap;
+		}
+
+		& > aside {
+
+			@include ifLargerThan(small) {
+				width: map-get($sidebar-width, small);
+			}
+
+			@include ifLargerThan(medium) {
+				width: map-get($sidebar-width, medium);
+			}
+
+			&.top {
+				background-color: if($debug, yellow, unset);
+
+				& > .bottom {
+					display: none;
+
+					@include ifLargerThan(small) {
+						display: block;
+					}
+				}
+			}
+
+			&.bottom {
+				background-color: if($debug, lightyellow, unset);
+
+				@include ifLargerThan(small) {
+					display: none;
+				}
+			}
+		}
+
+		& > main {
+			background-color: if($debug, aqua, unset);
+
+			@include ifLargerThan(small) {
+				flex-basis: calc(100% - #{map-get($sidebar-width, small)});
+			}
+
+			@include ifLargerThan(medium) {
+				flex-basis: calc(100% - #{map-get($sidebar-width, medium)});
+			}
+		}
+	}
+}
+
+
+
+.layout {
 	%centered-if-small {
 		text-align: center;
 
@@ -29,26 +89,16 @@
 	& > header {
 		@extend %centered-if-small;
 		@extend %padding-for-sidebar;
-		margin-top: $spacing-dense;
 	}
 
 	& > footer {
 		@extend %centered-if-small;
 		@extend %padding-for-sidebar;
-		margin-bottom: $spacing-dense;
 	}
 
 	& > .page {
-		flex-grow: 1;
-		display: flex;
-		flex-flow: column nowrap;
 		place-content: flex-start;
-		min-height: inherit;
-		height: inherit;
-
-		@include ifLargerThan(small) {
-			flex-wrap: wrap;
-		}
+		padding: $spacing-dense 0;
 
 		%page-part {
 			padding: 0 $spacing-dense;
@@ -56,11 +106,9 @@
 
 		& > aside {
 			@extend %page-part;
-			width: 100vw;
 			text-align: center;
 
 			&.top {
-				order: 10;
 				display: none;
 
 				@include ifLargerThan(small) {
@@ -73,27 +121,16 @@
 			}
 
 			&.bottom {
-				order: 30;
-
-				@include ifLargerThan(small) {
-					order: 15;
-					flex-grow: 1;
-				}
+				margin-top: $spacing-dense;
 			}
 
 			@include ifLargerThan(small) {
-				width: map-get($sidebar-width, small);
 				text-align: right;
 			}
 
-			@include ifLargerThan(medium) {
-				width: map-get($sidebar-width, medium);
-			}
-
-			& > .widget {
-				&.widget {
-					@include flare(after, 3rem, right);
-				}
+			& > .widget,
+			& > .bottom > .widget {
+				@include flare(after, 3rem, right);
 
 				header {
 					margin-bottom: $spacing-dense;
@@ -103,22 +140,6 @@
 
 		& > main {
 			@extend %page-part;
-			order: 20;
-			flex-grow: 1;
-			margin-bottom: $spacing-dense;
-
-			@include ifLargerThan(small) {
-				width: calc(100% - #{map-get($sidebar-width, small)});
-				flex-basis: 100%;
-			}
-
-			@include ifLargerThan(medium) {
-				width: calc(100% - #{map-get($sidebar-width, medium)});
-			}
-
-			@include ifLargerThan(large) {
-				max-width: map-get($breakpoints, large);
-			}
 
 			& header {
 				@include flare(after, 50%, left);

@@ -19,7 +19,6 @@ const resolutions: { [_ in Resolution]: Viewport } = {
 describe('In the browsers <Firefox> and <Chrome>', () => {
 	let server: ChildProcess;
 	const browsers: Browser[] = [];
-	const page: Page;
 
 	before(async function() {
 		this.timeout(0);

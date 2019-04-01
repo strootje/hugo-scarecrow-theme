@@ -7,11 +7,13 @@ paginate = 6
 
 [languages.en]
 languageName = "English"
+contentDir = "content/en"
 weight = 1
 
-[languages.tp]
-languageName = "Toki Pona"
-weight = 99
+[languages.nl]
+languageName = "Nederlands"
+contentDir = "content/nl"
+weight = 2
 
 [params]
 	author = "Scarecrow"
@@ -24,20 +26,6 @@ weight = 99
 		tagline = "FOSS since 1991"
 		[params.about.logo]
 			src = "images/scarecrow.jpg"
-	# [params.widgets]
-	# 	sidebar = [ "powered-by" ]
-	# [[params.poweredBy]]
-	# 	title = "Hugo"
-	# 	version = "0.51.0"
-	# 	url = "https://gohugo.io"
-	# [[params.poweredBy]]
-	# 	title = "Scarecrow"
-	# 	version = "0.1.0"
-	# 	url = "https://strootje.com/projs/scarecrow"
-	# [[params.poweredBy]]
-	# 	title = "Bulma"
-	# 	version = "0.7.4"
-	# 	url = "https://bulma.io/"
 
 [[menu.main]]
 	name = "Home"
@@ -45,9 +33,20 @@ weight = 99
 	weight = 1
 [[menu.main]]
 	name = "About"
-	url = "/about/"
+	url = "/about"
 	weight = 2
 [[menu.main]]
 	name = "Contact"
-	url = "/contact/"
+	url = "/contact"
 	weight = 3
+
+[[menu.social]]
+	title = "Linkedin"
+	url = "https://linkedin.com/"
+	pre = "fab fa-fw fa-linkedin"
+	weight = 1
+
+[[menu.legal]]
+	name = "Privacy"
+	url = "/privacy"
+	weight = 1

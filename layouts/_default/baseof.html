@@ -24,7 +24,7 @@
 				<aside class="top" id="sidebar">
 					{{- partial "comps/about" . -}}
 					{{- partial "comps/search" . -}}
-					{{- partial "comps/navmain" . -}}
+					{{- partial "comps/menu" (slice "main" .) -}}
 
 					<div class="bottom">
 						{{ partial "sidebar-bottom" . }}
@@ -42,7 +42,7 @@
 			</div>
 
 			<footer>
-				{{- partial "comps/navfooter" . -}}
+				{{- partial "comps/menu" (slice "social" . "icons") -}}
 				{{- partial "comps/legal" . -}}
 			</footer>
 		</div>

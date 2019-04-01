@@ -2,6 +2,7 @@ language: node_js
 node_js: node
 
 addons:
+  hostname: localhost
   firefox: latest
   chrome: stable
 

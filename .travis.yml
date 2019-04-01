@@ -2,7 +2,6 @@ language: node_js
 node_js: node
 
 addons:
-  hostname: localhost
   firefox: latest
   chrome: stable
 
@@ -28,4 +27,4 @@ install:
 - pnpm i
 
 script:
-- pnpm run test
+- DEBUG=* pnpm run test

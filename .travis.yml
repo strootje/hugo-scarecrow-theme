@@ -26,5 +26,5 @@ before_script:
 - mkdir ./test/results
 
 script:
-- hugo -v --source ./exampleSite --themesDir ./.. -t hugo-scarecrow-theme
-- pnpm run test
+- hugo -v --source ./exampleSite --themesDir ../.. -t hugo-scarecrow-theme
+- pnpx mocha

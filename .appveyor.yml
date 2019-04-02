@@ -9,9 +9,6 @@ branches:
   only:
   - master
 
-environment:
-  HUGO: .\hugo
-
 artifacts:
 - path: ./test/**/*.jpg
 
@@ -28,4 +25,5 @@ before_test:
 - mkdir test\results
 
 test_script:
+- (cd .\exampleSite && .\hugo -v --themesDir ..\.. -t hugo-scarecrow-theme)
 - pnpm run test

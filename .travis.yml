@@ -10,9 +10,6 @@ branches:
   only:
   - master
 
-env:
-- HUGO=hugo
-
 before_install:
 - curl -L https://unpkg.com/@pnpm/self-installer | node
 # This workaround is required to avoid libstdc++ errors while running "extended" hugo with SASS support.
@@ -29,4 +26,5 @@ before_script:
 - mkdir ./test/results
 
 script:
+- (cd ./exampleSite && hugo -v --themesDir ../.. -t hugo-scarecrow-theme)
 - pnpm run test

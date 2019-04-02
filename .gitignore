@@ -1,5 +1,5 @@
 /node_modules
 /exampleSite
 /assets/scripts/fuse.min.js
-/test/**/*.jpg
-/test/**/*.png
+/test/results
+*.log

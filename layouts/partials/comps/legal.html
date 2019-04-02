@@ -1,5 +1,12 @@
+{{- $scope := . -}}
+{{- $data := (index $scope.Site.Menus "legal") -}}
+
 <section class="widget widget-legal">
 	{{- with .Site.Params.Author -}}
 		<span class="author">{{- i18n "widget.legal.author" (slice . (now.Format "2006")) -}}</span>
 	{{- end -}}
+
+	{{- with $data -}}{{- range . -}}
+		<span><a href="{{- .URL -}}">{{- .Name -}}</a></span>
+	{{- end -}}{{- end -}}
 </section>

@@ -1,9 +1,5 @@
 language: node_js
-node_js: node
-
-addons:
-  firefox: latest
-  chrome: stable
+node_js: lts/*
 
 cache:
   npm: true
@@ -26,5 +22,9 @@ before_install:
 install:
 - pnpm i
 
+before_script:
+- mkdir ./test/results
+
 script:
-- pnpm run test
+- hugo -v --source ./exampleSite --themesDir ../.. -t hugo-scarecrow-theme
+- pnpx mocha

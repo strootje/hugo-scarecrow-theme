@@ -1,7 +1,0 @@
-
-<section class="widget widget-nav-footer">
-	{{- $languagesPage := (index (where .Site.RegularPages ".Layout" "eq" "languages") 0) -}}
-	{{- if(and .Site.IsMultiLingual (ne $languagesPage nil)) -}}
-		<a href="{{- $languagesPage.Permalink -}}">{{- T "widget.navfooter.languages.title" -}}</a>
-	{{- end -}}
-</section>

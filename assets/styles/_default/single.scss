@@ -1,0 +1,11 @@
+.page > main {
+	& > header {
+		& > .subtitle {
+			& > span {
+				&:not(:first-child) {
+					margin-left: $spacing-dense;
+				}
+			}
+		}
+	}
+}

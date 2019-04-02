@@ -23,6 +23,7 @@ $debug: false;
 @import './../../node_modules/bulma-timeline/src/sass/index';
 
 @import './layout';
+@import './_default/single';
 @import './comps/paginator/nav';
 @import './comps/posts/item';
 @import './comps/posts/list';

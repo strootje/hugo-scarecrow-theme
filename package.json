@@ -5,9 +5,11 @@
 	"description": "Scarecrow theme for hugo",
 	"scripts": {
 		"postinstall": "cp ./node_modules/fuse.js/dist/fuse.js ./assets/scripts/fuse.min.js",
+
+		"build": "(cd ./exampleSite && hugo -v --themesDir ../.. -t hugo-scarecrow-theme)",
 		"serve": "(cd ./exampleSite && hugo server -w -v --themesDir ../.. -t hugo-scarecrow-theme)",
 
-		"pretest": "rm -rf ./test/*.jpg",
+		"pretest": "rm -rf ./test/results/* && pnpm run build",
 		"test": "mocha"
 	},
 	"dependencies": {
@@ -26,6 +28,8 @@
 		"puppeteer": "^1.13.0",
 		"puppeteer-firefox": "^0.5.0",
 		"resemblejs": "^3.0.2",
+		"serve": "*",
+		"serve-handler": "*",
 		"ts-node": "^8.0.3",
 		"typescript": "^3.3.3333"
 	}

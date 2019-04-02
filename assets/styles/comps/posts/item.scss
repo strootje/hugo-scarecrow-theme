@@ -1,6 +1,7 @@
 .post {
 	.posts > .items > & {
 		$margin: ($spacing * 3);
+
 		margin-left: $margin;
 		position: relative;
 		display: flex;

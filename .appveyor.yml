@@ -19,11 +19,11 @@ install:
 - ps: 7z x hugo_extended_0.54.0_Windows-64bit.zip -aoa
 
 build_script:
+- .\hugo version
 - pnpm i
 - pnpm run build
 
 before_test:
-- .\hugo version
 - mkdir test\results
 
 test_script:

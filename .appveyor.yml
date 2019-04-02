@@ -9,6 +9,9 @@ branches:
   only:
   - master
 
+environment:
+  HUGO: .\hugo
+
 artifacts:
 - path: ./test/**/*.jpg
 
@@ -23,7 +26,6 @@ build_script:
 
 before_test:
 - mkdir test\results
-- pnpm run build:win
 
 test_script:
 - pnpm run test

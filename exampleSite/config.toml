@@ -1,7 +1,7 @@
 languageCode = "en"
 
 title = "scarecrow"
-baseURL = "http://localhost/"
+baseURL = "http://localhost:1313/"
 DefaultContentLanguage = "en"
 paginate = 6
 

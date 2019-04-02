@@ -1,9 +1,9 @@
 import { expect } from 'chai';
-import { ChildProcess, spawn } from 'child_process';
 import { join } from 'path';
 import { Browser as ChromeBrowser, launch as LaunchChrome, Page as ChromePage, Viewport } from 'puppeteer';
 import { Browser as FirefoxBrowser, launch as LaunchFirefox, Page as FirefoxPage } from 'puppeteer-firefox';
 import * as ResembleJS from 'resemblejs';
+import TestServer from './util/TestServer';
 
 type Browser = FirefoxBrowser | ChromeBrowser;
 type Page = FirefoxPage | ChromePage;
@@ -17,12 +17,14 @@ const resolutions: { [_ in Resolution]: Viewport } = {
 };
 
 describe('In the browsers <Firefox> and <Chrome>', () => {
-	let server: ChildProcess;
+	let server: TestServer;
 	const browsers: Browser[] = [];
 
 	before(async function() {
 		this.timeout(0);
-		server = spawn('pnpm', ['run', 'serve'], { detached: true, shell: true });
+		server = new TestServer();
+		await server.listen();
+
 		browsers.push(await LaunchFirefox({ headless: true }));
 		browsers.push(await LaunchChrome({ headless: true, args:[ '--no-sandbox', '--disable-setuid-sandbox' ]}));
 	});
@@ -31,7 +33,10 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 		for(let i = 0; i < browsers.length; i++) {
 			await browsers[i].close();
 		}
-		if(server && !server.killed) { process.kill(-server.pid); }
+
+		if(server) {
+			await server.close();
+		}
 	});
 
 	describe('the `HomePage` should look the same', () => {
@@ -65,25 +70,18 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 		it('with a `tablet` resolution', async () => await run('/posts/hello-world', 'tablet', 1.2, browsers)).timeout(0);
 		it('with a `mobile` resolution', async () => await run('/posts/hello-world', 'mobile', 2.0, browsers)).timeout(0);
 	});
-
-	describe('the `LanguagesPage` should look the same', () => {
-		it('with a `fullhd` resolution', async () => await run('/langauges', 'fullhd', 0.3, browsers)).timeout(0);
-		it('with a `desktop` resolution', async () => await run('/langauges', 'desktop', 0.1, browsers)).timeout(0);
-		it('with a `tablet` resolution', async () => await run('/langauges', 'tablet', 0.2, browsers)).timeout(0);
-		it('with a `mobile` resolution', async () => await run('/langauges', 'mobile', 0.4, browsers)).timeout(0);
-	});
 });
 
 async function run(url: string, res: Resolution, threshold: number, browsers: Browser[], actions?: Actions): Promise<void> {
 	const safeUrl = url.replace(/\//g, '_');
 
 	const firstBrowser = browsers[0];
-	const firstPath = join(__dirname, `browser[0]-[${safeUrl}]-${res}.jpg`);
+	const firstPath = join(__dirname, 'results', `browser[0]-[${safeUrl}]-${res}.jpg`);
 	await capture(firstBrowser, resolutions[res], url, firstPath, actions);
 
 	for(let i = 1; i < browsers.length; i++) {
 		const browser = browsers[i];
-		const path = join(__dirname, `browser[${i}]-[${safeUrl}]-${res}.jpg`);
+		const path = join(__dirname, 'results', `browser[${i}]-[${safeUrl}]-${res}.jpg`);
 
 		await capture(browser, resolutions[res], url, path, actions);
 

@@ -23,6 +23,7 @@ install:
 - pnpm i
 
 before_script:
+- hugo version
 - mkdir ./test/results
 
 script:

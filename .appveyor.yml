@@ -20,8 +20,10 @@ install:
 
 build_script:
 - pnpm i
+- pnpm run build
 
 before_test:
+- .\hugo version
 - mkdir test\results
 
 test_script:

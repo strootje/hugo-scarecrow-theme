@@ -23,8 +23,8 @@ install:
 - pnpm i
 
 before_script:
-- hugo version
 - mkdir ./test/results
+- pnpm run build:lin
 
 script:
 - pnpm run test

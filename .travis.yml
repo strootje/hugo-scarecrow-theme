@@ -22,5 +22,8 @@ before_install:
 install:
 - pnpm i
 
+before_script:
+- mkdir ./test/results
+
 script:
 - pnpm run test

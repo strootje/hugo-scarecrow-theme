@@ -66,9 +66,9 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 
 	describe('the `SinglePostPage` should look the same', () => {
 		it('with a `fullhd` resolution', async () => await run('/posts/hello-world', 'fullhd', 0.3, browsers)).timeout(0);
-		it('with a `desktop` resolution', async () => await run('/posts/hello-world', 'desktop', 0.7, browsers)).timeout(0);
-		it('with a `tablet` resolution', async () => await run('/posts/hello-world', 'tablet', 1.2, browsers)).timeout(0);
-		it('with a `mobile` resolution', async () => await run('/posts/hello-world', 'mobile', 2.0, browsers)).timeout(0);
+		it('with a `desktop` resolution', async () => await run('/posts/hello-world', 'desktop', 0.9, browsers)).timeout(0);
+		it('with a `tablet` resolution', async () => await run('/posts/hello-world', 'tablet', 1.4, browsers)).timeout(0);
+		it('with a `mobile` resolution', async () => await run('/posts/hello-world', 'mobile', 2.5, browsers)).timeout(0);
 	});
 });
 

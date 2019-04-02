@@ -16,7 +16,7 @@ install:
 - ps: Install-Product node $env:nodejs_version x64
 - curl -L https://unpkg.com/@pnpm/self-installer | node
 - ps: Start-FileDownload 'https://github.com/gohugoio/hugo/releases/download/v0.54.0/hugo_extended_0.54.0_Windows-64bit.zip'
-- ps: 7z x hugo_extended_0.54.0_Windows-64bit.zip -aoa
+- ps: 7z xv hugo_extended_0.54.0_Windows-64bit.zip -aoa
 
 build_script:
 - pnpm i

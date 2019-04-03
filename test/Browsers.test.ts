@@ -56,7 +56,7 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 
 		it('with a `fullhd` resolution', async () => await run('/#search', 'fullhd', 0.3, browsers, selectSearchBox)).timeout(0);
 		it('with a `desktop` resolution', async () => await run('/#search', 'desktop', 0.8, browsers, selectSearchBox)).timeout(0);
-		it('with a `tablet` resolution', async () => await run('/#search', 'tablet', 1.3, browsers, selectSearchBox)).timeout(0);
+		it('with a `tablet` resolution', async () => await run('/#search', 'tablet', 1.6, browsers, selectSearchBox)).timeout(0);
 		it('with a `mobile` resolution', async () => await run('/#search', 'mobile', 1.6, browsers, async (page: Page) => {
 			await page.click('.navbar-burger');
 			await page.waitForSelector(searchSelector, { visible: true });
@@ -66,9 +66,9 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 
 	describe('the `SinglePostPage` should look the same', () => {
 		it('with a `fullhd` resolution', async () => await run('/posts/hello-world', 'fullhd', 0.3, browsers)).timeout(0);
-		it('with a `desktop` resolution', async () => await run('/posts/hello-world', 'desktop', 0.9, browsers)).timeout(0);
-		it('with a `tablet` resolution', async () => await run('/posts/hello-world', 'tablet', 1.4, browsers)).timeout(0);
-		it('with a `mobile` resolution', async () => await run('/posts/hello-world', 'mobile', 2.5, browsers)).timeout(0);
+		it('with a `desktop` resolution', async () => await run('/posts/hello-world', 'desktop', 1.2, browsers)).timeout(0);
+		it('with a `tablet` resolution', async () => await run('/posts/hello-world', 'tablet', 1.9, browsers)).timeout(0);
+		it('with a `mobile` resolution', async () => await run('/posts/hello-world', 'mobile', 3.3, browsers)).timeout(0);
 	});
 });
 

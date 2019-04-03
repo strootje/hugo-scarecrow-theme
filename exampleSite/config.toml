@@ -43,12 +43,12 @@ weight = 2
 [[menu.social]]
 	name = "Linkedin"
 	url = "https://linkedin.com/"
-	pre = "fab fa-fw fa-linkedin"
+	pre = "fab fa-fw fa-lg fa-linkedin"
 	weight = 1
 [[menu.social]]
 	name = "Github"
 	url = "https://github.com/"
-	pre = "fab fa-fw fa-github"
+	pre = "fab fa-fw fa-lg fa-github"
 	weight = 2
 
 [[menu.legal]]

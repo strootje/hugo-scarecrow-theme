@@ -19,6 +19,7 @@ install:
 - ps: 7z x hugo_extended_0.54.0_Windows-64bit.zip -aoa
 
 build_script:
+- rm -rf .\node_modules
 - pnpm i
 
 before_test:

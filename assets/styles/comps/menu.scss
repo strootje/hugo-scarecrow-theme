@@ -1,0 +1,16 @@
+.widget.widget-menu {
+	footer > & {
+		ul {
+			display: flex;
+			justify-content: center;
+
+			@include ifLargerThan(small) {
+				justify-content: unset;
+			}
+
+			& > li:not(:first-child) {
+				margin-left: $spacing-dense / 2;
+			}
+		}
+	}
+}

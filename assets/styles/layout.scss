@@ -53,6 +53,7 @@
 
 		& > main {
 			background-color: if($debug, aqua, unset);
+			overflow-x: scroll;
 
 			@include ifLargerThan(small) {
 				flex-basis: calc(100% - #{map-get($sidebar-width, small)});
@@ -64,7 +65,7 @@
 
 			@include ifLargerThan(large) {
 				flex-basis: calc(100% - #{map-get($sidebar-width, medium)});
-				max-width: map-get($breakpoints, large);
+				max-width: calc(#{map-get($breakpoints, large)});
 			}
 		}
 	}

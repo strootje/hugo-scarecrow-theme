@@ -25,7 +25,12 @@
 							{{- end -}}
 						{{- end -}}
 
-						{{- .Name -}}
+						{{- with .Name -}}
+							{{- if eq $style "icons" -}}
+							{{- else -}}
+								{{- . -}}
+							{{- end -}}
+						{{- end -}}
 					</a>
 				</li>
 			{{- end -}}

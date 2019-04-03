@@ -9,4 +9,16 @@ tags:
 - test3
 ---
 
+{{< highlight yaml >}}sdlkfjsldkjflsjflskjfldsjkfaslkdjklasdjlaskjdasljdasldjaldjk alksd lasj dladjalsjd alksjd lasjdlaj dladj alsjda jldja ljdlasjk dlakdj lasj d{{</ highlight >}}
+
+{{< columns >}}
+	{{< column >}}
+		test 1
+	{{</ column >}}
+
+	{{< column >}}
+		test 2
+	{{</ column >}}
+{{</ columns >}}
+
 This is my first post

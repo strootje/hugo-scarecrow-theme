@@ -2,6 +2,7 @@
 {{- $scope := (index . 1) -}}
 {{- $style := (index . 2) | default "list" -}}
 {{- $data := (index $scope.Site.Menus $menu) -}}
+{{- $params := $scope.Param (printf "menu.%s" $menu) -}}
 
 {{- with $data -}}
 	<section class="widget widget-menu menu-{{- $menu -}}">
@@ -16,7 +17,7 @@
 				{{- $classNames := cond ( $scope.IsMenuCurrent $menu . ) "is-active" "" -}}
 
 				<li>
-					<a class="{{- $classNames -}}" href="{{- .URL | relLangURL -}}" title="{{- .Title | default .Name -}}">
+					<a class="{{- $classNames -}}" href="{{- .URL | relLangURL -}}" title="{{- .Title | default .Name -}}" target="{{- $params.target -}}">
 						{{- with .Pre -}}
 							{{- if eq $style "icons" -}}
 								<i class="{{- . -}}"></i>

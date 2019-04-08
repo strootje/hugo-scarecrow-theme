@@ -66,6 +66,7 @@
 			@include ifLargerThan(large) {
 				flex-basis: calc(100% - #{map-get($sidebar-width, medium)});
 				max-width: calc(#{map-get($breakpoints, large)});
+				overflow-x: unset;
 			}
 		}
 	}

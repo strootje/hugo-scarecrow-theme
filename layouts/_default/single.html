@@ -4,7 +4,13 @@
 			<header>
 				<h1 class="title is-2">{{- .Title -}}</h1>
 			</header>
+
 			{{- partial "comps/avatar" . -}}
+
+			<aside>
+					<span><i class="far fa-calendar"></i> {{ .Date.Format "2 Jan" }}</span>
+					<span><i class="far fa-clock"></i> {{ T "single.readingtime" .ReadingTime }}</span>
+			</aside>
 
 			{{- .Content -}}
 

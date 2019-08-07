@@ -1,4 +1,4 @@
-listitem.readingtime:
+single.readingtime:
   one: "{{ .Count }} minute"
   other: "{{ .Count }} minutes"
 

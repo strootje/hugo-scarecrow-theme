@@ -16,7 +16,11 @@ $('input[type=\'search\']', p => {
 		p.throttle('keyup', 360, self => {
 			const target = document.getElementById(self.dataset.target);
 
-			target.removeChild(target.lastElementChild);
+			const lists = target.getElementsByTagName('ul');
+			for(var i = 0; i < lists.length; i++) {
+				target.removeChild(lists[i]);
+			}
+
 			const ul = document.createElement('ul');
 			target.appendChild(ul);
 

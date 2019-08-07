@@ -7,5 +7,16 @@
 				text-align: center;
 			}
 		}
+
+		& > aside {
+			display: flex;
+			justify-content: center;
+			color: #aaa;
+			font-size: .8rem;
+
+			& > span:not(:first-child) {
+				margin-left: 1rem;
+			}
+		}
 	}
 }

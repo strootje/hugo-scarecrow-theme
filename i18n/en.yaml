@@ -1,80 +1,11 @@
-app.title:
-  other: " | strootje.com"
+listitem.readingtime:
+  one: "{{ .Count }} minute"
+  other: "{{ .Count }} minutes"
 
+comps.search.placeholder:
+  other: "Search.."
 
-# Layout: Single
-# #####################################
-single.readingtime.text:
-  one: One minute read
-  other: "{{ .Count }} minute read"
-
-# Page: Contact
-# #####################################
-page.contact.form.email.label:
-  other: Email
-page.contact.form.email.placeholder:
-  other: you@example.com
-page.contact.form.message.label:
-  other: Message
-page.contact.form.message.placeholder:
-  other: So I was wondering...
-page.contact.form.submit.button:
-  other: Send Message
-
-# Component: Paginator
-# #####################################
-paginator.next.text:
-  other: Older Posts
-paginator.prev.text:
-  other: Newer Posts
-
-# Component: Posts
-# #####################################
-comp.posts.list.title:
-  other: Posts
-comp.posts.pinned.title:
-  other: Pinned Posts
-
-# Widget: About
-# #####################################
-# empty
-
-# Widget: Breadcrums
-# #####################################
-# empty
-
-# Widget: Legal
-# #####################################
-widget.legal.author:
-  other: "{{ (index . 0) }} © {{ (index . 1) }}"
-
-# Widget: Navbar
-# #####################################
-# empty
-
-# Widget: NavFooter
-# #####################################
-widget.navfooter.languages.title:
-  other: Languages
-
-# Widget: Navmain
-# #####################################
-widget.navmain.title:
-  other: Navigation
-
-# Widget Powered By
-# #####################################
-widget.poweredby.title:
-  other: Powered by
-
-# Widget: Search
-# #####################################
-widget.search.title:
-  other: Search
-widget.search.placeholder:
-  other: Search...
-
-# Widget: Breadcrums
-# #####################################
-widget.translations.title:
-  other: "Other Languages"
+footer.powered:
+  other: "Powered by <a href=\"https://gohugo.io/\" target=\"blank\">Hugo</a> and <a href=\"https://github.com/strootje/hugo-scarecrow-theme\" target=\"blank\">Scarecrow</a>"
+footer.legal:
+  other: "-"

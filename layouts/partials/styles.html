@@ -7,5 +7,7 @@
 
 <!-- Custom Styles -->
 {{ $opts := (dict "targetPath" "/styles/bundle.css" "outputStyle" "compressed" "enableSourceMaps" true) }}
-{{ $bundle := resources.Get "/styles/index.scss" | resources.ToCSS $opts | resources.Minify | resources.Fingerprint "sha512" }}
+{{ $styles := resources.Get "styles/index.scss" | resources.ToCSS $opts }}
+{{ $syntax := resources.Get "styles/syntax.css" }}
+{{ $bundle := slice $styles $syntax | resources.Concat "styles/bundle.css" | resources.Minify | resources.Fingerprint "sha512" }}
 <link rel="stylesheet" href="{{ $bundle.Permalink }}" integrity="{{ $bundle.Data.Integrity }}" />

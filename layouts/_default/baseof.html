@@ -10,41 +10,25 @@
 			{{- T "app.title" | default " | A scarecrow theme" -}}
 		</title>
 
+		{{ range .AlternativeOutputFormats -}}
+			{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+		{{ end -}}
+
 		{{- partial "styles" . -}}
 		{{- partial "scripts" . -}}
 	</head>
 
 	<body>
 		<div class="layout">
-			<header>
-				{{- partial "comps/navbar" . -}}
-			</header>
-
-			<div class="page">
-				<aside class="top" id="sidebar">
-					{{- partial "comps/about" . -}}
-					{{- partial "comps/search" . -}}
-					{{- partial "comps/menu" (slice "main" .) -}}
-
-					<div class="bottom">
-						{{ partial "sidebar-bottom" . }}
-					</div>
-				</aside>
-
-				<main>
-					{{- block "content" . -}}
-					{{- end -}}
-				</main>
-
-				<aside class="bottom">
-					{{ partial "sidebar-bottom" . }}
-				</aside>
+			<div class="content">
+				{{- block "content" . -}}
+					<!-- content -->
+				{{- end -}}
 			</div>
 
-			<footer>
-				{{- partial "comps/menu" (slice "social" . "icons") -}}
-				{{- partial "comps/legal" . -}}
-			</footer>
+			{{- block "footer" . -}}
+				{{- partial "comps/footer" . -}}
+			{{- end -}}
 		</div>
 	</body>
 </html>

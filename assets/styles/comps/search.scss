@@ -1,64 +1,43 @@
-.widget-search {
-	$input-width: 85%;
-	position: relative;
+@import '../../../node_modules/bulma/sass/utilities/mixins';
 
-	input {
-		@extend .input;
-		max-width: $input-width;
+.search {
+	margin-bottom: 1rem;
 
-		&:focus {
-			border-color: $primary;
+	&.is-active {
+		@extend .is-large;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		position: fixed;
+		background-color: #fff;
+
+		& > input[type=search] {
+			margin: 2rem;
+			width: calc(100vw - 4rem);
+		}
+
+		& > ul {
+			display: block;
 		}
 	}
 
-	.results {
-		top: $spacing * 3;
-		width: 100%;
+	& > ul {
+		margin: 0 2rem;
 		display: none;
-		position: absolute;
 
-		@include ifLargerThan(small) {
-			right: 0;
-			width: $input-width;
-		}
+		& > li {
+			margin: .6rem;
 
-		ul {
-			width: $input-width;
-			margin: inherit auto;
-			padding: ($spacing / 3) ($spacing / 6);
-			text-align: left;
-
-			// temp for indication
-			background: $background;
-			border: 1px solid $primary;
-			border-radius: .2rem;
-			// ------------
-
-			@include ifLargerThan(small) {
-				margin: inherit;
+			&:not(:last-child) {
+				border-bottom: 1px solid #ccc;
 			}
 
-			@include ifLargerThan(small) {
-				width: 100%;
+			& > a > h4 > small {
+				margin-left: .4rem;
+				color: #aaa;
+				font-size: .9rem;
 			}
-
-			li {
-				&:not(:last-child)::after {
-					content: "";
-					display: block;
-					border-bottom: 1px solid $primary;
-					width: 36%;
-				}
-
-				a {
-					display: block;
-					padding: ($spacing-dense / 2);
-				}
-			}
-		}
-
-		&.is-active {
-			display: block;
 		}
 	}
 }

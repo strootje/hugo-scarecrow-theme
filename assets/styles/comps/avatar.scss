@@ -1,0 +1,40 @@
+.avatar {
+	margin-bottom: 1rem;
+
+	& > a {
+		& > figure {
+			display: flex;
+			flex-flow: column;
+			align-items: center;
+
+			& > img {
+				width: 120px;
+				height: 120px;
+
+				border: 2px solid #333;
+				border-radius: 50%;
+			}
+
+			& > figcaption {
+				text-align: center;
+			}
+		}
+	}
+
+	.home > & {
+		& > a > figure {
+			& > img {
+				width: 180px;
+				height: 180px;
+			}
+
+			& > figcaption > h2 {
+				font-size: 2rem !important;
+			}
+
+			& > figcaption > h4 {
+				font-size: 1.25rem !important;
+			}
+		}
+	}
+}

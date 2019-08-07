@@ -1,6 +1,0 @@
-<article class="post">
-	<h4 class="title is-6"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
-
-	{{ $date := (dateFormat "2006-01-02" .PublishDate)}}
-	<time class="title is-6" datetime="{{ $date }}">{{ dateFormat "Jan 02" $date }}</time>
-</article>

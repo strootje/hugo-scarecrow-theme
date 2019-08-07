@@ -1,0 +1,23 @@
+<div class="avatar">
+	<a href="{{- .Site.Home.RelPermalink -}}">
+		<figure>
+			{{- $img := ( resources.Get .Site.Params.Author.Logo ) -}}
+			{{- with $img -}}
+				<img src="{{- $img.RelPermalink -}}">
+			{{- end -}}
+			<figcaption>
+				<h2 class="title is-5">{{- .Site.Params.Author.Name -}}</h2>
+
+				{{- if .Page.IsHome -}}
+					<h4 class="subtitle is-7">
+						{{- .Site.Params.Author.Tagline -}}
+
+						{{- with .Site.Params.Author.Tagline2 -}}
+							<br />{{- . -}}
+						{{- end -}}
+					</h4>
+				{{- end -}}
+			</figcaption>
+		</figure>
+	</a>
+</div>

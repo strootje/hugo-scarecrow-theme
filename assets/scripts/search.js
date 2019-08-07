@@ -16,7 +16,7 @@ $('input[type=\'search\']', p => {
 		p.throttle('keyup', 360, self => {
 			const target = document.getElementById(self.dataset.target);
 
-			target.removeChild(target.firstElementChild);
+			target.removeChild(target.lastElementChild);
 			const ul = document.createElement('ul');
 			target.appendChild(ul);
 
@@ -34,7 +34,20 @@ $('input[type=\'search\']', p => {
 				const a = document.createElement('a');
 				li.appendChild(a);
 				a.href = result.href;
-				a.innerText = result.title;
+
+				const h4 = document.createElement('h4');
+				a.appendChild(h4);
+				h4.classList.add('title', 'is-5');
+				h4.innerHTML = result.title;
+
+				const small = document.createElement('small');
+				h4.appendChild(small);
+				small.innerHTML = result.href;
+
+				const h6 = document.createElement('h6');
+				a.appendChild(h6);
+				h6.classList.add('subtitle', 'is-7');
+				h6.innerHTML = result.content;
 			});
 		});
 	}));

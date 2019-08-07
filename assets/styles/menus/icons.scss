@@ -1,0 +1,15 @@
+nav.icons {
+	margin-bottom: 1rem;
+
+	& > ul {
+		display: flex;
+
+		& > li {
+			font-size: 1.8rem;
+
+			&:not(:first-child) {
+				margin-left: 1rem;
+			}
+		}
+	}
+}

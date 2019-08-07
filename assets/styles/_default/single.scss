@@ -1,10 +1,10 @@
-.page > main {
-	& > header {
-		& > .subtitle {
-			& > span {
-				&:not(:first-child) {
-					margin-left: $spacing-dense;
-				}
+.single {
+	& > article {
+		& > header {
+			margin-bottom: 1rem;
+
+			& > h1 {
+				text-align: center;
 			}
 		}
 	}

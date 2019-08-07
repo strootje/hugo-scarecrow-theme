@@ -4,13 +4,16 @@
 	margin-bottom: 1rem;
 
 	&.is-active {
-		@extend .is-large;
 		top: 0;
 		left: 0;
 		width: 100vw;
 		height: 100vh;
 		position: fixed;
-		background-color: #fff;
+
+		display: flex;
+		flex-flow: column;
+
+		background-color: $white;
 
 		& > input[type=search] {
 			margin: 2rem;
@@ -23,19 +26,23 @@
 	}
 
 	& > ul {
-		margin: 0 2rem;
+		flex-grow: 1;
+
+		margin: 0 2rem 2rem 2rem;
+		width: calc(100% - 4rem);
+		overflow-y: scroll;
 		display: none;
 
 		& > li {
 			margin: .6rem;
 
 			&:not(:last-child) {
-				border-bottom: 1px solid #ccc;
+				border-bottom: 1px solid $dark;
 			}
 
 			& > a > h4 > small {
 				margin-left: .4rem;
-				color: #aaa;
+				color: $grey-light;
 				font-size: .9rem;
 			}
 		}

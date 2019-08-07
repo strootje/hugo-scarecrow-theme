@@ -4,9 +4,21 @@
 		{{- partial "comps/search" . -}}
 
 		<section>
-			{{- range .Pages -}}
+			{{- $paginator := .Paginate .Pages -}}
+
+			{{- range $paginator.Pages -}}
 				{{- .Render "listitem" -}}
 			{{- end -}}
+
+			<footer class="is-clearfix">
+				{{- if $paginator.HasPrev -}}
+					<a href="{{- $paginator.Prev.URL -}}" class="is-pulled-left"><i class="fas fa-chevron-left"></i></a>
+				{{- end -}}
+
+				{{- if $paginator.HasNext -}}
+					<a href="{{- $paginator.Next.URL -}}" class="is-pulled-right"><i class="fas fa-chevron-right"></i></a>
+				{{- end -}}
+			</footer>
 		</section>
 	</div>
 {{ end }}

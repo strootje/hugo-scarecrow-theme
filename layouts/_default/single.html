@@ -8,8 +8,12 @@
 			{{- partial "comps/avatar" . -}}
 
 			<aside>
-					<span><i class="far fa-calendar"></i> {{ .Date.Format "2 Jan" }}</span>
-					<span><i class="far fa-clock"></i> {{ T "single.readingtime" .ReadingTime }}</span>
+				{{- with .Params.categories -}}
+					<span><i class="fas fa-hashtag"></i> {{ . }}</span>
+				{{- end -}}
+
+				<span><i class="far fa-calendar"></i> {{ .Date.Format "2 Jan" }}</span>
+				<span><i class="far fa-clock"></i> {{ T "single.readingtime" .ReadingTime }}</span>
 			</aside>
 
 			{{- .Content -}}

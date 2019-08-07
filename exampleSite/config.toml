@@ -3,8 +3,9 @@ languageCode = "en"
 title = "scarecrow"
 baseURL = "http://localhost:1313/"
 DefaultContentLanguage = "en"
-paginate = 6
+paginate = 1
 
+enableEmoji = true
 pygmentsUseClasses = true
 pygmentsCodeFences = true
 pygmentsOptions = "linenos=true"
@@ -57,7 +58,7 @@ pygmentsOptions = "linenos=true"
 	pre = "fab fa-stack-overflow"
 [[menu.social]]
 	name = "RSS"
-	weight = 500
+	weight = 900
 	title = "rss"
 	url = "/posts/index.xml"
 	pre = "fas fa-rss"

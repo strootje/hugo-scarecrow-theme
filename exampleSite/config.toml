@@ -36,7 +36,7 @@ pygmentsOptions = "linenos=true"
 	name = "LinkedIn"
 	weight = 100
 	title = "linkedin"
-	url = "https://www.linkedin.com/in/bas-stroosnijder/"
+	url = "https://www.linkedin.com/in/<insert-name-here>"
 	pre = "fab fa-linkedin-in"
 [[menu.social]]
 	name = "Instagram"
@@ -48,13 +48,13 @@ pygmentsOptions = "linenos=true"
 	name = "Github"
 	weight = 300
 	title = "github"
-	url = "https://github.com/strootje"
+	url = "https://github.com/<insert-name-here>"
 	pre = "fab fa-github-alt"
 [[menu.social]]
 	name = "Stackoverflow"
 	weight = 400
 	title = "stackoverflow"
-	url = "https://stackoverflow.com/users/9943786/strootje"
+	url = "https://stackoverflow.com/users/<insert-id-here>/<insert-name-here>"
 	pre = "fab fa-stack-overflow"
 [[menu.social]]
 	name = "RSS"

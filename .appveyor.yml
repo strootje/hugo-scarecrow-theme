@@ -1,6 +1,9 @@
 version: '1.0.{build}'
 build: false
 
+environment:
+  nodejs_version: "10"
+
 cache:
 - ./node_modules -> ./packages.json
 - '%USERPROFILE%/.pnpm-store -> ./package.json'

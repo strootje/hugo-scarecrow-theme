@@ -3,7 +3,7 @@ languageCode = "en"
 title = "scarecrow"
 baseURL = "http://localhost:1313/"
 DefaultContentLanguage = "en"
-paginate = 1
+paginate = 6
 
 enableEmoji = true
 pygmentsUseClasses = true

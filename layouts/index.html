@@ -1,8 +1,11 @@
 {{- define "content" -}}
-	<div class="home">
+	<div class="page-home">
 		{{- partial "comps/avatar" . -}}
-		{{- partial "menus/icons" (slice .Site.Menus.social .) -}}
-		{{- partial "menus/text" (slice .Site.Sections .) -}}
-		{{- partial "menus/text" (slice .Site.Menus.main .) -}}
+		{{- partial "comps/icons" (slice .Site.Menus.social .) -}}
+
+		<div>
+			{{- partial "comps/text" (slice .Site.Sections .) -}}
+			{{- partial "comps/text" (slice .Site.Menus.main .) -}}
+		</div>
 	</div>
 {{- end -}}

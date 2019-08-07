@@ -7,10 +7,11 @@
 @import '../../node_modules/bulma/sass/form/_all';
 
 @import './layout';
+@import './_default/home';
 @import './_default/list';
 @import './_default/listitem';
 @import './_default/single';
 @import './comps/avatar';
 @import './comps/search';
 @import './comps/footer';
-@import './menus/icons';
+@import './comps/icons';

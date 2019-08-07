@@ -1,7 +1,7 @@
 {
 	"data": [
-		{{ range $i, $page := .Site.Pages }}
-			{{ dict "title" $page.Title "content" $page.Summary "href" $page.RelPermalink | jsonify | safeJS }}
+		{{ range $i, $page := .Site.Pages  }}
+			{{ dict "title" $page.Title "summary" $page.Summary "href" $page.RelPermalink "kind" $page.Kind | jsonify | safeJS }}
 			{{ if ne $i ( sub ( len $.Site.Pages ) 1 ) }},{{ end }}
 		{{ end }}
 	]

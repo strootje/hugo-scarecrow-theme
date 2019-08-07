@@ -1,23 +1,18 @@
-.single {
-	& > article {
-		& > header {
-			margin-bottom: 1rem;
-
-			& > h1 {
-				text-align: center;
-			}
+.page-single > article {
+	& > header {
+		& > h1 {
+			text-align: center;
 		}
+	}
 
-		& > aside {
-			margin-bottom: 1rem;
-			display: flex;
-			justify-content: center;
-			color: $grey-light;
-			font-size: .8rem;
+	& > aside {
+		display: flex;
+		justify-content: center;
+		color: $grey-light;
+		font-size: .8rem;
 
-			& > span:not(:first-child) {
-				margin-left: 1rem;
-			}
+		& > span:not(:first-child) {
+			margin-left: 1rem;
 		}
 	}
 }

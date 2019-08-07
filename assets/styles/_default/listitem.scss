@@ -1,6 +1,9 @@
 article.listitem {
 	display: flex;
-	margin-top: 1rem;
+
+	&:not(:first-item) {
+		margin-top: 1rem;
+	}
 
 	& > header {
 		order: 2;
@@ -8,9 +11,11 @@ article.listitem {
 
 	& > aside {
 		order: 1;
+		width: 55px;
 		margin-right: 1rem;
 
 		color: #aaa;
 		font-size: .8rem;
+		text-align: right;
 	}
 }

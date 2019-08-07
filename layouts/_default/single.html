@@ -1,5 +1,5 @@
 {{ define "content" }}
-	<section class="single">
+	<section class="page-single">
 		<article>
 			<header>
 				<h1 class="title is-2">{{- .Title -}}</h1>
@@ -16,8 +16,9 @@
 				<span><i class="far fa-clock"></i> {{ T "single.readingtime" .ReadingTime }}</span>
 			</aside>
 
-			{{- .Content -}}
-
+			<div class="content">
+				{{- .Content -}}
+			</div>
 		</article>
 	</section>
 {{ end }}

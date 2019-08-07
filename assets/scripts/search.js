@@ -9,7 +9,8 @@ $('input[type=\'search\']', p => {
 			keys: [
 				{ name: 'title', weight: .5 },
 				{ name: 'href', weight: .7 },
-				{ name: 'content', weight: .2 }
+				{ name: 'summary', weight: .2 },
+				{ name: 'kind', weight: .01 }
 			]
 		});
 
@@ -35,6 +36,10 @@ $('input[type=\'search\']', p => {
 				const li = document.createElement('li');
 				ul.appendChild(li);
 
+				const i = document.createElement('i');
+				li.appendChild(i);
+				i.classList.add('fa-fw', 'fa-lg');
+
 				const a = document.createElement('a');
 				li.appendChild(a);
 				a.href = result.href;
@@ -51,7 +56,33 @@ $('input[type=\'search\']', p => {
 				const h6 = document.createElement('h6');
 				a.appendChild(h6);
 				h6.classList.add('subtitle', 'is-7');
-				h6.innerHTML = result.content;
+				h6.innerHTML = result.summary;
+
+				switch (result.kind) {
+					case 'home':
+						i.classList.add('fas', 'fa-home');
+						break;
+
+					case 'page':
+						i.classList.add('fas', 'fa-newspaper');
+						break;
+
+					case 'section':
+						i.classList.add('fas', 'fa-list');
+						break;
+
+					case 'taxonomy':
+						i.classList.add('fas', 'fa-hashtag');
+						break;
+
+					case 'taxonomyTerm':
+						i.classList.add('fas', 'fa-list');
+						break;
+
+					default:
+						i.classList.add('fas', 'fa-question');
+						break;
+				}
 			});
 		});
 	}));

@@ -16,17 +16,24 @@
 			justify-content: center;
 		}
 
-		& > .home {
+		& > .page-home {
 			@extend %centered;
 			height: 100%;
 		}
 
-		& > .list {
+		& > .page-list {
 			@extend %centered;
+		}
+
+		& > .page-home > *:not(:first-child),
+		& > .page-list > *:not(:first-child),
+		& > .page-single > article > *:not(:first-child) {
+			margin-top: 1rem;
 		}
 	}
 
 	& > footer {
 		height: 6rem;
+		margin-top: 2rem;
 	}
 }

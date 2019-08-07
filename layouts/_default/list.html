@@ -1,24 +1,24 @@
 {{ define "content" }}
-	<div class="list">
+	<div class="page-list">
 		{{- partial "comps/avatar" . -}}
 		{{- partial "comps/search" . -}}
 
-		<section>
+		<section class="list">
 			{{- $paginator := .Paginate .Pages -}}
 
-			{{- range $paginator.Pages -}}
-				{{- .Render "listitem" -}}
+			{{- if $paginator.HasPrev -}}
+				<a href="{{- $paginator.Prev.URL -}}" class="is-fullwidth prev"><i class="fas fa-chevron-up"></i></a>
 			{{- end -}}
 
-			<footer class="is-clearfix">
-				{{- if $paginator.HasPrev -}}
-					<a href="{{- $paginator.Prev.URL -}}" class="is-pulled-left"><i class="fas fa-chevron-left"></i></a>
+			<div class="items">
+				{{- range $paginator.Pages -}}
+					{{- .Render "listitem" -}}
 				{{- end -}}
+			</div>
 
-				{{- if $paginator.HasNext -}}
-					<a href="{{- $paginator.Next.URL -}}" class="is-pulled-right"><i class="fas fa-chevron-right"></i></a>
-				{{- end -}}
-			</footer>
+			{{- if $paginator.HasNext -}}
+				<a href="{{- $paginator.Next.URL -}}" class="is-fullwidth next"><i class="fas fa-chevron-down"></i></a>
+			{{- end -}}
 		</section>
 	</div>
 {{ end }}

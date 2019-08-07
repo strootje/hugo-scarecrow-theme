@@ -1,6 +1,4 @@
 .avatar {
-	margin-bottom: 1rem;
-
 	& > a {
 		& > figure {
 			display: flex;
@@ -21,7 +19,7 @@
 		}
 	}
 
-	.home > & {
+	.page-home > & {
 		& > a > figure {
 			& > img {
 				width: 180px;

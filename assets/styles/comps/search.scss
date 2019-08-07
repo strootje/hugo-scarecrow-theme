@@ -1,8 +1,6 @@
 @import '../../../node_modules/bulma/sass/utilities/mixins';
 
 .search {
-	margin-bottom: 1rem;
-
 	&.is-active {
 		top: 0;
 		left: 0;
@@ -35,9 +33,11 @@
 
 		& > li {
 			margin: .6rem;
+			display: flex;
+			align-items: center;
 
-			&:not(:last-child) {
-				border-bottom: 1px solid $dark;
+			& > i {
+				margin-right: 1rem;
 			}
 
 			& > a > h4 > small {

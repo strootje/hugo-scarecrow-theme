@@ -2,7 +2,7 @@
 	<section class="page-single">
 		<article>
 			<header>
-				<h1 class="title is-2">{{- .Title -}}</h1>
+				<h1 class="title is-4">{{- .Title -}}</h1>
 			</header>
 
 			{{- partial "comps/avatar" . -}}
@@ -19,6 +19,8 @@
 			<div class="content">
 				{{- .Content -}}
 			</div>
+
+			{{- partial "comps/related" . -}}
 		</article>
 	</section>
 {{ end }}

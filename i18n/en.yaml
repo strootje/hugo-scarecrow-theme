@@ -5,6 +5,9 @@ single.readingtime:
 comps.search.placeholder:
   other: "Search.."
 
+comps.related.title:
+  other: "Related Content"
+
 footer.powered:
   other: "Powered by <a href=\"https://gohugo.io/\" target=\"blank\">Hugo</a> and <a href=\"https://github.com/strootje/hugo-scarecrow-theme\" target=\"blank\">Scarecrow</a>"
 footer.legal:

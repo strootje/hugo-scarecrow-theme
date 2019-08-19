@@ -5,14 +5,20 @@
 {{- $resource := .Page.Resources.GetMatch $name -}}
 {{- if (not $resource) -}}{{- errorf "no argument for field 'resource': %s" .Position -}}{{- end -}}
 
+{{- with .Parent -}}
 <div class="column">
-	<figure>
-		{{- with $resource.Resize $size -}}
-		<img src="{{- .RelPermalink -}}" width="{{- .Width -}}" height="{{- .Height -}}" />
-		{{- end -}}
+{{- end -}}
 
-		{{- with $title -}}
-		<figcaption>{{- . -}}</figcaption>
-		{{- end -}}
-	</figure>
+<figure class="image">
+	{{- with $resource.Resize $size -}}
+	<img src="{{- .RelPermalink -}}" width="{{- .Width -}}" height="{{- .Height -}}" />
+	{{- end -}}
+
+	{{- with $title -}}
+	<figcaption>{{- . -}}</figcaption>
+	{{- end -}}
+</figure>
+
+{{- with .Parent -}}
 </div>
+{{- end -}}

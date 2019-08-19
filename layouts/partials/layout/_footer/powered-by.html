@@ -1,3 +1,3 @@
-{{- if not .Site.Params.Options.HidePoweredBy -}}
+{{- if (not .Site.Params.Options.HidePoweredBy) -}}
 <span class="powered">{{ T "layout.footer.powered" | safeHTML }}</span>
 {{- end -}}

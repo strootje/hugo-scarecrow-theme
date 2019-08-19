@@ -1,5 +1,7 @@
 {{- $scope := . -}}
 {{- $data := .Site.Data.Social -}}
+
+{{- if .Site.Params.Options.ShowShare -}}
 <section class="share">
 	<header>
 		<h4 class="title is-5">{{- T "social.share.title" -}}</h4>
@@ -14,4 +16,4 @@
 		{{- end -}}
 	{{- end -}}</ul>
 </section>
-
+{{- end -}}

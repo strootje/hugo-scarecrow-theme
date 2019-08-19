@@ -3,7 +3,7 @@
 {{- $size:= (.Get "size") | default "180x" -}}
 
 {{- $resource := .Page.Resources.GetMatch $name -}}
-{{- if not $resource -}}{{- errorf "no argument for field 'resource': %s" .Position -}}{{- end -}}
+{{- if (not $resource) -}}{{- errorf "no argument for field 'resource': %s" .Position -}}{{- end -}}
 
 <div class="column">
 	<figure>

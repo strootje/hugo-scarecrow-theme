@@ -2,14 +2,17 @@ languageCode = "en"
 
 title = "scarecrow"
 baseURL = "http://localhost:1313/"
-DefaultContentLanguage = "en"
 paginate = 6
 
 enableEmoji = true
 pygmentsUseClasses = true
 pygmentsCodeFences = true
 pygmentsOptions = "linenos=true"
+
 # googleAnalytics = "UA-123-45"
+[privacy.googleAnalytics]
+	respectDoNotTrack = true
+
 
 [languages.en]
 	languageName = "English"
@@ -17,11 +20,12 @@ pygmentsOptions = "linenos=true"
 	weight = 1
 
 [params]
-	# callToAction = "/contact"
+	callToAction = "/contact"
 [params.options]
+	showCallToAction = true
+	showFollow = true
 	showRelated = true
 	showShare = true
-	# font = "Poppins"
 [params.author]
 	name = "Someone Awesome"
 	tagline = "asdasd kjashdlkjad"

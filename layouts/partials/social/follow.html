@@ -1,5 +1,7 @@
 {{- $scope := . -}}
 {{- $data := .Site.Data.Social -}}
+
+{{- if .Site.Params.Options.ShowFollow -}}
 {{- with .Site.Params.Social -}}
 <nav class="icons">
 	<ul>{{- range $type, $user := . -}}
@@ -10,4 +12,5 @@
 		{{- end -}}
 	{{- end -}}</ul>
 </nav>
+{{- end -}}
 {{- end -}}

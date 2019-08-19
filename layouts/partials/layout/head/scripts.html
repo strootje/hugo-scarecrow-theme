@@ -4,3 +4,7 @@
 {{ $search := resources.Get "scripts/search.js" }}
 {{ $bundle := slice $fusejs $lambda $search | resources.Concat "script/bundle.js" | resources.ExecuteAsTemplate "/scripts/bundle.js" . | resources.Minify | resources.Fingerprint "sha512" }}
 <script src="{{ $bundle.Permalink }}" integrity="{{ $bundle.Data.Integrity }}"></script>
+
+{{- if (.Site.GoogleAnalytics) -}}
+{{ template "_internal/google_analytics_async.html" . }}
+{{- end -}}

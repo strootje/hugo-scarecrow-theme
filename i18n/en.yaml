@@ -61,11 +61,14 @@ comps.search.placeholder:
 layout.footer.powered:
   other: "Powered by <a href=\"https://gohugo.io/\" target=\"blank\">Hugo</a> and <a href=\"https://github.com/strootje/hugo-scarecrow-theme\" target=\"blank\">Scarecrow</a>"
 layout.footer.legal:
-  other: "-"
+  other: "No :cookie: were used in the creation of this page"
 
 # ###########################
 # Partials / Social
 # ###########################
+social.cta.text:
+  other: "Get in touch"
+
 social.related.title:
   other: "Related Posts"
 

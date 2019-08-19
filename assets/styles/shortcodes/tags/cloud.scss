@@ -4,10 +4,14 @@
 	justify-content: center;
 
 	& > div {
-		width: 420px;
+		width: 100%;
+		max-width: 420px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 
-		& > a:not(:first-child) {
-			margin-left: .3rem;
+		& > a {
+			margin: .15rem;
 		}
 	}
 }

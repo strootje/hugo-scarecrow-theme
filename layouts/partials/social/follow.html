@@ -1,0 +1,13 @@
+{{- $scope := . -}}
+{{- $data := .Site.Data.Social -}}
+{{- with .Site.Params.Social -}}
+<nav class="icons">
+	<ul>{{- range $type, $user := . -}}
+		{{- with (index $data $type) -}}
+		{{- if (isset . "follow") -}}
+			<li>{{- partial "comps/social/follow" (slice $scope $type $user) -}}</li>
+		{{- end -}}
+		{{- end -}}
+	{{- end -}}</ul>
+</nav>
+{{- end -}}

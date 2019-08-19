@@ -1,14 +1,73 @@
+# ###########################
+# Global
+# ###########################
+app.title:
+  other: "Powered by Scarecrow"
+
+# ###########################
+# _default
+# ###########################
 single.readingtime:
   one: "{{ .Count }} minute"
   other: "{{ .Count }} minutes"
 
+# ###########################
+# Pages
+# ###########################
+page.contact.email.label:
+  other: "Email"
+page.contact.email.placeholder:
+  other: "someone@example.com"
+page.contact.message.label:
+  other: "Message"
+page.contact.message.placeholder:
+  other: "..."
+page.contact.submit.text:
+  other: "Send Message"
+
+# ###########################
+# Partials / Components
+# ###########################
+comps.social.follow.github:
+  other: "Find me on Github"
+comps.social.follow.hackernews:
+  other: "Find me on HackerNews"
+comps.social.follow.instagram:
+  other: "Find me on Instagram"
+comps.social.follow.linkedin:
+  other: "Find me on LinkedIn"
+comps.social.follow.rss:
+  other: "Find me on RSS"
+comps.social.follow.stackoverflow:
+  other: "Find me on Stackoverflow"
+
+comps.social.share.github:
+  other: "Share on Github"
+comps.social.share.hackernews:
+  other: "Share on HackerNews"
+comps.social.share.instagram:
+  other: "Share on Instagram"
+comps.social.share.linkedin:
+  other: "Share on LinkedIn"
+comps.social.share.stackoverflow:
+  other: "Share on Stackoverflow"
+
 comps.search.placeholder:
   other: "Search.."
 
-comps.related.title:
-  other: "Related Content"
-
-footer.powered:
+# ###########################
+# Partials / Layout
+# ###########################
+layout.footer.powered:
   other: "Powered by <a href=\"https://gohugo.io/\" target=\"blank\">Hugo</a> and <a href=\"https://github.com/strootje/hugo-scarecrow-theme\" target=\"blank\">Scarecrow</a>"
-footer.legal:
+layout.footer.legal:
   other: "-"
+
+layout.social.share.title:
+  other: "Share: "
+
+# ###########################
+# Partials / Social
+# ###########################
+social.related.title:
+  other: "Related Posts"

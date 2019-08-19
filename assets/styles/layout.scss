@@ -3,9 +3,12 @@
 	margin: 1rem;
 	display: flex;
 	flex-flow: column;
+	align-items: center;
 
 	& > .content {
 		flex-grow: 1;
+		width: 720px;
+		max-width: calc(100vw - 4rem);
 		display: flex;
 		flex-flow: column;
 

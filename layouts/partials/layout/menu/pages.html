@@ -1,7 +1,7 @@
-{{- $menu := index . 0 -}}
-{{- $scope := index . 1 -}}
+{{- $scope := (index . 0) -}}
+{{- $menu := (index . 1) -}}
 
-<nav id="main" class="text">
+<nav class="text">
 	<ul>
 		{{- range $menu -}}
 			<li><a href="{{- .URL -}}">{{- .Name -}}</a></li>

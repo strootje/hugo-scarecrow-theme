@@ -1,0 +1,16 @@
+<section class="avatar">
+	{{- if (not .Page.IsHome) -}}
+	<a href="{{- .Site.Home.RelPermalink -}}">
+	{{- end -}}
+		<figure>
+			{{- partial "layout/_header/avatar" . -}}
+
+			<figcaption>
+				{{- partial "layout/_header/title" . -}}
+				{{- partial "layout/_header/tagline" . -}}
+			</figcaption>
+		</figure>
+	{{- if (not .Page.IsHome) -}}
+	</a>
+	{{- end -}}
+</section>

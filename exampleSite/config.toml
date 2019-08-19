@@ -9,6 +9,7 @@ enableEmoji = true
 pygmentsUseClasses = true
 pygmentsCodeFences = true
 pygmentsOptions = "linenos=true"
+# googleAnalytics = "UA-123-45"
 
 [languages.en]
 	languageName = "English"
@@ -16,49 +17,29 @@ pygmentsOptions = "linenos=true"
 	weight = 1
 
 [params]
-	[params.options]
-		showRelated = true
-		font = "Poppins"
-	[params.author]
-		name = "Someone Awesome"
-		tagline = "asdasd kjashdlkjad"
-		logo = "images/scarecrow.jpg"
-	[params.menu.social]
-		target = "blank"
+	# callToAction = "/contact"
+[params.options]
+	showRelated = true
+	showShare = true
+	# font = "Poppins"
+[params.author]
+	name = "Someone Awesome"
+	tagline = "asdasd kjashdlkjad"
+	logo = "images/scarecrow.jpg"
+[params.social]
+	# github = "???"
+	# instagram = "???"
+	# linkedin = "???"
+	rss = "posts"
+	# stackoverflow = "???"
 
 [[menu.main]]
 	name = "About"
 	weight = 100
 	title = "about"
 	url = "/about"
-
-[[menu.social]]
-	name = "LinkedIn"
-	weight = 100
-	title = "linkedin"
-	url = "https://www.linkedin.com/in/<insert-name-here>"
-	pre = "fab fa-linkedin-in"
-[[menu.social]]
-	name = "Instagram"
+[[menu.main]]
+	name = "Contact"
 	weight = 200
-	title = "instagram"
-	url = "https://instagram.com/<insert-name-here>"
-	pre = "fab fa-instagram"
-[[menu.social]]
-	name = "Github"
-	weight = 300
-	title = "github"
-	url = "https://github.com/<insert-name-here>"
-	pre = "fab fa-github-alt"
-[[menu.social]]
-	name = "Stackoverflow"
-	weight = 400
-	title = "stackoverflow"
-	url = "https://stackoverflow.com/users/<insert-id-here>/<insert-name-here>"
-	pre = "fab fa-stack-overflow"
-[[menu.social]]
-	name = "RSS"
-	weight = 900
-	title = "rss"
-	url = "/posts/index.xml"
-	pre = "fas fa-rss"
+	title = "contact"
+	url = "/contact"

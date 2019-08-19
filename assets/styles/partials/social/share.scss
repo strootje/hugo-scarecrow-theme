@@ -1,0 +1,22 @@
+.share {
+	& > ul {
+		margin: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		list-style: none;
+
+		& > li {
+			margin-top: 0;
+			font-size: 1.2rem;
+
+			&:first-child {
+				font-size: .8rem;
+			}
+
+			&:not(:first-child) {
+				margin-left: 1rem;
+			}
+		}
+	}
+}

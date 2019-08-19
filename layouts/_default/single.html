@@ -1,26 +1,40 @@
-{{ define "content" }}
-	<section class="page-single">
-		<article>
-			<header>
-				<h1 class="title is-4">{{- .Title -}}</h1>
-			</header>
+{{- define "meta:type" -}}
+<meta property="og:type" content="article" />
+<meta property="og:article:publish_date" content="{{- .PublishDate -}}" />
+<meta property="og:article:modified_time" content="{{- .Lastmod -}}" />
+<meta property="og:article:author" content="{{- .Site.Params.Author.Name -}}" />
+<meta property="og:article:section" content="{{- .CurrentSection.Title -}}" />
+<meta property="og:description" content="{{- .Summary -}}" />
+{{- with .ExpiryDate -}}<meta property="og:article:expiration_time" content="{{- . -}}" />{{- end -}}
+{{- with .Params.categories -}}<meta property="og:article:tag" content="{{- . -}}" />{{- end -}}
+{{- end -}}
 
-			{{- partial "comps/avatar" . -}}
+{{- define "content" -}}
+<section class="page-single">
+	<article>
+		{{- partial "layout/title" . -}}
+		{{- partial "layout/header" . -}}
 
-			<aside>
-				{{- with .Params.categories -}}
-					<span><i class="fas fa-hashtag"></i> {{ . }}</span>
-				{{- end -}}
+		<aside>
+			{{- with .Params.categories -}}
+				<span><i class="fas fa-hashtag"></i> {{ . }}</span>
+			{{- end -}}
 
-				<span><i class="far fa-calendar"></i> {{ .Date.Format "2 Jan" }}</span>
-				<span><i class="far fa-clock"></i> {{ T "single.readingtime" .ReadingTime }}</span>
-			</aside>
+			{{- with .PublishDate -}}
+				<span><i class="far fa-calendar"></i> {{ .Format "2 Jan" }}</span>
+			{{- end -}}
 
-			<div class="content">
-				{{- .Content -}}
-			</div>
+			{{- with .ReadingTime -}}
+				<span><i class="far fa-clock"></i> {{ T "single.readingtime" . }}</span>
+			{{- end -}}
+		</aside>
 
-			{{- partial "comps/related" . -}}
-		</article>
-	</section>
-{{ end }}
+		<div class="content">
+			{{- .Content -}}
+		</div>
+
+		{{- partial "social/share" . -}}
+		{{- partial "social/related" . -}}
+	</article>
+</section>
+{{- end -}}

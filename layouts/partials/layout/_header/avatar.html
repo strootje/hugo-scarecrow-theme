@@ -1,0 +1,12 @@
+{{- if (isset .Site.Params.Author "logo") -}}
+	{{- $img := (resources.Get .Site.Params.Author.Logo) -}}
+	{{- with $img -}}
+		<img src="{{- .RelPermalink -}}" />
+	{{- end -}}
+{{- else -}}
+	{{- if (isset .Site.Params.Author "email") -}}
+		<img src="https://www.gravatar.com/avatar/{{- md5 .Site.Params.Author.Email -}}?s=180&d=identicon" />
+	{{- else -}}
+		<img src="https://www.gravatar.com/avatar?s=180&d=identicon" />
+	{{- end -}}
+{{- end -}}

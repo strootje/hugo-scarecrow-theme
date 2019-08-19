@@ -1,7 +1,8 @@
 {{ define "content" }}
-	<div class="list">
-		{{- partial "comps/avatar" . -}}
+	<div class="wrapper">
+		{{- partial "layout/header" . -}}
 		{{- partial "comps/search" . -}}
+		{{- partial "social/call-to-action" . -}}
 		404
 	</div>
 {{ end }}

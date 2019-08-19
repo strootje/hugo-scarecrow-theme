@@ -1,0 +1,14 @@
+{{- $scope := . -}}
+{{- $data := .Site.Data.Social -}}
+<section class="share">
+	<ul>
+		<li>{{- T "layout.social.share.title" -}}</li>
+		{{- range $type, $item := $data -}}
+		{{- with $item -}}
+		{{- if (isset . "share") -}}
+			<li>{{- partial "comps/social/share" (slice $scope $type) -}}</li>
+		{{- end -}}
+		{{- end -}}
+	{{- end -}}</ul>
+</section>
+

@@ -1,21 +1,26 @@
 <!DOCTYPE html>
-<html lang='{{- .Site.Language | default "en" -}}'>
+{{- $lang := .Site.Language | default "en_US" -}}
+<html lang="{{- $lang -}}">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>
-			{{- with .Page -}}
-				{{- .Title -}}
-			{{- end -}}
-			{{- T "app.title" | default " | A scarecrow theme" -}}
-		</title>
+		{{/*  Metadata  */}}
+		{{- partial "layout/head/metadata" . -}}
+		{{- block "meta:image" . -}}{{- partial "layout/head/metadata/image" . -}}{{- end -}}
+		{{- block "meta:type" . -}}{{- partial "layout/head/metadata/type" . -}}{{- end -}}
+		{{- block "meta:custom" . -}}{{- end -}}
 
-		{{ range .AlternativeOutputFormats -}}
-			{{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
-		{{ end -}}
+		{{/*  Styles  */}}
+		{{- partial "layout/head/styles" . -}}
+		{{- block "styles:custom" . -}}{{- end -}}
 
-		{{- partial "styles" . -}}
-		{{- partial "scripts" . -}}
+		{{/*  Scripts  */}}
+		{{- partial "layout/head/scripts" . -}}
+		{{/*  {{- block "scripts:tracking" . -}}{{ template "_internal/google_analytics_async.html" . }}{{- end -}}  */}}
+		{{- block "scripts:custom" . -}}{{- end -}}
+
+		{{/*  Links  */}}
+		{{- partial "layout/head/links/alternatives" . -}}
+		{{/*  {{- partial "layout/head/links/previous" . -}}  */}}
+		{{/*  {{- partial "layout/head/links/next" . -}}  */}}
 	</head>
 
 	<body>
@@ -27,7 +32,7 @@
 			</div>
 
 			{{- block "footer" . -}}
-				{{- partial "comps/footer" . -}}
+				{{- partial "layout/footer" . -}}
 			{{- end -}}
 		</div>
 	</body>

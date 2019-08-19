@@ -44,7 +44,7 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 		it('with a `fullhd` resolution', async () => await run('/', 'fullhd', allowed, browsers)).timeout(0);
 		it('with a `desktop` resolution', async () => await run('/', 'desktop', allowed, browsers)).timeout(0);
 		it('with a `tablet` resolution', async () => await run('/', 'tablet', allowed, browsers)).timeout(0);
-		it('with a `mobile` resolution', async () => await run('/', 'mobile', allowed * 3, browsers)).timeout(0);
+		it('with a `mobile` resolution', async () => await run('/', 'mobile', allowed * 6, browsers)).timeout(0);
 	});
 
 	describe('the `ListPostPage` should look the same', () => {
@@ -65,14 +65,28 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 		it('with a `fullhd` resolution', async () => await run('/posts/#search', 'fullhd', allowed, browsers, selectSearchBox)).timeout(0);
 		it('with a `desktop` resolution', async () => await run('/posts/#search', 'desktop', allowed, browsers, selectSearchBox)).timeout(0);
 		it('with a `tablet` resolution', async () => await run('/posts/#search', 'tablet', allowed, browsers, selectSearchBox)).timeout(0);
-		it('with a `mobile` resolution', async () => await run('/posts/#search', 'mobile', allowed, browsers, selectSearchBox)).timeout(0);
+		it('with a `mobile` resolution', async () => await run('/posts/#search', 'mobile', allowed * 2, browsers, selectSearchBox)).timeout(0);
 	});
 
 	describe('the `SinglePostPage` should look the same', () => {
 		it('with a `fullhd` resolution', async () => await run('/posts/hello-world', 'fullhd', allowed, browsers)).timeout(0);
 		it('with a `desktop` resolution', async () => await run('/posts/hello-world', 'desktop', allowed, browsers)).timeout(0);
 		it('with a `tablet` resolution', async () => await run('/posts/hello-world', 'tablet', allowed, browsers)).timeout(0);
-		it('with a `mobile` resolution', async () => await run('/posts/hello-world', 'mobile', allowed, browsers)).timeout(0);
+		it('with a `mobile` resolution', async () => await run('/posts/hello-world', 'mobile', allowed * 2, browsers)).timeout(0);
+	});
+
+	describe('the `AboutPage` should look the same', () => {
+		it('with a `fullhd` resolution', async () => await run('/about', 'fullhd', allowed, browsers)).timeout(0);
+		it('with a `desktop` resolution', async () => await run('/about', 'desktop', allowed, browsers)).timeout(0);
+		it('with a `tablet` resolution', async () => await run('/about', 'tablet', allowed, browsers)).timeout(0);
+		it('with a `mobile` resolution', async () => await run('/about', 'mobile', allowed, browsers)).timeout(0);
+	});
+
+	describe('the `ContactPage` should look the same', () => {
+		it('with a `fullhd` resolution', async () => await run('/contact', 'fullhd', allowed, browsers)).timeout(0);
+		it('with a `desktop` resolution', async () => await run('/contact', 'desktop', allowed, browsers)).timeout(0);
+		it('with a `tablet` resolution', async () => await run('/contact', 'tablet', allowed, browsers)).timeout(0);
+		it('with a `mobile` resolution', async () => await run('/contact', 'mobile', allowed, browsers)).timeout(0);
 	});
 });
 

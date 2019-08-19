@@ -1,0 +1,8 @@
+blockquote.person {
+	display: flex;
+
+	& > figure > img {
+		width: 128px;
+		height: 128px;
+	}
+}

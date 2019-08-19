@@ -1,6 +1,6 @@
-{{- $name := .Get "name" -}}
-{{- $title := .Get "title" -}}
-{{- $size:= (.Get "size") | default "180x" -}}
+{{- $name := (cond (.IsNamedParams) (.Get "name") (.Get 0)) -}}
+{{- $title := (cond (.IsNamedParams) (.Get "title") (.Get 1)) -}}
+{{- $size := (cond (.IsNamedParams) (.Get "size") (.Get 2)) | default "180x" -}}
 
 {{- $resource := .Page.Resources.GetMatch $name -}}
 {{- if (not $resource) -}}{{- errorf "no argument for field 'resource': %s" .Position -}}{{- end -}}

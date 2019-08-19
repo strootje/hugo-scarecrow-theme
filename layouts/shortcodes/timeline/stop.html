@@ -1,4 +1,4 @@
-{{- $title := .Get "title" -}}
+{{- $title := (cond (.IsNamedParams) (.Get "title") (.Get 0)) -}}
 
 {{- if (not $title) -}}{{- errorf "no argument for field 'title': %s" .Position -}}{{- end -}}
 

@@ -1,5 +1,5 @@
-{{- $class := .Get "class" -}}
-{{- $title := .Get "title" -}}
+{{- $title := (cond (.IsNamedParams) (.Get "title") (.Get 0)) -}}
+{{- $class := (cond (.IsNamedParams) (.Get "class") (.Get 0)) -}}
 {{- $markerClass := "is-primary" -}}
 
 {{- if (eq $class "is-primary") -}}{{- $markerClass := "is-danger" -}}{{- end -}}

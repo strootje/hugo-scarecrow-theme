@@ -14,7 +14,7 @@
 
 		{{/*  Scripts  */}}
 		{{- partial "layout/head/scripts" . -}}
-		{{/*  {{- block "scripts:tracking" . -}}{{ template "_internal/google_analytics_async.html" . }}{{- end -}}  */}}
+		{{- block "scripts:tracking" . -}}{{ partial "layout/head/scripts/google-analytics" . }}{{- end -}}
 		{{- block "scripts:custom" . -}}{{- end -}}
 
 		{{/*  Links  */}}

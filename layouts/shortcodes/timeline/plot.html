@@ -1,0 +1,16 @@
+{{- $class := .Get "class" -}}
+{{- $title := .Get "title" -}}
+{{- $markerClass := "is-primary" -}}
+
+{{- if (eq $class "is-primary") -}}{{- $markerClass := "is-danger" -}}{{- end -}}
+
+<div class="timeline-item {{ $class }}">
+	<div class="timeline-marker {{ $markerClass }}"></div>
+	<div class="timeline-content">
+		{{- with $title -}}
+			<div class="heading">{{- . -}}</div>
+		{{- end -}}
+
+		<span>{{- .Inner -}}</span>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+.tags {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+
+	& > div {
+		width: 420px;
+
+		& > a:not(:first-child) {
+			margin-left: .3rem;
+		}
+	}
+}

@@ -1,0 +1,34 @@
+{{- $scope := . -}}
+{{- $categories := .Get "categories" -}}
+{{- $caption := .Get "caption" -}}
+
+{{- if (not $categories) -}}{{- errorf "missing value for param 'categories': %s" .Position -}}{{- end -}}
+
+{{- $scratch := newScratch -}}
+{{- $scratch.Set "tags" (slice) -}}
+
+<!-- Filter tags on category -->
+{{- $tags := .Site.Taxonomies.tags.Alphabetical -}}
+{{- with $categories -}}
+{{- $categories := split . "," -}}
+{{- range $tags -}}
+	{{- $pages := (where .WeightedPages ".Page.Params.categories" "in" $categories) -}}
+	{{- if gt (len $pages) 0 -}}
+		{{- $scratch.Add "tags" (slice .) -}}
+	{{- end -}}
+{{- end -}}
+{{- end -}}
+
+{{- with $scratch.Get "tags" -}}
+<figure class="tags">
+	<div>{{- range . -}}
+	{{- with $.Site.GetPage (printf "/%s/%s" "tags" .Name) -}}
+		<a href="{{- .RelPermalink -}}">{{- .Name -}}</a>
+	{{- end -}}
+	{{- end -}}</div>
+
+	{{- with $caption -}}
+		<figcaption>{{- . -}}</figcaption>
+	{{- end -}}
+</figure>
+{{- end -}}

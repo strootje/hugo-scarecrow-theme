@@ -27,11 +27,11 @@ pygmentsOptions = "linenos=true"
 	tagline = "asdasd kjashdlkjad"
 	logo = "images/scarecrow.jpg"
 [params.social]
-	# github = "???"
-	# instagram = "???"
-	# linkedin = "???"
+	github = "???"
+	instagram = "???"
+	linkedin = "???"
 	rss = "posts"
-	# stackoverflow = "???"
+	stackoverflow = "???"
 
 [[menu.main]]
 	name = "About"

@@ -1,6 +1,5 @@
 {{- define "content" -}}
 {{- $email := .Params.contact -}}
-{{- if (not $email) -}}{{- errorf "missing value for param 'email': %s" .Position -}}{{- end -}}
 
 <section class="page-single">
 	<article>
@@ -14,6 +13,7 @@
 			{{- .Content -}}
 		</div>
 
+		{{- with $email -}}
 		<form class="is-centered" method="POST" action="https://formspree.io/{{- $email -}}">
 			<div class="field">
 				<label class="label" for="email">
@@ -44,6 +44,7 @@
 				</div>
 			</div>
 		</form>
+		{{- end -}}
 	</article>
 </section>
 {{- end -}}

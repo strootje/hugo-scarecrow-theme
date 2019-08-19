@@ -1,4 +1,4 @@
-{{- if .Site.Params.Options.ShowRelated -}}
+{{- if .Site.Params.options.showrelated -}}
 {{- if (not .Params.HideRelated) -}}
 {{- $related := (.CurrentSection.Pages.Related .) -}}
 {{- if $related -}}

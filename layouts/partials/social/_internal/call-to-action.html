@@ -1,6 +1,6 @@
 {{- $scope := (index . 0) -}}
 {{- $text := (index . 1) | default (T "social.cta.text") -}}
 
-{{- with $scope.Site.Params.CallToAction -}}
+{{- with $scope.Site.Params.calltoaction -}}
 <a class="button is-primary is-fullwidth" href="{{- . -}}">{{- $text -}}</a>
 {{- end -}}

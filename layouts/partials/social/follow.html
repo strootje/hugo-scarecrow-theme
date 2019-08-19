@@ -1,7 +1,7 @@
 {{- $scope := . -}}
 {{- $data := .Site.Data.Social -}}
 
-{{- if .Site.Params.Options.ShowFollow -}}
+{{- if .Site.Params.options.showfollow -}}
 {{- with .Site.Params.Social -}}
 <nav class="icons">
 	<ul>{{- range $type, $user := . -}}

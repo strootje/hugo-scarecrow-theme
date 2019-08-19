@@ -8,12 +8,12 @@ type Browser = FirefoxBrowser | ChromeBrowser;
 type Page = FirefoxPage | ChromePage;
 type Actions = (page: Page) => Promise<void>;
 type Resolution = 'fullhd' | 'desktop' | 'tablet' | 'mobile';
-const allowed = 5.0;
+const allowed = 8.0;
 const resolutions: { [_ in Resolution]: Viewport } = {
 	fullhd: { width: 1920, height: 1080 },
 	desktop: { width: 768, height: 1024 },
 	tablet: { width: 640, height: 690 },
-	mobile: { width: 320, height: 480 }
+	mobile: { width: 320, height: 740 }
 };
 
 describe('In the browsers <Firefox> and <Chrome>', () => {
@@ -43,7 +43,7 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 		it('with a `fullhd` resolution', () => run('/', 'fullhd', allowed, browsers)).timeout(0);
 		it('with a `desktop` resolution', () => run('/', 'desktop', allowed, browsers)).timeout(0);
 		it('with a `tablet` resolution', () => run('/', 'tablet', allowed, browsers)).timeout(0);
-		it('with a `mobile` resolution', () => run('/', 'mobile', allowed * 6, browsers)).timeout(0);
+		it('with a `mobile` resolution', () => run('/', 'mobile', allowed, browsers)).timeout(0);
 	});
 
 	describe('the `ListPostPage` should look the same', () => {
@@ -64,21 +64,21 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 		it('with a `fullhd` resolution', () => run('/posts/#search', 'fullhd', allowed, browsers, selectSearchBox)).timeout(0);
 		it('with a `desktop` resolution', () => run('/posts/#search', 'desktop', allowed, browsers, selectSearchBox)).timeout(0);
 		it('with a `tablet` resolution', () => run('/posts/#search', 'tablet', allowed, browsers, selectSearchBox)).timeout(0);
-		it('with a `mobile` resolution', () => run('/posts/#search', 'mobile', allowed * 3, browsers, selectSearchBox)).timeout(0);
+		it('with a `mobile` resolution', () => run('/posts/#search', 'mobile', allowed, browsers, selectSearchBox)).timeout(0);
 	});
 
 	describe('the `SinglePostPage` should look the same', () => {
 		it('with a `fullhd` resolution', () => run('/posts/hello-world', 'fullhd', allowed, browsers)).timeout(0);
 		it('with a `desktop` resolution', () => run('/posts/hello-world', 'desktop', allowed, browsers)).timeout(0);
 		it('with a `tablet` resolution', () => run('/posts/hello-world', 'tablet', allowed, browsers)).timeout(0);
-		it('with a `mobile` resolution', () => run('/posts/hello-world', 'mobile', allowed * 4, browsers)).timeout(0);
+		it('with a `mobile` resolution', () => run('/posts/hello-world', 'mobile', allowed, browsers)).timeout(0);
 	});
 
 	describe('the `AboutPage` should look the same', () => {
 		it('with a `fullhd` resolution', () => run('/about', 'fullhd', allowed, browsers)).timeout(0);
 		it('with a `desktop` resolution', () => run('/about', 'desktop', allowed, browsers)).timeout(0);
 		it('with a `tablet` resolution', () => run('/about', 'tablet', allowed, browsers)).timeout(0);
-		it('with a `mobile` resolution', () => run('/about', 'mobile', allowed * 2, browsers)).timeout(0);
+		it('with a `mobile` resolution', () => run('/about', 'mobile', allowed, browsers)).timeout(0);
 	});
 
 	describe('the `ContactPage` should look the same', () => {

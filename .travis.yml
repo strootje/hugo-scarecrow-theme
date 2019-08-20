@@ -26,8 +26,9 @@ before_script:
 - mkdir ./test/results
 
 script:
-- hugo -v --source ./exampleSite --themesDir ../.. -t hugo-scarecrow-theme
+- env HUGO_BASEURL="http://localhost:1313/" hugo -v --source ./exampleSite --themesDir ../.. -t hugo-scarecrow-theme
 - pnpx mocha
+- hugo -v --source ./exampleSite --themesDir ../.. -t hugo-scarecrow-theme
 
 deploy:
   provider: pages

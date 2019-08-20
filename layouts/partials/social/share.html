@@ -1,0 +1,19 @@
+{{- $scope := . -}}
+{{- $data := .Site.Data.Social -}}
+
+{{- if .Site.Params.options.showshare -}}
+<section class="share">
+	<header>
+		<h4 class="title is-5">{{- T "social.share.title" -}}</h4>
+	</header>
+
+	<ul>
+		{{- range $type, $item := $data -}}
+		{{- with $item -}}
+		{{- if (isset . "share") -}}
+			<li>{{- partial "comps/social/share" (slice $scope $type) -}}</li>
+		{{- end -}}
+		{{- end -}}
+	{{- end -}}</ul>
+</section>
+{{- end -}}

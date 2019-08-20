@@ -1,0 +1,19 @@
+.page-list {
+	& > .wrapper {
+		& > a {
+			padding: .5rem 0;
+			width: 100%;
+			display: block;
+
+			text-align: center;
+
+			&.prev {
+				margin-bottom: .5rem;
+			}
+
+			&.next {
+				margin-top: .5rem;
+			}
+		}
+	}
+}

@@ -1,0 +1,14 @@
+nav.icons {
+	& > ul {
+		margin: 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		list-style: none;
+
+		& > li {
+			margin: 0 .5rem;
+			font-size: 1.8rem;
+		}
+	}
+}

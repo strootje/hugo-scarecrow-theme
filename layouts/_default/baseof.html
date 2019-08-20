@@ -1,50 +1,39 @@
 <!DOCTYPE html>
-<html lang='{{- .Site.Language | default "en" -}}'>
+{{- $lang := .Site.Language | default "en_US" -}}
+<html lang="{{- $lang -}}">
 	<head>
-		<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>
-			{{- with .Page -}}
-				{{- .Title -}}
-			{{- end -}}
-			{{- T "app.title" | default " | A scarecrow theme" -}}
-		</title>
+		{{/*  Metadata  */}}
+		{{- partial "layout/head/metadata" . -}}
+		{{- block "meta:image" . -}}{{- partial "layout/head/metadata/image" . -}}{{- end -}}
+		{{- block "meta:type" . -}}{{- partial "layout/head/metadata/type" . -}}{{- end -}}
+		{{- block "meta:custom" . -}}{{- end -}}
 
-		{{- partial "styles" . -}}
-		{{- partial "scripts" . -}}
+		{{/*  Styles  */}}
+		{{- partial "layout/head/styles" . -}}
+		{{- block "styles:custom" . -}}{{- end -}}
+
+		{{/*  Scripts  */}}
+		{{- partial "layout/head/scripts" . -}}
+		{{- block "scripts:tracking" . -}}{{ partial "layout/head/scripts/google-analytics" . }}{{- end -}}
+		{{- block "scripts:custom" . -}}{{- end -}}
+
+		{{/*  Links  */}}
+		{{- partial "layout/head/links/alternatives" . -}}
+		{{/*  {{- partial "layout/head/links/previous" . -}}  */}}
+		{{/*  {{- partial "layout/head/links/next" . -}}  */}}
 	</head>
 
 	<body>
 		<div class="layout">
-			<header>
-				{{- partial "comps/navbar" . -}}
-			</header>
-
-			<div class="page">
-				<aside class="top" id="sidebar">
-					{{- partial "comps/about" . -}}
-					{{- partial "comps/search" . -}}
-					{{- partial "comps/menu" (slice "main" .) -}}
-
-					<div class="bottom">
-						{{ partial "sidebar-bottom" . }}
-					</div>
-				</aside>
-
-				<main>
-					{{- block "content" . -}}
-					{{- end -}}
-				</main>
-
-				<aside class="bottom">
-					{{ partial "sidebar-bottom" . }}
-				</aside>
+			<div class="content">
+				{{- block "content" . -}}
+					<!-- content -->
+				{{- end -}}
 			</div>
 
-			<footer>
-				{{- partial "comps/menu" (slice "social" . "icons") -}}
-				{{- partial "comps/legal" . -}}
-			</footer>
+			{{- block "footer" . -}}
+				{{- partial "layout/footer" . -}}
+			{{- end -}}
 		</div>
 	</body>
 </html>

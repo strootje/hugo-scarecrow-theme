@@ -1,0 +1,21 @@
+.layout > footer {
+	font-size: .8rem;
+	font-style: italic;
+	text-align: center;
+
+	& > section {
+		display: flex;
+		flex-flow: column;
+
+		& > span {
+			line-height: .8rem;
+
+			&.copy {
+				&:before {
+					content: '\00a9';
+					margin-right: .1rem;
+				}
+			}
+		}
+	}
+}

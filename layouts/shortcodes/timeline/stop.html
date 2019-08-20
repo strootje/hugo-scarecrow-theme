@@ -1,0 +1,9 @@
+{{- $title := (cond (.IsNamedParams) (.Get "title") (.Get 0)) -}}
+
+{{- if (not $title) -}}{{- errorf "no argument for field 'title': %s" .Position -}}{{- end -}}
+
+<div class="timeline-header">
+	<span class="tag is-primary">
+		{{- $title -}}
+	</span>
+</div>

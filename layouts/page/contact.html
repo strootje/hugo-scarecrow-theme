@@ -1,34 +1,50 @@
-{{ define "content" }}
-	{{ .Content }}
+{{- define "content" -}}
+{{- $email := .Params.contact -}}
 
-	<form method="POST" action="https://formspree.io/info@strootje.com">
-		<div class="field">
-			<label class="label" for="email">
-				{{ T "page.contact.form.email.label" | default "__Email__" }}
-			</label>
+<section class="page-single">
+	<article>
+		<header>
+			<h1 class="title is-4">{{- .Title -}}</h1>
+		</header>
 
-			<div class="control">
-				{{ $emailPlaceholderText := T "page.contact.form.email.placeholder" | default "__you@domain.com__" }}
-				<input class="input" type="email" name="email" id="email" placeholder="{{ $emailPlaceholderText }}" />
-			</div>
+		{{- partial "layout/header" . -}}
+
+		<div>
+			{{- .Content -}}
 		</div>
 
-		<div class="field">
-			<label class="label" for="message">
-				{{ T "page.contact.form.message.label" | default "__Message__" }}
-			</label>
+		{{- with $email -}}
+		<form class="is-centered" method="POST" action="https://formspree.io/{{- $email -}}">
+			<div class="field">
+				<label class="label" for="email">
+					{{- T "page.contact.email.label" -}}
+				</label>
 
-			<div class="control">
-				{{ $messagePlaceholderText := T "page.contact.form.message.placeholder" | default "__I have a very good question__" }}
-				<textarea class="textarea has-fixed-size" name="message" id="message" placeholder="{{ $messagePlaceholderText }}"></textarea>
+				<div class="control">
+					{{- $placeholder := (T "page.contact.email.placeholder") -}}
+					<input class="input" type="email" name="email" id="email" placeholder="{{- $placeholder -}}">
+				</div>
 			</div>
-		</div>
 
-		<div class="field is-grouped">
-			<div class="control">
-				{{ $submitText := T "page.contact.form.submit.button" | default "__Submit__" }}
-				<input class="button is-primary" type="submit" value="{{ $submitText }}" />
+			<div class="field">
+				<label class="label" for="message">
+					{{- T "page.contact.message.label" -}}
+				</label>
+
+				<div class="control">
+					{{- $placeholder := (T "page.contact.message.placeholder") -}}
+					<textarea class="textarea has-fixed-size" name="message" id="message" placeholder="{{- $placeholder -}}"></textarea>
+				</div>
 			</div>
-		</div>
-	</form>
-{{ end }}
+
+			<div class="field is-grouped">
+				<div class="control">
+					{{- $placeholder := (T "page.contact.submit.text") -}}
+					<input class="button is-primary" type="submit" value="{{- $placeholder -}}">
+				</div>
+			</div>
+		</form>
+		{{- end -}}
+	</article>
+</section>
+{{- end -}}

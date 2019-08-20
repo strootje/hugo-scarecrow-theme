@@ -1,9 +1,12 @@
-{{ define "content" }}
-	{{ with .Content }}
-		<div class="content">
-			{{ . }}
-		</div>
-	{{ end }}
+{{- define "content" -}}
+	<div class="page-home">
+		{{- partial "layout/header" . -}}
+		{{- partial "social/follow" . -}}
+		{{- partial "social/call-to-action" . -}}
 
-	{{ partial "comps/posts/pinned" . }}
-{{ end }}
+		<div>
+			{{- partial "layout/menu/sections" (slice . .Site.Sections) -}}
+			{{- partial "layout/menu/pages" (slice . .Site.Menus.main) -}}
+		</div>
+	</div>
+{{- end -}}

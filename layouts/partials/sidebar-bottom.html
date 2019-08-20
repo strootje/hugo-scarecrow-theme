@@ -1,8 +1,0 @@
-{{- partial "comps/translations" . -}}
-
-{{- $context := . -}}
-{{- with (.Param "widgets.sidebar") -}}
-	{{- range . -}}
-		{{- partial ( printf "comps/%s" . ) $context -}}
-	{{- end -}}
-{{- end -}}

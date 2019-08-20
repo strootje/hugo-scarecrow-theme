@@ -1,5 +1,4 @@
 ---
 layout: search
-outputs:
-  - json
+outputs: json
 ---

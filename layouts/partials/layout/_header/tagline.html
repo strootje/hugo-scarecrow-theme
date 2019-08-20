@@ -1,0 +1,9 @@
+{{- if .Page.IsHome -}}
+<h4 class="subtitle is-7">
+	{{- .Site.Params.Author.Tagline | emojify -}}
+
+	{{- with .Site.Params.Author.Tagline2 -}}
+		<br />{{- . | emojify -}}
+	{{- end -}}
+</h4>
+{{- end -}}

@@ -1,0 +1,18 @@
+{{- if .Site.Params.options.showrelated -}}
+{{- if (not .Params.HideRelated) -}}
+{{- $related := (.CurrentSection.Pages.Related .) -}}
+{{- if $related -}}
+<section class="related">
+	<header>
+		<h4 class="title is-5">{{- T "social.related.title" -}}</h4>
+	</header>
+
+	<div class="wrapper">
+		{{- range (first 3 $related) -}}
+			{{- .Render "listitem" -}}
+		{{- end -}}
+	</div>
+</section>
+{{- end -}}
+{{- end -}}
+{{- end -}}

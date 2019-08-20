@@ -2,58 +2,48 @@ languageCode = "en"
 
 title = "scarecrow"
 baseURL = "http://localhost:1313/"
-DefaultContentLanguage = "en"
 paginate = 6
 
-[languages.en]
-languageName = "English"
-contentDir = "content/en"
-weight = 1
+enableEmoji = true
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsOptions = "linenos=true"
 
-[languages.nl]
-languageName = "Nederlands"
-contentDir = "content/nl"
-weight = 2
+# googleAnalytics = "UA-123-45"
+[privacy.googleAnalytics]
+	respectDoNotTrack = true
+
+
+[languages.en]
+	languageName = "English"
+	contentDir = "content/en"
+	weight = 1
 
 [params]
-	author = "Scarecrow"
-	logo = "images/scarecrow.jpg"
-	font = "Poppins"
+	callToAction = "/contact"
+[params.options]
+	showCallToAction = true
+	showFollow = true
 	showRelated = true
-	showHeaders = false
-	[params.menu.social]
-		target = "blank"
-	[params.about]
-		title = "Bas Stroosnijder"
-		tagline = "FOSS since 1991"
-		[params.about.logo]
-			src = "images/scarecrow.jpg"
+	showShare = true
+[params.author]
+	name = "Someone Awesome"
+	tagline = "asdasd kjashdlkjad"
+	logo = "images/scarecrow.jpg"
+[params.social]
+	github = "???"
+	instagram = "???"
+	linkedin = "???"
+	rss = "posts"
+	stackoverflow = "???"
 
-[[menu.main]]
-	name = "Home"
-	url = "/"
-	weight = 1
 [[menu.main]]
 	name = "About"
+	weight = 100
+	title = "about"
 	url = "/about"
-	weight = 2
 [[menu.main]]
 	name = "Contact"
+	weight = 200
+	title = "contact"
 	url = "/contact"
-	weight = 3
-
-[[menu.social]]
-	name = "Linkedin"
-	url = "https://linkedin.com/"
-	pre = "fab fa-fw fa-lg fa-linkedin"
-	weight = 1
-[[menu.social]]
-	name = "Github"
-	url = "https://github.com/"
-	pre = "fab fa-fw fa-lg fa-github"
-	weight = 2
-
-[[menu.legal]]
-	name = "Privacy"
-	url = "/privacy"
-	weight = 1

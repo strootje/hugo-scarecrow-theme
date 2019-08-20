@@ -1,80 +1,76 @@
+# ###########################
+# Global
+# ###########################
 app.title:
-  other: " | strootje.com"
+  other: "Powered by Scarecrow"
 
+# ###########################
+# _default
+# ###########################
+single.readingtime:
+  one: "{{ .Count }} minute"
+  other: "{{ .Count }} minutes"
 
-# Layout: Single
-# #####################################
-single.readingtime.text:
-  one: One minute read
-  other: "{{ .Count }} minute read"
+# ###########################
+# Pages
+# ###########################
+page.contact.email.label:
+  other: "Email"
+page.contact.email.placeholder:
+  other: "someone@example.com"
+page.contact.message.label:
+  other: "Message"
+page.contact.message.placeholder:
+  other: "..."
+page.contact.submit.text:
+  other: "Send Message"
 
-# Page: Contact
-# #####################################
-page.contact.form.email.label:
-  other: Email
-page.contact.form.email.placeholder:
-  other: you@example.com
-page.contact.form.message.label:
-  other: Message
-page.contact.form.message.placeholder:
-  other: So I was wondering...
-page.contact.form.submit.button:
-  other: Send Message
+# ###########################
+# Partials / Components
+# ###########################
+comps.social.follow.github:
+  other: "Find me on Github"
+comps.social.follow.hackernews:
+  other: "Find me on HackerNews"
+comps.social.follow.instagram:
+  other: "Find me on Instagram"
+comps.social.follow.linkedin:
+  other: "Find me on LinkedIn"
+comps.social.follow.rss:
+  other: "Find me on RSS"
+comps.social.follow.stackoverflow:
+  other: "Find me on Stackoverflow"
 
-# Component: Paginator
-# #####################################
-paginator.next.text:
-  other: Older Posts
-paginator.prev.text:
-  other: Newer Posts
+comps.social.share.github:
+  other: "Share on Github"
+comps.social.share.hackernews:
+  other: "Share on HackerNews"
+comps.social.share.instagram:
+  other: "Share on Instagram"
+comps.social.share.linkedin:
+  other: "Share on LinkedIn"
+comps.social.share.stackoverflow:
+  other: "Share on Stackoverflow"
 
-# Component: Posts
-# #####################################
-comp.posts.list.title:
-  other: Posts
-comp.posts.pinned.title:
-  other: Pinned Posts
+comps.search.placeholder:
+  other: "Search.."
 
-# Widget: About
-# #####################################
-# empty
+# ###########################
+# Partials / Layout
+# ###########################
+layout.footer.powered:
+  other: "Powered by <a href=\"https://gohugo.io/\" target=\"blank\">Hugo</a> and <a href=\"https://github.com/strootje/hugo-scarecrow-theme\" target=\"blank\">Scarecrow</a>"
+layout.footer.legal:
+  other: "No :cookie: were used in the creation of this page"
 
-# Widget: Breadcrums
-# #####################################
-# empty
+# ###########################
+# Partials / Social
+# ###########################
+social.cta.text:
+  other: "Get in touch"
 
-# Widget: Legal
-# #####################################
-widget.legal.author:
-  other: "{{ (index . 0) }} © {{ (index . 1) }}"
+social.related.title:
+  other: "Related Posts"
 
-# Widget: Navbar
-# #####################################
-# empty
-
-# Widget: NavFooter
-# #####################################
-widget.navfooter.languages.title:
-  other: Languages
-
-# Widget: Navmain
-# #####################################
-widget.navmain.title:
-  other: Navigation
-
-# Widget Powered By
-# #####################################
-widget.poweredby.title:
-  other: Powered by
-
-# Widget: Search
-# #####################################
-widget.search.title:
-  other: Search
-widget.search.placeholder:
-  other: Search...
-
-# Widget: Breadcrums
-# #####################################
-widget.translations.title:
-  other: "Other Languages"
+social.share.title:
+  other: "Share"

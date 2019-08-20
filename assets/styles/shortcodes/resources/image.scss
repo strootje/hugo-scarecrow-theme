@@ -1,0 +1,7 @@
+figure.image {
+	& > figcaption {
+		font-size: .8rem;
+		color: map-get($shades, 'grey-light');
+		text-shadow: 1px 1px 2px map-get($shades, 'white-ter');
+	}
+}

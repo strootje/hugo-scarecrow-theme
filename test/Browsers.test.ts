@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import { join } from 'path';
 import { Browser as ChromeBrowser, launch as LaunchChrome, Page as ChromePage, Viewport } from 'puppeteer';
 import { Browser as FirefoxBrowser, launch as LaunchFirefox, Page as FirefoxPage } from 'puppeteer-firefox';
@@ -9,11 +8,12 @@ type Browser = FirefoxBrowser | ChromeBrowser;
 type Page = FirefoxPage | ChromePage;
 type Actions = (page: Page) => Promise<void>;
 type Resolution = 'fullhd' | 'desktop' | 'tablet' | 'mobile';
+const allowed = 8.0;
 const resolutions: { [_ in Resolution]: Viewport } = {
 	fullhd: { width: 1920, height: 1080 },
 	desktop: { width: 768, height: 1024 },
 	tablet: { width: 640, height: 690 },
-	mobile: { width: 320, height: 480 }
+	mobile: { width: 320, height: 740 }
 };
 
 describe('In the browsers <Firefox> and <Chrome>', () => {
@@ -40,35 +40,52 @@ describe('In the browsers <Firefox> and <Chrome>', () => {
 	});
 
 	describe('the `HomePage` should look the same', () => {
-		it('with a `fullhd` resolution', async () => await run('/', 'fullhd', 0.2, browsers)).timeout(0);
-		it('with a `desktop` resolution', async () => await run('/', 'desktop', 0.7, browsers)).timeout(0);
-		it('with a `tablet` resolution', async () => await run('/', 'tablet', 1.1, browsers)).timeout(0);
-		it('with a `mobile` resolution', async () => await run('/', 'mobile', 1.5, browsers)).timeout(0);
+		it('with a `fullhd` resolution', () => run('/', 'fullhd', allowed, browsers)).timeout(0);
+		it('with a `desktop` resolution', () => run('/', 'desktop', allowed, browsers)).timeout(0);
+		it('with a `tablet` resolution', () => run('/', 'tablet', allowed, browsers)).timeout(0);
+		it('with a `mobile` resolution', () => run('/', 'mobile', allowed, browsers)).timeout(0);
 	});
 
-	describe('the `HomePage` with `SearchBox` should look the same', () => {
-		const searchSelector = '.widget-search input[type=\'search\']';
-		const resultSelector = '.widget-search #search-results';
+	describe('the `ListPostPage` should look the same', () => {
+		it('with a `fullhd` resolution', () => run('/posts', 'fullhd', allowed, browsers)).timeout(0);
+		it('with a `desktop` resolution', () => run('/posts', 'desktop', allowed, browsers)).timeout(0);
+		it('with a `tablet` resolution', () => run('/posts', 'tablet', allowed, browsers)).timeout(0);
+		it('with a `mobile` resolution', () => run('/posts', 'mobile', allowed, browsers)).timeout(0);
+	});
+
+	describe('the `SearchPage` should look the same', () => {
+		const searchSelector = '.search input[type=\'search\']';
+		const resultSelector = '.search ul';
 		const selectSearchBox = async (page: ChromePage) => {
-			await page.type(searchSelector, 'test');
+			await page.type(searchSelector, 'hello');
 			await page.waitForSelector(resultSelector, { visible: true });
 		};
 
-		it('with a `fullhd` resolution', async () => await run('/#search', 'fullhd', 0.3, browsers, selectSearchBox)).timeout(0);
-		it('with a `desktop` resolution', async () => await run('/#search', 'desktop', 0.8, browsers, selectSearchBox)).timeout(0);
-		it('with a `tablet` resolution', async () => await run('/#search', 'tablet', 1.6, browsers, selectSearchBox)).timeout(0);
-		it('with a `mobile` resolution', async () => await run('/#search', 'mobile', 1.6, browsers, async (page: Page) => {
-			await page.click('.navbar-burger');
-			await page.waitForSelector(searchSelector, { visible: true });
-			await selectSearchBox(page);
-		})).timeout(0);
+		it('with a `fullhd` resolution', () => run('/posts/#search', 'fullhd', allowed, browsers, selectSearchBox)).timeout(0);
+		it('with a `desktop` resolution', () => run('/posts/#search', 'desktop', allowed, browsers, selectSearchBox)).timeout(0);
+		it('with a `tablet` resolution', () => run('/posts/#search', 'tablet', allowed, browsers, selectSearchBox)).timeout(0);
+		it('with a `mobile` resolution', () => run('/posts/#search', 'mobile', allowed, browsers, selectSearchBox)).timeout(0);
 	});
 
 	describe('the `SinglePostPage` should look the same', () => {
-		it('with a `fullhd` resolution', async () => await run('/posts/hello-world', 'fullhd', 0.3, browsers)).timeout(0);
-		it('with a `desktop` resolution', async () => await run('/posts/hello-world', 'desktop', 1.2, browsers)).timeout(0);
-		it('with a `tablet` resolution', async () => await run('/posts/hello-world', 'tablet', 1.9, browsers)).timeout(0);
-		it('with a `mobile` resolution', async () => await run('/posts/hello-world', 'mobile', 3.3, browsers)).timeout(0);
+		it('with a `fullhd` resolution', () => run('/posts/hello-world', 'fullhd', allowed, browsers)).timeout(0);
+		it('with a `desktop` resolution', () => run('/posts/hello-world', 'desktop', allowed, browsers)).timeout(0);
+		it('with a `tablet` resolution', () => run('/posts/hello-world', 'tablet', allowed, browsers)).timeout(0);
+		it('with a `mobile` resolution', () => run('/posts/hello-world', 'mobile', allowed, browsers)).timeout(0);
+	});
+
+	describe('the `AboutPage` should look the same', () => {
+		it('with a `fullhd` resolution', () => run('/about', 'fullhd', allowed, browsers)).timeout(0);
+		it('with a `desktop` resolution', () => run('/about', 'desktop', allowed, browsers)).timeout(0);
+		it('with a `tablet` resolution', () => run('/about', 'tablet', allowed, browsers)).timeout(0);
+		it('with a `mobile` resolution', () => run('/about', 'mobile', allowed, browsers)).timeout(0);
+	});
+
+	describe('the `ContactPage` should look the same', () => {
+		it('with a `fullhd` resolution', () => run('/contact', 'fullhd', allowed, browsers)).timeout(0);
+		it('with a `desktop` resolution', () => run('/contact', 'desktop', allowed, browsers)).timeout(0);
+		it('with a `tablet` resolution', () => run('/contact', 'tablet', allowed, browsers)).timeout(0);
+		it('with a `mobile` resolution', () => run('/contact', 'mobile', allowed, browsers)).timeout(0);
 	});
 });
 
@@ -79,6 +96,7 @@ async function run(url: string, res: Resolution, threshold: number, browsers: Br
 	const firstPath = join(__dirname, 'results', `browser[0]-[${safeUrl}]-${res}.jpg`);
 	await capture(firstBrowser, resolutions[res], url, firstPath, actions);
 
+	const promises: Array<Promise<void>> = [];
 	for(let i = 1; i < browsers.length; i++) {
 		const browser = browsers[i];
 		const path = join(__dirname, 'results', `browser[${i}]-[${safeUrl}]-${res}.jpg`);
@@ -89,13 +107,20 @@ async function run(url: string, res: Resolution, threshold: number, browsers: Br
 			.compareTo(path)
 			.ignoreAntialiasing();
 
-		results.onComplete(res => {
-			const ratio = parseFloat(`${res.misMatchPercentage}`);
+		promises.push(new Promise((resolve, reject) => {
+			results.onComplete(res => {
+				const ratio = parseFloat(`${res.misMatchPercentage}`);
 
-			console.log(`expecting <${ratio}> <= <${threshold}>`);
-			expect(ratio).to.be.lessThan(threshold + 0.1)
-		});
+				if (ratio > threshold) {
+					reject(`expecting <${ratio}> <= <${threshold}>`);
+				} else {
+					resolve();
+				}
+			});
+		}));
 	}
+
+	await Promise.all(promises);
 }
 
 async function capture(browser: Browser, viewport: Viewport, url: string, path: string, actions?: Actions): Promise<Buffer> {

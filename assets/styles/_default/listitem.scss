@@ -1,0 +1,21 @@
+article.listitem {
+	display: flex;
+
+	&:not(:first-item) {
+		margin-top: 1rem;
+	}
+
+	& > header {
+		order: 2;
+	}
+
+	& > aside {
+		order: 1;
+		min-width: 55px;
+		margin-right: 1rem;
+
+		color: #aaa;
+		font-size: .8rem;
+		text-align: right;
+	}
+}

@@ -1,156 +1,43 @@
-// layout made with help from:
-// https://stackoverflow.com/questions/35559104/flexbox-ordering-splitting-a-column
-
-
-
 .layout {
-	background-color: if($debug, gray, unset);
+	width: calc(100vw - 2rem);
+	height: calc(100vh - 2rem);
+	margin: 1rem;
 	display: flex;
-	flex-flow: column nowrap;
-	min-height: 100%;
+	flex-flow: column;
+	align-items: center;
 
-	& > .page {
-		background-color: if($debug, lightgray, unset);
+	& > .content {
 		flex-grow: 1;
+		width: 720px;
+		max-width: calc(100vw - 4rem);
 		display: flex;
-		flex-flow: column nowrap;
-		min-height: inherit;
+		flex-flow: column;
 
-		@include ifLargerThan(small) {
-			flex-flow: row wrap;
+		%centered {
+			display: flex;
+			flex-flow: column;
+			align-items: center;
+			justify-content: center;
 		}
 
-		& > aside {
-
-			@include ifLargerThan(small) {
-				width: map-get($sidebar-width, small);
-			}
-
-			@include ifLargerThan(medium) {
-				width: map-get($sidebar-width, medium);
-			}
-
-			&.top {
-				background-color: if($debug, yellow, unset);
-
-				& > .bottom {
-					display: none;
-
-					@include ifLargerThan(small) {
-						display: block;
-					}
-				}
-			}
-
-			&.bottom {
-				background-color: if($debug, lightyellow, unset);
-
-				@include ifLargerThan(small) {
-					display: none;
-				}
-			}
+		& > .page-home {
+			@extend %centered;
+			height: 100%;
 		}
 
-		& > main {
-			background-color: if($debug, aqua, unset);
-			overflow-x: scroll;
-
-			@include ifLargerThan(small) {
-				flex-basis: calc(100% - #{map-get($sidebar-width, small)});
-			}
-
-			@include ifLargerThan(medium) {
-				flex-basis: calc(100% - #{map-get($sidebar-width, medium)});
-			}
-
-			@include ifLargerThan(large) {
-				flex-basis: calc(100% - #{map-get($sidebar-width, medium)});
-				max-width: calc(#{map-get($breakpoints, large)});
-				overflow-x: unset;
-			}
-		}
-	}
-}
-
-
-
-.layout {
-	%centered-if-small {
-		text-align: center;
-
-		@include ifLargerThan(small) {
-			text-align: inherit;
-		}
-	}
-
-	%padding-for-sidebar {
-		@include ifLargerThan(small) {
-			padding-left: map-get($sidebar-width, small);
+		& > .page-list {
+			@extend %centered;
 		}
 
-		@include ifLargerThan(medium) {
-			padding-left: map-get($sidebar-width, medium);
+		& > .page-home > *:not(:first-child),
+		& > .page-list > *:not(:first-child),
+		& > .page-single > article > *:not(:first-child) {
+			margin-top: 1rem;
 		}
-	}
-
-	& > header {
-		@extend %centered-if-small;
-		@extend %padding-for-sidebar;
 	}
 
 	& > footer {
-		@extend %centered-if-small;
-		@extend %padding-for-sidebar;
-	}
-
-	& > .page {
-		place-content: flex-start;
-		padding: $spacing-dense 0;
-
-		%page-part {
-			padding: 0 $spacing-dense;
-		}
-
-		& > aside {
-			@extend %page-part;
-			text-align: center;
-
-			&.top {
-				display: none;
-
-				@include ifLargerThan(small) {
-					display: block;
-				}
-
-				&.is-active {
-					display: block;
-				}
-			}
-
-			&.bottom {
-				margin-top: $spacing-dense;
-			}
-
-			@include ifLargerThan(small) {
-				text-align: right;
-			}
-
-			& > .widget,
-			& > .bottom > .widget {
-				@include flare(after, 3rem, right);
-
-				header {
-					margin-bottom: $spacing-dense;
-				}
-			}
-		}
-
-		& > main {
-			@extend %page-part;
-
-			& header {
-				@include flare(after, 50%, left);
-			}
-		}
+		height: 6rem;
+		margin-top: 2rem;
 	}
 }

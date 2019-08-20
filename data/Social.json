@@ -1,0 +1,78 @@
+{
+	"facebook": {
+		"icon": "fab fa-fw fa-facebook-f",
+		"follow": "https://www.facebook.com/%user%",
+		"share": "https://facebook.com/sharer/sharer.php?u=%permalink%"
+	},
+
+	"github": {
+		"icon": "fab fa-fw fa-github-alt",
+		"follow": "https://github.com/%user%"
+	},
+
+	"googleplus": {
+		"icon": "fab fa-fw fa-google-plus-g",
+		"follow": "https://plus.google.com/%user%",
+		"share": "https://plus.google.com/share?url=%permalink%"
+	},
+
+	"hackernews": {
+		"icon": "fab fa-fw fa-hacker-news",
+		"follow": "https://news.ycombinator.com/user?id=%user%",
+		"share": "https://news.ycombinator.com/submitlink?u=%permalink%&t=%title%"
+	},
+
+	"instagram": {
+		"icon": "fab fa-fw fa-instagram",
+		"follow": "https://instagram.com/%user%"
+	},
+
+	"linkedin": {
+		"icon": "fab fa-fw fa-linkedin-in",
+		"follow": "https://www.linkedin.com/in/%user%",
+		"share": "https://www.linkedin.com/shareArticle?mini=true&url=%permalink%&title=%title%&summary=%summary%&source=%source%"
+	},
+
+	"mail": {
+		"icon": "fas fa-fw fa-envelope",
+		"share": "mailto:?subject=%title%&body=%permalink%"
+	},
+
+	"pinterest": {
+		"icon": "fab fa-fw fa-pinterest-p",
+		"follow": "https://www.pinterest.com/%user%",
+		"share": "https://pinterest.com/pin/create/button/?url=%permalink%&media=%source%&description=%summary%"
+	},
+
+	"reddit": {
+		"icon": "fab fa-fw fa-reddit-alien",
+		"follow": "https://www.reddit.com/user/%user%/",
+		"share": "https://reddit.com/submit/?url=%permalink%&title=%title%"
+	},
+
+	"rss": {
+		"icon": "fas fa-fw fa-rss",
+		"follow": "/%user%/index.xml"
+	},
+
+	"stackoverflow": {
+		"icon": "fab fa-fw fa-stack-overflow",
+		"follow": "https://stackoverflow.com/users/%user%"
+	},
+
+	"telegram": {
+		"icon": "fab fa-fw fa-telegram-plane",
+		"share": "https://telegram.me/share/url?text=%title%&url=%permalink%"
+	},
+
+	"twitter": {
+		"icon": "fab fa-fw fa-twitter",
+		"follow": "https://www.twitter.com/%user%",
+		"share": "https://twitter.com/intent/tweet/?text=%title%&url=%permalink%"
+	},
+
+	"whatsapp": {
+		"icon": "fab fa-fw fa-whatsapp",
+		"share": "whatsapp://send?text=%title%%20%permalink%"
+	}
+}

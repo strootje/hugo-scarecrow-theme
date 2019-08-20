@@ -33,6 +33,6 @@ deploy:
   provider: pages
   github-token: $GITHUB_TOKEN
   skip-cleanup: true
-  local-dir: ./public
+  local-dir: ./exampleSite/public
   on:
     branch: master

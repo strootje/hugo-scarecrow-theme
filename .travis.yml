@@ -28,3 +28,11 @@ before_script:
 script:
 - hugo -v --source ./exampleSite --themesDir ../.. -t hugo-scarecrow-theme
 - pnpx mocha
+
+deploy:
+  provider: pages
+  github-token: $GITHUB_TOKEN
+  skip-cleanup: true
+  local-dir: ./public
+  on:
+    branch: master

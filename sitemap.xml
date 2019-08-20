@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://www.strootje.com/hugo-scarecrow-theme/posts/hello-world/</loc>
+    <lastmod>2019-03-06T06:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.strootje.com/hugo-scarecrow-theme/search/index.json</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.strootje.com/hugo-scarecrow-theme/about/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.strootje.com/hugo-scarecrow-theme/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.strootje.com/hugo-scarecrow-theme/contact/</loc>
+  </url>
+  
+  <url>
+    <loc>https://www.strootje.com/hugo-scarecrow-theme/</loc>
+    <lastmod>2019-03-06T06:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://www.strootje.com/hugo-scarecrow-theme/posts/</loc>
+    <lastmod>2019-03-06T06:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.strootje.com/hugo-scarecrow-theme/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.strootje.com/hugo-scarecrow-theme/categories/test/</loc>
+    <lastmod>2019-03-06T06:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.strootje.com/hugo-scarecrow-theme/tags/test1/</loc>
+    <lastmod>2019-03-06T06:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.strootje.com/hugo-scarecrow-theme/tags/test2/</loc>
+    <lastmod>2019-03-06T06:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.strootje.com/hugo-scarecrow-theme/tags/test3/</loc>
+    <lastmod>2019-03-06T06:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

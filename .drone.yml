@@ -23,6 +23,7 @@
   - name: test
     image: node:latest
     commands:
+    - dpkg -i hugo.deb
     - mkdir /drone/src/test/results
     - npx pnpm run test
 

@@ -9,15 +9,21 @@
   steps:
   - name: install
     image: node:latest
+    volumes:
+    - name: hugo-bin
+      path: /usr/local/bin
     commands:
     - wget -qO hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.63.1/hugo_extended_0.63.1_Linux-64bit.deb
+    - dpkg -i hugo.deb
     - npx pnpm i
     - (cd /drone/src && cp ./node_modules/fuse.js/dist/fuse.js ./assets/scripts/fuse.min.js)
 
   - name: build
     image: node:latest
+    volumes:
+    - name: hugo-bin
+      path: /usr/local/bin
     commands:
-    - dpkg -i hugo.deb
     - (cd /drone/src && env HUGO_BASEURL="http://localhost:1313/" hugo -v --source ./exampleSite --themesDir ../.. -t src)
 
   - name: test
@@ -30,3 +36,7 @@
   # 	image: node:alpine
   # 	commands:
   # 	- npx pnpm publish
+
+volumes:
+  - name: hugo-bin
+    temp: {}

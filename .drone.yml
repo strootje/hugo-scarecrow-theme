@@ -11,7 +11,8 @@
     image: node:latest
     commands:
     - wget -qO hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.63.1/hugo_extended_0.63.1_Linux-64bit.deb
-    - npx pnpm install
+    - npx pnpm i
+    - npx pnpm run postinsitall
 
   - name: build
     image: node:latest

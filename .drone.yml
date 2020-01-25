@@ -10,14 +10,14 @@
   - name: install
     image: node:latest
     commands:
+    - wget -qO hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.63.1/hugo_extended_0.63.1_Linux-64bit.deb
     - npx pnpm i
 
   - name: build
     image: node:latest
     commands:
-    - wget -qO hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.63.1/hugo_extended_0.63.1_Linux-64bit.deb
     - dpkg -i hugo.deb
-    - env HUGO_BASEURL="http://localhost:1313/" hugo -v --source ./exampleSite --themesDir ../.. -t hugo-scarecrow-theme
+    - env HUGO_BASEURL="http://localhost:1313/" hugo -v --source /src/drone/exampleSite --themesDir ../.. -t hugo-scarecrow-theme
 
   - name: test
     image: node:latest

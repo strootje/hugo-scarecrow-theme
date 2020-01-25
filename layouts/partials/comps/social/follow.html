@@ -11,7 +11,7 @@
 	{{- $url := replace $url "%user%" $user -}}
 
 	{{- $tooltip := (T (printf "comps.social.follow.%s" $type)) -}}
-	<a href="{{- $url | safeURL -}}" target="_blank" rel="noopener" title="{{- $tooltip -}}">{{- partial "comps/social/icon" (slice $scope $type) -}}</a>
+	<a href="{{- $url | safeURL -}}" target="_blank" rel="me noopener" title="{{- $tooltip -}}">{{- partial "comps/social/icon" (slice $scope $type) -}}</a>
 {{- else -}}
 	{{- errorf "social type '%s' not found in data: %s" $type $scope.Position -}}
 {{- end -}}

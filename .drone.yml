@@ -17,7 +17,7 @@
     image: node:latest
     commands:
     - dpkg -i hugo.deb
-    - env HUGO_BASEURL="http://localhost:1313/" hugo -v --source /drone/src/exampleSite --themesDir ../.. -t hugo-scarecrow-theme
+    - (cd /drone/src && env HUGO_BASEURL="http://localhost:1313/" hugo -v --source ./exampleSite --themesDir ../.. -t hugo-scarecrow-theme)
 
   - name: test
     image: node:latest

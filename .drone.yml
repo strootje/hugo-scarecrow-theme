@@ -23,6 +23,7 @@
   - name: test
     image: node:latest
     commands:
+    - mkdir /drone/src/test/results
     - npx mocha
 
   # - name: deploy

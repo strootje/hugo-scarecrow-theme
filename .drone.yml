@@ -25,7 +25,7 @@
     commands:
     - dpkg -i hugo.deb
     - mkdir /drone/src/test/results
-    - npx pnpm run test
+    - (cd /drone/src && npx mocha)
 
   # - name: deploy
   # 	image: node:alpine

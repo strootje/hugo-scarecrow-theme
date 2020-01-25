@@ -12,6 +12,7 @@
     commands:
     - wget -qO hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.63.1/hugo_extended_0.63.1_Linux-64bit.deb
     - npx pnpm i
+    - (cd /drone/src && cp ./node_modules/fuse.js/dist/fuse.js ./assets/scripts/fuse.min.js)
 
   - name: build
     image: node:latest

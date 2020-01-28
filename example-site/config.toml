@@ -1,0 +1,7 @@
+languageCode = "en"
+
+title = "Scarecrow ExampleSite"
+baseURL = "https://strootje.com/scarecrow/"
+paginate = 6
+
+[params]

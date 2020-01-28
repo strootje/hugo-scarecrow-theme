@@ -2,21 +2,32 @@
 {{- $lang := .Site.Language | default "en_US" -}}
 <html lang="{{- $lang -}}">
 	<head>
-		{{- partial "controls/metadata/head/seo-page" . -}}
-		{{- partial "controls/metadata/head/seo-article" . -}}
-		{{- partial "controls/metadata/head/locale" . -}}
-		{{- partial "controls/metadata/head/links" . -}}
+		{{- partial "controls/head/title" -}}
+		{{- partial "controls/head/locale" . -}}
+		{{- partial "controls/head/links" . -}}
 
-		{{- partial "controls/metadata/head/styles" . -}}
-		{{- block "styles:custom" . -}}{{- end -}}
+		{{- partial "controls/head/assets/styles" . -}}
+		{{- block "custom:styles" . -}}{{- end -}}
 
-		{{- partial "controls/metadata/head/scripts" . -}}
-		{{- block "scripts:custom" . -}}{{- end -}}
+		{{- partial "controls/head/assets/scripts" . -}}
+		{{- block "custom:scripts" . -}}{{- end -}}
 	</head>
 
 	<body>
-		{{- block "content" . -}}
-			<!-- content -->
-		{{- end -}}
+		<div class="layout">
+			<div class="page">
+				
+				{{- block "content" . -}}
+					<!-- content -->
+				{{- end -}}
+			</div>
+
+			{{- partial "views/footer" -}}
+		</div>
+
+
+
+
+
 	</body>
 </html>

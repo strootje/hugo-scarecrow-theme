@@ -2,18 +2,18 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/dlmh20r3fcsi5kgi/branch/master?svg=true)][build:appveyor]
 
 # Scarecrow
-A theme for [hugo][hugo] build for my personal blog [strootje.com][myblog]
+A theme for [hugo][hugo] build for my personal blog [strootje.com][demo:strootje]
 
 ## Inspiration
 * 404: https://sarahadler.me/
 
 ## Showcase
+View this theme in actual on my [website][demo:strootje] or on the [demo page][demo:github]
 View a demo of this theme [here][demopage]
 
 ## Features
-* [Open Graph Metatags][ogp]
-* [rel=me references][rel=me]
-* [h-card implementation][hcard]
+* [Open Graph Metatags][feature:ogp]
+* [Microformats v2][feature:microformats2]
 
 ## Usage
 There are multiple ways to install this theme.
@@ -32,7 +32,8 @@ https://liatas.com/posts/hugo-google-tag-manager/
 
 [build:travis]: https://travis-ci.org/strootje/hugo-scarecrow-theme
 [build:appveyor]: https://ci.appveyor.com/project/strootje/hugo-scarecrow-theme/branch/master
+[feature:ogp]: https://ogp.me/
+[feature:microformats2]: http://microformats.org/
+[demo:github]: https://strootje.github.io/hugo-scarecrow-theme/
+[demo:strootje]: https://strootje.com/
 [hugo]: https://gohugo.io/
-[myblog]: https://strootje.com/
-[demopage]: https://strootje.github.io/hugo-scarecrow-theme/
-[ogp]: http://www.metataggenerator.org/open-graph-meta-tags/

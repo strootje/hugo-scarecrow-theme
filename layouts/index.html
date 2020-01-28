@@ -1,12 +1,3 @@
 {{- define "content" -}}
-	<div class="page-home">
-		{{- partial "layout/header" . -}}
-		{{- partial "social/follow" . -}}
-		{{- partial "social/call-to-action" . -}}
-
-		<div>
-			{{- partial "layout/menu/sections" (slice . .Site.Sections) -}}
-			{{- partial "layout/menu/pages" (slice . .Site.Menus.main) -}}
-		</div>
-	</div>
+	<p>Hello, World!</p>
 {{- end -}}

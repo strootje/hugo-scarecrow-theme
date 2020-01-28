@@ -2,38 +2,21 @@
 {{- $lang := .Site.Language | default "en_US" -}}
 <html lang="{{- $lang -}}">
 	<head>
-		{{/*  Metadata  */}}
-		{{- partial "layout/head/metadata" . -}}
-		{{- block "meta:image" . -}}{{- partial "layout/head/metadata/image" . -}}{{- end -}}
-		{{- block "meta:type" . -}}{{- partial "layout/head/metadata/type" . -}}{{- end -}}
-		{{- block "meta:custom" . -}}{{- end -}}
+		{{- partial "controls/metadata/head/seo-page" . -}}
+		{{- partial "controls/metadata/head/seo-article" . -}}
+		{{- partial "controls/metadata/head/locale" . -}}
+		{{- partial "controls/metadata/head/links" . -}}
 
-		{{/*  Styles  */}}
-		{{- partial "layout/head/styles" . -}}
+		{{- partial "controls/metadata/head/styles" . -}}
 		{{- block "styles:custom" . -}}{{- end -}}
 
-		{{/*  Scripts  */}}
-		{{- partial "layout/head/scripts" . -}}
-		{{- block "scripts:tracking" . -}}{{ partial "layout/head/scripts/google-analytics" . }}{{- end -}}
+		{{- partial "controls/metadata/head/scripts" . -}}
 		{{- block "scripts:custom" . -}}{{- end -}}
-
-		{{/*  Links  */}}
-		{{- partial "layout/head/links/alternatives" . -}}
-		{{/*  {{- partial "layout/head/links/previous" . -}}  */}}
-		{{/*  {{- partial "layout/head/links/next" . -}}  */}}
 	</head>
 
 	<body>
-		<div class="layout">
-			<div class="content">
-				{{- block "content" . -}}
-					<!-- content -->
-				{{- end -}}
-			</div>
-
-			{{- block "footer" . -}}
-				{{- partial "layout/footer" . -}}
-			{{- end -}}
-		</div>
+		{{- block "content" . -}}
+			<!-- content -->
+		{{- end -}}
 	</body>
 </html>

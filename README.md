@@ -4,8 +4,16 @@
 # Scarecrow
 A theme for [hugo][hugo] build for my personal blog [strootje.com][myblog]
 
+## Inspiration
+* 404: https://sarahadler.me/
+
 ## Showcase
 View a demo of this theme [here][demopage]
+
+## Features
+* [Open Graph Metatags][ogp]
+* [rel=me references][rel=me]
+* [h-card implementation][hcard]
 
 ## Usage
 There are multiple ways to install this theme.
@@ -27,3 +35,4 @@ https://liatas.com/posts/hugo-google-tag-manager/
 [hugo]: https://gohugo.io/
 [myblog]: https://strootje.com/
 [demopage]: https://strootje.github.io/hugo-scarecrow-theme/
+[ogp]: http://www.metataggenerator.org/open-graph-meta-tags/

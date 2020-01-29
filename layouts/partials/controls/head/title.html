@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
+{{/*  TODO: fix og:type  */}}
+<meta property="og:type" content="website" />
 <meta property="og:title" content="{{- $title -}}" />
 <meta property="og:site_name" content="{{- $site_name -}}" />
-<meta property="og:url" content="{{- .Permalink -}}" />
-{{- block "custom:opengraph" . -}}
-{{- end -}}
+<meta property="og:url" content="{{- .Permalink | absLangURL -}}" />

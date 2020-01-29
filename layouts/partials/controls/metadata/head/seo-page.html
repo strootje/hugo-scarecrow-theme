@@ -1,9 +1,0 @@
-{{- $site_name := .Site.Params.Title | default (T "site.title") -}}
-{{- $title := (printf "%s%s" (cond (ne .Page.Title "") (printf "%s | " .Page.Title) "") $site_name) -}}
-<title>{{- $title -}}</title>
-<meta property="og:title" content="{{- $title -}}" />
-
-<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta property="og:site_name" content="{{- $site_name -}}" />
-<meta property="og:url" content="{{- .Permalink -}}" />

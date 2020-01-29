@@ -4,6 +4,8 @@
 	<head>
 		{{- partial "controls/head/title" -}}
 		{{- partial "controls/head/locale" . -}}
+		{{- block "custom:meta" . -}}{{- end -}}
+
 		{{- partial "controls/head/links" . -}}
 
 		{{- partial "controls/head/assets/styles" . -}}
@@ -14,9 +16,8 @@
 	</head>
 
 	<body>
-		<div class="layout">
-			<div class="page">
-				
+		<div class="l-page">
+			<div>
 				{{- block "content" . -}}
 					<!-- content -->
 				{{- end -}}

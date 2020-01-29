@@ -1,5 +1,0 @@
-languageCode = "en"
-
-title = "scarecrow"
-baseURL = "https://strootje.github.io/hugo-scarecrow-theme"
-paginate = 6

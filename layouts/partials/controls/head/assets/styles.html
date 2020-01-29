@@ -1,0 +1,8 @@
+{{- $css_variables := resources.Get "styles/variables.css" | resources.ExecuteAsTemplate "styles/variables.css" . -}}
+{{- $css_reset := resources.Get "styles/reset.css" | resources.ExecuteAsTemplate "styles/reset.css" . -}}
+{{- $css_layout := resources.Get "styles/layout.css" | resources.ExecuteAsTemplate "styles/layout.css" . -}}
+{{- $css_modules := resources.Get "styles/modules.css" | resources.ExecuteAsTemplate "styles/modules.css" . -}}
+
+{{- $sources := slice $css_variables $css_reset $css_layout $css_modules -}}
+{{- $bundle := $sources | resources.Concat "bundle.css" | minify | fingerprint "sha512" -}}
+<link rel="stylesheet" href="{{- $bundle.Permalink -}}" integrity="{{- $bundle.Data.Integrity -}}">

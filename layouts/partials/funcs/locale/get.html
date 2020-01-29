@@ -8,5 +8,12 @@
 {{- $sep := (index . 2) | default "_" -}}
 
 {{- $territories := (index $scope.Site.Data.Locales $lang) | default (slice) -}}
-{{- $territory := (index $territories 0) | default "US" -}}
-{{- return print (delimit (slice $lang $territory) $sep) -}}
+{{- $territory := $scope.Site.Params.Territory | default (index $territories 0) | default "US" -}}
+
+{{- $locale := (delimit (slice $lang $territory) $sep) -}}
+
+{{- if eq false (in $territories $territory) -}}
+	{{- warnf "Locale '%s' is invalid" $locale -}}
+{{- end -}}
+
+{{- return $locale  -}}

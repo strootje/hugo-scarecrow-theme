@@ -1,5 +1,8 @@
 {{- $lang := .Site.Language | default "en" -}}
-{{/*  {{- $territories := (index .Site.Data.Territories $lang) -}}  */}}
+<!-- {{- printf "%#v" .Site.Data.Territories -}} -->
+
+
+
 {{/*  TODO: Set propper territory code  */}}
 {{- $territory := "TODO" | default "US" -}}
 <meta property="og:locale" content="{{- $lang -}}_{{- $territory -}}" />

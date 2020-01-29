@@ -2,12 +2,11 @@
 {{- $title := (printf "%s%s" (cond (ne .Page.Title "") (printf "%s | " .Page.Title) "") $site_name) -}}
 <title>{{- $title -}}</title>
 
+<link rel="canonical" href="{{ .Permalink | absLangURL }}">
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
-{{/*  TODO: fix og:type  */}}
-<meta property="og:type" content="website" />
 <meta property="og:title" content="{{- $title -}}" />
 <meta property="og:site_name" content="{{- $site_name -}}" />
 <meta property="og:url" content="{{- .Permalink | absLangURL -}}" />
+<!-- TODO: og:image (default image -> logo -> article image) -->

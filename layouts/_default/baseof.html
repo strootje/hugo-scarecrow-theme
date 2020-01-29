@@ -6,6 +6,10 @@
 		{{- partial "controls/head/locale" . -}}
 		{{- block "custom:meta" . -}}{{- end -}}
 
+		{{- block "opengraph:type" . -}}
+			<meta property="og:type" content="website" />
+		{{- end -}}
+
 		{{- partial "controls/head/links" . -}}
 
 		{{- partial "controls/head/assets/styles" . -}}

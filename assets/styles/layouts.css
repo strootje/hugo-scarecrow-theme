@@ -1,0 +1,14 @@
+.l-page {
+	margin: var(--spacing-dense);
+	padding: var(--spacing-wide);
+
+	min-height: calc(100% - var(--spacing-dense));
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.l-page > *:not(:last-child) {
+	flex-grow: 1;
+}

@@ -1,0 +1,5 @@
+languageCode: "en"
+
+title: "scarecrow"
+baseURL: "https://www.strootje.com/hugo-scarecrow-theme"
+paginate: 6

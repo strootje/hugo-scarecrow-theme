@@ -1,0 +1,30 @@
+/* -- Undo crazy html styles */
+/* ------------------------------ */
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	height: 100%;
+	min-height: 100vh;
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+/* -- Setup jazzy new base styles  */
+/* ------------------------------ */
+
+body {
+	height: calc(100% - var(--spacing-dense));
+	min-height: calc(100vh - var(--spacing-dense));
+	background-color: var(--color-primary);
+}
+
+body > * {
+	background-color: #fff;
+}

@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+:root {
+	/* Spacings */
+	--spacing-normal: .46rem;
+	--spacing-dense: calc(var(--spacing-normal) * .45);
+	--spacing-wide: calc(var(--spacing-normal) * 1.45);
+
+	/* Colors */
+	--color-primary: {{- .Site.Params.Theme.Colors.Primary | default "#ffcc00" -}}
+}

@@ -5,7 +5,9 @@
 A theme for [hugo][hugo] build for my personal blog [strootje.com][demo:strootje]
 
 ## Inspiration
+* general: https://github.com/posquit0/hugo-awesome-identity
 * 404: https://sarahadler.me/
+* https://after-dark.habd.as/ (features, modules, shortcodes)
 
 ## Showcase
 View this theme in actual on my [website][demo:strootje] or on the [demo page][demo:github]
@@ -14,6 +16,7 @@ View a demo of this theme [here][demopage]
 ## Features
 * [Open Graph Metatags][feature:ogp]
 * [Microformats v2][feature:microformats2]
+* tracking with Ackee, GA, GTM or any other?
 
 ## Usage
 There are multiple ways to install this theme.

@@ -1,7 +1,7 @@
 {{/*  see: https://developers.facebook.com/docs/messenger-platform/messenger-profile/supported-locales/  */}}
 {{/*  see: https://www.w3schools.com/tags/ref_country_codes.asp  */}}
 
-{{- if not (isset . 0) -}}{{- errorf "no scope" -}}{{- end -}}
+{{- if eq false (isset . 0) -}}{{- errorf "Invalid $scope parameter" -}}{{- end -}}
 
 {{- $scope := (index . 0) -}}
 {{- $lang := (index . 1) | default $scope.Site.Language.Lang | default "en" -}}

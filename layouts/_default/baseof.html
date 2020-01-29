@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-{{- $lang := .Site.Language | default "en_US" -}}
-<html lang="{{- $lang -}}">
+{{- $locale := partial "funcs/locale/get-for-title" . -}}
+<html lang="{{- $locale -}}">
 	<head>
 		{{- partial "controls/head/title" -}}
 		{{- partial "controls/head/locale" . -}}

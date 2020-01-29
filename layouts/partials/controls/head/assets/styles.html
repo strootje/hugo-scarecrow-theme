@@ -1,3 +1,5 @@
+{{/*  see: http://smacss.com/  */}}
+
 {{- $css_vars := resources.Get "styles/vars.css" | resources.ExecuteAsTemplate "styles/vars.css" . -}}
 {{- $css_reset := resources.Get "styles/reset.css" | resources.ExecuteAsTemplate "styles/reset.css" . -}}
 {{- $css_layout := resources.Get "styles/layouts.css" | resources.ExecuteAsTemplate "styles/layouts.css" . -}}

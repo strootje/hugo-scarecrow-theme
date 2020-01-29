@@ -7,6 +7,7 @@ A theme for [hugo][hugo] build for my personal blog [strootje.com][myblog]
 ## Inspiration
 * general: https://github.com/posquit0/hugo-awesome-identity
 * 404: https://sarahadler.me/
+* https://after-dark.habd.as/ (features, modules, shortcodes)
 
 ## Showcase
 View a demo of this theme [here][demopage]
@@ -15,6 +16,8 @@ View a demo of this theme [here][demopage]
 * [Open Graph Metatags][ogp]
 * [rel=me references][rel=me]
 * [h-card implementation][hcard]
+* tracking with GA or ackee
+*
 
 ## Usage
 There are multiple ways to install this theme.

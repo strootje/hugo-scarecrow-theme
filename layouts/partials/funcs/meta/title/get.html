@@ -1,5 +1,3 @@
 {{- $scope := . -}}
 
-{{- $site_name := partialCached "funcs/meta/name/get" . -}}
-{{- $title := printf "%s%s" (cond (ne .Page.Title "") (printf "%s | " .Page.Title) "") $site_name -}}
-{{- return $title -}}
+{{- partialCached "funcs/meta/title/_get" (slice $scope) $scope.Page -}}

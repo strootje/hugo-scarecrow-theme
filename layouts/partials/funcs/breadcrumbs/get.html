@@ -1,0 +1,20 @@
+{{- $scope := . -}}
+
+{{- $scratch := newScratch -}}
+{{- $scratch.Set "crumbs" slice -}}
+{{- template "loop" (slice $scratch $scope $scope) -}}
+{{- return $scratch.Get "crumbs" -}}
+
+{{- define "loop" -}}
+	{{- $scratch := (index . 0) -}}
+	{{- $page1 := (index . 1) -}}
+	{{- $page2 := (index . 2) -}}
+
+	{{- if $page1.Parent -}}
+		{{- template "loop" (slice $scratch $page1.Parent $page2) -}}
+	{{- else if not $page1.IsHome -}}
+		{{- template "loop" (slice $scratch $page1.Site.Home $page2) -}}
+	{{- end -}}
+
+	{{- $scratch.Add "crumbs" (slice $page1) -}}
+{{- end -}}

@@ -1,0 +1,19 @@
+{{/*  see: https://developers.facebook.com/docs/messenger-platform/messenger-profile/supported-locales/  */}}
+{{/*  see: https://www.w3schools.com/tags/ref_country_codes.asp  */}}
+
+{{- if eq false (isset . 0) -}}{{- errorf "Invalid $scope parameter" -}}{{- end -}}
+
+{{- $scope := (index . 0) -}}
+{{- $lang := (index . 1) | default $scope.Site.Language.Lang | default "en" -}}
+{{- $separator := (index . 2) | default "_" -}}
+
+{{- $territories := (index $scope.Site.Data.Locales $lang) | default (slice) -}}
+{{- $territory := $scope.Site.Params.Territory | default (index $territories 0) | default "US" -}}
+
+{{- $locale := (delimit (slice $lang $territory) $separator) -}}
+
+{{- if eq false (in $territories $territory) -}}
+	{{- warnf "Locale '%s' is invalid" $locale -}}
+{{- end -}}
+
+{{- return $locale  -}}

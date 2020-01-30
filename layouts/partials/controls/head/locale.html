@@ -1,4 +1,4 @@
-{{- $locale := partial "funcs/meta/locale/get-default" . -}}
+{{- $locale := partial "funcs/meta/locale/get" . -}}
 <meta property="og:locale" content="{{- $locale -}}" />
 
 {{- if .IsTranslated -}}

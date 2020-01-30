@@ -1,5 +1,5 @@
-{{- $site_name := .Site.Params.Title | default (.Site.Title | default (T "site.title")) -}}
-{{- $title := (printf "%s%s" (cond (ne .Page.Title "") (printf "%s | " .Page.Title) "") $site_name) -}}
+{{- $title := partialCached "funcs/meta/title/get" . .Page -}}
+{{- $site_name := partialCached "funcs/meta/name/get" . -}}
 <title>{{- $title -}}</title>
 
 <link rel="canonical" href="{{ .Permalink | absLangURL }}">

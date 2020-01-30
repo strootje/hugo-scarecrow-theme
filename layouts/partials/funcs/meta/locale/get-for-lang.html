@@ -1,0 +1,3 @@
+{{- $scope := (index . 0) -}}
+{{- $lang := (index . 1) -}}
+{{- return partial "funcs/meta/locale/get" (slice $scope $lang) -}}

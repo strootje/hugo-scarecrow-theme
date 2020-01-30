@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-{{- $locale := partial "funcs/locale/get-for-title" . -}}
+{{- $locale := partial "funcs/meta/locale/get-for-title" . -}}
 <html lang="{{- $locale -}}">
 	<head>
-		{{- partial "controls/head/title" -}}
+		{{- partial "controls/head/title" . -}}
 		{{- partial "controls/head/locale" . -}}
 		{{- block "custom:meta" . -}}{{- end -}}
 

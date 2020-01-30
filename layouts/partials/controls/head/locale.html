@@ -1,9 +1,9 @@
-{{- $locale := partial "funcs/locale/get-default" . -}}
+{{- $locale := partial "funcs/meta/locale/get-default" . -}}
 <meta property="og:locale" content="{{- $locale -}}" />
 
 {{- if .IsTranslated -}}
 	{{- range .Translations -}}
-		{{- $locale := partial "funcs/locale/get-for-lang" (slice $ .Lang) -}}
+		{{- $locale := partial "funcs/meta/locale/get-for-lang" (slice $ .Lang) -}}
 		<meta property="og:locale:alternate" content="{{- $locale -}}" />
 	{{- end -}}
 {{- end -}}

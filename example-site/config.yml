@@ -1,5 +1,5 @@
 languageCode: "en"
 
-title: "scarecrow"
-baseURL: "https://www.strootje.com/hugo-scarecrow-theme"
+title: "Scarecrow"
+baseURL: "https://strootje.github.io/hugo-scarecrow-theme"
 paginate: 6

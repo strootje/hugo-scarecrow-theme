@@ -1,0 +1,6 @@
+{{- $menu := (index . "menu") -}}
+{{- $title := (index . "title") -}}
+{{- $orientation := (index . "orientation") | default "vertical" -}}
+{{- $style := (index . "style") | default "text" -}}
+
+{{- partial "menu/_index" (dict "menu" $menu "title" $title "orientation" $orientation "style" $style) -}}

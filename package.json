@@ -4,6 +4,8 @@
 	"version": "0.1.0",
 	"description": "Scarecrow theme for hugo",
 	"scripts": {
+		"postinstall": "pnpm run pnpm run install:vendor:ackee",
+		"install:vendor:ackee": "cp ./node_modules/ackee-tracker/dist/ackee-tracker.min.js ./assets/scripts/ackee-tracker.js",
 		"clean": "rimraf ./example-site/public",
 		"prebuild": "pnpm run clean",
 		"build": "hugo --source ./example-site --themesDir ../.. --theme hugo-scarecrow-theme",
@@ -13,6 +15,8 @@
 		"test": "echo TODO: Mocha"
 	},
 	"dependencies": {
+		"@fortawesome/fontawesome-free": "^5.12.0",
+		"ackee-tracker": "^3.2.2",
 		"bulma": "^0.8.0",
 		"bulma-timeline": "^3.0.4",
 		"fuse.js": "^3.4.6"

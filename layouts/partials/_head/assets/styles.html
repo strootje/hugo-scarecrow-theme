@@ -1,0 +1,24 @@
+{{/*  see: http://smacss.com/  */}}
+
+{{/* Third parties */}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css">
+
+{{- $files := slice -}}
+{{- $files = $files | append "vars" -}}
+{{- $files = $files | append "reset" -}}
+{{- $files = $files | append "layouts" -}}
+{{- $files = $files | append "states" -}}
+
+{{- $files = $files | append "modules/avatar" -}}
+{{- $files = $files | append "modules/menu" -}}
+{{- $files = $files | append "modules/figure" -}}
+{{- $files = $files | append "modules/footer" -}}
+
+{{- $sources := slice -}}
+{{- range $files -}}
+	{{- $fullpath := printf "styles/%s.css" . -}}
+	{{- $sources = $sources | append (resources.Get $fullpath | resources.ExecuteAsTemplate $fullpath $) -}}
+{{- end -}}
+
+{{- $bundle := $sources | resources.Concat "bundle.css" | minify | fingerprint "sha512" -}}
+<link rel="stylesheet" href="{{- $bundle.Permalink -}}" integrity="{{- $bundle.Data.Integrity -}}">

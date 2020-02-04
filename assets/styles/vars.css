@@ -6,6 +6,11 @@
 	--spacing-dense: calc(var(--spacing-normal) * .45);
 	--spacing-wide: calc(var(--spacing-normal) * 1.45);
 
+	/* Borders */
+	--border-normal: .2rem;
+	--border-dense: calc(var(--border-normal) * .45);
+	--border-wide: calc(var(--border-normal) * 1.45);
+
 	/* Colors */
 	--color-primary: {{- .Site.Params.Theme.Colors.Primary | default "#ffcc00" -}}
 }

@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-{{- $locale := partial "funcs/meta/locale/get-for-title" . -}}
+{{- $locale := partial "_head/_get/locale" (slice . .Site.Language.Lang "-") -}}
 <html lang="{{- $locale -}}">
 	<head>
-		{{- partial "controls/head/title" . -}}
-		{{- partial "controls/head/locale" . -}}
+		{{- partial "_head/title" . -}}
+		{{- partial "_head/locale" . -}}
 		{{- block "custom:meta" . -}}{{- end -}}
 
 		{{- block "opengraph:type" . -}}
 			<meta property="og:type" content="website" />
 		{{- end -}}
 
-		{{- partial "controls/head/links" . -}}
+		{{- partial "_head/links" . -}}
 
-		{{- partial "controls/head/assets/styles" . -}}
+		{{- partial "_head/assets/styles" . -}}
 		{{- block "custom:styles" . -}}{{- end -}}
 
-		{{- partial "controls/head/assets/scripts" . -}}
+		{{- partial "_head/assets/scripts" . -}}
 		{{- block "custom:scripts" . -}}{{- end -}}
 	</head>
 
@@ -27,7 +27,7 @@
 				{{- end -}}
 			</div>
 
-			{{- partial "views/footer" -}}
+			{{- partial "footer" . -}}
 		</div>
 	</body>
 </html>

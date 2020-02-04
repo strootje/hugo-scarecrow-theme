@@ -1,0 +1,23 @@
+{{- $menu := (index . "menu") -}}
+{{- $title := (index . "title") -}}
+{{- $orientation := (index . "orientation") | default "vertical" -}}
+{{- $style := (index . "style") | default "text" -}}
+{{- $type := (index . "type" | default "pages") -}}
+
+{{- with $menu -}}
+	<nav class="menu" aria-label="{{- $title -}}">
+		{{- $listOfClasses := (slice "menu_items") -}}
+		{{- if (eq "vertical" $orientation) -}}{{- $listOfClasses = $listOfClasses | append "is-column" -}}{{- end -}}
+
+		{{- $classes := (delimit $listOfClasses " ") -}}
+		<ul class="{{- $classes -}}">
+			{{- range . -}}
+				{{- if (eq "pages" $type) -}}
+					{{- partial "menu/_item" (dict "link" .URL "text" (.Title | default .Name) "style" $style) -}}
+				{{- else -}}
+					{{- partial "menu/_item" (dict "link" .RelPermalink "text" (.Title | default .Name) "style" $style) -}}
+				{{- end -}}
+			{{- end -}}
+		</ul>
+	</nav>
+{{- end -}}

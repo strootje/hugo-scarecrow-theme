@@ -1,0 +1,9 @@
+.footer {
+	color: #333;
+	font-size: .8rem;
+	font-style: italic;
+
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}

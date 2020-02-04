@@ -1,0 +1,12 @@
+{{/* Third parties */}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.6/fuse.min.js" defer></script>
+
+{{- $js_lambda := resources.Get "scripts/lambda.js" | resources.ExecuteAsTemplate "scripts/lambda.js" . -}}
+{{- $js_search := resources.Get "scripts/search.js" | resources.ExecuteAsTemplate "scripts/search.js" . -}}
+
+{{- $sources := slice $js_lambda $js_search -}}
+{{- $bundle := $sources | resources.Concat "bundle.js" | minify | fingerprint "sha512" -}}
+<script defer src="{{- $bundle.Permalink -}}" integrity="{{- $bundle.Data.Integrity -}}"></script>
+
+{{/*  Plugins  */}}
+{{- .Scratch.Set "tracker" "ackee" -}}

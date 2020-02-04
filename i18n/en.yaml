@@ -1,2 +1,9 @@
 site.title:
   other: 'Scarecrow ExampleSite'
+
+footer.legal.text:
+  other: '{{.name}} :copyright: {{.year}}'
+footer.cookie.none.text:
+  other: 'No :cookie:s were used in the creation of this page'
+footer.cookie.google.text:
+  other: 'This page uses :cookie:s'

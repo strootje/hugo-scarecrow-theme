@@ -1,0 +1,20 @@
+{{- $link := (index . "link") -}}
+{{- $text := (index . "text") -}}
+{{- $icon := (index . "icon") -}}
+{{- $style := (index . "style" | default "text") -}}
+
+<li class="menu_item">
+	{{- with $link -}}
+		<a href="{{- . -}}" title="{{- $text -}}">
+	{{- end -}}
+
+		{{- if (eq "text" $style) -}}
+			{{- $text -}}
+		{{- else -}}
+			<i class="{{- $icon -}}"></i>
+		{{- end -}}
+
+	{{- with $link -}}
+		</a>
+	{{- end -}}
+</li>

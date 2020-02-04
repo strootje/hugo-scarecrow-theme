@@ -1,0 +1,6 @@
+{{- $scope := (index . "scope") -}}
+{{- $orientation := (index . "orientation") | default "vertical" -}}
+{{- $style := (index . "style") | default "text" -}}
+
+
+{{- partial "menu/_index" (dict "menu" $scope.Site.Sections "title" "sections" "orientation" $orientation "style" $style "type" "sections") -}}

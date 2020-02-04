@@ -1,0 +1,12 @@
+{{- $title := partialCached "_head/_get/title" (slice .) .Page -}}
+{{- $site_name := partialCached "_head/_get/name" (slice .) -}}
+<title>{{- $title -}}</title>
+
+<link rel="canonical" href="{{ .Permalink | absLangURL }}">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<meta property="og:title" content="{{- $title -}}" />
+<meta property="og:site_name" content="{{- $site_name -}}" />
+<meta property="og:url" content="{{- .Permalink | absLangURL -}}" />
+<!-- TODO: og:image (default image -> logo -> article image) -->

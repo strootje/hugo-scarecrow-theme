@@ -1,4 +1,6 @@
 dependencies:
+  '@fortawesome/fontawesome-free': 5.12.0
+  ackee-tracker: 3.2.2
   bulma: 0.8.0
   bulma-timeline: 3.0.4
   fuse.js: 3.4.6
@@ -7,6 +9,18 @@ devDependencies:
   rimraf: 3.0.0
 lockfileVersion: 5.1
 packages:
+  /@fortawesome/fontawesome-free/5.12.0:
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-vKDJUuE2GAdBERaQWmmtsciAMzjwNrROXA5KTGSZvayAsmuTGjam5z6QNqNPCwDfVljLWuov1nEC3mEQf/n6fQ==
+  /ackee-tracker/3.2.2:
+    dependencies:
+      platform: 1.3.5
+    dev: false
+    resolution:
+      integrity: sha512-ss5Lks3fJqf5tHeFTia0iM/s8DeXVovut1rgqHydBcVJuI5rf2GKWNSImgNiufBkVztmYXJNIIEgr28wkhphFw==
   /balanced-match/1.0.0:
     dev: true
     resolution:
@@ -111,6 +125,10 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==
+  /platform/1.3.5:
+    dev: false
+    resolution:
+      integrity: sha512-TuvHS8AOIZNAlE77WUDiR4rySV/VMptyMfcfeoMgs4P8apaZM3JrnbzBiixKUv+XR6i+BXrQh8WAnjaSPFO65Q==
   /rimraf/3.0.0:
     dependencies:
       glob: 7.1.6
@@ -146,6 +164,8 @@ packages:
     resolution:
       integrity: sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
 specifiers:
+  '@fortawesome/fontawesome-free': ^5.12.0
+  ackee-tracker: ^3.2.2
   bulma: ^0.8.0
   bulma-timeline: ^3.0.4
   cross-env: ^7.0.0

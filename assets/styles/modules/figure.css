@@ -1,0 +1,13 @@
+.figure {
+	margin: 0;
+}
+
+.figure img {
+	border: var(--border-normal) solid var(--color-primary);
+	border-radius: var(--spacing-normal);
+}
+
+/* overrides */
+.avatar .figure img {
+	border-radius: 5.5rem;
+}

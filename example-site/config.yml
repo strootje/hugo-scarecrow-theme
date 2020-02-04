@@ -3,3 +3,33 @@ languageCode: "en"
 title: "Scarecrow"
 baseURL: "https://strootje.github.io/hugo-scarecrow-theme"
 paginate: 6
+
+params:
+  author:
+    username: "strootje"
+    lastname: "Stroosnijder"
+    firstname: "Bastiaan"
+    gender: "male"
+  social:
+    accounts:
+      github: "???"
+      linkedin: "???"
+      rss: "posts"
+  # ackee:
+  #   server: https://analytics.strootje.com
+  #   domainId: 123132123
+
+menu:
+  pages:
+  - name: "About"
+  - name: "Contact"
+  powered:
+  - name: hugo
+    title: Hugo
+    url: https://gohugo.io/
+  - name: scarecrow
+    title: Scarecrow
+    url: https://strootje.github.io/hugo-scarecrow-theme
+  legal:
+  - name: "Privacy"
+  - name: "Terms of Use"

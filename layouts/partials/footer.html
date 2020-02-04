@@ -1,0 +1,26 @@
+<footer class="footer">
+	<section class="legal">
+		<div>
+			{{- $name := partialCached "_head/_get/name" (slice .) -}}
+			{{- $year := now.Format "2006" -}}
+			{{- T "footer.legal.text" (dict "name" $name "year" $year) | emojify -}}
+		</div>
+
+		{{- partial "menu/for-pages" (dict "menu" .Site.Menus.legal "title" "legal" "orientation" "horizontal") -}}
+	</section>
+
+	{{- with .Site.Menus.powered -}}
+		<section class="powered">
+			{{- partial "menu/for-pages" (dict "menu" . "title" "powered" "orientation" "horizontal") -}}
+		</section>
+	{{- end -}}
+
+	<section class="cookies">
+		{{- $tracker := .Scratch.Get "tracker" -}}
+		{{- if (eq "google" $tracker) -}}
+			{{- T "footer.cookie.google.text" | emojify -}}
+		{{- else -}}
+			{{- T "footer.cookie.none.text" | emojify -}}
+		{{- end -}}
+	</section>
+</footer>

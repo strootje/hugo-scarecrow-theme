@@ -1,8 +1,23 @@
 {{- define "opengraph:type" -}}
 	<meta property="og:type" content="profile" />
-	<!-- TODO: complete profile (h-card & ogp) -->
+	{{- with .Site.Params.About -}}
+		{{- with .Username -}}<meta property="og:profile:username" content="{{- . -}}" />{{- end -}}
+		{{- with .Lastname -}}<meta property="og:profile:last_name" content="{{- . -}}" />{{- end -}}
+		{{- with .Firstname -}}<meta property="og:profile:first_name" content="{{- . -}}" />{{- end -}}
+		{{- with .Gender -}}<meta property="og:profile:gender" content="{{- . -}}" />{{- end -}}
+	{{- end -}}
 {{- end -}}
 
 {{- define "content" -}}
-	<p>Hello, World!</p>
+	<div class="avatar h-card">
+		<figure>
+			<img class="u-photo" src="http://placekitten.com/g/200/200" alt="profile photo" />
+			<figcaption class="p-name">Strootje</figcaption>
+		</figure>
+	</div>
+
+
+	{{- partial "menu/for-social" . -}}
+	{{- partial "menu/for-sections" (dict "scope" . "orientation" "vertical") -}}
+	{{- partial "menu/for-pages" (dict "menu" .Site.Menus.pages "title" "pages" "orientation" "vertical") -}}
 {{- end -}}

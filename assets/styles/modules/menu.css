@@ -1,0 +1,14 @@
+.menu {
+}
+
+.menu .menu_items {
+	list-style-type: none;
+
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+.menu :not(.is-column) .menu_item:not(:first-child) {
+	margin-left: var(--spacing-dense);
+}

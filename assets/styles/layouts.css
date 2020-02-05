@@ -12,3 +12,7 @@
 .l-page > *:not(:last-child) {
 	flex-grow: 1;
 }
+
+.l-content > *:not(:first-child) {
+	margin-top: calc(var(--spacing-wide) * 2)
+}

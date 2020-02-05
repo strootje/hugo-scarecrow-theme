@@ -12,6 +12,8 @@
 	{{- partial "avatar" . -}}
 	{{- partial "social/follow" . -}}
 
-	{{- partial "menu/for-sections" (dict "title" "Sections" "scope" . "orientation" "vertical") -}}
-	{{- partial "menu/for-menu" (dict "title" "Pages" "scope" . "menu" "pages" "orientation" "vertical") -}}
+	<section>
+		{{- partial "menu/for-sections" (dict "title" "Sections" "scope" . "orientation" "vertical") -}}
+		{{- partial "menu/for-menu" (dict "title" "Pages" "scope" . "menu" "pages" "orientation" "vertical") -}}
+	</section>
 {{- end -}}

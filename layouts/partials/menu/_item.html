@@ -9,6 +9,12 @@
 
 {{- if not $link -}}{{- warnf "menu.link not set for '%s'" $title -}}{{- end -}}
 
+{{- with (urls.Parse $link) -}}
+	{{- if .Scheme -}}
+		{{- $target = "_blank" -}}
+	{{- end -}}
+{{- end -}}
+
 <li class="menu_item">
 	{{- $linkClassBuilder := (slice) -}}
 	{{- if $icon -}}{{- $linkClassBuilder = $linkClassBuilder | append "hide-external" -}}{{- end -}}

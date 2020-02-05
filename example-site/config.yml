@@ -32,6 +32,8 @@ menu:
   - name: hugo
     title: Hugo
     url: https://gohugo.io/
+    target: _blank
   - name: scarecrow
     title: Scarecrow
     url: https://strootje.github.io/hugo-scarecrow-theme
+    target: _blank

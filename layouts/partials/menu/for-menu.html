@@ -1,17 +1,18 @@
 {{- if not (reflect.IsMap .) -}}{{- errorf "menu: args not a map" -}}{{- end -}}
 {{- if not (isset . "scope") -}}{{- errorf "menu.scope not found" -}}{{- end -}}
+{{- if not (isset . "menu") -}}{{- errorf "menu.menu not found" -}}{{- end -}}
 
 {{- $args := . -}}
 {{- $scope := (index . "scope") -}}
 
-{{- if not $scope.Site.Sections -}}{{- errorf "Sections not found" -}}{{- end -}}
+{{- $menu := (index $scope.Site.Menus (index . "menu")) -}}
 
-{{- with $scope.Site.Sections -}}
+{{- with $menu -}}
 	{{- $items := (slice) -}}
 
 	{{- range . -}}
 		{{- $title := .Title | default .Name -}}
-		{{- $url := .RelPermalink -}}
+		{{- $url := .URL -}}
 		{{- $items = $items | append (dict "title" $title "link" $url) -}}
 	{{- end -}}
 

@@ -1,22 +1,25 @@
-{{- $menu := (index . "menu") -}}
+{{- if not (reflect.IsMap .) -}}{{- errorf "menu: args not a map" -}}{{- end -}}
+{{- if not (isset . "title") -}}{{- errorf "menu.title not found" -}}{{- end -}}
+{{- if not (isset . "items") -}}{{- errorf "menu.items not found" -}}{{- end -}}
+
 {{- $title := (index . "title") -}}
-{{- $orientation := (index . "orientation") | default "vertical" -}}
-{{- $style := (index . "style") | default "text" -}}
-{{- $type := (index . "type" | default "pages") -}}
+{{- $items := (index . "items") -}}
+{{- $orientation := (index . "orientation") | default "horizontal" -}}
 
-{{- with $menu -}}
-	<nav class="menu" aria-label="{{- $title -}}">
-		{{- $listOfClasses := (slice "menu_items") -}}
-		{{- if (eq "vertical" $orientation) -}}{{- $listOfClasses = $listOfClasses | append "is-column" -}}{{- end -}}
+{{- if not (reflect.IsSlice $items) -}}{{- errorf "menu.items not a slice" -}}{{- end -}}
 
-		{{- $classes := (delimit $listOfClasses " ") -}}
-		<ul class="{{- $classes -}}">
+{{- with $items -}}
+	{{- $menuClassBuilder := (slice "menu") -}}
+	{{- $menuClass := (delimit $menuClassBuilder " ") -}}
+	
+	<nav class="{{- $menuClass -}}" aria-label="{{- $title -}}">
+		{{- $itemsClassBuilder := (slice "menu_items") -}}
+		{{- if (eq "vertical" $orientation) -}}{{- $itemsClassBuilder = $itemsClassBuilder | append "is-column" -}}{{- end -}}
+		{{- $itemsClass := (delimit $itemsClassBuilder " ") -}}
+
+		<ul class="{{- $itemsClass -}}">
 			{{- range . -}}
-				{{- if (eq "pages" $type) -}}
-					{{- partial "menu/_item" (dict "link" .URL "text" (.Title | default .Name) "style" $style) -}}
-				{{- else -}}
-					{{- partial "menu/_item" (dict "link" .RelPermalink "text" (.Title | default .Name) "style" $style) -}}
-				{{- end -}}
+				{{- partial "menu/_item" . -}}
 			{{- end -}}
 		</ul>
 	</nav>

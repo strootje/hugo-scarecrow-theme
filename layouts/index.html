@@ -9,15 +9,9 @@
 {{- end -}}
 
 {{- define "content" -}}
-	<div class="avatar h-card">
-		<figure>
-			<img class="u-photo" src="http://placekitten.com/g/200/200" alt="profile photo" />
-			<figcaption class="p-name">Strootje</figcaption>
-		</figure>
-	</div>
+	{{- partial "avatar" . -}}
+	{{- partial "social/follow" . -}}
 
-
-	{{- partial "menu/for-social" . -}}
-	{{- partial "menu/for-sections" (dict "scope" . "orientation" "vertical") -}}
-	{{- partial "menu/for-pages" (dict "menu" .Site.Menus.pages "title" "pages" "orientation" "vertical") -}}
+	{{- partial "menu/for-sections" (dict "title" "Sections" "scope" . "orientation" "vertical") -}}
+	{{- partial "menu/for-menu" (dict "title" "Pages" "scope" . "menu" "pages" "orientation" "vertical") -}}
 {{- end -}}

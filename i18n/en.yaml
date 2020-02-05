@@ -7,3 +7,10 @@ footer.cookie.none.text:
   other: 'No :cookie:s were used in the creation of this page'
 footer.cookie.google.text:
   other: 'This page uses :cookie:s'
+
+menu.social.github:
+  other: 'Follow me on Github'
+menu.social.linkedin:
+  other: 'Connect with me on Linkedin'
+menu.social.rss:
+  other: 'Follow my posts on RSS'

@@ -1,0 +1,33 @@
+{{- if not .Site -}}{{- errorf "Site not found" -}}{{- end -}}
+{{- if not .Page -}}{{- errorf "Page not found" -}}{{- end -}}
+{{- if not .Page.Permalink -}}{{- errorf "Page.Permalink not found" -}}{{- end -}}
+{{- if not .Page.Title -}}{{- errorf "Page.Title not found" -}}{{- end -}}
+{{- if (and (not .Page.Summary) (not .Page.Content))  -}}{{- errorf "Page.Summary not found" -}}{{- end -}}
+
+{{- $social := .Site.Data.Social -}}
+{{- $source := .Site.BaseURL -}}
+{{- $permalink := .Page.Permalink -}}
+{{- $title := .Page.Title -}}
+{{- $summary := .Page.Summary -}}
+
+{{- with .Site.Params.Social -}}
+	{{- $showShare := (index . "show-share") | default true -}}
+
+	{{- if $showShare -}}
+		{{- $items := (slice) -}}
+
+		{{- range $type, $data := $social -}}
+			{{- if (isset $data "share") -}}
+				{{- $url := $data.share -}}
+				{{- $url = replace $url "%source%" $source -}}
+				{{- $url = replace $url "%permalink%" $permalink -}}
+				{{- $url = replace $url "%title%" $title -}}
+				{{- $url = replace $url "%summary%" $summary -}}
+				{{- $title := T (printf "menu.social.%s" $type) -}}
+				{{- $items = $items | append (dict "title" $title "link" $url "icon" $data.icon "target" "_blank") -}}
+			{{- end -}}
+		{{- end -}}
+
+		{{- partial "menu/_index" (dict "title" "Share" "items" $items) -}}
+	{{- end -}}
+{{- end -}}

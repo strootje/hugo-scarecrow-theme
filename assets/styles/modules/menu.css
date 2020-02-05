@@ -1,4 +1,7 @@
 .menu {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
 }
 
 .menu .menu_items {

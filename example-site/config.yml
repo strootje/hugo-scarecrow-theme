@@ -11,6 +11,8 @@ params:
     firstname: "Bastiaan"
     gender: "male"
   social:
+    show-follow: true
+    show-share: true
     accounts:
       github: "???"
       linkedin: "???"
@@ -23,6 +25,9 @@ menu:
   pages:
   - name: "About"
   - name: "Contact"
+  legal:
+  - name: "Privacy"
+  - name: "Terms of Use"
   powered:
   - name: hugo
     title: Hugo
@@ -30,6 +35,3 @@ menu:
   - name: scarecrow
     title: Scarecrow
     url: https://strootje.github.io/hugo-scarecrow-theme
-  legal:
-  - name: "Privacy"
-  - name: "Terms of Use"

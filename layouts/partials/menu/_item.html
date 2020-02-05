@@ -1,20 +1,24 @@
+{{- if not (reflect.IsMap .) -}}{{- errorf "menu/item: args not a map" -}}{{- end -}}
+{{- if not (isset . "title") -}}{{- errorf "menu.title not found" -}}{{- end -}}
+{{- if not (isset . "link") -}}{{- errorf "menu.link not found" -}}{{- end -}}
+
+{{- $title := (index . "title") -}}
 {{- $link := (index . "link") -}}
-{{- $text := (index . "text") -}}
-{{- $icon := (index . "icon") -}}
-{{- $style := (index . "style" | default "text") -}}
+{{- $icon := (index . "icon") | default false -}}
+{{- $target := (index . "target") | default "_self" -}}
+
+{{- if not $link -}}{{- warnf "menu.link not set for '%s'" $title -}}{{- end -}}
 
 <li class="menu_item">
-	{{- with $link -}}
-		<a href="{{- . -}}" title="{{- $text -}}">
-	{{- end -}}
+	{{- $linkClassBuilder := (slice) -}}
+	{{- if $icon -}}{{- $linkClassBuilder = $linkClassBuilder | append "hide-external" -}}{{- end -}}
+	{{- $linkClass := (delimit $linkClassBuilder " ") -}}
 
-		{{- if (eq "text" $style) -}}
-			{{- $text -}}
-		{{- else -}}
+	<a href="{{- $link -}}" title="{{- $title -}}" class="{{- $linkClass -}}" target="{{- $target -}}">
+		{{- if $icon -}}
 			<i class="{{- $icon -}}"></i>
+		{{- else -}}
+			{{- $title -}}
 		{{- end -}}
-
-	{{- with $link -}}
-		</a>
-	{{- end -}}
+	</a>
 </li>

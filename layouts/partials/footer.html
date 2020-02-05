@@ -1,3 +1,5 @@
+{{- $scope := . -}}
+
 <footer class="footer">
 	<section class="legal">
 		<div>
@@ -6,12 +8,12 @@
 			{{- T "footer.legal.text" (dict "name" $name "year" $year) | emojify -}}
 		</div>
 
-		{{- partial "menu/for-pages" (dict "menu" .Site.Menus.legal "title" "legal" "orientation" "horizontal") -}}
+		{{- partial "menu/for-menu" (dict "title" "Legal" "scope" $scope "menu" "legal") -}}
 	</section>
 
 	{{- with .Site.Menus.powered -}}
 		<section class="powered">
-			{{- partial "menu/for-pages" (dict "menu" . "title" "powered" "orientation" "horizontal") -}}
+			{{- partial "menu/for-menu" (dict "title" "Powered By" "scope" $scope "menu" "powered") -}}
 		</section>
 	{{- end -}}
 

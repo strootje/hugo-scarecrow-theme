@@ -1,0 +1,23 @@
+{{- $data := .Site.Data.Social -}}
+
+{{- with .Site.Params.Social -}}
+	{{- $showFollow := (index . "show-follow") | default true -}}
+
+	{{- if $showFollow -}}
+		{{- with .Accounts -}}
+			{{- $items := (slice) -}}
+
+			{{- range $type, $user := . -}}
+				{{- with (index $data $type) -}}
+					{{- if (isset . "follow") -}}
+						{{- $url := replace .follow "%user%" $user -}}
+						{{- $title := T (printf "menu.social.%s" $type) -}}
+						{{- $items = $items | append (dict "title" $title "link" $url "icon" .icon "target" "_blank") -}}
+					{{- end -}}
+				{{- end -}}
+			{{- end -}}
+
+			{{- partial "menu/_index" (dict "title" "Follow" "items" $items) -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}

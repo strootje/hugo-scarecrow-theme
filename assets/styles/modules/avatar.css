@@ -1,2 +1,10 @@
 .avatar {
 }
+
+.avatar.is-small {
+	font-size: .8rem;
+}
+
+.avatar.is-small img {
+	width: 60%;
+}

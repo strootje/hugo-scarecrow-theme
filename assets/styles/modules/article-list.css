@@ -1,0 +1,10 @@
+.article-list .article-list_item aside {
+	color: #333;
+}
+
+.article-list .article-list_item aside time::after {
+	margin-left: var(--spacing-dense);
+	content: "\f133";
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 400;
+}

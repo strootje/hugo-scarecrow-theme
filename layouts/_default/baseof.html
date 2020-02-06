@@ -21,7 +21,11 @@
 
 	<body>
 		<div class="l-page">
-			<div class="l-content">
+			{{- $contentClassBuilder := (slice "l-content") -}}
+			{{- if .Page.IsHome -}}{{- $contentClassBuilder = $contentClassBuilder | append "is-home" -}}{{- end -}}
+			{{- $contentClass := (delimit $contentClassBuilder " ") -}}
+
+			<div class="{{- $contentClass -}}">
 				{{- block "content" . -}}
 					<!-- content -->
 				{{- end -}}

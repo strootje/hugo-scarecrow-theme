@@ -1,3 +1,24 @@
-<div class="avatar h-card">
-	{{- partial "figure" . -}}
+{{- $avatarClassBuilder := (slice "avatar" "h-card") -}}
+{{- if not .Page.IsHome -}}{{- $avatarClassBuilder = $avatarClassBuilder | append "is-small" -}}{{- end -}}
+{{- $avatarClass := (delimit $avatarClassBuilder " ") -}}
+
+<div class="{{- $avatarClass -}}">
+	{{- if not .Page.IsHome -}}
+		<a href="/" class="p-url">
+	{{- end -}}
+
+	<figure class="figure">
+		<img class="u-photo" src="http://placekitten.com/g/200/200" alt="" />
+		{{- with .Site.Params.Author -}}
+			<figcaption>
+				<h2 class="p-name">{{- printf "%s %s" .Firstname .Lastname -}}</h2>
+				{{- if $.Page.IsHome -}}<h4 class="p-note">{{- .Tagline -}}</h4>{{- end -}}
+			</figcaption>
+		{{- end -}}
+	</figure>
+	
+	{{- if not .Page.IsHome -}}
+		</a>
+	{{- end -}}
 </div>
+

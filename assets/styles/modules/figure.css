@@ -1,4 +1,5 @@
-.figure {
+.figure,
+.figure > figcaption {
 	margin: 0;
 	display: flex;
 	flex-flow: column;
@@ -10,7 +11,12 @@
 	border-radius: var(--spacing-normal);
 }
 
+.figure h2,
+.figure h4 {
+	margin: 0;
+}
+
 /* overrides */
 .avatar .figure img {
-	border-radius: 5.5rem;
+	border-radius: 45%;
 }

@@ -33,6 +33,16 @@ body > * {
 	background-color: #fff;
 }
 
+a {
+	color: var(--color-primary);
+	text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	filter: brightness(60%);
+}
+
 a[href^="https://"]:not(.hide-external)::after,
 a[href^="http://"]:not(.hide-external)::after {
 	margin-left: var(--spacing-dense);

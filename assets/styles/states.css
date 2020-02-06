@@ -1,3 +1,18 @@
+.is-faded {
+	color: #333;
+	font-size: .8rem;
+	font-style: italic;
+}
+
 .is-column {
 	flex-flow: column;
+}
+
+.is-row,
+.is-commarow {
+	flex-flow: row;
+}
+
+.is-row > *:not(:first-child) {
+	margin-left: var(--spacing-dense);
 }

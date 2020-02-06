@@ -10,6 +10,7 @@ params:
     lastname: "Stroosnijder"
     firstname: "Bastiaan"
     gender: "male"
+    tagline: "some awesome shit here"
   social:
     show-follow: true
     show-share: true
@@ -28,12 +29,10 @@ menu:
   legal:
   - name: "Privacy"
   - name: "Terms of Use"
-  powered:
-  - name: hugo
-    title: Hugo
-    url: https://gohugo.io/
-    target: _blank
-  - name: scarecrow
-    title: Scarecrow
-    url: https://strootje.github.io/hugo-scarecrow-theme
-    target: _blank
+  # powered:
+  # - name: hugo
+  #   title: Hugo
+  #   url: https://gohugo.io/
+  # - name: scarecrow
+  #   title: Scarecrow
+  #   url: https://strootje.github.io/hugo-scarecrow-theme

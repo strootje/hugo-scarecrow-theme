@@ -13,7 +13,7 @@
 	{{- partial "social/follow" . -}}
 
 	<section>
-		{{- partial "menu/for-sections" (dict "title" "Sections" "scope" . "orientation" "vertical") -}}
-		{{- partial "menu/for-menu" (dict "title" "Pages" "scope" . "menu" "pages" "orientation" "vertical") -}}
+		{{- partial "menu/for-sections" (dict "title" "Sections" "scope" . "style" "column") -}}
+		{{- partial "menu/for-menu" (dict "title" "Pages" "scope" . "menu" "pages" "style" "column") -}}
 	</section>
 {{- end -}}

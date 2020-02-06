@@ -4,7 +4,7 @@
 
 {{- $title := (index . "title") -}}
 {{- $items := (index . "items") -}}
-{{- $orientation := (index . "orientation") | default "horizontal" -}}
+{{- $style := (index . "style") | default "row" -}}
 
 {{- if not (reflect.IsSlice $items) -}}{{- errorf "menu.items not a slice" -}}{{- end -}}
 
@@ -14,7 +14,7 @@
 	
 	<nav class="{{- $menuClass -}}" aria-label="{{- $title -}}">
 		{{- $itemsClassBuilder := (slice "menu_items") -}}
-		{{- if (eq "vertical" $orientation) -}}{{- $itemsClassBuilder = $itemsClassBuilder | append "is-column" -}}{{- end -}}
+		{{- $itemsClassBuilder = $itemsClassBuilder | append (printf "is-%s" $style) -}}
 		{{- $itemsClass := (delimit $itemsClassBuilder " ") -}}
 
 		<ul class="{{- $itemsClass -}}">

@@ -12,7 +12,3 @@
 	display: flex;
 	align-items: center;
 }
-
-.menu :not(.is-column) .menu_item:not(:first-child) {
-	margin-left: var(--spacing-dense);
-}

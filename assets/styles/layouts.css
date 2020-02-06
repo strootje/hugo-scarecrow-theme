@@ -1,6 +1,6 @@
 .l-page {
 	margin: var(--spacing-dense);
-	padding: var(--spacing-wide);
+	padding: calc(var(--spacing-wide) * 2);
 
 	min-height: calc(100% - var(--spacing-dense));
 	display: flex;
@@ -11,6 +11,12 @@
 
 .l-page > *:not(:last-child) {
 	flex-grow: 1;
+}
+
+.l-page > *:not(:last-child).is-home {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
 }
 
 .l-content > *:not(:first-child) {

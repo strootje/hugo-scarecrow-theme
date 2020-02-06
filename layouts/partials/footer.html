@@ -1,13 +1,8 @@
 {{- $scope := . -}}
 
-<footer class="footer">
-	<section class="legal">
-		<div>
-			{{- $name := partialCached "_head/_get/name" (slice .) -}}
-			{{- $year := now.Format "2006" -}}
-			{{- T "footer.legal.text" (dict "name" $name "year" $year) | emojify -}}
-		</div>
-
+<footer class="footer is-faded">
+	<section class="legal is-commarow">
+		{{- partial "footer/legal" . -}}
 		{{- partial "menu/for-menu" (dict "title" "Legal" "scope" $scope "menu" "legal") -}}
 	</section>
 

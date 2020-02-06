@@ -1,14 +1,21 @@
 {{- define "content" -}}
-	{{- $paginator := .Paginate .Pages -}}
-	{{- range $paginator.Pages -}}
-		<article class="listitem">
-			<header>
-				<h4 class="title is-6"><a href="{{- .RelPermalink -}}">{{- .Title -}}</a></h4>
-			</header>
+	{{- partial "avatar" . -}}
+	{{- partial "search" . -}}
 
-			<aside>
-				<span>{{ .Date.Format "2 Jan" }} <i class="far fa-calendar"></i></span>
-			</aside>
-		</article>
-	{{- end -}}
+	<section class="article-list">
+		{{- $paginator := .Paginate .Pages -}}
+		{{- range $paginator.Pages -}}
+			<article class="article-list_item">
+				<aside class="is-faded">
+					{{- $published := .Date.Format "2006-01-02T15:04:05MST" -}}
+					{{- $readable := .Date.Format "Jan 02" -}}
+					<time datetime="{{- $published -}}">{{- $readable -}}</time>
+				</aside>
+				
+				<header>
+					<h4 class="title is-6"><a href="{{- .RelPermalink -}}">{{- .Title -}}</a></h4>
+				</header>
+			</article>
+		{{- end -}}
+	</section>
 {{- end -}}

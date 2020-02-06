@@ -1,6 +1,6 @@
 {{- define "opengraph:type" -}}
 	<meta property="og:type" content="profile" />
-	{{- with .Site.Params.About -}}
+	{{- with .Site.Params.Author -}}
 		{{- with .Username -}}<meta property="og:profile:username" content="{{- . -}}" />{{- end -}}
 		{{- with .Lastname -}}<meta property="og:profile:last_name" content="{{- . -}}" />{{- end -}}
 		{{- with .Firstname -}}<meta property="og:profile:first_name" content="{{- . -}}" />{{- end -}}

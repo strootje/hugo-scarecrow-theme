@@ -6,12 +6,18 @@
 {{- $link := (index . "link") -}}
 {{- $icon := (index . "icon") | default false -}}
 {{- $target := (index . "target") | default "_self" -}}
+{{- $rel := (slice "noopener") -}}
 
 {{- if not $link -}}{{- warnf "menu.link not set for '%s'" $title -}}{{- end -}}
+
+{{- if (isset . "rel") -}}
+	{{- $rel = $rel | append (index . "rel") -}}
+{{- end -}}
 
 {{- with (urls.Parse $link) -}}
 	{{- if .Scheme -}}
 		{{- $target = "_blank" -}}
+		{{- $rel = $rel | append "external" -}}
 	{{- end -}}
 {{- end -}}
 
@@ -19,8 +25,9 @@
 	{{- $linkClassBuilder := (slice) -}}
 	{{- if $icon -}}{{- $linkClassBuilder = $linkClassBuilder | append "hide-external" -}}{{- end -}}
 	{{- $linkClass := (delimit $linkClassBuilder " ") -}}
+	{{- $parsedRel := (delimit $rel " ") -}}
 
-	<a href="{{- $link -}}" title="{{- $title -}}" class="{{- $linkClass -}}" target="{{- $target -}}">
+	<a href="{{- $link -}}" title="{{- $title -}}" class="{{- $linkClass -}}" target="{{- $target -}}" rel="{{- $parsedRel -}}">
 		{{- if $icon -}}
 			<i class="{{- $icon -}}"></i>
 		{{- else -}}

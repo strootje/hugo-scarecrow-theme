@@ -12,7 +12,7 @@
 					{{- if (isset . "follow") -}}
 						{{- $url := replace .follow "%user%" $user -}}
 						{{- $title := T (printf "menu.social.%s" $type) -}}
-						{{- $items = $items | append (dict "title" $title "link" $url "icon" .icon "target" "_blank") -}}
+						{{- $items = $items | append (dict "title" $title "link" $url "icon" .icon "target" "_blank" "rel" "me") -}}
 					{{- end -}}
 				{{- end -}}
 			{{- end -}}

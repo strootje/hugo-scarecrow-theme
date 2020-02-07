@@ -7,7 +7,7 @@
 }
 
 .figure img {
-	border: var(--border-normal) solid var(--color-primary);
+	border: var(--border-normal) solid var(--color-tertiary);
 	border-radius: var(--spacing-normal);
 }
 

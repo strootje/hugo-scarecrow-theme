@@ -1,0 +1,31 @@
+{{- if not (isset . "scope") -}}{{- errorf "list-articles.scope is not set" -}}{{- end -}}
+{{- if not (isset . "items") -}}{{- errorf "list-articles.items is not set" -}}{{- end -}}
+
+{{- $scope := (index . "scope") -}}
+{{- $paginator := (index . "items") -}}
+
+<section class="list articles">
+	{{- if $paginator.HasPrev -}}
+		{{- $title := T "list.pager.prev.text" -}}
+		<a href="{{- $paginator.Prev.URL -}}" class="pager prev" title="{{- $title -}}"><i class="fas fa-chevron-up"></i></a>
+	{{- end -}}
+
+	{{- range $paginator.Pages -}}
+		<article class="list_item">
+			<aside class="is-faded">
+				{{- $published := .Date.Format "2006-01-02T15:04:05MST" -}}
+				{{- $readable := .Date.Format "Jan 02" -}}
+				<time datetime="{{- $published -}}">{{- $readable -}}</time>
+			</aside>
+
+			<header>
+				<h4 class="title is-6"><a href="{{- .RelPermalink -}}">{{- .Title -}}</a></h4>
+			</header>
+		</article>
+	{{- end -}}
+
+	{{- if $paginator.HasNext -}}
+		{{- $title := T "list.pager.next.text" -}}
+		<a href="{{- $paginator.Next.URL -}}" class="pager next" title="{{- $title -}}"><i class="fas fa-chevron-down"></i></a>
+	{{- end -}}
+</section>

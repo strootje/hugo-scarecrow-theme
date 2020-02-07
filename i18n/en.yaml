@@ -8,9 +8,14 @@ footer.cookie.none.text:
 footer.cookie.google.text:
   other: 'This page uses :cookie:s'
 
-menu.social.github:
+menu.social.github.text:
   other: 'Follow me on Github'
-menu.social.linkedin:
+menu.social.linkedin.text:
   other: 'Connect with me on Linkedin'
-menu.social.rss:
+menu.social.rss.text:
   other: 'Follow my posts on RSS'
+
+list.pager.prev.text:
+  other: 'Show newer page'
+list.pager.next.text:
+  other: 'Show older page'

@@ -2,20 +2,6 @@
 	{{- partial "avatar" . -}}
 	{{- partial "search" . -}}
 
-	<section class="article-list">
-		{{- $paginator := .Paginate .Pages -}}
-		{{- range $paginator.Pages -}}
-			<article class="article-list_item">
-				<aside class="is-faded">
-					{{- $published := .Date.Format "2006-01-02T15:04:05MST" -}}
-					{{- $readable := .Date.Format "Jan 02" -}}
-					<time datetime="{{- $published -}}">{{- $readable -}}</time>
-				</aside>
-				
-				<header>
-					<h4 class="title is-6"><a href="{{- .RelPermalink -}}">{{- .Title -}}</a></h4>
-				</header>
-			</article>
-		{{- end -}}
-	</section>
+	{{- $paginator := .Paginate .Pages -}}
+	{{- partial "list/articles" (dict "scope" . "items" $paginator) -}}
 {{- end -}}

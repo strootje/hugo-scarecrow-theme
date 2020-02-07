@@ -2,9 +2,14 @@ languageCode: "en"
 
 title: "Scarecrow"
 baseURL: "https://strootje.github.io/hugo-scarecrow-theme"
-paginate: 6
+paginate: 3
 
 params:
+  # theme:
+  #   colors:
+  #     primary: '#405F7F'
+  #     secondary: '#C4BD5B'
+  #     tertiary: '#B4536A'
   author:
     username: "strootje"
     lastname: "Stroosnijder"
@@ -12,11 +17,12 @@ params:
     gender: "male"
     tagline: "some awesome shit here"
   social:
-    show-follow: true
-    show-share: true
+    # show-follow: true
+    # show-share: true
     accounts:
       github: "???"
       linkedin: "???"
+      instagram: "???"
       rss: "posts"
   # ackee:
   #   server: https://analytics.strootje.com

@@ -1,8 +1,8 @@
-.article-list .article-list_item aside {
-	color: #333;
+.articles .list_item > *:first-child {
+	min-width: 60px;
 }
 
-.article-list .article-list_item aside time::after {
+.articles .list_item aside time::after {
 	margin-left: var(--spacing-dense);
 	content: "\f133";
 	font-family: 'Font Awesome 5 Free';

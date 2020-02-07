@@ -1,5 +1,4 @@
 {{- $avatarClassBuilder := (slice "avatar" "h-card") -}}
-{{- if not .Page.IsHome -}}{{- $avatarClassBuilder = $avatarClassBuilder | append "is-small" -}}{{- end -}}
 {{- $avatarClass := (delimit $avatarClassBuilder " ") -}}
 
 <div class="{{- $avatarClass -}}">
@@ -16,7 +15,7 @@
 			</figcaption>
 		{{- end -}}
 	</figure>
-	
+
 	{{- if not .Page.IsHome -}}
 		</a>
 	{{- end -}}

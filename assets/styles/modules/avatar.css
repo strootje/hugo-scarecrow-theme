@@ -1,10 +1,12 @@
-.avatar {
+.avatar,
+.avatar a/*:not(:hover)*/ {
+	color: var(--color-tertiary);
 }
 
-.avatar.is-small {
-	font-size: .8rem;
+.l-content:not(.is-home) .avatar {
+	font-size: .75rem;
 }
 
-.avatar.is-small img {
-	width: 60%;
+.l-content:not(.is-home) .avatar img {
+	width: 40%;
 }

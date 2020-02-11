@@ -1,0 +1,26 @@
+{{- $scope := . -}}
+
+{{- $size := 120 -}}
+{{- if $scope.Page.IsHome -}}
+	{{- $size = 200 -}}
+{{- end -}}
+
+{{- $permalink := (printf "https://www.gravatar.com/avatar?s=%d&d=identicon" $size) -}}
+{{- $type := "PNG" -}}
+{{- $alt := $scope.Site.Params.Author.LogoAlt -}}
+
+{{- with .Site.Params.Author.Logo -}}
+	{{- with resources.Get . -}}
+		{{- $img := .Fit (printf "%dx%d %s" $size $size $type) -}}
+		{{- $permalink = $img.RelPermalink -}}
+	{{- else -}}
+		{{- $url := urls.Parse . -}}
+		{{- if $url.Host -}}
+			{{- $permalink = . -}}
+		{{- else -}}
+			{{- $permalink = (printf "https://www.gravatar.com/avatar/%s?s=%d&d=identicon" (md5 .) $size) -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+{{- return (dict "Permalink" $permalink "Type" $type "Width" $size "Height" $size "Alt" $alt) -}}

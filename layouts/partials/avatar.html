@@ -8,7 +8,9 @@
 	{{- end -}}
 
 	<figure class="figure">
-		<img class="u-photo" src="http://placekitten.com/g/200/200" alt="" />
+		{{- $img := partialCached "avatar/_get/link" . .Page.IsHome -}}
+		<img class="u-photo" src="{{- $img.Permalink -}}" alt="{{- $img.Alt -}}" />
+
 		{{- with .Site.Params.Author -}}
 			<figcaption>
 				<h2 class="p-name">{{- printf "%s %s" .Firstname .Lastname -}}</h2>

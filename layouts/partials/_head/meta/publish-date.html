@@ -1,0 +1,3 @@
+{{- $scope := . -}}
+
+{{- with $scope.PublishDate -}}<meta property="og:article:publish_date" content="{{- . -}}" />{{- end -}}

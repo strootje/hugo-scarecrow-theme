@@ -1,0 +1,3 @@
+{{- $scope := . -}}
+
+{{- with $scope.Params.Category -}}<meta property="og:article:tag" content="{{- . -}}" />{{- end -}}

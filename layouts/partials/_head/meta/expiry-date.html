@@ -1,0 +1,3 @@
+{{- $scope := . -}}
+
+{{- with $scope.ExpiryDate -}}<meta property="og:article:expiration_time" content="{{- . -}}" />{{- end -}}

@@ -3,10 +3,16 @@
 	color: var(--color-tertiary);
 }
 
+.avatar .u-photo {
+	max-width: 200px;
+	max-height: 200px;
+}
+
 .l-content:not(.is-home) .avatar {
 	font-size: .75rem;
 }
 
 .l-content:not(.is-home) .avatar img {
-	width: 40%;
+	max-width: 120px;
+	max-height: 120px;
 }

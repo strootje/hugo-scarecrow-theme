@@ -1,19 +1,18 @@
 {{- define "opengraph:type" -}}
 	<meta property="og:type" content="article" />
-	<meta property="og:article:publish_date" content="{{- .PublishDate -}}" />
-	<meta property="og:article:modified_time" content="{{- .Lastmod -}}" />
-	{{- $author := printf "%s %s" .Site.Params.Author.Firstname .Site.Params.Author.Lastname -}}
-	<meta property="og:article:author" content="{{- $author -}}" />
-	<meta property="og:article:section" content="{{- .CurrentSection.Title -}}" />
-	<meta property="og:description" content="{{- .Summary -}}" />
-	{{- with .ExpiryDate -}}<meta property="og:article:expiration_time" content="{{- . -}}" />{{- end -}}
-	{{- with .Params.Category -}}<meta property="og:article:tag" content="{{- . -}}" />{{- end -}}
+	{{- partial "_head/meta/author" . -}}
+	{{- partial "_head/meta/title" . -}}
+	{{- partial "_head/meta/summary" . -}}
+	{{- partial "_head/meta/publish-date" . -}}
+	{{- partial "_head/meta/modified-date" . -}}
+	{{- partial "_head/meta/expiry-date" . -}}
+	{{- partial "_head/meta/category" . -}}
 {{- end -}}
 
 {{- define "content" -}}
 	<article class="single post h-entry">
-		<h1>{{- .Title -}}</h1>
 		{{- partial "avatar" . -}}
+		<h1 class="p-name">{{- .Title -}}</h1>
 
 		<aside class="is-faded">
 			{{- partial "single/blocks/category" . -}}

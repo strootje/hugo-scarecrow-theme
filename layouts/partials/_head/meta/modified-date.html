@@ -1,0 +1,3 @@
+{{- $scope := . -}}
+
+{{- with $scope.Lastmod -}}<meta property="og:article:modified_time" content="{{- . -}}" />{{- end -}}

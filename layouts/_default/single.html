@@ -1,3 +1,32 @@
+{{- define "opengraph:type" -}}
+	<meta property="og:type" content="article" />
+	{{- partial "_head/meta/author" . -}}
+	{{- partial "_head/meta/title" . -}}
+	{{- partial "_head/meta/summary" . -}}
+	{{- partial "_head/meta/publish-date" . -}}
+	{{- partial "_head/meta/modified-date" . -}}
+	{{- partial "_head/meta/expiry-date" . -}}
+	{{- partial "_head/meta/category" . -}}
+{{- end -}}
+
 {{- define "content" -}}
-	<p>todo</p>
+	<article class="single post h-entry">
+		{{- partial "avatar" . -}}
+		<h1 class="p-name">{{- .Title -}}</h1>
+
+		<aside class="is-faded">
+			{{- partial "single/blocks/category" . -}}
+			{{- partial "single/blocks/published-date" . -}}
+			{{- partial "single/blocks/reading-time" . -}}
+			{{- partial "single/blocks/permalink" . -}}
+			{{- partial "single/blocks/translations" . -}}
+		</aside>
+
+		<section class="content e-content">{{- .Content -}}</section>
+		{{- partial "social/share" . -}}
+
+		<footer class="footer">
+			{{- partial "single/pager/back.html" . -}}
+		</footer>
+	</article>
 {{- end -}}

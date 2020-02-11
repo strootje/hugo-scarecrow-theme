@@ -1,0 +1,10 @@
+{{- $scope := . -}}
+
+{{- with $scope.Site.Params.Author -}}
+	{{- $displayName := .Displayname | default (printf "%s %s" .Firstname .Lastname) -}}
+	<meta property="og:article:author" content="{{- $displayName -}}" />
+	<meta property="og:article:author:first_name" content="{{- .Firstname -}}" />
+	<meta property="og:article:author:last_name" content="{{- .Lastname -}}" />
+	<meta property="og:article:author:username" content="{{- .Username -}}" />
+	<meta property="og:article:author:gender" content="{{- .gender -}}" />
+{{- end -}}

@@ -1,0 +1,44 @@
+.popup.is-open {
+	left: var(--spacing-dense);
+	top: var(--spacing-dense);
+	padding: var(--spacing-wide);
+	width: calc(100vw - (var(--spacing-dense) * 2));
+	height: calc(100vh - (var(--spacing-dense) * 2));
+	position: fixed;
+
+	background-color: #fff;
+}
+
+.popup.is-open > *:not(.popup__header) {
+	margin-top: var(--spacing-wide);
+}
+
+.popup .popup__header,
+.popup .popup__footer,
+.popup .popup__body {
+	display: none;
+}
+
+.popup.is-open .popup__header,
+.popup.is-open .popup__footer,
+.popup.is-open .popup__body {
+	display: block;
+}
+
+.popup .popup__header {
+	margin-top: calc(var(--spacing-wide) * -1);
+	margin-left: calc(var(--spacing-wide) * -1);
+	margin-right: calc(var(--spacing-wide) * -1);
+	clear: both;
+}
+
+.popup .popup__header .popup__header__title,
+.popup .popup__header .popup__header__close {
+	padding: var(--spacing-normal);
+	display: inline-block;
+	background-color: var(--color-tertiary);
+}
+
+.popup .popup__header .popup__header__close {
+	cursor: pointer;
+}

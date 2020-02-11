@@ -1,0 +1,5 @@
+.single .category::before,
+.list .category::after {
+	content: "\f292";
+	font-weight: 900;
+}

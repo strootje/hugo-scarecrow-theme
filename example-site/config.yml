@@ -2,11 +2,12 @@ languageCode: "en"
 
 title: "Scarecrow"
 baseURL: "https://strootje.github.io/hugo-scarecrow-theme"
-paginate: 3
+paginate: 9
 
 params:
   # theme:
   #   colors:
+  #     faded: '#333'
   #     primary: '#405F7F'
   #     secondary: '#C4BD5B'
   #     tertiary: '#B4536A'
@@ -27,6 +28,12 @@ params:
   # ackee:
   #   server: https://analytics.strootje.com
   #   domainId: 123132123
+
+languages:
+  en:
+    languageName: English
+  nl:
+    languageName: Dutch
 
 menu:
   pages:

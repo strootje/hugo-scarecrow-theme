@@ -1,0 +1,7 @@
+{{- $scope := . -}}
+
+{{- with $scope.CurrentSection -}}
+	{{/*  TODO: add page to permalink  */}}
+	{{- $title := T "pager.back.text" -}}
+	<a href="{{- .RelPermalink -}}" class="pager" title="{{- $title -}}"><i class="fas fa-chevron-up"></i></a>
+{{- end -}}

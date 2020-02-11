@@ -19,6 +19,14 @@
 	justify-content: center;
 }
 
+.l-content {
+	width: 100%;
+	max-width: var(--break-max-width);
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+
 .l-content > *:not(:first-child) {
 	margin-top: calc(var(--spacing-wide) * 2)
 }

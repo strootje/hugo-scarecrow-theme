@@ -1,3 +1,7 @@
+.search.is-open {
+	margin-top: 0;
+}
+
 .search input[type="search"] {
 	width: 100%;
 	padding: var(--spacing-normal) var(--spacing-wide);

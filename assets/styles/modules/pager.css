@@ -1,0 +1,10 @@
+.pager {
+	width: 100%;
+	display: block;
+	padding: var(--spacing-normal);
+	text-align: center;
+}
+
+a.pager:hover {
+	/* background-color: var(--color-primary); */
+}

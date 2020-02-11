@@ -9,12 +9,20 @@
 {{- $files = $files | append "layouts" -}}
 {{- $files = $files | append "states" -}}
 
+{{- $files = $files | append "modules/blocks/category" -}}
+{{- $files = $files | append "modules/blocks/permalink" -}}
+{{- $files = $files | append "modules/blocks/published-date" -}}
+{{- $files = $files | append "modules/blocks/reading-time" -}}
+{{- $files = $files | append "modules/blocks/translations" -}}
+{{- $files = $files | append "modules/list/posts" -}}
+{{- $files = $files | append "modules/single/posts" -}}
 {{- $files = $files | append "modules/avatar" -}}
 {{- $files = $files | append "modules/figure" -}}
 {{- $files = $files | append "modules/footer" -}}
 {{- $files = $files | append "modules/list" -}}
-{{- $files = $files | append "modules/list-articles" -}}
 {{- $files = $files | append "modules/menu" -}}
+{{- $files = $files | append "modules/pager" -}}
+{{- $files = $files | append "modules/popup" -}}
 {{- $files = $files | append "modules/search" -}}
 
 {{- $sources := slice -}}

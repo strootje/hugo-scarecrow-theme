@@ -1,6 +1,10 @@
 ---
-title: This title is a bit longer
+title: Hello, World!
 publishDate: 2020-02-06
 ---
 
-## Hello WOrld!
+this is my summary
+
+<!--more-->
+
+and this is my content

@@ -1,0 +1,6 @@
+{{- $scope := . -}}
+
+{{- with $scope.ReadingTime -}}
+	{{- $wordCount := T "single.block.word-count.text" $scope.WordCount -}}
+	<span class="reading-time has-icon" title="{{- $wordCount -}}">{{- T "single.block.reading-time.text" . -}}</span>
+{{- end -}}

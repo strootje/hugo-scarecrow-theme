@@ -1,0 +1,6 @@
+{{- $paginator := . -}}
+
+{{- if $paginator.HasNext -}}
+	{{- $title := T "pager.next.text" -}}
+	<a href="{{- $paginator.Next.URL -}}" class="pager" rel="next" title="{{- $title -}}"><i class="fas fa-chevron-down"></i></a>
+{{- end -}}

@@ -1,0 +1,6 @@
+{{- $paginator := . -}}
+
+{{- if $paginator.HasPrev -}}
+	{{- $title := T "pager.prev.text" -}}
+	<a href="{{- $paginator.Prev.URL -}}" class="pager" rel="prev" title="{{- $title -}}"><i class="fas fa-chevron-up"></i></a>
+{{- end -}}

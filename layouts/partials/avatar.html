@@ -1,4 +1,5 @@
 {{- $avatarClassBuilder := (slice "avatar" "h-card") -}}
+{{- if .Page.IsPage -}}{{- $avatarClassBuilder = $avatarClassBuilder | append "p-author" -}}{{- end -}}
 {{- $avatarClass := (delimit $avatarClassBuilder " ") -}}
 
 <div class="{{- $avatarClass -}}">

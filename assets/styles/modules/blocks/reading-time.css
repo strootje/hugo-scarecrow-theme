@@ -1,0 +1,5 @@
+.single .reading-time::before,
+.list .reading-time::after {
+	content: "\f017";
+	font-weight: 400;
+}

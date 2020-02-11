@@ -41,11 +41,12 @@ a {
 a:hover,
 a:focus {
 	color: var(--color-secondary);
-	filter: brightness(80%);
+	filter: brightness(60%);
 }
 
-a[href^="https://"]:not(.hide-external)::after,
-a[href^="http://"]:not(.hide-external)::after {
+{{- $url := urls.Parse .Site.BaseURL -}}
+a[href^="http://"]:not([href^="http://{{- $url.Host -}}"]):not(.hide-external)::after,
+a[href^="https://"]:not([href^="https://{{- $url.Host -}}"]):not(.hide-external)::after {
 	margin-left: var(--spacing-dense);
 	content: "\f35d";
 	font-family: 'Font Awesome 5 Free';

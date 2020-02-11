@@ -1,0 +1,35 @@
+{{- define "opengraph:type" -}}
+	<meta property="og:type" content="article" />
+	<meta property="og:article:publish_date" content="{{- .PublishDate -}}" />
+	<meta property="og:article:modified_time" content="{{- .Lastmod -}}" />
+	{{- $author := printf "%s %s" .Site.Params.Author.Firstname .Site.Params.Author.Lastname -}}
+	<meta property="og:article:author" content="{{- $author -}}" />
+	<meta property="og:article:section" content="{{- .CurrentSection.Title -}}" />
+	<meta property="og:description" content="{{- .Summary -}}" />
+	{{- with .ExpiryDate -}}<meta property="og:article:expiration_time" content="{{- . -}}" />{{- end -}}
+	{{- with .Params.Category -}}<meta property="og:article:tag" content="{{- . -}}" />{{- end -}}
+{{- end -}}
+
+{{- define "content" -}}
+	<article class="single post h-entry">
+		<h1>{{- .Title -}}</h1>
+		{{- partial "avatar" . -}}
+
+		<aside class="is-faded">
+			{{- partial "single/blocks/category" . -}}
+			{{- partial "single/blocks/published-date" . -}}
+			{{- partial "single/blocks/reading-time" . -}}
+			{{- partial "single/blocks/permalink" . -}}
+			{{- partial "single/blocks/translations" . -}}
+		</aside>
+
+		<section class="content e-content">{{- .Content -}}</section>
+		{{- partial "social/share" . -}}
+
+		<footer class="footer">
+			{{- partial "single/pager/prev.html" . -}}
+			{{- partial "single/pager/back.html" . -}}
+			{{- partial "single/pager/next.html" . -}}
+		</footer>
+	</article>
+{{- end -}}

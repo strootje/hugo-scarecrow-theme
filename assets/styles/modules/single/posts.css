@@ -1,0 +1,28 @@
+.post {
+	width: 100%;
+	display: flex;
+	flex-flow: column;
+	flex-grow: 1;
+}
+
+.post > h1 {
+	margin: var(--spacing-wide);
+	text-align: center;
+}
+
+.post > aside {
+	display: flex;
+	flex-flow: row;
+}
+
+.post > aside > *:not(:first-child) {
+	margin-left: var(--spacing-wide);
+}
+
+.post > aside > *::before {
+	margin-right: var(--spacing-dense);
+}
+
+.post .content {
+	flex-grow: 1;
+}

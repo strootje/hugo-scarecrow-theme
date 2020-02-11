@@ -10,12 +10,6 @@
 		"follow": "https://github.com/%user%"
 	},
 
-	"googleplus": {
-		"icon": "fab fa-fw fa-google-plus-g",
-		"follow": "https://plus.google.com/%user%",
-		"share": "https://plus.google.com/share?url=%permalink%"
-	},
-
 	"hackernews": {
 		"icon": "fab fa-fw fa-hacker-news",
 		"follow": "https://news.ycombinator.com/user?id=%user%",

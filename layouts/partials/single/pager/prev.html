@@ -1,0 +1,8 @@
+{{- $scope := . -}}
+
+{{- with $scope.NextInSection -}}
+	{{- $title := T "pager.prev.text" -}}
+	<a href="{{- .RelPermalink -}}" class="pager" rel="prev" title="{{- $title -}}"><i class="fas fa-chevron-left"></i></a>
+{{- else -}}
+	<span class="pager"></span>
+{{- end -}}

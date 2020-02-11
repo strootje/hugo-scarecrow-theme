@@ -1,4 +1,19 @@
-<section class="search">
+<section id="popup-search" class="search popup is-hidden" aria-hidden="true">
+	<header class="popup__header">
+		<div class="is-pulled-left">
+			<span class="popup__header__title">Search Ttile</span>
+		</div>
+
+		<div class="is-pulled-right">
+			<a class="popup__header__close"><i class="fas fa-fw fa-lg fa-times"></i></a>
+		</div>
+	</header>
+
 	{{- $placeholder := "search.." -}}
-	<input type="search" placeholder="{{- $placeholder -}}" aria-placeholder="{{- $placeholder -}}" />
+	<input type="search" class="popup__subject" data-target="popup-search" placeholder="{{- $placeholder -}}" aria-placeholder="{{- $placeholder -}}" />
+
+	<section class="popup__body">
+		<ul id="search-results">
+		</ul>
+	</section>
 </section>

@@ -2,13 +2,6 @@
 	display: flex;
 }
 
-.list .pager {
-	width: 100%;
-	display: block;
-	padding: var(--spacing-normal);
-	text-align: center;
-}
-
 .list .list_item:not(:first-child) {
 	margin-top: var(--spacing-normal);
 }
@@ -22,7 +15,7 @@
 }
 
 .list .list_item aside {
-	color: #333;
+	color: var(--color-faded);
 }
 
 .list .list_item header .title {

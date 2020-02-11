@@ -1,11 +1,24 @@
 .is-faded {
-	color: #333;
+	color: var(--color-faded);
 	font-size: .8rem;
 	font-style: italic;
 
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
+}
+
+.is-hidden {
+	display: none;
+	visibility: hidden;
+}
+
+.is-pulled-left {
+	float: left;
+}
+
+.is-pulled-right {
+	float: right;
 }
 
 .is-column {
@@ -19,4 +32,9 @@
 
 .is-row > *:not(:first-child) {
 	margin-left: var(--spacing-dense);
+}
+
+.has-icon::before,
+.has-icon::after {
+	font-family: 'Font Awesome 5 Free';
 }

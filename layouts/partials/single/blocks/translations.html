@@ -1,0 +1,15 @@
+{{- $scope := . -}}
+
+{{- if .IsTranslated -}}
+	<nav class="translations has-icon">
+		<a class="button" href="#translations" aria-haspopup="true">{{- T "single.block.translations.text" -}}</a>
+
+		<ul id="translations" class="translations__items modal" role="menu">
+			{{- range .Translations -}}
+				{{- $link := .Permalink | absLangURL -}}
+				{{- $locale := partial "_head/_get/locale" (slice $scope .Lang "-") -}}
+				<li role="menuitem"><a class="has-icon" href="{{- $link -}}" rel="alternate" lang="{{- $locale -}}">{{- .Language.LanguageName -}}</a></li>
+			{{- end -}}
+		</ul>
+	</nav>
+{{- end -}}

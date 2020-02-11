@@ -1,3 +1,8 @@
+.footer {
+	margin-top: var(--spacing-wide);
+	display: flex;
+}
+
 .footer > * {
 	display: flex;
 	flex-flow: column;

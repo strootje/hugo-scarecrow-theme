@@ -23,7 +23,7 @@
 				{{- $url = replace $url "%permalink%" $permalink -}}
 				{{- $url = replace $url "%title%" $title -}}
 				{{- $url = replace $url "%summary%" $summary -}}
-				{{- $title := T (printf "menu.social.%s" $type) -}}
+				{{- $title := T (printf "menu.social.%s.share.text" $type) -}}
 				{{- $items = $items | append (dict "title" $title "link" $url "icon" $data.icon "target" "_blank") -}}
 			{{- end -}}
 		{{- end -}}

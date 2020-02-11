@@ -1,14 +1,3 @@
-{{- define "opengraph:type" -}}
-	<meta property="og:type" content="article" />
-	<meta property="og:article:publish_date" content="{{- .PublishDate -}}" />
-	<meta property="og:article:modified_time" content="{{- .Lastmod -}}" />
-	<meta property="og:article:author" content="{{- .Site.Params.Author.Name -}}" />
-	<meta property="og:article:section" content="{{- .CurrentSection.Title -}}" />
-	<meta property="og:description" content="{{- .Summary -}}" />
-	{{- with .ExpiryDate -}}<meta property="og:article:expiration_time" content="{{- . -}}" />{{- end -}}
-	{{- with .Params.categories -}}<meta property="og:article:tag" content="{{- . -}}" />{{- end -}}
-{{- end -}}
-
 {{- define "content" -}}
-	<p>Hello, single!</p>
+	<p>todo</p>
 {{- end -}}

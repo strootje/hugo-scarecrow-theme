@@ -20,10 +20,14 @@ fetch('/search/index.json').then(resp => resp.json().then(json => {
 		li.classList.add(`is-${item.kind}`);
 		li.classList.add(`has-icon`);
 
-		const a = document.createElement('a');
-		li.appendChild(a);
-		a.href = item.href;
-		a.innerText = item.title
+		if (!!item.href) {
+			const a = document.createElement('a');
+			li.appendChild(a);
+			a.href = item.href;
+			a.innerText = item.title;
+		} else {
+			li.innerText = item.title;
+		}
 	};
 
 	const addEmptySearch = function(list) {

@@ -32,6 +32,7 @@
 	margin-left: calc(var(--spacing-wide) * -1);
 	margin-right: calc(var(--spacing-wide) * -1);
 	clear: both;
+	font-weight: bold;
 }
 
 .popup .popup__header .popup__header__title,

@@ -5,6 +5,8 @@
 	width: calc(100vw - (var(--spacing-dense) * 2));
 	height: calc(100vh - (var(--spacing-dense) * 2));
 	position: fixed;
+	display: flex;
+	flex-flow: column;
 
 	background-color: #fff;
 }
@@ -41,4 +43,9 @@
 
 .popup .popup__header .popup__header__close {
 	cursor: pointer;
+}
+
+.popup .popup__body {
+	flex-grow: 1;
+	overflow: scroll;
 }

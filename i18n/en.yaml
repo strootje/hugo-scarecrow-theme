@@ -32,3 +32,8 @@ single.block.word-count.text:
   one: '{{.Count}} word'
 single.block.translations.text:
   other: 'I18n'
+
+search.title.text:
+  other: 'Search for'
+search.input.placeholder:
+  other: 'Search..'

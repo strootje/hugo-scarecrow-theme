@@ -17,6 +17,7 @@ fetch('/search/index.json').then(resp => resp.json().then(json => {
 	const add = function(list, item) {
 		const li = document.createElement('li');
 		list.appendChild(li);
+		li.classList.add(`list__item`);
 		li.classList.add(`is-${item.kind}`);
 		li.classList.add(`has-icon`);
 
@@ -60,10 +61,10 @@ fetch('/search/index.json').then(resp => resp.json().then(json => {
 			parent.removeAttribute('aria-hidden');
 		});
 
-		p.throttle('blur', 360, node => {
-			const target = document.getElementById(node.dataset.target);
-			target.classList.remove('is-open');
-		});
+		// p.throttle('blur', 360, node => {
+		// 	const target = document.getElementById(node.dataset.target);
+		// 	target.classList.remove('is-open');
+		// });
 		
 		p.throttle('keyup', 0, node => {
 			if (!node.parentNode.classList.contains('is-working')) {

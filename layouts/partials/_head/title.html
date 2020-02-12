@@ -1,5 +1,5 @@
-{{- $title := partialCached "_head/_get/title" (slice .) .Page -}}
-{{- $site_name := partialCached "_head/_get/name" (slice .) -}}
+{{- $title := partialCached "params/site/title" (slice .) .Page -}}
+{{- $site_name := partialCached "params/site/name" (slice .) -}}
 <title>{{- $title -}}</title>
 
 <link rel="canonical" href="{{ .Permalink | absLangURL }}">
@@ -10,7 +10,7 @@
 <meta property="og:site_name" content="{{- $site_name -}}" />
 <meta property="og:url" content="{{- .Permalink | absLangURL -}}" />
 
-{{- $img := partialCached "avatar/_get/link" . .Page.IsHome -}}
+{{- $img := partialCached "params/author/logo" . .Page.IsHome -}}
 <meta property="og:image" content="{{- $img.Permalink -}}" />
 <meta property="og:image:type" content="{{- $img.Type -}}" />
 <meta property="og:image:width" content="{{- $img.Width -}}" />

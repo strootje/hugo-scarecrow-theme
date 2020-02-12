@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{{- $locale := partial "_head/_get/locale" (slice . .Site.Language.Lang "-") -}}
+{{- $locale := partial "params/site/locale" (slice . .Site.Language.Lang "-") -}}
 <html lang="{{- $locale -}}">
 	<head>
 		{{- partial "_head/title" . -}}

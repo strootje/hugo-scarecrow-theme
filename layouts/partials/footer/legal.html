@@ -1,5 +1,5 @@
 <section>
-	{{- $name := partialCached "_head/_get/name" (slice .) -}}
+	{{- $name := partialCached "params/site/name" (slice .) -}}
 	{{- $year := now.Format "2006" -}}
 	{{- T "footer.legal.text" (dict "name" $name "year" $year) | emojify -}}
 </section>

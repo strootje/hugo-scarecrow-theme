@@ -20,7 +20,7 @@ params:
     # logo: "images/noimage.jpg" #resource
     # logo: "https://placekitten.com/g/200/200" #href
     # logo: "bas@strootje.com" #gravatar
-    logoalt: "testing"
+    # logoalt: "testing"
   social:
     # show-follow: true
     # show-share: true

@@ -1,0 +1,9 @@
+{{- $scope := . -}}
+
+{{- $displayName := printf "%s %s" $scope.Site.Params.Author.Firstname $scope.Site.Params.Author.Lastname -}}
+
+{{- if (isset $scope.Site.Params.Author "DisplayName") -}}
+	{{- $displayName = $scope.Site.Params.Author.DisplayName -}}
+{{- end -}}
+
+{{- return $displayName -}}

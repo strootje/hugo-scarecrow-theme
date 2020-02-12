@@ -1,5 +1,7 @@
 {{- $scope := . -}}
 
+{{- if not (isset $scope.Site.Params.Author "LogoAlt") -}}{{- warnf "author.LogoAlt is not set" -}}{{- end -}}
+
 {{- $size := 120 -}}
 {{- if $scope.Page.IsHome -}}
 	{{- $size = 200 -}}

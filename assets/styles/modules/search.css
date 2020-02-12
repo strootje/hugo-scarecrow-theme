@@ -6,14 +6,7 @@
 	display: none;
 }
 
-.search .search__results {
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-}
-
 .search .search__results .has-icon {
-	display: flex;
 	align-items: center;
 }
 
@@ -28,21 +21,17 @@
 
 .search .search__results .is-home::before {
 	content: "\f015";
-	font-weight: 900;
 }
 
 .search .search__results .is-page::before {
 	content: "\f1ea";
-	font-weight: 900;
 }
 
 .search .search__results .is-section::before,
 .search .search__results .is-taxonomyTerm::before {
 	content: "\f03a";
-	font-weight: 900;
 }
 
 .search .search__results .is-taxonomy::before {
 	content: "\f292";
-	font-weight: 900;
 }

@@ -31,7 +31,7 @@
 	}
 
 	const Bootstrap = window.Bootstrap = window.$ = (query, callback) => {
-		if (document.readyState === 'complete') {
+		if (document.readyState !== 'loading') {
 			callback(BuildLambda(document.querySelectorAll(query)));
 		} else {
 			document.addEventListener('DOMContentLoaded', () => callback(BuildLambda(

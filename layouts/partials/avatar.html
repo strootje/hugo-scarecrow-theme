@@ -1,25 +1,29 @@
+{{- $scope := . -}}
+
 {{- $avatarClassBuilder := (slice "avatar" "h-card") -}}
-{{- if .Page.IsPage -}}{{- $avatarClassBuilder = $avatarClassBuilder | append "p-author" -}}{{- end -}}
+{{- if $scope.Page.IsPage -}}{{- $avatarClassBuilder = $avatarClassBuilder | append "p-author" -}}{{- end -}}
 {{- $avatarClass := (delimit $avatarClassBuilder " ") -}}
 
 <div class="{{- $avatarClass -}}">
-	{{- if not .Page.IsHome -}}
-		<a href="/" class="p-url">
+	{{- if not $scope.Page.IsHome -}}
+		{{- $baseUrl := $scope.Site.BaseURL -}}
+		<a href="{{- $baseUrl -}}" class="p-url">
 	{{- end -}}
 
 	<figure class="figure">
-		{{- $img := partialCached "avatar/_get/link" . .Page.IsHome -}}
+		{{- $img := partialCached "params/author/logo" $scope $scope.Page.IsHome -}}
 		<img class="u-photo" src="{{- $img.Permalink -}}" alt="{{- $img.Alt -}}" />
 
-		{{- with .Site.Params.Author -}}
+		{{- with $scope.Site.Params.Author -}}
 			<figcaption>
-				<h2 class="p-name">{{- printf "%s %s" .Firstname .Lastname -}}</h2>
-				{{- if $.Page.IsHome -}}<h4 class="p-note">{{- .Tagline -}}</h4>{{- end -}}
+				{{- $displayName := partialCached "params/author/name" $scope -}}
+				<h2 class="p-name">{{- $displayName -}}</h2>
+				{{- if (and $.Page.IsHome .Tagline) -}}<h4 class="p-note">{{- .Tagline -}}</h4>{{- end -}}
 			</figcaption>
 		{{- end -}}
 	</figure>
 
-	{{- if not .Page.IsHome -}}
+	{{- if not $scope.Page.IsHome -}}
 		</a>
 	{{- end -}}
 </div>

@@ -1,11 +1,11 @@
-.posts .list_item > *:first-child {
+.posts .list__item > *:first-child {
 	min-width: 60px;
 }
 
-.posts .list_item aside time::after {
+.posts .list__item aside time::after {
 	margin-left: var(--spacing-dense);
 }
 
-.posts .list_item h4 {
+.posts .list__item h4 {
 	margin: 0;
 }

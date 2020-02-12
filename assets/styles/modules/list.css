@@ -1,23 +1,29 @@
-.list .list_item {
+.list {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.list .list__item {
 	display: flex;
 }
 
-.list .list_item:not(:first-child) {
+.list .list__item:not(:first-child) {
 	margin-top: var(--spacing-normal);
 }
 
-.list .list_item > *:first-child {
+.list .list__item > *:first-child {
 	text-align: right;
 }
 
-.list .list_item > *:not(:first-child) {
+.list .list__item > *:not(:first-child) {
 	margin-left: var(--spacing-wide);
 }
 
-.list .list_item aside {
+.list .list__item aside {
 	color: var(--color-faded);
 }
 
-.list .list_item header .title {
+.list .list__item header .title {
 	margin: 0;
 }

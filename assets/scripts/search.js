@@ -61,10 +61,10 @@ fetch('/search/index.json').then(resp => resp.json().then(json => {
 			parent.removeAttribute('aria-hidden');
 		});
 
-		// p.throttle('blur', 360, node => {
-		// 	const target = document.getElementById(node.dataset.target);
-		// 	target.classList.remove('is-open');
-		// });
+		p.throttle('blur', 360, node => {
+			const target = document.getElementById(node.dataset.target);
+			target.classList.remove('is-open');
+		});
 		
 		p.throttle('keyup', 0, node => {
 			if (!node.parentNode.classList.contains('is-working')) {

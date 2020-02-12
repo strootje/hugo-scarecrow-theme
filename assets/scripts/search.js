@@ -15,15 +15,17 @@ fetch('/search/index.json').then(resp => resp.json().then(json => {
 	}
 
 	const add = function(list, item) {
-		const li = document.createElement('li');
+		const li = document.createElement('article');
 		list.appendChild(li);
 		li.classList.add(`list__item`);
+		li.classList.add(`search__item`);
 		li.classList.add(`is-${item.kind}`);
 		li.classList.add(`has-icon`);
 
 		if (!!item.href) {
 			const a = document.createElement('a');
 			li.appendChild(a);
+			a.classList.add('search__link');
 			a.href = item.href;
 			a.innerText = item.title;
 		} else {
@@ -59,11 +61,13 @@ fetch('/search/index.json').then(resp => resp.json().then(json => {
 		p.parent().parent().each(parent => {
 			parent.classList.remove('is-hidden');
 			parent.removeAttribute('aria-hidden');
-		});
 
-		p.throttle('blur', 360, node => {
-			const target = document.getElementById(node.dataset.target);
-			target.classList.remove('is-open');
+			const closers = parent.querySelectorAll(`[data-action="close"]`);
+			closers.forEach(close => {
+				close.addEventListener('click', () => {
+					parent.classList.remove('is-open');
+				});
+			});
 		});
 		
 		p.throttle('keyup', 0, node => {

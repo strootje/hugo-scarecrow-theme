@@ -48,5 +48,4 @@
 
 .popup .popup__body {
 	flex-grow: 1;
-	overflow: scroll;
 }

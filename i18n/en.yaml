@@ -8,12 +8,10 @@ footer.cookie.none.text:
 footer.cookie.google.text:
   other: 'This page uses :cookie:s'
 
-menu.social.github.follow.text:
-  other: 'Follow me on Github'
-menu.social.linkedin.follow.text:
-  other: 'Connect with me on Linkedin'
-menu.social.rss.follow.text:
-  other: 'Follow my posts on RSS'
+menu.social._default.follow.text:
+  other: 'Follow me on {{.Count}}'
+menu.social._default.share.text:
+  other: 'Share on {{.Count}}'
 
 pager.back.text:
   other: 'Go back to overview'

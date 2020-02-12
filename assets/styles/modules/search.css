@@ -6,8 +6,14 @@
 	display: none;
 }
 
-.search .search__results .has-icon {
+.search .search__results > .search__item {
 	align-items: center;
+}
+
+.search .search__results .search__item .search__link {
+	padding: var(--spacing-dense);
+	width: 100%;
+	display: block;
 }
 
 .search .search__results .has-icon::before {

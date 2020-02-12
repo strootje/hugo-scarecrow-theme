@@ -3,5 +3,13 @@
 	{{- partial "search" . -}}
 
 	{{- $paginator := .Paginate .Pages -}}
-	<div>todo..</div>
+	<section class="list has-icons-right posts">
+		{{- partial "list/pager/prev" $paginator -}}
+
+		{{- range $paginator.Pages -}}
+			{{- .Render "list-item" -}}
+		{{- end -}}
+
+		{{- partial "list/pager/next" $paginator -}}
+	</section>
 {{- end -}}

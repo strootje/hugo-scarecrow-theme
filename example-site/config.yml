@@ -29,6 +29,12 @@ params:
       linkedin: "???"
       instagram: "???"
       rss: "posts"
+  offline:
+    # name: "scarecrow-app"
+    # shortname: "sc-app"
+    # icon: "images/noimage.jpg" #resource
+    icon: "https://placekitten.com/g/200/200" #href
+    # icon: "bas@strootje.com" #gravatar
   # ackee:
   #   server: https://analytics.strootje.com
   #   domainId: 123132123

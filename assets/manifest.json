@@ -1,0 +1,17 @@
+{{- $sitename := partialCached "params/site/name" . -}}
+{{- $appname := .Site.Params.Offline.name | default $sitename -}}
+{{- $appshortname := .Site.Params.Offline.ShortName | default $sitename -}}
+
+{
+	"name": "{{- $appname -}}",
+	"short_name": "{{- $appshortname -}}",
+
+	"start_url": "{{- .Site.Home.RelPermalink -}}",
+	"display": "standalone",
+	"orientation": "portrait",
+	"background_color": "#000",
+	"theme_color": "#000",
+
+	"icons": [
+	]
+}

@@ -2,6 +2,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.6/fuse.min.js" defer></script>
 
 {{- $files := slice -}}
+{{- $files = $files | append "offline/register" -}}
 {{- $files = $files | append "lambda" -}}
 {{- $files = $files | append "search" -}}
 

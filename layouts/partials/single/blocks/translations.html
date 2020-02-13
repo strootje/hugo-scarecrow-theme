@@ -7,7 +7,7 @@
 		<ul id="translations" class="translations__items modal" role="menu">
 			{{- range .Translations -}}
 				{{- $link := .Permalink | absLangURL -}}
-				{{- $locale := partial "params/site/locale" (slice $scope .Lang "-") -}}
+				{{- $locale := partial "_params/site/locale" (slice $scope .Lang "-") -}}
 				<li role="menuitem"><a class="has-icon" href="{{- $link -}}" rel="alternate" lang="{{- $locale -}}">{{- .Language.LanguageName -}}</a></li>
 			{{- end -}}
 		</ul>

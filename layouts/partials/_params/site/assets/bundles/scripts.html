@@ -1,18 +1,12 @@
-{{/* Third parties */}}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.6/fuse.min.js" defer></script>
-
-{{- $files := slice -}}
-{{- $files = $files | append "offline/register" -}}
+{{- $files := (slice) -}}
 {{- $files = $files | append "lambda" -}}
 {{- $files = $files | append "search" -}}
 
-{{- $sources := slice -}}
+{{- $sources := (slice) -}}
 {{- range $files -}}
 	{{- $fullpath := printf "scripts/%s.js" . -}}
 	{{- $sources = $sources | append (resources.Get $fullpath | resources.ExecuteAsTemplate $fullpath $) -}}
 {{- end -}}
 
 {{- $bundle := $sources | resources.Concat "bundle.js" | minify | fingerprint "sha512" -}}
-<script defer src="{{- $bundle.Permalink -}}" integrity="{{- $bundle.Data.Integrity -}}"></script>
-
-{{/*  Plugins  */}}
+{{- return (dict "Permalink" $bundle.Permalink "Integrity" $bundle.Data.Integrity) -}}

@@ -1,7 +1,11 @@
-{{- $worker := resources.Get "scripts/offline/worker.js" | resources.ExecuteAsTemplate "scripts/offline/worker.js" . -}}
+{{- $worker := resources.Get "scripts/offline/worker.js" | resources.ExecuteAsTemplate "worker.js" . -}}
 
 if ('serviceWorker' in navigator) {
-	console.log('service-workers are supported');
-} else {
-	console.log('dammit..', navigator);
+	navigator.serviceWorker.register('{{- $worker.RelPermalink -}}', { scope: '/' }).then(registration => {
+		console.log('service-worker registered :: ', registration);
+	});
+
+	navigator.serviceWorker.ready.then(() => {
+		console.log('service-worker :: ready');
+	});
 }

@@ -1,0 +1,20 @@
+{{- $assets := partialCached "_params/site/assets" . -}}
+{{- $workers := partialCached "_params/site/assets/workers" . -}}
+
+{{- range $assets.Styles -}}
+	{{- $integrity := "" -}}
+	{{- if (isset . "Integrity") -}}{{- $integrity = printf "integrity='%s'" .Integrity -}}{{- end -}}
+	<link rel="stylesheet" href="{{- .Permalink -}}" {{- $integrity | safeHTMLAttr -}} />
+{{- end -}}
+
+{{- range $workers -}}
+	{{- $integrity := "" -}}
+	{{- if (isset . "Integrity") -}}{{- $integrity = printf "integrity='%s'" .Integrity -}}{{- end -}}
+	<script defer="true" src="{{- .Permalink -}}" {{- $integrity | safeHTMLAttr -}}></script>
+{{- end -}}
+
+{{- range $assets.Scripts -}}
+	{{- $integrity := "" -}}
+	{{- if (isset . "Integrity") -}}{{- $integrity = printf "integrity='%s'" .Integrity -}}{{- end -}}
+	<script defer="true" src="{{- .Permalink -}}" {{- $integrity | safeHTMLAttr -}}></script>
+{{- end -}}

@@ -11,5 +11,5 @@
 	{{- $parts = $parts | append $scope.Section -}}
 {{- end -}}
 
-{{- $site_name := partialCached "params/site/name" (slice $scope) -}}
+{{- $site_name := partialCached "_params/site/name" (slice $scope) -}}
 {{- return printf "%s | %s" (delimit $parts $separator) $site_name -}}

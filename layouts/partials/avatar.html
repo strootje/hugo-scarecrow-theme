@@ -11,12 +11,12 @@
 	{{- end -}}
 
 	<figure class="figure">
-		{{- $img := partialCached "params/author/logo" $scope $scope.Page.IsHome -}}
+		{{- $img := partialCached "_params/author/logo" $scope $scope.Page.IsHome -}}
 		<img class="u-photo" src="{{- $img.Permalink -}}" alt="{{- $img.Alt -}}" />
 
 		{{- with $scope.Site.Params.Author -}}
 			<figcaption>
-				{{- $displayName := partialCached "params/author/name" $scope -}}
+				{{- $displayName := partialCached "_params/author/name" $scope -}}
 				<h2 class="p-name">{{- $displayName -}}</h2>
 				{{- if (and $.Page.IsHome .Tagline) -}}<h4 class="p-note">{{- .Tagline -}}</h4>{{- end -}}
 			</figcaption>

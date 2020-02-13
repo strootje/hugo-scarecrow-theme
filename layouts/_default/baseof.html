@@ -1,24 +1,20 @@
 <!DOCTYPE html>
-{{- $locale := partial "params/site/locale" (slice . .Site.Language.Lang "-") -}}
+{{- $locale := partial "_params/site/locale" (slice . .Site.Language.Lang "-") -}}
 <html lang="{{- $locale -}}">
 	<head>
 		{{- partial "_head/title" . -}}
 		{{- partial "_head/locale" . -}}
+		{{- partial "_head/links" . -}}
 		{{- block "custom:meta" . -}}{{- end -}}
 
 		{{- block "opengraph:type" . -}}
 			<meta property="og:type" content="website" />
 		{{- end -}}
 
-		{{- partial "_head/links" . -}}
-
-		{{- partial "_head/assets/styles" . -}}
-		{{- block "custom:styles" . -}}{{- end -}}
-
-		{{- partial "_head/assets/scripts" . -}}
-		{{- block "custom:scripts" . -}}{{- end -}}
-
 		{{- partial "_head/manifest" . -}}
+		{{- partial "_head/assets" . -}}
+		{{- block "custom:styles" . -}}{{- end -}}
+		{{- block "custom:scripts" . -}}{{- end -}}
 	</head>
 
 	<body>

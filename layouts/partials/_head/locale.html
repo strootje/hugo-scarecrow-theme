@@ -1,9 +1,9 @@
-{{- $locale := partial "params/site/locale" (slice .) -}}
+{{- $locale := partial "_params/site/locale" (slice .) -}}
 <meta property="og:locale" content="{{- $locale -}}" />
 
 {{- if .IsTranslated -}}
 	{{- range .Translations -}}
-		{{- $locale := partial "params/site/locale" (slice $ .Lang) -}}
+		{{- $locale := partial "_params/site/locale" (slice $ .Lang) -}}
 		<meta property="og:locale:alternate" content="{{- $locale -}}" />
 	{{- end -}}
 {{- end -}}

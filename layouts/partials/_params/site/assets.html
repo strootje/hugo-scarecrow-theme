@@ -1,0 +1,9 @@
+{{- $assets := (dict) -}}
+
+{{- $scripts := partialCached "_params/site/assets/scripts" . -}}
+{{- $assets  = merge $assets (dict "Scripts" $scripts) -}}
+
+{{- $styles := partialCached "_params/site/assets/styles" . -}}
+{{- $assets  = merge $assets (dict "Styles" $styles) -}}
+
+{{- return $assets -}}

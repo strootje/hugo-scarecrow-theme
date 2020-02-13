@@ -1,5 +1,5 @@
 {{- $files := (slice) -}}
-{{- $files = $files | append "offline/worker" -}}
+{{- $files = $files | append "offline/register" -}}
 
 {{- $sources := (slice) -}}
 {{- range $files -}}
@@ -7,5 +7,5 @@
 	{{- $sources = $sources | append (resources.Get $fullpath | resources.ExecuteAsTemplate $fullpath $) -}}
 {{- end -}}
 
-{{- $bundle := $sources | resources.Concat "register-worker.js" | minify | fingerprint "sha512" -}}
-{{- return (dict "Permalink" $bundle.Permalink "Integrity" $bundle.Data.Integrity) -}}
+{{- $bundle := $sources | resources.Concat "worker.js" | minify | fingerprint "sha512" -}}
+{{- return (dict "Permalink" $bundle.Permalink "RelPermalink" $bundle.RelPermalink "Integrity" $bundle.Data.Integrity) -}}

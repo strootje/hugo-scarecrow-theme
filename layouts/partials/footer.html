@@ -3,12 +3,14 @@
 <footer class="footer is-faded">
 	<section class="legal is-commarow">
 		{{- partial "footer/legal" . -}}
-		{{- partial "menu/for-menu" (dict "title" "Legal" "scope" $scope "menu" "legal") -}}
+		{{- $legalMenuName := $scope.Site.Params.Theme.Menus.Legal | default "legal" -}}
+		{{- partial "menu/for-menu" (dict "title" "Legal" "scope" $scope "menu" $legalMenuName) -}}
 	</section>
 
-	{{- with .Site.Menus.powered -}}
+	{{- $poweredMenuName := $scope.Site.Params.Theme.Menus.Powered | default "powered" -}}
+	{{- if (isset $scope.Site.Menus $poweredMenuName) -}}
 		<section class="powered">
-			{{- partial "menu/for-menu" (dict "title" "Powered By" "scope" $scope "menu" "powered") -}}
+			{{- partial "menu/for-menu" (dict "title" "Powered By" "scope" $scope "menu" $poweredMenuName) -}}
 		</section>
 	{{- end -}}
 

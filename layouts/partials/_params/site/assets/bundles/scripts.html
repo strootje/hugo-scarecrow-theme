@@ -9,4 +9,4 @@
 {{- end -}}
 
 {{- $bundle := $sources | resources.Concat "bundle.js" | minify | fingerprint "sha512" -}}
-{{- return (dict "Permalink" $bundle.Permalink "Integrity" $bundle.Data.Integrity) -}}
+{{- return (dict "Permalink" $bundle.Permalink "RelPermalink" $bundle.RelPermalink "Integrity" $bundle.Data.Integrity) -}}

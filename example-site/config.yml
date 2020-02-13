@@ -6,6 +6,10 @@ paginate: 9
 
 params:
   # theme:
+  #   menus:
+  #     pages: pages
+  #     legal: legal
+  #     powered: powered
   #   colors:
   #     faded: '#333'
   #     primary: '#405F7F'
@@ -29,12 +33,15 @@ params:
       linkedin: "???"
       instagram: "???"
       rss: "posts"
-  offline:
-    # name: "scarecrow-app"
-    # shortname: "sc-app"
-    # icon: "images/noimage.jpg" #resource
-    icon: "https://placekitten.com/g/200/200" #href
-    # icon: "bas@strootje.com" #gravatar
+  offline: false
+  #   name: "scarecrow-app"
+  #   shortname: "sc-app"
+  #   icon: "images/noimage.jpg" #resource
+  #   icon: "https://placekitten.com/g/200/200" #href
+  #   icon: "bas@strootje.com" #gravatar
+  #   assets:
+  #   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/webfonts/fa-brands-400.woff2
+  #   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/webfonts/fa-solid-900.woff2
   # ackee:
   #   server: https://analytics.strootje.com
   #   domainId: 123132123
@@ -46,13 +53,8 @@ languages:
     languageName: Dutch
 
 menu:
-  pages:
-  - name: About
-    url: /about
-  - name: Contact
-  legal:
-  - name: Privacy
-  - name: "Terms of Use"
+  # pages
+  # legal
   # powered:
   # - name: hugo
   #   title: Hugo

@@ -14,6 +14,7 @@
 
 	<section>
 		{{- partial "menu/for-sections" (dict "title" "Sections" "scope" . "style" "column") -}}
-		{{- partial "menu/for-menu" (dict "title" "Pages" "scope" . "menu" "pages" "style" "column") -}}
+		{{- $pagesMenuName := .Site.Params.Theme.Menus.Pages | default "pages" -}}
+		{{- partial "menu/for-menu" (dict "title" "Pages" "scope" . "menu" $pagesMenuName "style" "column") -}}
 	</section>
 {{- end -}}

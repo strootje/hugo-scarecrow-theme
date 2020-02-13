@@ -1,2 +1,4 @@
-{{- $manifest := resources.Get "manifest.json" | resources.ExecuteAsTemplate "manifest.json" . -}}
-<link rel="manifest" href="{{- $manifest.RelPermalink -}}">
+{{- if not (eq .Site.Params.Offline false) -}}
+	{{- $manifest := resources.Get "manifest.json" | resources.ExecuteAsTemplate "manifest.json" . -}}
+	<link rel="manifest" href="{{- $manifest.RelPermalink -}}">
+{{- end -}}

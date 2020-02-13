@@ -1,5 +1,5 @@
 {{- $sitename := partialCached "_params/site/name" . -}}
-{{- $appname := .Site.Params.Offline.name | default $sitename -}}
+{{- $appname := .Site.Params.Offline.Name | default $sitename -}}
 {{- $appshortname := .Site.Params.Offline.ShortName | default $sitename -}}
 
 {

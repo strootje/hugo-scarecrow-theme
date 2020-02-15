@@ -21,13 +21,15 @@ const CACHE_FILES = {
 	],
 
 	Content: [
-		'{{- .Site.Home.RelPermalink -}}index.html'
-		{{- range $pages -}},'{{- .RelPermalink -}}index.html'{{- end -}}
+		'{{- .Site.Home.RelPermalink -}}'
+		{{- range $pages -}},'{{- .RelPermalink -}}'{{- end -}}
 	],
 
+	// TODO
 	Offline: [
 	],
 
+	// TODO
 	NotFound: [
 	]
 };
@@ -35,7 +37,9 @@ const CACHE_FILES = {
 self.addEventListener('install', e => {
 	e.waitUntil(Promise.all([
 		caches.open(CACHE_VERSIONS.Assets).then(cache => cache.addAll(CACHE_FILES.Assets)),
-		caches.open(CACHE_VERSIONS.Content).then(cache => cache.addAll(CACHE_FILES.Content))
+		caches.open(CACHE_VERSIONS.Content).then(cache => cache.addAll(CACHE_FILES.Content)),
+		caches.open(CACHE_VERSIONS.Offline).then(cache => cache.addAll(CACHE_FILES.Offline)),
+		caches.open(CACHE_VERSIONS.NotFound).then(cache => cache.addAll(CACHE_FILES.NotFound))
 	]).catch(() => e.skipWaiting()));
 });
 
@@ -50,12 +54,14 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
 	e.respondWith(caches.match(e.request).then(resp => {
 		if (!resp) {
-			console.log(`fetching\t:: '${e.request.url}'`);
-			return fetch(e.request);
+			// TODO: Only with external requests
+			const request = new Request(e.request.url, { mode: 'cors' });
+			console.log(`fetching\t:: '${request.url}'`);
+			return fetch(request);
 		}
 
 		console.log(`found\t\t:: '${e.request.url}'`);
-		return resp;// || fetch(e.request);
+		return resp;
 	}));
 
 	// e.respondWith(caches.open(CACHE_VERSIONS.Content).then(cache => {

@@ -1,6 +1,6 @@
 ---
 type: page
 layout: search
-headless: true
+offline: true
 outputs: json
 ---

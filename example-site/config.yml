@@ -33,7 +33,7 @@ params:
       linkedin: "???"
       instagram: "???"
       rss: "posts"
-  offline: false
+  # offline: false
   #   name: "scarecrow-app"
   #   shortname: "sc-app"
   #   icon: "images/noimage.jpg" #resource

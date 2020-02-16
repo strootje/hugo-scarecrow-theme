@@ -2,7 +2,7 @@
 
 {{- if .IsTranslated -}}
 	<nav class="translations has-icon">
-		<a class="button" href="#translations" aria-haspopup="true">{{- T "single.block.translations.text" -}}</a>
+		<a href="#translations" aria-haspopup="true">{{- T "single.block.translations.text" -}}</a>
 
 		<ul id="translations" class="translations__items modal" role="menu">
 			{{- range .Translations -}}

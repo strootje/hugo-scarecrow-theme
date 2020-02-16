@@ -1,0 +1,13 @@
+.offline.is-open {
+	z-index: 1;
+	color: #000;
+	font-size: 1rem;
+	font-style: normal;
+}
+
+.single .offline .popup__subject::before,
+.list .offline .popup__subject::after {
+	content: "\f019";
+	font-weight: 900;
+}
+

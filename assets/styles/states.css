@@ -8,9 +8,14 @@
 	justify-content: center;
 }
 
-.is-hidden {
+.is-hidden,
+.is-hidden-if-noscript {
 	display: none;
 	visibility: hidden;
+}
+
+.is-clear-both {
+	clear: both;
 }
 
 .is-pulled-left {
@@ -19,6 +24,10 @@
 
 .is-pulled-right {
 	float: right;
+}
+
+.is-fullwidth {
+	width: 100%;
 }
 
 .is-column {

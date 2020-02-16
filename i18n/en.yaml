@@ -20,6 +20,8 @@ pager.prev.text:
 pager.next.text:
   other: 'Show older page'
 
+single.block.offline.text:
+  other: 'Offline'
 single.block.permalink.text:
   other: 'Link'
 single.block.reading-time.text:
@@ -35,3 +37,14 @@ search.title.text:
   other: 'Search for'
 search.input.placeholder:
   other: 'Search..'
+
+offline.title.text:
+  other: 'Save article offline'
+offline.body.text:
+  other: 'TODO: blablabla'
+offline.footer.decline.text:
+  other: 'Decline'
+offline.footer.revoke.text:
+  other: 'Revoke'
+offline.footer.accept.text:
+  other: 'Add to Cache'

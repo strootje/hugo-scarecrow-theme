@@ -15,7 +15,7 @@
 	flex-flow: row;
 }
 
-.post > aside > *:not(:first-child) {
+.post > aside > *:not(:first-child):not(.is-open) {
 	margin-left: var(--spacing-wide);
 }
 

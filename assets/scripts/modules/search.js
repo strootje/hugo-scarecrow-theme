@@ -8,6 +8,31 @@ fetch('/search/index.json').then(resp => resp.json().then(json => {
 		]
 	});
 
+	$('input[type="search"]', p => {
+		p.on('keydown', node => node.parent(parent => parent.addClass('is-working')));
+
+		p.throttle('keyup', 360, node => {
+			node.parent(parent => parent.removeClass('is-working'));
+
+			const list = document.getElementById('search-results');
+			clear(list);
+
+			node.value(value => {
+				if (value == '') {
+					addEmptySearch(list);
+					return;
+				}
+
+				const results = fuse.search(value);
+				if (!results || results.length <= 0) {
+					addNoResults(list);
+				} else {
+					addResults(list, results);
+				}
+			});
+		});
+	});
+
 	const clear = function(list) {
 		while(list.lastChild) {
 			list.removeChild(list.lastChild);
@@ -52,50 +77,8 @@ fetch('/search/index.json').then(resp => resp.json().then(json => {
 			if (result.title == '') {
 				return;
 			}
-			
+
 			add(list, result);
 		});
 	};
-
-	$('input[type="search"]', p => {
-		p.parent().parent().each(parent => {
-			parent.classList.remove('is-hidden');
-			parent.removeAttribute('aria-hidden');
-
-			const closers = parent.querySelectorAll(`[data-action="close"]`);
-			closers.forEach(close => {
-				close.addEventListener('click', () => {
-					parent.classList.remove('is-open');
-				});
-			});
-		});
-		
-		p.throttle('keyup', 0, node => {
-			if (!node.parentNode.classList.contains('is-working')) {
-				node.parentNode.classList.add('is-working');
-			}
-		});
-
-		p.throttle('keyup', 360, node => {
-			node.parentNode.classList.remove('is-working');
-
-			const target = document.getElementById(node.dataset.target);
-			target.classList.add('is-open');
-
-			const list = document.getElementById('search-results');
-			clear(list);
-
-			if (node.value == '') {
-				addEmptySearch(list);
-				return;
-			}
-
-			const results = fuse.search(node.value);
-			if (!results || results.length <= 0) {
-				addNoResults(list);
-			} else {
-				addResults(list, results);
-			}
-		});
-	});
 }));

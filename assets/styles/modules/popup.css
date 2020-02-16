@@ -8,6 +8,7 @@
 	display: flex;
 	flex-flow: column;
 
+	align-items: unset;
 	background-color: #fff;
 }
 
@@ -17,7 +18,8 @@
 
 .popup .popup__header,
 .popup .popup__footer,
-.popup .popup__body {
+.popup .popup__body,
+.popup.is-open .is-hidden-when-open {
 	display: none;
 }
 

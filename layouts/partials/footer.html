@@ -14,6 +14,10 @@
 		</section>
 	{{- end -}}
 
+	{{- if (ne $scope.Site.Params.Offline false) -}}
+		{{- partial "footer/offline-data-manager" . -}}
+	{{- end -}}
+
 	<section class="cookies">
 		{{- $tracker := .Scratch.Get "tracker" -}}
 		{{- if (eq "google" $tracker) -}}

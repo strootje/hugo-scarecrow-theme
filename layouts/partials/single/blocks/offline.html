@@ -1,0 +1,37 @@
+{{- $scope := . -}}
+
+{{- if (ne $scope.Site.Params.Offline false) -}}
+	{{- $title := T "offline.title.text" -}}
+	{{- $body := T "offline.body.text" -}}
+
+	{{- with $scope.Site.Params.Offline.PermissionPage -}}
+		{{- $title := .Title -}}
+		{{- $body := .Content -}}
+	{{- end -}}
+
+	<section class="offline popup is-hidden-if-noscript" aria-hidden="true">
+		<header class="popup__header is-clear-both">
+			<div class="is-pulled-left">
+				<span class="popup__header__title">{{- $title -}}</span>
+			</div>
+
+			<div class="is-pulled-right">
+				<a class="popup__header__close" data-action="close"><i class="fas fa-fw fa-lg fa-times"></i></a>
+			</div>
+		</header>
+
+		{{- $text := T "single.block.offline.text" -}}
+		<a class="offline popup__subject is-hidden-when-open is-hidden-if-cached has-icon" data-action="open" href="#" title="{{- $text -}}">{{- $text -}}</a>
+		<span class="offline popup__subject is-hidden-when-open is-shown-if-cached has-icon" title="{{- $text -}}">{{- $text -}}</span>
+
+		<section class="popup__body">
+			{{- $body -}}
+		</section>
+
+		<footer class="popup__footer is-clear-both">
+			<a class="button is-faded is-pulled-left" data-action="close">{{- T "offline.footer.decline.text" -}}</a>
+			<a class="button is-primary is-pulled-right" data-action="close" data-offline="add">{{- T "offline.footer.accept.text" -}}</a>
+		</footer>
+	</section>
+
+{{- end -}}

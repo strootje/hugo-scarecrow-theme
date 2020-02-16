@@ -56,11 +56,9 @@ self.addEventListener('fetch', e => {
 		if (!resp) {
 			// TODO: Only with external requests
 			const request = new Request(e.request.url, { mode: 'cors' });
-			console.log(`fetching\t:: '${request.url}'`);
 			return fetch(request);
 		}
 
-		console.log(`found\t\t:: '${e.request.url}'`);
 		return resp;
 	}));
 

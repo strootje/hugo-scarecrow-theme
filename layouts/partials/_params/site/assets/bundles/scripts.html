@@ -1,6 +1,8 @@
 {{- $files := (slice) -}}
 {{- $files = $files | append "lambda" -}}
-{{- $files = $files | append "search" -}}
+{{- $files = $files | append "popup" -}}
+{{- $files = $files | append "modules/search" -}}
+{{- $files = $files | append "modules/offline" -}}
 
 {{- $sources := (slice) -}}
 {{- range $files -}}

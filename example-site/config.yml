@@ -53,8 +53,6 @@ languages:
     languageName: Dutch
 
 menu:
-  # pages
-  # legal
   # powered:
   # - name: hugo
   #   title: Hugo

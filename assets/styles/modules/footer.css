@@ -8,3 +8,29 @@
 	flex-flow: column;
 	align-items: center;
 }
+
+.footer .footer__tabs {
+	justify-content: center;
+}
+
+.tabs {
+	display: flex;
+	flex-flow: row;
+	position: relative;
+}
+
+.tabs .tabs__tab {
+}
+
+.tabs .tabs__tab .tabs__content {
+	position: absolute;
+	left: 0;
+}
+
+.tabs .tabs__tab:target .tabs__label {
+	color: #f00;
+}
+
+.tabs .tabs__tab:not(:target) .tabs__content {
+	display: none;
+}

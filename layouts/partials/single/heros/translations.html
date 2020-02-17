@@ -1,0 +1,13 @@
+{{- $scope := . -}}
+
+{{- if .IsTranslated -}}
+	<section class="hero" id="translations">
+		<ul class="translations__items">
+			{{- range .Translations -}}
+				{{- $link := .Permalink | absLangURL -}}
+				{{- $locale := partial "_params/site/locale" (slice $scope .Lang "-") -}}
+				<li></li><a class="has-icon" href="{{- $link -}}" rel="alternate" lang="{{- $locale -}}">{{- .Language.LanguageName -}}</a></li>
+			{{- end -}}
+		</ul>
+	</section>
+{{- end -}}

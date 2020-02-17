@@ -1,4 +1,4 @@
-<section class="search popup is-hidden-if-noscript" aria-hidden="true">
+<section class="search popup is-hidden-if-noscript" id="search" aria-hidden="true">
 	<header class="popup__header is-clear-both">
 		<div class="is-pulled-left">
 			<span class="popup__header__title">{{- T "search.title.text" -}}</span>
@@ -10,10 +10,10 @@
 	</header>
 
 	{{- $placeholder := T "search.input.placeholder" -}}
-	<section class="input">
+	<form class="input" method="GET" action="#search">
 		<input type="search" class="popup__subject" data-action="open" placeholder="{{- $placeholder -}}" aria-placeholder="{{- $placeholder -}}" />
 		<i class="fas fa-fw fa-pulse fa-spinner"></i>
-	</section>
+	</form>
 
 	<section id="search-results" class="popup__body search__results list">
 	</section>

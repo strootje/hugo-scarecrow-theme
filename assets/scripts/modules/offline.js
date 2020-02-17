@@ -1,5 +1,8 @@
 ((offline) => {
-	if (!offline) { return; }
+	if (!offline) {
+		$('.offline', p => p.hide());
+		return;
+	}
 
 	const showHide = (node, inverse) => offline.isCachedAsync(location.href).then(result => {
 		if ((!inverse && result) || (inverse && !result)) {

@@ -1,0 +1,10 @@
+.hero {
+	left: 0;
+	width: calc(100% + (4 * var(--spacing-wide)));
+	margin: var(--spacing-dense) calc((2 * var(--spacing-wide)) * -1);
+	padding: var(--spacing-wide) calc(2 * var(--spacing-wide));
+	display: block;
+
+	font-weight: bold;
+	background-color: var(--color-tertiary);
+}

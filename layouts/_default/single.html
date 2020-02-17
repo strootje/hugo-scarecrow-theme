@@ -19,15 +19,19 @@
 			{{- partial "single/blocks/published-date" . -}}
 			{{- partial "single/blocks/reading-time" . -}}
 			{{- partial "single/blocks/permalink" . -}}
-			{{- partial "single/blocks/translations" . -}}
 			{{- partial "single/blocks/offline" . -}}
+			{{- partial "single/blocks/translations" . -}}
 		</aside>
+
+		{{- partial "single/heros/translations" . -}}
 
 		<section class="content e-content">{{- .Content -}}</section>
 		{{- partial "social/share" . -}}
 
 		<footer class="footer">
+			{{- partial "single/pager/prev.html" . -}}
 			{{- partial "single/pager/back.html" . -}}
+			{{- partial "single/pager/next.html" . -}}
 		</footer>
 	</article>
 {{- end -}}

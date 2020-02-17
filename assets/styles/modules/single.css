@@ -1,28 +1,28 @@
-.post {
+.single {
 	width: 100%;
 	display: flex;
 	flex-flow: column;
 	flex-grow: 1;
 }
 
-.post > h1 {
+.single > h1 {
 	margin: var(--spacing-wide);
 	text-align: center;
 }
 
-.post > aside {
+.single > aside {
 	display: flex;
-	flex-flow: row;
+	flex-flow: row wrap;
 }
 
-.post > aside > *:not(:first-child):not(.is-open) {
+.single > aside > *:not(:first-child):not(.is-open) {
 	margin-left: var(--spacing-wide);
 }
 
-.post > aside > *::before {
+.single > aside > *::before {
 	margin-right: var(--spacing-dense);
 }
 
-.post .content {
+.single .content {
 	flex-grow: 1;
 }

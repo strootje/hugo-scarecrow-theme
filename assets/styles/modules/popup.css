@@ -1,10 +1,11 @@
-.popup.is-open {
+.popup:target {
 	left: var(--spacing-dense);
 	top: var(--spacing-dense);
 	padding: var(--spacing-wide);
 	width: calc(100vw - (var(--spacing-dense) * 2));
 	height: calc(100vh - (var(--spacing-dense) * 2));
 	position: fixed;
+	z-index: 1;
 	display: flex;
 	flex-flow: column;
 
@@ -12,20 +13,20 @@
 	background-color: #fff;
 }
 
-.popup.is-open > *:not(.popup__header) {
+.popup:target > *:not(.popup__header) {
 	margin-top: var(--spacing-wide);
 }
 
 .popup .popup__header,
 .popup .popup__footer,
 .popup .popup__body,
-.popup.is-open .is-hidden-when-open {
+.popup:target .is-hidden-when-open {
 	display: none;
 }
 
-.popup.is-open .popup__header,
-.popup.is-open .popup__footer,
-.popup.is-open .popup__body {
+.popup:target .popup__header,
+.popup:target .popup__footer,
+.popup:target .popup__body {
 	display: block;
 }
 

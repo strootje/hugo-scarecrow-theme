@@ -1,6 +1,6 @@
 .l-page {
 	margin: var(--spacing-dense);
-	padding: calc(var(--spacing-wide) * 2);
+	padding: calc(var(--spacing-wide) * 2) 0;
 
 	min-height: calc(100% - var(--spacing-dense));
 	display: flex;
@@ -21,6 +21,7 @@
 
 .l-content {
 	width: 100%;
+	padding: 0 calc(var(--spacing-wide) * 2);
 	max-width: var(--break-max-width);
 	display: flex;
 	flex-flow: column;

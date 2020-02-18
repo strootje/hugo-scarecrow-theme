@@ -13,13 +13,13 @@
 	{{- $menuClass := (delimit $menuClassBuilder " ") -}}
 	
 	<nav class="{{- $menuClass -}}" aria-label="{{- $title -}}">
-		{{- $itemsClassBuilder := (slice "menu_items") -}}
+		{{- $itemsClassBuilder := (slice "menu__items") -}}
 		{{- $itemsClassBuilder = $itemsClassBuilder | append (printf "is-%s" $style) -}}
 		{{- $itemsClass := (delimit $itemsClassBuilder " ") -}}
 
 		<ul class="{{- $itemsClass -}}">
 			{{- range . -}}
-				{{- partial "menu/_item" . -}}
+				{{- partial "comps/menu/_item" . -}}
 			{{- end -}}
 		</ul>
 	</nav>

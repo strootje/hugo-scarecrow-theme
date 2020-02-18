@@ -16,9 +16,9 @@
 
 	/* Colors */
 	/* https://paletton.com/#uid=33A0X0kh9o-7hD7c5tHlSk0roes */
-	--color-faded: {{- .Site.Params.Theme.Colors.Faded | default "#333" -}};
 	--color-primary: {{- .Site.Params.Theme.Colors.Primary | default "#405F7F" -}};
 	--color-secondary: {{- .Site.Params.Theme.Colors.Secondary | default "#C4BD5B" -}};
 	--color-tertiary: {{- .Site.Params.Theme.Colors.Tertiary | default "#B4536A" -}};
-	/* --color-primary: {{- .Site.Params.Theme.Colors.Primary | default "#ffcc00" -}}; */
+	--color-faded: {{- .Site.Params.Theme.Colors.Faded | default "#333" -}};
+	--color-background: {{- .Site.Params.Theme.Colors.Background | default "#fff" -}};
 }

@@ -30,7 +30,7 @@ body {
 }
 
 body > * {
-	background-color: #fff;
+	background-color: var(--color-background);
 }
 
 a {

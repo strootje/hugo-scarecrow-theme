@@ -2,17 +2,17 @@
 {{- $locale := partial "_params/site/locale" (slice . .Site.Language.Lang "-") -}}
 <html lang="{{- $locale -}}">
 	<head>
-		{{- partial "_head/title" . -}}
-		{{- partial "_head/locale" . -}}
-		{{- partial "_head/links" . -}}
+		{{- partial "layout/head/title" . -}}
+		{{- partial "layout/head/locale" . -}}
+		{{- partial "layout/head/links" . -}}
 		{{- block "custom:meta" . -}}{{- end -}}
 
 		{{- block "opengraph:type" . -}}
 			<meta property="og:type" content="website" />
 		{{- end -}}
 
-		{{- partial "_head/manifest" . -}}
-		{{- partial "_head/assets" . -}}
+		{{- partial "layout/head/manifest" . -}}
+		{{- partial "layout/head/assets" . -}}
 		{{- block "custom:styles" . -}}{{- end -}}
 		{{- block "custom:scripts" . -}}{{- end -}}
 	</head>
@@ -29,7 +29,7 @@
 				{{- end -}}
 			</div>
 
-			{{- partial "footer" . -}}
+			{{- partial "layout/footer" . -}}
 		</div>
 	</body>
 </html>

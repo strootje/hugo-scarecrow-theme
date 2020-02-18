@@ -11,10 +11,11 @@ params:
   #     legal: legal
   #     powered: powered
   #   colors:
-  #     faded: '#333'
   #     primary: '#405F7F'
   #     secondary: '#C4BD5B'
   #     tertiary: '#B4536A'
+  #     faded: '#333'
+  #     background: '#fff'
   author:
     username: "strootje"
     lastname: "Stroosnijder"

@@ -1,18 +1,22 @@
 .avatar,
-.avatar a/*:not(:hover)*/ {
+.avatar .avatar__link {
 	color: var(--color-tertiary);
 }
 
-.avatar .u-photo {
+.avatar .figure__object {
 	max-width: 200px;
 	max-height: 200px;
+}
+
+.avatar .figure .figure__object {
+	border-radius: 45%;
 }
 
 .l-content:not(.is-home) .avatar {
 	font-size: .75rem;
 }
 
-.l-content:not(.is-home) .avatar img {
+.l-content:not(.is-home) .avatar .figure__object {
 	max-width: 120px;
 	max-height: 120px;
 }

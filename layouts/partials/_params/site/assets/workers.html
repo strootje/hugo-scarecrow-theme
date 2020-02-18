@@ -1,6 +1,6 @@
 {{- $workers := (slice) -}}
 
-{{- $offline := partialCached "_params/site/assets/bundles/workers" . -}}
+{{- $offline := partialCached "_params/site/bundles/workers" . -}}
 {{- $workers = $workers | append $offline -}}
 
 {{- return $workers -}}

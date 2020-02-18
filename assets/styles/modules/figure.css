@@ -6,17 +6,12 @@
 	align-items: center;
 }
 
-.figure img {
+.figure .figure__object {
 	border: var(--border-normal) solid var(--color-tertiary);
 	border-radius: var(--spacing-normal);
 }
 
-.figure h2,
-.figure h4 {
+.figure .figure__title,
+.figure .figure__tagline {
 	margin: 0;
-}
-
-/* overrides */
-.avatar .figure img {
-	border-radius: 45%;
 }

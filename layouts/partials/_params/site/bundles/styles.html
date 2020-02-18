@@ -4,24 +4,26 @@
 {{- $files = $files | append "layouts" -}}
 {{- $files = $files | append "states" -}}
 
-{{- $files = $files | append "modules/blocks/category" -}}
-{{- $files = $files | append "modules/blocks/offline" -}}
-{{- $files = $files | append "modules/blocks/permalink" -}}
-{{- $files = $files | append "modules/blocks/published-date" -}}
-{{- $files = $files | append "modules/blocks/reading-time" -}}
-{{- $files = $files | append "modules/blocks/translations" -}}
+{{- $files = $files | append "modules/aside/category" -}}
+{{- $files = $files | append "modules/aside/offline" -}}
+{{- $files = $files | append "modules/aside/permalink" -}}
+{{- $files = $files | append "modules/aside/published-date" -}}
+{{- $files = $files | append "modules/aside/reading-time" -}}
+{{- $files = $files | append "modules/aside/translations" -}}
+
+{{- $files = $files | append "modules/comps/avatar" -}}
+{{- $files = $files | append "modules/comps/menu" -}}
+{{- $files = $files | append "modules/comps/search" -}}
+{{- $files = $files | append "modules/layout/footer" -}}
+
 {{- $files = $files | append "modules/list/posts" -}}
-{{- $files = $files | append "modules/avatar" -}}
 {{- $files = $files | append "modules/button" -}}
 {{- $files = $files | append "modules/figure" -}}
-{{- $files = $files | append "modules/footer" -}}
 {{- $files = $files | append "modules/hero" -}}
 {{- $files = $files | append "modules/input" -}}
 {{- $files = $files | append "modules/list" -}}
-{{- $files = $files | append "modules/menu" -}}
 {{- $files = $files | append "modules/pager" -}}
 {{- $files = $files | append "modules/popup" -}}
-{{- $files = $files | append "modules/search" -}}
 {{- $files = $files | append "modules/single" -}}
 
 {{- $sources := slice -}}

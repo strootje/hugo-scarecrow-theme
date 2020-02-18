@@ -9,12 +9,12 @@
 {{- end -}}
 
 {{- define "content" -}}
-	{{- partial "avatar" . -}}
-	{{- partial "social/follow" . -}}
+	{{- partial "comps/avatar" . -}}
+	{{- partial "comps/social/follow" . -}}
 
 	<section>
-		{{- partial "menu/for-sections" (dict "title" "Sections" "scope" . "style" "column") -}}
+		{{- partial "comps/menu/for-sections" (dict "title" "Sections" "scope" . "style" "column") -}}
 		{{- $pagesMenuName := .Site.Params.Theme.Menus.Pages | default "pages" -}}
-		{{- partial "menu/for-menu" (dict "title" "Pages" "scope" . "menu" $pagesMenuName "style" "column") -}}
+		{{- partial "comps/menu/for-menu" (dict "title" "Pages" "scope" . "menu" $pagesMenuName "style" "column") -}}
 	</section>
 {{- end -}}

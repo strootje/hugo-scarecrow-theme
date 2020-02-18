@@ -1,6 +1,6 @@
 {{- define "content" -}}
-	{{- partial "avatar" . -}}
-	{{- partial "search" . -}}
+	{{- partial "comps/avatar" . -}}
+	{{- partial "comps/search" . -}}
 
 	{{- $paginator := .Paginate .Pages -}}
 	<section class="list has-icons-right posts">

@@ -11,7 +11,7 @@
 	flex-flow: column;
 
 	align-items: unset;
-	background-color: #fff;
+	background-color: var(--color-background);
 }
 
 .popup:target > *:not(.popup__header),

@@ -5,24 +5,24 @@
 	flex-grow: 1;
 }
 
-.single > h1 {
+.single .single__title {
 	margin: var(--spacing-wide);
 	text-align: center;
 }
 
-.single > aside {
+.single .single__aside {
 	display: flex;
 	flex-flow: row wrap;
 }
 
-.single > aside > *:not(:first-child):not(:target) {
+.single .single__aside > *:not(:first-child):not(:target) {
 	margin-left: var(--spacing-wide);
 }
 
-.single > aside > *::before {
+.single .single__aside > *::before {
 	margin-right: var(--spacing-dense);
 }
 
-.single .content {
+.single .single__content {
 	flex-grow: 1;
 }

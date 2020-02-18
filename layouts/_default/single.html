@@ -1,32 +1,32 @@
 {{- define "opengraph:type" -}}
 	<meta property="og:type" content="article" />
-	{{- partial "_head/meta/author" . -}}
-	{{- partial "_head/meta/title" . -}}
-	{{- partial "_head/meta/summary" . -}}
-	{{- partial "_head/meta/publish-date" . -}}
-	{{- partial "_head/meta/modified-date" . -}}
-	{{- partial "_head/meta/expiry-date" . -}}
-	{{- partial "_head/meta/category" . -}}
+	{{- partial "layout/head/meta/author" . -}}
+	{{- partial "layout/head/meta/title" . -}}
+	{{- partial "layout/head/meta/summary" . -}}
+	{{- partial "layout/head/meta/publish-date" . -}}
+	{{- partial "layout/head/meta/modified-date" . -}}
+	{{- partial "layout/head/meta/expiry-date" . -}}
+	{{- partial "layout/head/meta/category" . -}}
 {{- end -}}
 
 {{- define "content" -}}
 	<article class="single post h-entry">
-		{{- partial "avatar" . -}}
-		<h1 class="p-name">{{- .Title -}}</h1>
+		{{- partial "comps/avatar" . -}}
+		<h1 class="single__title p-name">{{- .Title -}}</h1>
 
-		<aside class="is-faded">
-			{{- partial "single/blocks/category" . -}}
-			{{- partial "single/blocks/published-date" . -}}
-			{{- partial "single/blocks/reading-time" . -}}
-			{{- partial "single/blocks/permalink" . -}}
-			{{/*  {{- partial "single/blocks/offline" . -}}  */}}
-			{{- partial "single/blocks/translations" . -}}
+		<aside class="single__aside is-faded">
+			{{- partial "single/aside/category" . -}}
+			{{- partial "single/aside/published-date" . -}}
+			{{- partial "single/aside/reading-time" . -}}
+			{{- partial "single/aside/permalink" . -}}
+			{{/*  {{- partial "single/aside/offline" . -}}  */}}
+			{{- partial "single/aside/translations" . -}}
 		</aside>
 
 		{{- partial "single/heros/translations" . -}}
 
-		<section class="content e-content">{{- .Content -}}</section>
-		{{- partial "social/share" . -}}
+		<section class="single__content e-content">{{- .Content -}}</section>
+		{{- partial "comps/social/share" . -}}
 
 		<footer class="footer">
 			{{- partial "single/pager/prev.html" . -}}

@@ -17,5 +17,5 @@
 	{{- end -}}
 
 	{{- $merged := (merge $args (dict "items" $items)) -}}
-	{{- partial "menu/_index" $merged -}}
+	{{- partial "comps/menu/_index" $merged -}}
 {{- end -}}

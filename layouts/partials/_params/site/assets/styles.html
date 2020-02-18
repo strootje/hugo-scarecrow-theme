@@ -3,7 +3,7 @@
 {{- $fontawesome := "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" -}}
 {{- $styles = $styles | append (dict "Permalink" $fontawesome) -}}
 
-{{- $bundle := partialCached "_params/site/assets/bundles/styles" . -}}
+{{- $bundle := partialCached "_params/site/bundles/styles" . -}}
 {{- $styles = $styles | append $bundle -}}
 
 {{- return $styles -}}

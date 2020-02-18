@@ -5,13 +5,13 @@
 		</div>
 
 		<div class="is-pulled-right">
-			<a class="popup__header__close" data-action="close"><i class="fas fa-fw fa-lg fa-times"></i></a>
+			<a class="popup__header__close" href="{{- .RelPermalink -}}" data-action="close"><i class="fas fa-fw fa-lg fa-times"></i></a>
 		</div>
 	</header>
 
 	{{- $placeholder := T "search.input.placeholder" -}}
 	<form class="input" method="GET" action="#search">
-		<input type="search" class="popup__subject" data-action="open" placeholder="{{- $placeholder -}}" aria-placeholder="{{- $placeholder -}}" />
+		<input type="search" class="popup__subject" data-action="open" name="query" placeholder="{{- $placeholder -}}" aria-placeholder="{{- $placeholder -}}" />
 		<i class="fas fa-fw fa-pulse fa-spinner"></i>
 	</form>
 

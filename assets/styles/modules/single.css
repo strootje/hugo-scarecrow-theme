@@ -15,7 +15,7 @@
 	flex-flow: row wrap;
 }
 
-.single > aside > *:not(:first-child):not(.is-open) {
+.single > aside > *:not(:first-child):not(:target) {
 	margin-left: var(--spacing-wide);
 }
 

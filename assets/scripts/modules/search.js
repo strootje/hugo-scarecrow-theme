@@ -31,6 +31,13 @@ fetch('/search/index.json').then(resp => resp.json().then(json => {
 				}
 			});
 		});
+
+		const params = new URLSearchParams(location.search);
+		const query = params.get('query');
+
+		if (query && query.length > 0) {
+			p.emit('keyup', { value: query });
+		}
 	});
 
 	const clear = function(list) {

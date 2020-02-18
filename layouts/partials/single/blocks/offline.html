@@ -9,28 +9,27 @@
 		{{- $body := .Content -}}
 	{{- end -}}
 
-	<section class="offline popup is-hidden-if-noscript" id="offline" aria-hidden="true">
+	<section class="offline popup is-hidden-if-noscript is-hidden-if-cached" id="store-offline" aria-hidden="true">
 		<header class="popup__header is-clear-both">
 			<div class="is-pulled-left">
 				<span class="popup__header__title">{{- $title -}}</span>
 			</div>
 
 			<div class="is-pulled-right">
-				<a class="popup__header__close" href="#"><i class="fas fa-fw fa-lg fa-times"></i></a>
+				<a class="popup__header__close" href="{{- .RelPermalink -}}"><i class="fas fa-fw fa-lg fa-times"></i></a>
 			</div>
 		</header>
 
 		{{- $text := T "single.block.offline.text" -}}
-		<a class="offline popup__subject is-hidden-when-open is-hidden-if-cached has-icon" href="#offline" title="{{- $text -}}">{{- $text -}}</a>
-		<span class="offline popup__subject is-hidden-when-open is-shown-if-cached has-icon" title="{{- $text -}}">{{- $text -}}</span>
+		<a class="offline popup__subject is-hidden-when-open has-icon" href="#store-offline" title="{{- $text -}}">{{- $text -}}</a>
 
 		<section class="popup__body">
 			{{- $body -}}
 		</section>
 
 		<footer class="popup__footer is-clear-both">
-			<a class="button is-faded is-pulled-left" data-action="close">{{- T "offline.footer.decline.text" -}}</a>
-			<a class="button is-primary is-pulled-right" data-action="close" data-offline="add">{{- T "offline.footer.accept.text" -}}</a>
+			<a class="button is-faded is-pulled-left" href="{{- .RelPermalink -}}">{{- T "offline.footer.decline.text" -}}</a>
+			<a class="button is-primary is-pulled-right" data-offline="add">{{- T "offline.footer.accept.text" -}}</a>
 		</footer>
 	</section>
 

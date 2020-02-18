@@ -75,6 +75,13 @@
 			});
 		}
 
+		Lambda.prototype.emit = function (evt, params) {
+			each(node => {
+				Object.keys(params).forEach(key => node[key] = params[key]);
+				node.dispatchEvent(new Event(evt));
+			});
+		}
+
 		return new Lambda();
 	}
 

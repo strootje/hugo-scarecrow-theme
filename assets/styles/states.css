@@ -1,4 +1,12 @@
-.is-faded {
+.is-column {
+	flex-flow: column;
+}
+
+.has-centered {
+	align-items: center;
+}
+
+/* .is-faded {
 	color: var(--color-faded);
 	font-size: .8rem;
 	font-style: italic;
@@ -46,4 +54,4 @@
 .has-icon::before,
 .has-icon::after {
 	font-family: 'Font Awesome 5 Free';
-}
+} */

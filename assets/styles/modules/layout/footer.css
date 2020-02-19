@@ -1,10 +1,10 @@
 .footer {
-	margin-top: var(--spacing-wide);
-	display: flex;
-}
-
-.footer > * {
 	display: flex;
 	flex-flow: column;
-	align-items: center;
+}
+
+.footer.is-faded {
+	margin: var(--spacing-wide) 0;
+	padding: 0;
+	background-color: unset;
 }

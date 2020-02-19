@@ -1,9 +1,16 @@
 {{- $scope := . -}}
 
-<footer class="footer is-faded">
-	<section class="legal is-commarow">
+{{- $footerClassBuilder := (slice "footer has-centered") -}}
+{{- if .Page.IsHome -}}{{- $footerClassBuilder = $footerClassBuilder | append "is-faded" -}}{{- end -}}
+{{- $footerClass := (delimit $footerClassBuilder " ") -}}
+
+<footer class="{{- $footerClass -}}">
+	<section class="legal">
 		{{- partial "layout/footer/legal" . -}}
-		{{- $legalMenuName := $scope.Site.Params.Theme.Menus.Legal | default "legal" -}}
-		{{- partial "comps/menu/for-menu" (dict "title" "Legal" "scope" $scope "menu" $legalMenuName) -}}
+
+		{{- if not .Page.IsHome -}}
+			{{- $legalMenuName := $scope.Site.Params.Theme.Menus.Legal | default "legal" -}}
+			{{- partial "comps/menu/for-menu" (dict "title" "Legal" "scope" $scope "menu" $legalMenuName) -}}
+		{{- end -}}
 	</section>
 </footer>

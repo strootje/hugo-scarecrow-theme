@@ -17,7 +17,7 @@
 		{{- block "custom:scripts" . -}}{{- end -}}
 	</head>
 
-	<body>
+	<body class="l-body">
 		<div class="l-page">
 			{{- $contentClassBuilder := (slice "l-content") -}}
 			{{- if .Page.IsHome -}}{{- $contentClassBuilder = $contentClassBuilder | append "is-home" -}}{{- end -}}

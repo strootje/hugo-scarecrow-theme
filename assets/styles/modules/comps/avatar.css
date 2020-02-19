@@ -1,22 +1,29 @@
 .avatar,
-.avatar .avatar__link {
+.avatar a {
 	color: var(--color-tertiary);
 }
 
-.avatar .figure__object {
-	max-width: 200px;
-	max-height: 200px;
+.avatar .image {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
 }
 
-.avatar .figure .figure__object {
-	border-radius: 45%;
+.avatar .image > img {
+	max-width: 200px;
+	max-height: 200px;
+	border: var(--border-normal) solid var(--color-tertiary);
+}
+
+.avatar > .image > figcaption {
+	text-align: center;
 }
 
 .l-content:not(.is-home) .avatar {
 	font-size: .75rem;
 }
 
-.l-content:not(.is-home) .avatar .figure__object {
+.l-content:not(.is-home) .avatar .image > img {
 	max-width: 120px;
 	max-height: 120px;
 }

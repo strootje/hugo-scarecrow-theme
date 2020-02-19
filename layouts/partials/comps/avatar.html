@@ -10,15 +10,15 @@
 		<a href="{{- $baseUrl -}}" class="avatar__link p-url">
 	{{- end -}}
 
-	<figure class="figure">
+	<figure class="image">
 		{{- $img := partialCached "_params/author/logo" $scope $scope.Page.IsHome -}}
-		<img class="figure__object u-photo" src="{{- $img.Permalink -}}" alt="{{- $img.Alt -}}" />
+		<img class="is-rounded u-photo" src="{{- $img.Permalink -}}" alt="{{- $img.Alt -}}" />
 
 		{{- with $scope.Site.Params.Author -}}
 			<figcaption>
 				{{- $displayName := partialCached "_params/author/name" $scope -}}
-				<h2 class="figure__title p-name">{{- $displayName -}}</h2>
-				{{- if (and $.Page.IsHome .Tagline) -}}<h4 class="figure__tagline p-note">{{- .Tagline -}}</h4>{{- end -}}
+				<h2 class="title is-3 p-name">{{- $displayName -}}</h2>
+				{{- if (and $.Page.IsHome .Tagline) -}}<h4 class="subtitle is-5 p-note">{{- .Tagline -}}</h4>{{- end -}}
 			</figcaption>
 		{{- end -}}
 	</figure>

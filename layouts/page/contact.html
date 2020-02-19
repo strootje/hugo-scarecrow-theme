@@ -1,0 +1,10 @@
+{{- define "content" -}}
+	{{- partial "comps/avatar" . -}}
+	<h1 class="single__title p-name">{{- .Title -}}</h1>
+
+	{{- if .Params.Formspree -}}
+		{{- partial "plugins/formspree/form" . -}}
+	{{- else -}}
+		<p>other form..</p>
+	{{- end -}}
+{{- end -}}

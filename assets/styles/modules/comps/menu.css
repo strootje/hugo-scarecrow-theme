@@ -1,14 +1,11 @@
 .menu {
-	display: flex;
-	flex-flow: column;
 	align-items: center;
 }
 
-.menu .menu__items {
-	list-style-type: none;
+.menu:not(:last-child) {
+	margin-bottom: 0;
+}
 
-	margin: 0;
-	padding: 0;
-	display: flex;
-	align-items: center;
+.menu.is-column .level-item:not(:last-child) {
+	margin-right: 0;
 }

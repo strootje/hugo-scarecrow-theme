@@ -12,4 +12,5 @@
 	padding: var(--spacing-dense) 0;
 	flex-grow: 1;
 	border: 0;
+	outline: 0;
 }

@@ -21,17 +21,15 @@
 	{{- end -}}
 {{- end -}}
 
-<li class="menu_item">
-	{{- $linkClassBuilder := (slice) -}}
-	{{- if $icon -}}{{- $linkClassBuilder = $linkClassBuilder | append "hide-external" -}}{{- end -}}
-	{{- $linkClass := (delimit $linkClassBuilder " ") -}}
-	{{- $parsedRel := (delimit $rel " ") -}}
+{{- $linkClassBuilder := (slice "level-item") -}}
+{{- if $icon -}}{{- $linkClassBuilder = $linkClassBuilder | append "hide-external" -}}{{- end -}}
+{{- $linkClass := (delimit $linkClassBuilder " ") -}}
+{{- $parsedRel := (delimit $rel " ") -}}
 
-	<a href="{{- $link -}}" title="{{- $title -}}" class="{{- $linkClass -}}" target="{{- $target -}}" rel="{{- $parsedRel -}}">
-		{{- if $icon -}}
-			<i class="{{- $icon -}}"></i>
-		{{- else -}}
-			{{- $title -}}
-		{{- end -}}
-	</a>
-</li>
+<a href="{{- $link -}}" title="{{- $title -}}" class="{{- $linkClass -}}" target="{{- $target -}}" rel="{{- $parsedRel -}}">
+	{{- if $icon -}}
+		<i class="{{- $icon -}}"></i>
+	{{- else -}}
+		{{- $title -}}
+	{{- end -}}
+</a>

@@ -1,4 +1,6 @@
 ---
+type: page
+layout: resume
 offline: true
 title: About
 menu: pages

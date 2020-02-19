@@ -3,20 +3,19 @@
 {{- range $assets.Styles -}}
 	{{- $integrity := "" -}}
 	{{- if (isset . "Integrity") -}}{{- $integrity = printf "integrity='%s'" .Integrity -}}{{- end -}}
-	<link rel="stylesheet" href="{{- .Permalink -}}" {{- $integrity | safeHTMLAttr -}} />
-{{- end -}}
 
-{{- if not (eq .Site.Params.Offline false) -}}
-	{{- $workers := partialCached "_params/site/assets/workers" . -}}
-	{{- range $workers -}}
-		{{- $integrity := "" -}}
-		{{- if (isset . "Integrity") -}}{{- $integrity = printf "integrity='%s'" .Integrity -}}{{- end -}}
-		<script defer="true" src="{{- .Permalink -}}" {{- $integrity | safeHTMLAttr -}}></script>
-	{{- end -}}
+	{{- $crossorigin := "" -}}
+	{{- if (isset . "Crossorigin") -}}{{- $crossorigin = printf "crossorigin='%s'" .Crossorigin -}}{{- end -}}
+
+	<link rel="stylesheet" href="{{- .Permalink -}}" {{- $integrity | safeHTMLAttr -}} {{- $crossorigin | safeHTMLAttr -}} />
 {{- end -}}
 
 {{- range $assets.Scripts -}}
 	{{- $integrity := "" -}}
 	{{- if (isset . "Integrity") -}}{{- $integrity = printf "integrity='%s'" .Integrity -}}{{- end -}}
-	<script defer="true" src="{{- .Permalink -}}" {{- $integrity | safeHTMLAttr -}}></script>
+
+	{{- $crossorigin := "" -}}
+	{{- if (isset . "Crossorigin") -}}{{- $crossorigin = printf "crossorigin='%s'" .Crossorigin -}}{{- end -}}
+
+	<script defer="true" src="{{- .Permalink -}}" {{- $integrity | safeHTMLAttr -}} {{- $crossorigin | safeHTMLAttr -}}></script>
 {{- end -}}

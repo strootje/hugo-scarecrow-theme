@@ -1,4 +1,6 @@
 ---
+type: page
+layout: contact
 offline: true
 title: Contact
 menu: pages

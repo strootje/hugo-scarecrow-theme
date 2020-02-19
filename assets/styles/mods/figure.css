@@ -1,0 +1,22 @@
+.figure {
+	margin: 0;
+	display: flex;
+}
+
+.figure .figure-subject {
+	border: var(--border-normal) solid var(--color-tertiary);
+}
+
+.figure img.is-rounded {
+	border-radius: 50%;
+}
+
+.figure .figure-caption {
+	display: flex;
+}
+
+.figure .figure-caption .title {
+}
+
+.figure .figure-caption .subtitle {
+}

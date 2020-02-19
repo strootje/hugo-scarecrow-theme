@@ -1,0 +1,17 @@
+.list {
+	display: flex;
+}
+
+.list:not(.is-column),
+.list.is-row {
+	flex-flow: row wrap;
+}
+
+.list.is-column {
+	flex-flow: column nowrap;
+}
+
+.list:not(.is-column) > .list-item:not(:first-child),
+.list.is-row > .list-item:not(:first-child) {
+	margin-left: var(--spacing-dense);
+}

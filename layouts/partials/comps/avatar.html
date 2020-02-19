@@ -7,18 +7,18 @@
 <div class="{{- $avatarClass -}}">
 	{{- if not $scope.Page.IsHome -}}
 		{{- $baseUrl := $scope.Site.BaseURL -}}
-		<a href="{{- $baseUrl -}}" class="avatar__link p-url">
+		<a href="{{- $baseUrl -}}" class="avatar-link p-url">
 	{{- end -}}
 
-	<figure class="figure">
+	<figure class="figure has-centered">
 		{{- $img := partialCached "_params/author/logo" $scope $scope.Page.IsHome -}}
-		<img class="figure__object u-photo" src="{{- $img.Permalink -}}" alt="{{- $img.Alt -}}" />
+		<img class="figure-subject is-rounded u-photo" src="{{- $img.Permalink -}}" alt="{{- $img.Alt -}}" />
 
 		{{- with $scope.Site.Params.Author -}}
-			<figcaption>
+			<figcaption class="figure-caption has-centered">
 				{{- $displayName := partialCached "_params/author/name" $scope -}}
-				<h2 class="figure__title p-name">{{- $displayName -}}</h2>
-				{{- if (and $.Page.IsHome .Tagline) -}}<h4 class="figure__tagline p-note">{{- .Tagline -}}</h4>{{- end -}}
+				<h2 class="title p-name">{{- $displayName -}}</h2>
+				{{- if (and $.Page.IsHome .Tagline) -}}<h4 class="subtitle p-note">{{- .Tagline -}}</h4>{{- end -}}
 			</figcaption>
 		{{- end -}}
 	</figure>

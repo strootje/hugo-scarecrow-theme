@@ -12,8 +12,9 @@
 	{{- partial "comps/avatar" . -}}
 	{{- partial "comps/social/follow" . -}}
 
-	<section>
+	<section class="l-menu">
 		{{- partial "comps/menu/for-sections" (dict "title" "Sections" "scope" . "style" "column") -}}
+
 		{{- $pagesMenuName := .Site.Params.Theme.Menus.Pages | default "pages" -}}
 		{{- partial "comps/menu/for-menu" (dict "title" "Pages" "scope" . "menu" $pagesMenuName "style" "column") -}}
 	</section>

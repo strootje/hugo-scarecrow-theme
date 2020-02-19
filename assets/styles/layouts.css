@@ -1,33 +1,33 @@
-.l-page {
-	margin: var(--spacing-dense);
-	padding: calc(var(--spacing-wide) * 2) 0;
+.l-body {
+	padding: var(--spacing-dense);
+	background-color: var(--color-tertiary);
+}
 
-	min-height: calc(100% - var(--spacing-dense));
+.l-page {
+	height: 100%;
+	min-height: calc(100vh - (2 * var(--spacing-dense)));
 	display: flex;
-	flex-flow: column;
-	align-items: center;
 	justify-content: space-between;
+	background-color: var(--color-background);
+}
+
+.l-page > * {
+	width: 100%;
 }
 
 .l-page > *:not(:last-child) {
 	flex-grow: 1;
 }
 
-.l-page > *:not(:last-child).is-home {
-	display: flex;
-	flex-flow: column;
-	justify-content: center;
-}
-
-.l-content {
-	width: 100%;
-	padding: 0 calc(var(--spacing-wide) * 2);
-	max-width: var(--break-max-width);
-	display: flex;
-	flex-flow: column;
-	align-items: center;
-}
-
 .l-content > *:not(:first-child) {
-	margin-top: calc(var(--spacing-wide) * 2)
+	margin-top: calc(2 * var(--spacing-wide));
+}
+
+.l-menu > .list {
+	align-items: center;;
+}
+
+.l-footer {
+	padding-top: calc(2 * var(--spacing-wide));
+	padding-bottom: calc(2 * var(--spacing-wide));
 }

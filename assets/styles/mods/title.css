@@ -1,0 +1,25 @@
+.title {
+	margin: 0;
+	color: var(--color-faded);
+	font-style: italic;
+}
+
+h1.title { font-size: calc(var(--font-size-wide) * 1.30); }
+h2.title { font-size: calc(var(--font-size-wide) * 1.22); }
+h3.title { font-size: calc(var(--font-size-wide) * 1.18); }
+h4.title { font-size: calc(var(--font-size-wide) * 0.96); }
+h5.title { font-size: calc(var(--font-size-wide) * 0.88); }
+h6.title { font-size: calc(var(--font-size-wide) * 0.76); }
+
+.subtitle {
+	margin: -3px 0 0;
+	color: var(--color-faded);
+	font-style: italic;
+}
+
+h1.subtitle { font-size: calc(var(--font-size-normal) * 1.20); }
+h2.subtitle { font-size: calc(var(--font-size-normal) * 1.00); }
+h3.subtitle { font-size: calc(var(--font-size-normal) * 0.96); }
+h4.subtitle { font-size: calc(var(--font-size-normal) * 0.82); }
+h5.subtitle { font-size: calc(var(--font-size-normal) * 0.74); }
+h6.subtitle { font-size: calc(var(--font-size-normal) * 0.68); }

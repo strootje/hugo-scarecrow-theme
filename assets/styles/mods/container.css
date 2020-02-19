@@ -1,0 +1,10 @@
+.container {
+	padding-left: calc(2 * var(--spacing-wide));
+	padding-right: calc(2 * var(--spacing-wide));
+	max-width: var(--break-max-width);
+	display: flex;
+}
+
+.container:not(:first-child) {
+	margin-top: calc(var(--spacing-wide) * 2);
+}

@@ -9,18 +9,13 @@
 {{- if not (reflect.IsSlice $items) -}}{{- errorf "menu.items not a slice" -}}{{- end -}}
 
 {{- with $items -}}
-	{{- $menuClassBuilder := (slice "menu") -}}
-	{{- $menuClass := (delimit $menuClassBuilder " ") -}}
-	
-	<nav class="{{- $menuClass -}}" aria-label="{{- $title -}}">
-		{{- $itemsClassBuilder := (slice "menu__items") -}}
-		{{- $itemsClassBuilder = $itemsClassBuilder | append (printf "is-%s" $style) -}}
-		{{- $itemsClass := (delimit $itemsClassBuilder " ") -}}
+	{{- $builder := (slice "list") -}}
+	{{- $builder = $builder | append (printf "is-%s" $style) -}}
+	{{- $class := (delimit $builder " ") -}}
 
-		<ul class="{{- $itemsClass -}}">
-			{{- range . -}}
-				{{- partial "comps/menu/_item" . -}}
-			{{- end -}}
-		</ul>
+	<nav class="{{- $class -}}" aria-label="{{- $title -}}">
+		{{- range . -}}
+			{{- partial "comps/menu/_item" . -}}
+		{{- end -}}
 	</nav>
 {{- end -}}

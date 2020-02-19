@@ -14,6 +14,11 @@
 	--border-dense: calc(var(--border-normal) * .45);
 	--border-wide: calc(var(--border-normal) * 1.45);
 
+	/* Fonts */
+	--font-size-normal: 1rem;
+	--font-size-dense: calc(var(--font-size-normal) * .8);
+	--font-size-wide: calc(var(--font-size-normal) * 1.2);
+
 	/* Colors */
 	/* https://paletton.com/#uid=33A0X0kh9o-7hD7c5tHlSk0roes */
 	--color-primary: {{- .Site.Params.Theme.Colors.Primary | default "#405F7F" -}};

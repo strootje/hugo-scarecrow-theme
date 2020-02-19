@@ -17,13 +17,14 @@
 		{{- block "custom:scripts" . -}}{{- end -}}
 	</head>
 
-	<body>
-		<div class="l-page">
-			{{- $contentClassBuilder := (slice "l-content") -}}
-			{{- if .Page.IsHome -}}{{- $contentClassBuilder = $contentClassBuilder | append "is-home" -}}{{- end -}}
-			{{- $contentClass := (delimit $contentClassBuilder " ") -}}
+	{{- $classBuilder := (slice "l-body") -}}
+	{{- if .Page.IsHome -}}{{- $classBuilder = $classBuilder | append "is-home" -}}{{- end -}}
+	{{- $class := (delimit $classBuilder " ") -}}
 
-			<div class="{{- $contentClass -}}">
+	<body class="{{- $class -}}">
+
+		<div class="l-page has-centered">
+			<div class="l-content container has-centered">
 				{{- block "content" . -}}
 					<!-- content -->
 				{{- end -}}

@@ -3,7 +3,7 @@
 	{{- partial "comps/search" . -}}
 
 	{{- $paginator := .Paginate .Pages -}}
-	<section class="l-list list is-column is-spaced posts">
+	<section class="l-list list is-column is-spaced has-icon-right">
 		{{- partial "list/pager/prev" $paginator -}}
 
 		{{- range $paginator.Pages -}}

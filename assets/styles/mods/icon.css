@@ -1,0 +1,21 @@
+/* https://fontawesome.com/icons/ */
+/* font    : Font Awesome 5 Free */
+/* regular : 400 */
+/* solid   : 900 */
+
+.has-icon::before {
+	font-family: "Font Awesome 5 Free";
+	margin-right: var(--spacing-dense);
+}
+
+.has-icon-right .has-icon {
+	clear: both;
+}
+
+.has-icon-right .has-icon::before {
+	float: right;
+	margin-left: var(--spacing-dense);
+	margin-right: 0;
+}
+
+.i-calendar::before { font-weight: 400; content: "\f133"; }

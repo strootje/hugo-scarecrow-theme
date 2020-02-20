@@ -1,13 +1,13 @@
-.l-body .avatar .figure-subject {
+.l-body .l-avatar .figure-subject {
 	max-width: 200px;
 	max-height: 200px;
 }
 
-.l-body:not(.is-home) .avatar .figure-subject {
+.l-body:not(.is-home) .l-avatar .figure-subject {
 	max-width: 120px;
 	max-height: 120px;
 }
 
-.l-body:not(.is-home) .avatar .figure-caption .title {
+.l-body:not(.is-home) .l-avatar .figure-caption .title {
 	font-size: var(--font-size-wide);
 }

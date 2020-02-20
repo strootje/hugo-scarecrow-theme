@@ -13,5 +13,9 @@
 
 .list:not(.is-column) > .list-item:not(:first-child),
 .list.is-row > .list-item:not(:first-child) {
-	margin-left: var(--spacing-dense);
+	margin-left: var(--spacing-normal);
+}
+
+.list.is-column.is-spaced > .list-item:not(:first-child) {
+	margin-top: var(--spacing-normal);
 }

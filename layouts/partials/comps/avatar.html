@@ -1,6 +1,6 @@
 {{- $scope := . -}}
 
-{{- $avatarClassBuilder := (slice "avatar" "h-card") -}}
+{{- $avatarClassBuilder := (slice "l-avatar" "h-card") -}}
 {{- if $scope.Page.IsPage -}}{{- $avatarClassBuilder = $avatarClassBuilder | append "p-author" -}}{{- end -}}
 {{- $avatarClass := (delimit $avatarClassBuilder " ") -}}
 

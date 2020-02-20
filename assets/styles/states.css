@@ -16,7 +16,24 @@
 	justify-content: center;
 }
 
+.is-nowrap {
+	flex-wrap: nowrap !important;
+}
 
+/* -- Icons -- */
+/* ----------- */
+/* https://fontawesome.com/icons/ */
+/* font    : Font Awesome 5 Free */
+/* regular : 400 */
+/* solid   : 900 */
+
+.has-ico-calendar::before,
+.has-ico-calendar-left::before,
+.has-ico-calendar-right::after {
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 400;
+	content: "\f133";
+}
 
 
 

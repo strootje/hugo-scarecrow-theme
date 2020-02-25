@@ -8,8 +8,14 @@
 	box-shadow: inset 0 .0625em .0125em rgba(10, 10, 01, .05);
 }
 
+input.input {
+	padding-top: calc(2 * var(--spacing-dense));
+	padding-bottom: calc(2 * var(--spacing-dense));
+}
+
 .input > input {
 	padding: var(--spacing-dense) 0;
 	flex-grow: 1;
 	border: 0;
+	outline: 0;
 }

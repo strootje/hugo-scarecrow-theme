@@ -10,10 +10,14 @@
 /* -- Layout -- */
 /* ------------ */
 
+.is-flex {
+	display: flex;
+}
+
 .has-centered {
 	flex-flow: column;
 	align-items: center;
-	justify-content: center;
+	/* justify-content: center; */
 }
 
 .is-nowrap {

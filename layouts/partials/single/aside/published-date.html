@@ -3,5 +3,5 @@
 {{- with $scope.Date -}}
 	{{- $published := .Format "2006-01-02T15:04:05MST" -}}
 	{{- $readable := .Format "Jan 02" -}}
-	<time class="published-date has-icon i-calendar dt-published" datetime="{{- $published -}}">{{- $readable -}}</time>
+	<time class="published-date has-icon i-published-date dt-published" datetime="{{- $published -}}">{{- $readable -}}</time>
 {{- end -}}

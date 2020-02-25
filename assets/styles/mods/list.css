@@ -2,6 +2,10 @@
 	display: flex;
 }
 
+.list.has-centered {
+	justify-content: center;
+}
+
 .list:not(.is-column),
 .list.is-row {
 	flex-flow: row wrap;
@@ -12,10 +16,13 @@
 }
 
 .list:not(.is-column) .list__item:not(:first-child),
-.list.is-row .list__item:not(:first-child) {
+.list:not(.is-column).take-direct > *:not(:first-child),
+.list.is-row .list__item:not(:first-child),
+.list.is-row.take-direct > *:not(:first-child) {
 	margin-left: var(--spacing-normal);
 }
 
-.list.is-column.is-spaced .list__item:not(:first-child) {
+.list.is-column.is-spaced .list__item:not(:first-child),
+.list.is-column.is-spaced.take-direct > *:not(:first-child) {
 	margin-top: var(--spacing-normal);
 }

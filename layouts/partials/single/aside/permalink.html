@@ -1,5 +1,5 @@
 {{- $scope := . -}}
 
 {{- with $scope.RelPermalink -}}
-	<a class="permalink has-icon u-url" href="{{- . | absLangURL -}}" title="{{- . | absLangURL -}}">{{- T "single.block.permalink.text" -}}</a>
+	<a class="permalink has-icon i-permalink u-url" href="{{- . | absLangURL -}}" title="{{- . | absLangURL -}}">{{- T "single.block.permalink.text" -}}</a>
 {{- end -}}

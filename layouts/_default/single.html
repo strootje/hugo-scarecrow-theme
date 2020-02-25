@@ -14,7 +14,7 @@
 		{{- partial "comps/avatar" . -}}
 		<h1 class="single__title p-name">{{- .Title -}}</h1>
 
-		<aside class="single__aside is-faded">
+		<aside class="single__aside list take-direct has-centered is-faded">
 			{{- partial "single/aside/category" . -}}
 			{{- partial "single/aside/published-date" . -}}
 			{{- partial "single/aside/reading-time" . -}}
@@ -28,7 +28,7 @@
 		<section class="single__content e-content">{{- .Content -}}</section>
 		{{- partial "comps/social/share" . -}}
 
-		<footer class="footer">
+		<footer class="footer is-flex">
 			{{- partial "single/pager/prev.html" . -}}
 			{{- partial "single/pager/back.html" . -}}
 			{{- partial "single/pager/next.html" . -}}

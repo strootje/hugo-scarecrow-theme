@@ -19,9 +19,14 @@
 }
 
 
-.has-icon.i-calendar::before { font-weight: 400; content: "\f133"; }
+.has-icon.i-calendar::before,
+.has-icon.i-published-date::before { font-weight: 400; content: "\f133"; }
 .has-icon.i-home::before { font-weight: 900; content: "\f015"; }
 .has-icon.i-page::before { font-weight: 900; content: "\f1ea"; }
 .has-icon.i-section::before,
 .has-icon.i-taxonomyTerm::before { font-weight: 900; content: "\f03a"; }
-.has-icon.i-taxonomy::before { font-weight: 900; content: "\f292"; }
+.has-icon.i-taxonomy::before,
+.has-icon.i-category::before { font-weight: 900; content: "\f292";}
+.has-icon.i-permalink::before { font-weight: 900; content: "\f0c1";}
+.has-icon.i-reading-time::before { font-weight: 400; content: "\f017";}
+.has-icon.i-translations::before { font-weight: 900; content: "\f7a2";}

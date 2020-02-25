@@ -24,6 +24,10 @@
 	margin-top: calc(2 * var(--spacing-wide));
 }
 
+.is-home .l-content {
+	justify-content: center;
+}
+
 .l-menu > .list {
 	align-items: center;;
 }

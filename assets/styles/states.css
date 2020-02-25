@@ -20,6 +20,18 @@
 	flex-wrap: nowrap !important;
 }
 
+.is-clear-both {
+	clear: both;
+}
+
+.is-pulled-left {
+	float: left;
+}
+
+.is-pulled-right {
+	float: right;
+}
+
 
 
 

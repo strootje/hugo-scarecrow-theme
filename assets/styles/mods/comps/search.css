@@ -1,0 +1,20 @@
+.input:not(.is-working) .fa-spinner {
+	display: none;
+}
+
+.search .search__results > .search__item {
+	display: flex;
+	align-items: center;
+}
+
+.search .search__results .search__item .search__link {
+	padding: var(--spacing-dense);
+	width: 100%;
+	display: block;
+}
+
+.search .search__results .has-icon::before {
+	margin-right: var(--spacing-normal);
+	display: block;
+	font-size: 2rem;
+}

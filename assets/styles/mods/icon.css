@@ -18,4 +18,10 @@
 	margin-right: 0;
 }
 
-.i-calendar::before { font-weight: 400; content: "\f133"; }
+
+.has-icon.i-calendar::before { font-weight: 400; content: "\f133"; }
+.has-icon.i-home::before { font-weight: 900; content: "\f015"; }
+.has-icon.i-page::before { font-weight: 900; content: "\f1ea"; }
+.has-icon.i-section::before,
+.has-icon.i-taxonomyTerm::before { font-weight: 900; content: "\f03a"; }
+.has-icon.i-taxonomy::before { font-weight: 900; content: "\f292"; }

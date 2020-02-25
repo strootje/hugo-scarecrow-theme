@@ -51,8 +51,8 @@ fetch('/search/index.json').then(resp => resp.json().then(json => {
 		list.appendChild(li);
 		li.classList.add(`list__item`);
 		li.classList.add(`search__item`);
-		li.classList.add(`is-${item.kind}`);
 		li.classList.add(`has-icon`);
+		li.classList.add(`i-${item.kind}`);
 
 		if (!!item.href) {
 			const a = document.createElement('a');

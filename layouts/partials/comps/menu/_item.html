@@ -21,7 +21,7 @@
 	{{- end -}}
 {{- end -}}
 
-{{- $builder := (slice "list-item") -}}
+{{- $builder := (slice "list__item") -}}
 {{- if $icon -}}{{- $builder = $builder | append "hide-external" -}}{{- end -}}
 {{- $class := (delimit $builder " ") -}}
 {{- $parsedRel := (delimit $rel " ") -}}

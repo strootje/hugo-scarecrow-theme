@@ -11,11 +11,11 @@
 	flex-flow: column nowrap;
 }
 
-.list:not(.is-column) > .list-item:not(:first-child),
-.list.is-row > .list-item:not(:first-child) {
+.list:not(.is-column) .list__item:not(:first-child),
+.list.is-row .list__item:not(:first-child) {
 	margin-left: var(--spacing-normal);
 }
 
-.list.is-column.is-spaced > .list-item:not(:first-child) {
+.list.is-column.is-spaced .list__item:not(:first-child) {
 	margin-top: var(--spacing-normal);
 }

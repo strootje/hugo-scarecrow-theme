@@ -10,11 +10,11 @@
 {{- end -}}
 
 {{- define "content" -}}
-	<article class="single post h-entry">
+	<article class="l-single post h-entry">
 		{{- partial "comps/avatar" . -}}
-		<h1 class="single__title p-name">{{- .Title -}}</h1>
+		<h1 class="single__title title p-name">{{- .Title -}}</h1>
 
-		<aside class="single__aside list take-direct has-centered is-faded">
+		<aside class="single__aside list take-direct is-faded">
 			{{- partial "single/aside/category" . -}}
 			{{- partial "single/aside/published-date" . -}}
 			{{- partial "single/aside/reading-time" . -}}
@@ -25,7 +25,7 @@
 
 		{{- partial "single/heros/translations" . -}}
 
-		<section class="single__content e-content">{{- .Content -}}</section>
+		<section class="l-single__content e-content">{{- .Content -}}</section>
 		{{- partial "comps/social/share" . -}}
 
 		<footer class="footer is-flex">

@@ -1,5 +1,5 @@
 .title {
-	margin: 0;
+	margin: unset;
 	color: var(--color-faded);
 	font-style: italic;
 }
@@ -12,7 +12,7 @@ h5.title { font-size: calc(var(--font-size-wide) * 0.88); }
 h6.title { font-size: calc(var(--font-size-wide) * 0.76); }
 
 .subtitle {
-	margin: -3px 0 0;
+	margin: -3px unset unset;
 	color: var(--color-faded);
 	font-style: italic;
 }

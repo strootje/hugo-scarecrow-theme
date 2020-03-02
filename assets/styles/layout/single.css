@@ -9,7 +9,6 @@
 	width: 100%;
 }
 
-.l-single > :first-child,
 .l-single > :not(:first-child) {
 	margin-top: calc(2 * var(--spacing-wide));
 }

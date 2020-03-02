@@ -19,6 +19,7 @@
 	flex-grow: 1;
 }
 
+.l-content > :first-child,
 .l-content > *:not(:first-child):not(.popup),
 .l-content > .popup:not(:target):not(.is-open) {
 	margin-top: calc(2 * var(--spacing-wide));

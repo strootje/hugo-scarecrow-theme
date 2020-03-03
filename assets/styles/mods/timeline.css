@@ -1,0 +1,80 @@
+:root {
+	--border-radius: calc(.5 * var(--spacing-wide));
+}
+
+.timeline {
+	width: 100%;
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.timeline .timeline-item {
+	padding-top: var(--spacing-wide);
+	padding-bottom: var(--spacing-wide);
+	display: flex;
+	position: relative;
+	flex-flow: column nowrap;
+}
+
+.timeline .timeline-item:not(:first-of-type) {
+	margin-top: calc(-1 * var(--border-normal));
+	border-top: var(--border-normal) solid var(--color-tertiary);
+}
+
+.timeline .timeline-item:not(:last-of-type) {
+	border-bottom: var(--border-normal) solid var(--color-tertiary);
+}
+
+.timeline .timeline-item:nth-of-type(odd) {
+	margin-right: var(--spacing-wide);
+	padding-left: var(--spacing-wide);
+	border-left: var(--border-normal) solid var(--color-tertiary);
+	align-items: start;
+}
+
+.timeline .timeline-item:nth-of-type(odd):not(:first-of-type) {
+	border-top-left-radius: var(--border-radius);
+}
+
+.timeline .timeline-item:nth-of-type(odd):not(:last-of-type) {
+	border-bottom-left-radius: var(--border-radius);
+}
+
+.timeline .timeline-item:nth-of-type(even) {
+	margin-left: var(--spacing-wide);
+	padding-right: var(--spacing-wide);
+	border-right: var(--border-normal) solid var(--color-tertiary);
+	align-items: end;
+}
+
+.timeline .timeline-item:nth-of-type(even):not(:first-of-type) {
+	border-top-right-radius: var(--border-radius);
+}
+
+.timeline .timeline-item:nth-of-type(even):not(:last-of-type) {
+	border-bottom-right-radius: var(--border-radius);
+}
+
+.timeline .timeline-item::before {
+	content: "";
+	width: var(--spacing-wide);
+	height: var(--spacing-wide);
+	position: absolute;
+	border: var(--border-normal) solid #666;
+	border-radius: 50%;
+	background-color: #fff;
+}
+
+.timeline .timeline-item:nth-of-type(odd)::before {
+	left: calc(-1 * ((.5 * var(--spacing-wide)) + 1.5px));
+}
+
+.timeline .timeline-item:nth-of-type(even)::before {
+	right: calc(-1 * ((.5 * var(--spacing-wide)) + 1.5px));
+}
+
+.timeline .timeline-item .timeline-header {
+}
+
+.timeline .timeline-item .timeline-body {
+}

@@ -2,7 +2,7 @@ languageCode: "en"
 
 title: "Scarecrow"
 baseURL: "https://strootje.github.io/hugo-scarecrow-theme"
-paginate: 9
+paginate: 2
 
 params:
   # theme:

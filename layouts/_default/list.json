@@ -1,0 +1,17 @@
+{
+	{{- $paginator := .Paginate .Pages -}}
+
+	"data": [
+		{{- range $i, $page := $paginator.Pages -}}
+			{{- if (ne $i 0) -}},{{- end -}}
+			{
+				"title": "{{- $page.Title -}}"
+			}
+		{{- end -}}
+	],
+
+	"links": {
+		{{- if $paginator.HasPrev -}}"prev": "{{- $paginator.Prev.URL -}}"{{- if $paginator.HasNext -}},{{- end -}}{{- end -}}
+		{{- if $paginator.HasNext -}}"next": "{{- $paginator.Next.URL -}}"{{- end -}}
+	}
+}

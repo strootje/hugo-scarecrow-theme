@@ -8,7 +8,12 @@ A theme for [hugo][hugo] build for my personal blog [strootje.com][demo:strootje
 * general: https://github.com/posquit0/hugo-awesome-identity
 * 404: https://sarahadler.me/
 * https://after-dark.habd.as/ (features, modules, shortcodes)
-* accessability: https://boffosocko.com/
+* accessability: https://boffosocko.com/ (https://github.com/collections/web-accessibility)
+* linting:
+	- https://github.com/htmlhint/HTMLHint
+	- https://github.com/CSSLint/csslint
+	- https://github.com/eslint/eslint
+
 
 ## Showcase
 View this theme in actual on my [website][demo:strootje] or on the [demo page][demo:github]

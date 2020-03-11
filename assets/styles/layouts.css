@@ -3,20 +3,36 @@
 	background-color: var(--color-tertiary);
 }
 
-.l-page {
+.l-page,
+.l-wrapper {
 	height: 100%;
 	min-height: calc(100vh - (2 * var(--spacing-dense)));
 	display: flex;
-	justify-content: space-between;
-	background-color: var(--color-background);
+	flex-flow: column nowrap;
 }
 
-.l-page > * {
+.l-page > *,
+.l-wrapper > * {
 	width: 100%;
 }
 
-.l-page > *:not(:last-child) {
+.l-page {
+	align-items: center;
+	background-color: hsl(var(--color-tertiary-hue), var(--color-tertiary-saturation), 95%);
+}
+
+.l-wrapper {
+	background-color: var(--color-background);
+}
+
+.l-wrapper > *:not(:last-child) {
 	flex-grow: 1;
+}
+
+.l-content {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
 }
 
 .l-content > :first-child,
@@ -36,4 +52,7 @@
 .l-footer {
 	padding-top: calc(2 * var(--spacing-wide));
 	padding-bottom: calc(2 * var(--spacing-wide));
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
 }

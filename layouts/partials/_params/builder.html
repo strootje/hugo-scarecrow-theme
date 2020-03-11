@@ -1,0 +1,10 @@
+{{- $dict := . -}}
+
+{{- $classes := (slice) -}}
+{{- range $class, $check := $dict -}}
+	{{- if $check -}}
+		{{- $classes = $classes | append $class -}}
+	{{- end -}}
+{{- end -}}
+
+{{- return (delimit $classes " ") -}}

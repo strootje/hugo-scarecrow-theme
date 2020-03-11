@@ -11,9 +11,4 @@
 {{- define "content" -}}
 	{{- partial "comps/avatar" . -}}
 	{{- partial "comps/social/follow" . -}}
-
-	<section class="l-menu">
-		{{- $pagesMenuName := .Site.Params.Theme.Menus.Pages | default "pages" -}}
-		{{- partial "comps/menu/for-menu" (dict "title" "Pages" "scope" . "menu" $pagesMenuName "style" "column") -}}
-	</section>
 {{- end -}}

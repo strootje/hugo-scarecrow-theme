@@ -13,7 +13,7 @@
 	{{- partial "comps/social/follow" . -}}
 
 	{{- $pagesMenuName := .Site.Params.Theme.Menus.Pages | default "pages" -}}
-	{{- partial "comps/menu/for-menu" (dict "title" "Pages" "scope" . "menu" $pagesMenuName "style" "row") -}}
+	{{- partial "comps/menu/for-menu" (dict "scope" . "title" "Pages" "menu" $pagesMenuName "style" "row") -}}
 
 	{{- partial "comps/wall" . -}}
 {{- end -}}

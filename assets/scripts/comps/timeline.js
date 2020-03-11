@@ -1,4 +1,4 @@
-$('.wall', wall => {
+$('.timeline', wall => {
 	const removeMe = 'index.json';
 	let loadMoreQuery = '/posts/index.json';
 

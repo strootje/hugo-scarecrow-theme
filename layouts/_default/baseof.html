@@ -18,7 +18,6 @@
 	</head>
 
 	{{- $builder := (partial "_params/builder" (dict "l-body" true "is-home" .Page.IsHome)) -}}
-
 	<body class="{{- $builder -}}">
 		<div class="l-page">
 			<div class="l-wrapper container">
@@ -27,9 +26,7 @@
 					{{- end -}}
 				</div>
 
-				<footer class="l-footer">
-					<span>footer stuff</span>
-				</footer>
+				{{- partial "layout/footer" . -}}
 			</div>
 		</div>
 	</body>

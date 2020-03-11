@@ -1,5 +1,0 @@
-.single .published-date::before,
-.list .published-date::after {
-	content: "\f133";
-	font-weight: 400;
-}

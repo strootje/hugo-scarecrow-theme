@@ -1,0 +1,31 @@
+.loader, .loader::before, .loader::after {
+	content: '';
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	border-radius: 5px;
+	background-color: hsl(var(--color-primary-hue), var(--color-primary-saturation), var(--color-primary-value));
+	animation: flashing 1.4s infinite both;
+}
+
+.loader::before {
+	left: -15px;
+	position: absolute;
+}
+
+.loader {
+	position: relative;
+	animation-delay: .2s;
+}
+
+.loader::after {
+	left: 15px;
+	position: absolute;
+	animation-delay: .4s;
+}
+
+@keyframes flashing {
+	0% { background-color: hsla(var(--color-primary-hue), var(--color-primary-saturation), var(--color-primary-value), 20%); }
+	20% { background-color: hsla(var(--color-primary-hue), var(--color-primary-saturation), var(--color-primary-value), 100%); }
+	100% { background-color: hsla(var(--color-primary-hue), var(--color-primary-saturation), var(--color-primary-value), 20%); }
+}

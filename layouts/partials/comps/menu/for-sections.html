@@ -6,7 +6,7 @@
 
 {{- if not $scope.Site.Sections -}}{{- errorf "Sections not found" -}}{{- end -}}
 
-{{- with $scope.Site.Sections -}}
+{{- with (where $scope.Site.Sections ".Layout" "!=" "aggregator") -}}
 	{{- $items := (slice) -}}
 
 	{{- range . -}}

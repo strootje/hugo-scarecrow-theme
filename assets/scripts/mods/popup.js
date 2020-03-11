@@ -1,4 +1,4 @@
-$('.popup', popups => popups.each(popup => {
+$('.popup', popup => {
 	popup.find('a[data-action="open"]', node => {
 		node.on('click', () => popup.addClass('is-open'));
 	});
@@ -10,4 +10,4 @@ $('.popup', popups => popups.each(popup => {
 	popup.find('a[data-action="close"]', node => {
 		node.on('click', () => popup.removeClass('is-open'));
 	});
-}));
+});

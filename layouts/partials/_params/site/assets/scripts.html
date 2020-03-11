@@ -1,9 +1,12 @@
 {{- $scripts := (slice) -}}
 
+{{- $domready := "https://cdnjs.cloudflare.com/ajax/libs/domready/1.0.8/ready.min.js" -}}
+{{- $scripts = $scripts | append (dict "Permalink" $domready "Crossorigin" "anonymous") -}}
+
 {{- $fuse := "https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.4.6/fuse.min.js" -}}
 {{- $scripts = $scripts | append (dict "Permalink" $fuse "Crossorigin" "anonymous") -}}
 
-{{- $bundle := partialCached "_params/site/assets/bundles/scripts" . -}}
+{{- $bundle := partialCached "_params/site/bundles/scripts" . -}}
 {{- $scripts = $scripts | append $bundle -}}
 
 {{- return $scripts -}}

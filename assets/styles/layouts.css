@@ -56,3 +56,56 @@
 	flex-flow: column nowrap;
 	align-items: center;
 }
+
+
+
+.l-body .l-avatar .figure-subject {
+	max-width: 180px;
+	max-height: 180px;
+}
+
+.l-body:not(.is-home) .l-avatar .figure-subject {
+	max-width: 120px;
+	max-height: 120px;
+}
+
+.l-body:not(.is-home) .l-avatar .figure-caption .title {
+	font-size: var(--font-size-wide);
+}
+
+
+
+.l-list > .list {
+	align-items: center;
+}
+
+.l-list aside {
+	width: 60px;
+	flex-shrink: 0;
+	text-align: right;
+}
+
+
+
+.l-single {
+	width: 100%;
+	display: flex;
+	flex-grow: 1;
+	flex-flow: column nowrap;
+}
+
+.l-single > * {
+	width: 100%;
+}
+
+.l-single > :not(:first-child) {
+	margin-top: calc(2 * var(--spacing-wide));
+}
+
+.l-single .l-single__content {
+	flex-grow: 1;
+}
+
+.l-single .list {
+	justify-content: center;
+}

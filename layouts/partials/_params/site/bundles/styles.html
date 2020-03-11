@@ -4,10 +4,19 @@
 {{- $files = $files | append "layouts" -}}
 {{- $files = $files | append "states" -}}
 
-{{- $files = $files | append "layout/avatar" -}}
 {{- $files = $files | append "mods/container" -}}
 {{- $files = $files | append "mods/figure" -}}
+{{- $files = $files | append "mods/icon" -}}
+{{- $files = $files | append "mods/input" -}}
+{{- $files = $files | append "mods/list" -}}
+{{- $files = $files | append "mods/loader" -}}
+{{- $files = $files | append "mods/pager" -}}
+{{- $files = $files | append "mods/popup" -}}
 {{- $files = $files | append "mods/title" -}}
+
+{{- $files = $files | append "comps/aside/translations" -}}
+{{- $files = $files | append "comps/search" -}}
+{{- $files = $files | append "comps/wall" -}}
 
 {{- $sources := slice -}}
 {{- range $files -}}

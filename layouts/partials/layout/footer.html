@@ -1,12 +1,6 @@
 {{- $scope := . -}}
 
 <footer class="l-footer container has-centered is-faded">
-	<section class="legal row">
-		{{- partial "layout/footer/legal" . -}}
-
-		{{- if not .Page.IsHome -}}
-			{{- $legalMenuName := $scope.Site.Params.Theme.Menus.Legal | default "legal" -}}
-			{{- partial "comps/menu/for-menu" (dict "title" "Legal" "scope" $scope "menu" $legalMenuName) -}}
-		{{- end -}}
-	</section>
+	{{- partial "layout/footer/sections" . -}}
+	{{- partial "layout/footer/legal" . -}}
 </footer>

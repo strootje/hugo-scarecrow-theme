@@ -1,6 +1,5 @@
 ---
-type: image
-title: Hello, World!
+title: Awesome Image!
 publishDate: 2020-02-06
 ---
 

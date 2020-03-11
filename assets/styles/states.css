@@ -40,6 +40,12 @@
 	width: 100%;
 }
 
+.is-hidden,
+.is-hidden-if-noscript {
+	display: none !important;
+	visibility: hidden !important;
+}
+
 
 
 /* .is-faded {
@@ -52,11 +58,7 @@
 	justify-content: center;
 }
 
-.is-hidden,
-.is-hidden-if-noscript {
-	display: none;
-	visibility: hidden;
-}
+
 
 .is-clear-both {
 	clear: both;

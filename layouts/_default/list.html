@@ -2,7 +2,12 @@
 	{{- partial "comps/avatar" . -}}
 	{{- partial "comps/search" . -}}
 
-	{{- $paginator := .Paginate .Pages -}}
+	{{- $pages := .RegularPages -}}
+	{{- if (eq .Layout "aggregator")  -}}
+		{{- $pages = (where .Site.RegularPages ".Type" "!=" "page") -}}
+	{{- end -}}
+
+	{{- $paginator := .Paginate $pages -}}
 	<section class="l-list timeline">
 		{{- partial "list/pager/prev" $paginator -}}
 

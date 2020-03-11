@@ -1,11 +1,17 @@
 {
-	{{- $paginator := .Paginate .Pages -}}
+	{{- $pages := .RegularPages -}}
+	{{- if (eq .Layout "aggregator")  -}}
+		{{- $pages = (where .Site.RegularPages ".Type" "!=" "page") -}}
+	{{- end -}}
 
+	{{- $paginator := .Paginate $pages -}}
 	"data": [
 		{{- range $i, $page := $paginator.Pages -}}
 			{{- if (ne $i 0) -}},{{- end -}}
 			{
-				"title": "{{- $page.Title -}}"
+				"type": "{{- $page.Type -}}",
+				"title": "{{- $page.Title -}}",
+				"permalink": "{{- $page.RelPermalink -}}"
 			}
 		{{- end -}}
 	],

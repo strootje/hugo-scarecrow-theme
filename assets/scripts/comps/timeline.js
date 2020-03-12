@@ -18,12 +18,12 @@ $('.timeline', wall => {
 
 			pager.removeClass('is-hidden');
 			loader.addClass('is-hidden');
-
-			history.pushState({}, pager.attr('title'), pager.attr('href'));
-			pager.addAttr('href', json.links.next?.replace(`/${apiSuffix}`, ''));
+			history.pushState({}, 'test', pager.attr('href'));
 
 			if (!json.links.next) {
 				pager.delete();
+			} else {
+				pager.addAttr('href', json.links.next.replace(`/${apiSuffix}`, ''));
 			}
 		}));
 	});

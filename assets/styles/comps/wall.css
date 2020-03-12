@@ -1,20 +1,4 @@
-.wall {
-	width: 100%;
-	display: flex;
-	flex-flow: column nowrap;
-}
-
-.wall .post {
-	order: 0;
-}
-
-.wall .footer {
-	order: 1;
-	padding: calc(2 * var(--spacing-wide)) 0;
-	text-align: center;
-}
-
-.wall .footer .pager {
+.wall .pager {
 	animation: pulse 20s ease-in-out infinite alternate;
 }
 

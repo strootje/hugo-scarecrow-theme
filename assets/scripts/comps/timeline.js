@@ -19,9 +19,9 @@ $('.timeline', wall => {
 			pager.removeClass('is-hidden');
 			loader.addClass('is-hidden');
 
-			// history.pushState({ url: loadMoreQuery }, loadMoreQuery.replace(removeMe, ''), loadMoreQuery.replace(removeMe, ''));
-
+			history.pushState({}, pager.attr('title'), pager.attr('href'));
 			pager.addAttr('href', json.links.next?.replace(`/${apiSuffix}`, ''));
+
 			if (!json.links.next) {
 				pager.delete();
 			}

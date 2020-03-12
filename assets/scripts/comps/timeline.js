@@ -12,7 +12,7 @@ $('.timeline', wall => {
 		pager.addClass('is-hidden');
 		loader.removeClass('is-hidden');
 
-		$.delay(360, () => $.json(loadMoreQuery, json => {
+		$.delay(360, () => $.json(`${pager.attr('href')}/${apiSuffix}`, json => {
 
 			json.data.forEach(post => addChildPost(wall, post));
 
@@ -21,9 +21,9 @@ $('.timeline', wall => {
 
 			// history.pushState({ url: loadMoreQuery }, loadMoreQuery.replace(removeMe, ''), loadMoreQuery.replace(removeMe, ''));
 
-			pager.addAttribute('href', json.links.next);
-			if (!loadMoreQuery) {
-				a.delete();
+			pager.addAttr('href', json.links.next?.replace(`/${apiSuffix}`, ''));
+			if (!json.links.next) {
+				pager.delete();
 			}
 		}));
 	});
@@ -36,7 +36,7 @@ function addChildPost(wall, post) {
 
 	const header = article.createChild('header');
 	const a = header.createChild('a')
-		.addAttribute('href', post.permalink);
+		.addAttr('href', post.permalink);
 	a.createChild('h3')
 		.text(post.title);
 }

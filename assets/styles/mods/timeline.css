@@ -1,4 +1,29 @@
-:root {
+.timeline {
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.timeline .pager[rel="prev"] {
+	order: 1
+}
+
+.timeline > .timeline-item {
+	order: 2;
+}
+
+.timeline .pager[rel="next"],
+.timeline .loader {
+	order: 3;
+}
+
+.timeline .loader {
+	margin: 0 auto;
+}
+
+
+
+
+/* :root {
 	--border-radius: calc(.5 * var(--spacing-wide));
 }
 
@@ -77,4 +102,4 @@
 }
 
 .timeline .timeline-item .timeline-body {
-}
+} */

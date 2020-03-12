@@ -8,10 +8,10 @@
 			nodes.forEach(node => callback(node));
 		}
 
-		Lambda.prototype.each = function (callback) {
-			each(node => callback(BuildLambda([node])));
+		const reduce = function (callback) {
+			return [...nodes].reduce((prev, cur) => [...prev, ...callback(cur)], []);
 		}
-		
+
 		Lambda.prototype.parent = function (query, callback) {
 			if (typeof query === 'function') {
 				each(node => query(BuildLambda([node.parentNode])));
@@ -24,20 +24,24 @@
 			}
 		}
 
-		Lambda.prototype.find = function (query, callback) {
-			each(node => callback(BuildLambda(node.querySelectorAll(query))));
+		Lambda.prototype.find = function (query) {
+			const children = reduce(node => node.querySelectorAll(query));
+			return BuildLambda(children);
 		}
 
 		Lambda.prototype.delete = function () {
 			each(node => node.parentNode.removeChild(node));
+			return null;
 		}
 
-		Lambda.prototype.createChild = function (name, callback) {
-			each(node => {
-				const child = document.createElement(name);
-				node.appendChild(child);
-				callback(BuildLambda([child]));
+		Lambda.prototype.createChild = function (tag) {
+			const children = reduce(node => {
+				const newChild = document.createElement(tag);
+				node.appendChild(newChild);
+				return [newChild];
 			});
+
+			return BuildLambda(children);
 		}
 
 
@@ -45,10 +49,12 @@
 
 		Lambda.prototype.value = function (callback) {
 			each(node => callback(node.value));
+			return this;
 		}
 
 		Lambda.prototype.text = function (text) {
 			each(node => node.innerHTML = text);
+			return this;
 		}
 
 
@@ -57,14 +63,17 @@
 
 		Lambda.prototype.addClass = function (className) {
 			each(node => node.classList.add(className));
+			return this;
 		}
 
 		Lambda.prototype.removeClass = function (className) {
 			each(node => node.classList.remove(className));
+			return this;
 		}
 
 		Lambda.prototype.addAttribute = function (name, value) {
 			each(node => node[name] = value);
+			return this;
 		}
 
 		Lambda.prototype.on = function (evt, callback) {

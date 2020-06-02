@@ -1,39 +1,31 @@
 <!DOCTYPE html>
-{{- $lang := .Site.Language | default "en_US" -}}
-<html lang="{{- $lang -}}">
-	<head>
-		{{/*  Metadata  */}}
-		{{- partial "layout/head/metadata" . -}}
-		{{- block "meta:image" . -}}{{- partial "layout/head/metadata/image" . -}}{{- end -}}
-		{{- block "meta:type" . -}}{{- partial "layout/head/metadata/type" . -}}{{- end -}}
-		{{- block "meta:custom" . -}}{{- end -}}
+<html lang="en" xmlns:og="http://ogp.me/ns#">
 
-		{{/*  Styles  */}}
-		{{- partial "layout/head/styles" . -}}
-		{{- block "styles:custom" . -}}{{- end -}}
+<head>
+	{{- partial "head/meta/meta" . -}}
+	{{- partial "head/meta/title" . -}}
+	{{- partial "head/meta/locale" . -}}
+	{{- partial "head/meta/links" . -}}
 
-		{{/*  Scripts  */}}
-		{{- partial "layout/head/scripts" . -}}
-		{{- block "scripts:tracking" . -}}{{ partial "layout/head/scripts/google-analytics" . }}{{- end -}}
-		{{- block "scripts:custom" . -}}{{- end -}}
+	{{- block "opengrapg:type" . -}}
+	<meta property="og:type" content="website" />
+	{{- end -}}
 
-		{{/*  Links  */}}
-		{{- partial "layout/head/links/alternatives" . -}}
-		{{/*  {{- partial "layout/head/links/previous" . -}}  */}}
-		{{/*  {{- partial "layout/head/links/next" . -}}  */}}
-	</head>
+	{{- partial "head/assets/styles" . -}}
+	{{- partial "head/assets/scripts" . -}}
+</head>
 
-	<body>
-		<div class="layout">
-			<div class="content">
-				{{- block "content" . -}}
-					<!-- content -->
-				{{- end -}}
-			</div>
+<body class="l-page">
+	<div class="l-content">
+		{{- block "content" . -}}
+		<!-- place content here -->
+		{{- end -}}
+	</div>
 
-			{{- block "footer" . -}}
-				{{- partial "layout/footer" . -}}
-			{{- end -}}
-		</div>
-	</body>
+	<footer class="l-footer">
+		{{- partial "layout/footer/sections" . -}}
+		{{- partial "layout/footer/legal" . -}}
+	</footer>
+</body>
+
 </html>

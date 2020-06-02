@@ -4,32 +4,14 @@
 	"version": "0.1.0",
 	"description": "Scarecrow theme for hugo",
 	"scripts": {
-		"postinstall": "cp ./node_modules/fuse.js/dist/fuse.js ./assets/scripts/fuse.min.js",
-		"build": "(cd ./exampleSite && hugo -v --themesDir ../.. -t hugo-scarecrow-theme)",
-		"serve": "(cd ./exampleSite && hugo server -w -v --themesDir ../.. -t hugo-scarecrow-theme)",
-		"pretest": "rm -rf ./test/results/* && pnpm run build",
+		"clean": "rimraf ./example-site/public ./example-site/resources",
+		"build": "(cd ./example-site && hugo -v --themesDir ../.. -t hugo-scarecrow-theme)",
+		"serve": "(cd ./example-site && hugo server -w -v --themesDir ../.. -t hugo-scarecrow-theme)",
+		"pretest": "pnpm run build",
 		"test": "mocha"
 	},
-	"dependencies": {
-		"bulma": "*",
-		"bulma-timeline": "*",
-		"fuse.js": "*"
-	},
 	"devDependencies": {
-		"@types/chai": "^4.2.7",
-		"@types/mocha": "^5.2.7",
-		"@types/node": "^11.15.4",
-		"@types/puppeteer": "^1.20.3",
-		"@types/resemblejs": "^1.3.28",
-		"bulmaswatch": "^0.7.5",
-		"chai": "^4.2.0",
-		"mocha": "^6.2.2",
-		"puppeteer": "^1.20.0",
-		"puppeteer-firefox": "^0.5.1",
-		"resemblejs": "^3.2.3",
-		"serve": "^11.3.0",
-		"serve-handler": "^6.1.2",
-		"ts-node": "^8.6.2",
-		"typescript": "^3.7.5"
+		"pnpm": "^5.1.2",
+		"rimraf": "^3.0.2"
 	}
 }

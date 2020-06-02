@@ -1,0 +1,15 @@
+{{- $files := (slice) -}}
+
+{{- $files = $files | append "index" -}}
+{{- $files = $files | append "variables" -}}
+{{- $files = $files | append "layouts" -}}
+{{- $files = $files | append "modifiers" -}}
+
+{{- $sources := (slice) -}}
+{{- range $files -}}
+{{- $fullpath := printf "styles/%s.css" . -}}
+{{- $sources = $sources | append (resources.Get $fullpath | resources.ExecuteAsTemplate $fullpath $) -}}
+{{- end -}}
+
+{{- $bundle := $sources | resources.Concat "bundle.css" | minify | fingerprint "sha512" -}}
+{{- return (dict "Permalink" $bundle.Permalink "Integrity" $bundle.Data.Integrity ) -}}

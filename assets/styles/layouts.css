@@ -1,0 +1,12 @@
+.l-page {
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.l-page .l-content {
+	flex-grow: 1;
+}
+
+.l-page .l-footer {
+	margin-bottom: calc(var(--spacing-wide) * 3);
+}

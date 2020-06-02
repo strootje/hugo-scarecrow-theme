@@ -1,0 +1,14 @@
+{{- $files := (slice) -}}
+
+{{- $fuse := "https://cdn.jsdelivr.net/npm/fuse.js@6.0.0/dist/fuse.min.js" -}}
+{{- $files = $files | append (dict "Permalink" $fuse "Integrity" "sha256-wvDwaRXtGl2Wy4BidfDDQ6zif+jF5/eePviHz8GCpII=" "Crossorigin" "anonymous") -}}
+
+{{- range $files -}}
+{{- $integrity := "" -}}
+{{- if (isset . "Integrity") -}}{{- $integrity = printf "integrity='%s'" .Integrity -}}{{- end -}}
+
+{{- $crossorigin := "" -}}
+{{- if (isset . "Crossorigin") -}}{{- $crossorigin = printf "crossorigin='%s'" .Crossorigin -}}{{- end -}}
+
+<script defer src="{{- .Permalink -}}" {{- $integrity | safeHTMLAttr -}} {{- $crossorigin | safeHTMLAttr -}}></script>
+{{- end -}}

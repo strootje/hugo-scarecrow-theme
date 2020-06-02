@@ -1,9 +1,0 @@
-{
-	"data": [
-		{{- $pages := .Site.Pages -}}
-		{{- range $i, $page := $pages -}}
-			{{- dict "title" $page.Title "summary" $page.Summary "href" $page.RelPermalink "kind" $page.Kind | jsonify | safeJS -}}
-			{{- if ne $i ( sub ( len $pages ) 1 ) -}},{{- end -}}
-		{{- end -}}
-	]
-}

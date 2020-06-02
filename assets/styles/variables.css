@@ -1,0 +1,36 @@
+:root {
+	/* Spacings */
+	--spacing-normal: .46rem;
+	--spacing-dense: calc(var(--spacing-normal) * .45);
+	--spacing-wide: calc(var(--spacing-normal) * 1.45);
+
+	/* Borders */
+	--border-normal: .2rem;
+	--border-dense: calc(var(--border-normal) * .45);
+	--border-wide: calc(var(--border-normal) * 1.45);
+
+	/* Fonts */
+	--font-size-normal: 1rem;
+	--font-size-dense: calc(var(--font-size-normal) * .8);
+	--font-size-wide: calc(var(--font-size-normal) * 1.2);
+
+	/* Colors */
+	/* https://paletton.com/#uid=33A0X0kh9o-7hD7c5tHlSk0roes */
+	--color-primary-hue: 210;
+	--color-primary-saturation: 33%;
+	--color-primary-value: 37%;
+
+	--color-secondary-hue: 56;
+	--color-secondary-saturation: 47%;
+	--color-secondary-value: 56%;
+
+	--color-tertiary-hue: 346;
+	--color-tertiary-saturation: 39%;
+	--color-tertiary-value: 52%;
+
+	--color-primary: {{- .Site.Params.Theme.Colors.Primary | default "hsl(var(--color-primary-hue), var(--color-primary-saturation), var(--color-primary-value))" -}};
+	--color-secondary: {{- .Site.Params.Theme.Colors.Secondary | default "hsl(var(--color-secondary-hue), var(--color-secondary-saturation), var(--color-secondary-value))" -}};
+	--color-tertiary: {{- .Site.Params.Theme.Colors.Tertiary | default "hsl(var(--color-tertiary-hue), var(--color-tertiary-saturation), var(--color-tertiary-value))" -}};
+	--color-faded: {{- .Site.Params.Theme.Colors.Faded | default "#333" -}};
+	--color-background: {{- .Site.Params.Theme.Colors.Background | default "#fff" -}};
+}

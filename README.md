@@ -1,29 +1,36 @@
-[![Build Status](https://travis-ci.org/strootje/hugo-scarecrow-theme.svg?branch=master)][build:travis]
-[![Build status](https://ci.appveyor.com/api/projects/status/dlmh20r3fcsi5kgi/branch/master?svg=true)][build:appveyor]
-
 # Scarecrow
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
+[![Build Status](https://travis-ci.org/strootje/hugo-scarecrow-theme.svg?branch=master)](https://travis-ci.org/strootje/hugo-scarecrow-theme)
+
 A theme for [hugo][hugo] build for my personal blog [strootje.com][myblog]
+
+
+## Table of Contents
+* [Showcase](#Showcase)
+* [Features](#Features)
+
 
 ## Showcase
 View a demo of this theme [here][demopage]
 
-## Usage
-There are multiple ways to install this theme.
 
-### Git submodule
-By far the easiest would be to add this repo as a git submodule into your website.
+## Features
+- [ ] Clean & Semantic and Verbose HTML & CSS
+- [ ] Minimal Javascript
+- [ ] Fast load & response times
+- [ ] Implements [Indieweb][indieweb] best practices
+- [ ] Implements [Open Graph][opgme] protocol
+- [ ] search with [fuse](https://fusejs.io/)
+- [ ] open source tracker (akee?)
+- [ ] i18n & a11y
 
-```
-git submodule add https://github.com/strootje/hugo-scarecrow-theme ./themes/scarecrow
-```
 
 ## Planning
 add support for tag manager
-https://liatas.com/posts/hugo-google-tag-manager/
 
 
-[build:travis]: https://travis-ci.org/strootje/hugo-scarecrow-theme
-[build:appveyor]: https://ci.appveyor.com/project/strootje/hugo-scarecrow-theme/branch/master
 [hugo]: https://gohugo.io/
 [myblog]: https://strootje.com/
 [demopage]: https://strootje.github.io/hugo-scarecrow-theme/
+[opgme]: https://ogp.me/
+[indieweb]: https://indieweb.org/

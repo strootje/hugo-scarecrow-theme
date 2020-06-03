@@ -1,2 +1,9 @@
 title: Scarecrow
 baseURL: https://strootje.github.com/
+
+params:
+  Author:
+    Username: Strootje
+    Lastname: Stroosnijder
+    Firstname: Bastiaan
+    Gender: male

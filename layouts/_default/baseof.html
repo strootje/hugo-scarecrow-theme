@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:og="http://ogp.me/ns#">
+	<head>
+		{{- partial "head/meta/meta" . -}}
+		{{- partial "head/meta/title" . -}}
+		{{- partial "head/meta/locale" . -}}
+		{{- partial "head/meta/links" . -}}
 
-<head>
-	{{- partial "head/meta/meta" . -}}
-	{{- partial "head/meta/title" . -}}
-	{{- partial "head/meta/locale" . -}}
-	{{- partial "head/meta/links" . -}}
-
-	{{- block "opengrapg:type" . -}}
-	<meta property="og:type" content="website" />
-	{{- end -}}
-
-	{{- partial "head/assets/styles" . -}}
-	{{- partial "head/assets/scripts" . -}}
-</head>
-
-<body class="l-page">
-	<div class="l-content">
-		{{- block "content" . -}}
-		<!-- place content here -->
+		{{- block "opengraph:type" . -}}
+			<meta property="og:type" content="website" />
 		{{- end -}}
-	</div>
 
-	<footer class="l-footer">
-		{{- partial "layout/footer/sections" . -}}
-		{{- partial "layout/footer/legal" . -}}
-	</footer>
-</body>
+		{{- partial "head/assets/styles" . -}}
+		{{- partial "head/assets/scripts" . -}}
+	</head>
 
+	<body class="l-page">
+		<div class="l-content">
+			{{- block "content" . -}}
+			<!-- place content here -->
+			{{- end -}}
+		</div>
+
+		<footer class="l-footer">
+			{{- partial "layout/footer/sections" . -}}
+			{{- partial "layout/footer/legal" . -}}
+		</footer>
+	</body>
 </html>

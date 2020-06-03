@@ -4,6 +4,22 @@
 app.title:
   other: "Powered by Scarecrow"
 
+
+
+# ###########################
+# Partials / Layout / Footer
+# ###########################
+layout.footer.cookie.text:
+  other: "No :cookie: were used in the creation of this page"
+layout.footer.legal.text:
+  other: "{{ .Year }} :copyright: {{ .Name }}"
+layout.footer.privacy.text:
+  other: "privacy"
+layout.footer.powered.text:
+  other: "Powered by <a href=\"https://gohugo.io/\" target=\"blank\">Hugo</a> and <a href=\"https://github.com/strootje/hugo-scarecrow-theme\" target=\"blank\">Scarecrow</a>"
+
+
+
 # ###########################
 # _default
 # ###########################
@@ -55,13 +71,7 @@ comps.social.share.stackoverflow:
 comps.search.placeholder:
   other: "Search.."
 
-# ###########################
-# Partials / Layout
-# ###########################
-layout.footer.powered:
-  other: "Powered by <a href=\"https://gohugo.io/\" target=\"blank\">Hugo</a> and <a href=\"https://github.com/strootje/hugo-scarecrow-theme\" target=\"blank\">Scarecrow</a>"
-layout.footer.legal:
-  other: "No :cookie: were used in the creation of this page"
+
 
 # ###########################
 # Partials / Social

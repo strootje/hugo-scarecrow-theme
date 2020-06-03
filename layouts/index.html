@@ -1,3 +1,13 @@
+{{- define "opengraph:type" -}}
+	<meta property="og:type" value="profile" />
+	{{- with .Site.Params.Author -}}
+		{{- with .Username -}}<meta property="og:profile:username" value="{{- . -}}" />{{- end -}}
+		{{- with .Lastname -}}<meta property="og:profile:last_name" value="{{- . -}}" />{{- end -}}
+		{{- with .Firstname -}}<meta property="og:profile:first_name" value="{{- . -}}" />{{- end -}}
+		{{- with .Gender -}}<meta property="og:profile:gender" value="{{- . -}}" />{{- end -}}
+	{{- end -}}
+{{- end -}}
+
 {{- define "content" -}}
 	<div>avatar</div>
 	<h1>title</h1>

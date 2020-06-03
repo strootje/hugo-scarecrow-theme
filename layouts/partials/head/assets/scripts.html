@@ -3,12 +3,15 @@
 {{- $fuse := "https://cdn.jsdelivr.net/npm/fuse.js@6.0.0/dist/fuse.min.js" -}}
 {{- $files = $files | append (dict "Permalink" $fuse "Integrity" "sha256-wvDwaRXtGl2Wy4BidfDDQ6zif+jF5/eePviHz8GCpII=" "Crossorigin" "anonymous") -}}
 
+{{- $bundle := partialCached "head/assets/bundle-scripts" . -}}
+{{- $files = $files | append (dict "Permalink" $bundle.Permalink "Integrity" $bundle.Integrity) -}}
+
 {{- range $files -}}
-{{- $integrity := "" -}}
-{{- if (isset . "Integrity") -}}{{- $integrity = printf "integrity='%s'" .Integrity -}}{{- end -}}
+	{{- $integrity := "" -}}
+	{{- if (isset . "Integrity") -}}{{- $integrity = printf "integrity='%s'" .Integrity -}}{{- end -}}
 
-{{- $crossorigin := "" -}}
-{{- if (isset . "Crossorigin") -}}{{- $crossorigin = printf "crossorigin='%s'" .Crossorigin -}}{{- end -}}
+	{{- $crossorigin := "" -}}
+	{{- if (isset . "Crossorigin") -}}{{- $crossorigin = printf "crossorigin='%s'" .Crossorigin -}}{{- end -}}
 
-<script defer src="{{- .Permalink -}}" {{- $integrity | safeHTMLAttr -}} {{- $crossorigin | safeHTMLAttr -}}></script>
+	<script defer src="{{- .Permalink -}}" {{- $integrity | safeHTMLAttr -}} {{- $crossorigin | safeHTMLAttr -}}></script>
 {{- end -}}

@@ -13,12 +13,11 @@
 {{- $files = $files | append (dict "Permalink" $bundle.Permalink "Integrity" $bundle.Integrity ) -}}
 
 {{- range $files -}}
-{{- $integrity := "" -}}
-{{- if (isset . "Integrity") -}}{{- $integrity = printf "integrity='%s'" .Integrity -}}{{- end -}}
+	{{- $integrity := "" -}}
+	{{- if (isset . "Integrity") -}}{{- $integrity = printf "integrity='%s'" .Integrity -}}{{- end -}}
 
-{{- $crossorigin := "" -}}
-{{- if (isset . "Crossorigin") -}}{{- $crossorigin = printf "crossorigin='%s'" .Crossorigin -}}{{- end -}}
+	{{- $crossorigin := "" -}}
+	{{- if (isset . "Crossorigin") -}}{{- $crossorigin = printf "crossorigin='%s'" .Crossorigin -}}{{- end -}}
 
-<link rel="stylesheet" href="{{- .Permalink -}}" {{- $integrity | safeHTMLAttr -}}
-	{{- $crossorigin | safeHTMLAttr -}} />
+	<link rel="stylesheet" href="{{- .Permalink -}}" {{- $integrity | safeHTMLAttr -}} {{- $crossorigin | safeHTMLAttr -}} />
 {{- end -}}

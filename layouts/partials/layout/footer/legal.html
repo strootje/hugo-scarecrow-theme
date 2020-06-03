@@ -1,5 +1,6 @@
-<div class="container has-text-centered">
-	<span>2020 (c) Bastiaan A Stroosnijder</span>
-	<a>asdasd</a>
-	<a>asdasdasdasd</a>
-</div>
+<section class="container has-text-centered">
+	{{- $name := partialCached "_func/author/name" . -}}
+	{{- $year := now.Format "2006" -}}
+
+	<span>{{- T "layout.footer.legal.text" (dict "Name" $name "Year" $year) | emojify -}}</span>
+</section>

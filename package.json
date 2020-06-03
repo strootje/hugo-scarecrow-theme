@@ -5,8 +5,8 @@
 	"description": "Scarecrow theme for hugo",
 	"scripts": {
 		"clean": "rimraf ./example-site/public ./example-site/resources",
-		"build": "(cd ./example-site && hugo -v --themesDir ../.. -t hugo-scarecrow-theme)",
-		"serve": "(cd ./example-site && hugo server -w -v --themesDir ../.. -t hugo-scarecrow-theme)",
+		"build": "(cd ./example-site && hugo -v --minify --themesDir ../.. -t hugo-scarecrow-theme)",
+		"serve": "(cd ./example-site && hugo server -v --watch --minify --themesDir ../.. -t hugo-scarecrow-theme)",
 		"pretest": "pnpm run build",
 		"test": "mocha"
 	},

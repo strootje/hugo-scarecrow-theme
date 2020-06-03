@@ -1,0 +1,4 @@
+{{- $scope := . -}}
+
+{{- $displayName := $scope.Site.Params.Author.DisplayName | default (printf "%s %s" $scope.Site.Params.Author.Firstname $scope.Site.Params.Author.Lastname) -}}
+{{- return $displayName -}}

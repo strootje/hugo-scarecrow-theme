@@ -1,0 +1,35 @@
+{{- if not (reflect.IsMap .) -}}{{- errorf "list: args not of type map" -}}{{- end -}}
+{{- if not (isset . "Scope") -}}{{- errorf "list: Scope not found" -}}{{- end -}}
+{{- if not (isset . "Items") -}}{{- errorf "list: Items not found" -}}{{- end -}}
+
+{{- $scope := (index . "Scope") -}}
+{{- $items := (index . "Items") -}}
+{{- $style := (index . "Style") | default "icons-with-text" -}}
+{{- $orientation := (index . "Orientation") | default "vertical" -}}
+
+{{- if not (reflect.IsSlice $items) -}}{{- errorf "list: Items not of type slice" -}}{{- end -}}
+
+{{- if ((gt (len $items) 0)) -}}
+	{{- $listnames := (partial "_func/classnames" (dict "list" true "list--vertical" (eq $orientation "vertical"))) -}}
+	<ul class="{{- $listnames -}}">
+		{{- range $items -}}
+			{{- if not (reflect.IsMap .) -}}{{- errorf "list.item: args not of type map" -}}{{- end -}}
+			{{- if not (isset . "Title") -}}{{- warnf "list.item: Title not found" -}}{{- end -}}
+			{{- if not (isset . "Permalink") -}}{{- errorf "list.item: Permalink not found" -}}{{- end -}}
+
+			{{- $title := (index . "Title") | default "" -}}
+			{{- $link := (index . "Permalink") -}}
+			{{- $target := (index . "Target") | default "_self" -}}
+
+			<li class="list__item"><a href="{{- $link -}}" target="{{- $target -}}" title="{{- $title -}}">
+				{{- if (and (isset . "Icon") (or (eq $style "icons") (eq $style "icons-with-text"))) -}}
+					<i class="{{- .Icon -}}"></i>
+				{{- end -}}
+
+				{{- if (and (isset . "Title") (or (eq $style "text") (eq $style "icons-with-text"))) -}}
+					{{- $title -}}
+				{{- end -}}
+			</a></li>
+		{{- end -}}
+	</ul>
+{{- end -}}

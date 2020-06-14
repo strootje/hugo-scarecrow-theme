@@ -1,0 +1,25 @@
+<!-- mail should be for a newsletter -->
+
+{{- if not (reflect.IsMap .) -}}{{- errorf "follow: args not of type map" -}}{{- end -}}
+{{- if not (isset . "Scope") -}}{{- errorf "follow: Scope is not found" -}}{{- end -}}
+
+{{- $scope := (index . "Scope") -}}
+{{- $class := (index . "Class") -}}
+
+<nav class="{{- $class -}}" aria-label="Follow me on Social">
+	{{- $data := $scope.Site.Data.Social -}}
+	{{- $params := $scope.Site.Params.Social -}}
+
+	{{- $items := (slice) -}}
+	{{- range $type, $name := $params -}}
+		{{- $entry := (index $data $type) -}}
+
+		{{- $title := (T (printf "comps.social.follow.%s.text" $type)) -}}
+		{{- $link := $entry.follow -}}
+		{{- $link = replace $link "%user%" $name -}}
+
+		{{- $items = $items | append (dict "Title" $title "Icon" $entry.icon "Permalink" $link "Target" "_blank") -}}
+	{{- end -}}
+
+	{{- partial "mods/list" (dict "Scope" $scope "Items" $items "Style" "icons" "Orientation" "horizontal") -}}
+</nav>

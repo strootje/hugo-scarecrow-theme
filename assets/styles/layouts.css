@@ -1,12 +1,13 @@
 .l-page {
-	display: flex;
-	flex-flow: column nowrap;
+	padding-top: calc(var(--spacing-wide) * 3);
+	position: relative;
 }
 
-.l-page .l-content {
-	flex-grow: 1;
+.is-home .l-content {
+	justify-content: center;
 }
 
+.l-page .l-content > *,
 .l-page .l-footer {
 	margin-bottom: calc(var(--spacing-wide) * 3);
 }

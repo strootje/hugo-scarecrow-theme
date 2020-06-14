@@ -1,0 +1,33 @@
+{{- define "content" -}}
+	<header class="pilar has-text-centered">
+		<h1 class="title is-2">{{- .Title -}}</h1>
+		{{- partialCached "comps/avatar" . -}}
+	</header>
+
+	<aside class="container">
+		{{- partialCached "comps/search" . -}}
+	</aside>
+
+	<div class="container is-grow">
+		{{- $pages := .RegularPages -}}
+		{{- if (eq .Layout "wall")  -}}
+			{{- $pages = (where .Site.RegularPages ".Type" "!=" "page") -}}
+		{{- end -}}
+
+		{{- $paginator := .Paginate $pages -}}
+
+		<div class="pagers">
+			{{- partial "comps/pager/list/prev" $paginator -}}
+		</div>
+
+		<div class="wall">
+			{{- range $paginator.Pages -}}
+				{{- .Render "list-item" -}}
+			{{- end -}}
+		</div>
+
+		<div class="pagers">
+			{{- partial "comps/pager/list/next" $paginator -}}
+		</div>
+	</div>
+{{- end -}}

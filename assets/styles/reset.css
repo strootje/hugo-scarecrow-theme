@@ -1,0 +1,26 @@
+html {
+	box-sizing: border-box;
+}
+
+body {
+	font-size: var(--font-size);
+	font-family: var(--font-family);
+	color: var(--color-text);
+	background-color: var(--color-background);
+}
+
+html, body {
+	height: 100%;
+	min-height: 100%;
+}
+
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+a { color: var(--color-link); text-decoration: none; }
+a[disabled] { cursor: default; pointer-events: none; }
+a:hover { color: var(--color-link-hover); }
+a:active { color: var(--color-link-active); }
+a:visited { color: var(--color-link-visited); }

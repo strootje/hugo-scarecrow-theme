@@ -1,0 +1,18 @@
+{{- if not (reflect.IsMap .) -}}{{- errorf "pages: args not of type map" -}}{{- end -}}
+{{- if not (isset . "Scope") -}}{{- errorf "pages: Scope is not found" -}}{{- end -}}
+{{- if not (isset . "Menu") -}}{{- errorf "pages: Menu is not found" -}}{{- end -}}
+
+{{- $scope := (index . "Scope") -}}
+{{- $menu := (index . "Menu") -}}
+{{- $class := (index . "Class") -}}
+
+<nav class="{{- $class -}}" aria-label="Pages">
+	{{- $entries := (index $scope.Site.Menus $menu) -}}
+
+	{{- $items := (slice) -}}
+	{{- range $entries -}}
+		{{- $items = $items | append (dict "Title" .Title "Permalink" .URL) -}}
+	{{- end -}}
+
+	{{- partial "mods/list" (dict "Scope" $scope "Items" $items) -}}
+</nav>

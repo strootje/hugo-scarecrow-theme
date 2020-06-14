@@ -1,9 +1,16 @@
 {{- $files := (slice) -}}
 
-{{- $files = $files | append "index" -}}
 {{- $files = $files | append "variables" -}}
+{{- $files = $files | append "reset" -}}
 {{- $files = $files | append "layouts" -}}
 {{- $files = $files | append "modifiers" -}}
+{{- $files = $files | append "comps/avatar" -}}
+{{- $files = $files | append "comps/more" -}}
+{{- $files = $files | append "comps/pager" -}}
+{{- $files = $files | append "comps/wall" -}}
+{{- $files = $files | append "mods/list" -}}
+{{- $files = $files | append "mods/pilar" -}}
+{{- $files = $files | append "mods/title" -}}
 
 {{- $sources := (slice) -}}
 {{- range $files -}}

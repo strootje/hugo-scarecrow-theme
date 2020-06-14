@@ -1,0 +1,7 @@
+.pilar {
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.pilar > :not(:first-child) { margin-top: var(--spacing-wide); }
+.pilar.is-x3 > :not(:first-child) { margin-top: calc(3 * var(--spacing-wide)); }

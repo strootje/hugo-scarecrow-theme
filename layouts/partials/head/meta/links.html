@@ -1,0 +1,3 @@
+{{- range .AlternativeOutputFormats -}}<link rel="{{- .Rel -}}" type="{{- .MediaType.Type -}}" href="{{- .Permalink | safeURL -}}" />{{- end -}}
+{{- with .PrevInSection -}}<link rel="prev" type="text/html" href="{{- .Permalink | safeURL -}}" />{{- end -}}
+{{- with .NextInSection -}}<link rel="next" type="text/html" href="{{- .Permalink | safeURL -}}" />{{- end -}}

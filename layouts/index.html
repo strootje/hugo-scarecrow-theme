@@ -9,8 +9,8 @@
 {{- end -}}
 
 {{- define "content" -}}
-	<div>avatar</div>
-	<h1>title</h1>
-	<h3>tagline</h3>
-	<nav>pages</nav>
+	{{- partialCached "comps/avatar" . .Page.IsHome -}}
+	{{- partialCached "comps/social/follow" (dict "Scope" .) -}}
+	{{- partialCached "comps/menu/pages" (dict "Scope" . "Menu" "pages" "Class" "has-text-centered") -}}
+	{{- partialCached "comps/pager/more" . -}}
 {{- end -}}

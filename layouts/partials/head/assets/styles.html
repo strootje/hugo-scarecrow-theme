@@ -9,7 +9,10 @@
 {{- $fontawesome := "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" -}}
 {{- $files = $files | append (dict "Permalink" $fontawesome "Integrity" "sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" "Crossorigin" "anonymous") -}}
 
-{{- $bundle := partialCached "head/assets/bundle-styles" . -}}
+{{- $googelfonts := "https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400&display=swap" -}}
+{{- $files = $files | append (dict "Permalink" $googelfonts "Crossorigin" "anonymous") -}}
+
+{{- $bundle := partialCached "_func/bundles/styles" . -}}
 {{- $files = $files | append (dict "Permalink" $bundle.Permalink "Integrity" $bundle.Integrity ) -}}
 
 {{- range $files -}}

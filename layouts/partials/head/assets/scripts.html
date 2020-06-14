@@ -1,9 +1,18 @@
 {{- $files := (slice) -}}
 
+{{- $domready := "https://cdn.jsdelivr.net/npm/domready@1.0.8/ready.min.js" -}}
+{{- $files = $files | append (dict "Permalink" $domready "Integrity" "sha256-z7v8HmIeZylwLaPn0X0Ym8dFyV0vkFVe4BkVW/iuwmQ=" "Crossorigin" "anonymous") -}}
+
+{{- $qwery := "https://cdn.jsdelivr.net/npm/qwery@4.0.0/qwery.min.js" -}}
+{{- $files = $files | append (dict "Permalink" $qwery "Integrity" "sha256-8Oztt0hxFE363IpBBeqMJQ34+fA58mCbjNlTs52iGxI=" "Crossorigin" "anonymous") -}}
+
+{{- $bonzo := "https://cdn.jsdelivr.net/npm/bonzo@2.0.0/bonzo.min.js" -}}
+{{- $files = $files | append (dict "Permalink" $bonzo "Integrity" "sha256-KpCyT03Psy5nMjsrXfeRdtct/FHsE1Hnaix70nW/DfY=" "Crossorigin" "anonymous") -}}
+
 {{- $fuse := "https://cdn.jsdelivr.net/npm/fuse.js@6.0.0/dist/fuse.min.js" -}}
 {{- $files = $files | append (dict "Permalink" $fuse "Integrity" "sha256-wvDwaRXtGl2Wy4BidfDDQ6zif+jF5/eePviHz8GCpII=" "Crossorigin" "anonymous") -}}
 
-{{- $bundle := partialCached "head/assets/bundle-scripts" . -}}
+{{- $bundle := partialCached "_func/bundles/scripts" . -}}
 {{- $files = $files | append (dict "Permalink" $bundle.Permalink "Integrity" $bundle.Integrity) -}}
 
 {{- range $files -}}

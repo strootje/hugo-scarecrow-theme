@@ -1,5 +1,6 @@
 title: Scarecrow
 baseURL: https://strootje.github.com/
+paginate: 9
 
 params:
   Author:
@@ -7,3 +8,10 @@ params:
     Lastname: Stroosnijder
     Firstname: Bastiaan
     Gender: male
+    Logo: https://placekitten.com/g/180/180
+    LogoAlt: testing
+  Social:
+    github: strootje
+    linkedin: bas-stroosnijder
+    instagram: strootje
+    rss: posts

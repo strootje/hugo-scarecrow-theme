@@ -1,0 +1,26 @@
+{{- if not (isset .Site.Params.Author "LogoAlt") -}}{{- warnf "author.LogoAlt is not set" -}}{{- end -}}
+
+{{- $size := 120 -}}
+{{- if .Page.IsHome -}}
+	{{- $size = 180 -}}
+{{- end -}}
+
+{{- $permalink := (printf "https://www.gravatar.com/avatar?s=%d&d=identicon" $size) -}}
+{{- $type := "PNG" -}}
+{{- $alt := .Site.Params.Author.LogoAlt -}}
+
+{{- with .Site.Params.Author.Logo -}}
+	{{- with resources.Get . -}}
+		{{- $img := .Fit (printf "%dx%d %s" $size $size $type) -}}
+		{{- $permalink = $img.RelPermalink -}}
+	{{- else -}}
+		{{- $url := urls.Parse . -}}
+		{{- if $url.Host -}}
+			{{- $permalink = . -}}
+		{{- else -}}
+			{{- $permalink = (printf "https://www.gravatar.com/avatar/%s?s=%d&d=identicon" (md5 .) $size) -}}
+		{{- end -}}
+	{{- end -}}
+{{- end -}}
+
+{{- return (dict "Permalink" $permalink "Type" $type "Width" $size "Height" $size "Alt" $alt) -}}

@@ -1,3 +1,26 @@
 .has-text-centered {
 	text-align: center;
 }
+
+.has-items-centered {
+	align-items: center;
+}
+
+.is-grow {
+	flex-grow: 1;
+}
+
+.is-small {
+	font-size: 1.2rem;
+	font-style: italic;
+}
+
+.is-primary {
+	color: var(--color-text-inverted);
+	background-color: var(--color-primary);
+}
+
+.is-dark {
+	color: var(--color-text-inverted);
+	background-color: var(--color-text);
+}

@@ -1,0 +1,24 @@
+{{- define "opengraph:type" -}}
+{{- end -}}
+
+{{- define "content" -}}
+	<header class="pilar has-text-centered">
+		<h1 class="title is-2 container">{{- .Title -}}</h1>
+		{{- partialCached "comps/avatar" . .Page.IsHome -}}
+	</header>
+
+	<aside class="is-small has-text-centered">
+		{{- partial "comps/aside/category" . -}}
+		{{- partial "comps/aside/reading" . -}}
+	</aside>
+
+	<div class="container is-grow">{{- .Content -}}</div>
+
+	<footer class="container">
+		<div class="pagers">
+			{{- partial "comps/pager/page/prev" . -}}
+			{{- partial "comps/pager/back" . -}}
+			{{- partial "comps/pager/page/next" . -}}
+		</div>
+	</footer>
+{{- end -}}

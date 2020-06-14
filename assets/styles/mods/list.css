@@ -1,0 +1,18 @@
+.list {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	list-style-type: none;
+}
+
+.list.list--vertical {
+	flex-flow: column nowrap;
+}
+
+.list .list__item {
+	margin: 0;
+}
+
+.list:not(.list--vertical) .list__item:not(:first-child) { margin-left: var(--spacing-wide); }
+.list.list--vertical .list__item:not(:first-child) { margin-top: var(--spacing-dense); }

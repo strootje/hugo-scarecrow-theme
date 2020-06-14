@@ -1,0 +1,12 @@
+{{- if not (reflect.IsMap .) -}}{{- errorf "classnames: args not of type map" -}}{{- end -}}
+
+{{- $items := . -}}
+
+{{- $classes := (slice) -}}
+{{- range $name, $check := $items -}}
+	{{- if ($check) -}}
+		{{- $classes = $classes | append $name -}}
+	{{- end -}}
+{{- end -}}
+
+{{- return (delimit $classes " ") -}}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:og="http://ogp.me/ns#">
+<html lang="en">
 	<head>
 		{{- partial "head/meta/meta" . -}}
 		{{- partial "head/meta/title" . -}}
@@ -14,14 +14,15 @@
 		{{- partial "head/assets/scripts" . -}}
 	</head>
 
-	<body class="l-page">
-		<div class="l-content">
+	{{- $pageclass := partialCached "_func/classnames" (dict "l-page" true "pilar" true "is-x3" true "is-home" .Page.IsHome) .Page.IsHome -}}
+	<body class="{{- $pageclass -}}">
+		<article class="l-content pilar is-grow">
 			{{- block "content" . -}}
-			<!-- place content here -->
+				<!-- place content here -->
 			{{- end -}}
-		</div>
+		</article>
 
-		<footer class="l-footer">
+		<footer class="l-footer is-small">
 			{{- partial "layout/footer/sections" . -}}
 			{{- partial "layout/footer/legal" . -}}
 		</footer>

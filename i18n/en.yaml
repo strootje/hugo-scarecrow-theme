@@ -7,6 +7,14 @@ app.title:
 
 
 # ###########################
+# Base / List
+# ###########################
+base.list.more.text:
+  other: "Read more"
+
+
+
+# ###########################
 # Partials / Layout / Footer
 # ###########################
 layout.footer.cookie.text:
@@ -21,11 +29,52 @@ layout.footer.powered.text:
 
 
 # ###########################
-# _default
+# Partials / Components / Social
 # ###########################
-single.readingtime:
+comps.social.follow.github.text:
+  other: "Find me on Github"
+comps.social.follow.hackernews.text:
+  other: "Find me on HackerNews"
+comps.social.follow.instagram.text:
+  other: "Find me on Instagram"
+comps.social.follow.linkedin.text:
+  other: "Find me on LinkedIn"
+comps.social.follow.rss.text:
+  other: "Find me on RSS"
+comps.social.follow.stackoverflow.text:
+  other: "Find me on Stackoverflow"
+
+comps.social.share.github.text:
+  other: "Share on Github"
+comps.social.share.hackernews.text:
+  other: "Share on HackerNews"
+comps.social.share.instagram.text:
+  other: "Share on Instagram"
+comps.social.share.linkedin.text:
+  other: "Share on LinkedIn"
+comps.social.share.stackoverflow.text:
+  other: "Share on Stackoverflow"
+
+
+
+# ###########################
+# Partials / Components / Pager
+# ###########################
+comps.pager.more.title:
+  other: Show more articles
+
+
+
+# ###########################
+# Partials / Components / Aside
+# ###########################
+comps.aside.category.text:
+  other: "asdasdasd"
+comps.aside.reading.text:
   one: "{{ .Count }} minute"
   other: "{{ .Count }} minutes"
+
+
 
 # ###########################
 # Pages
@@ -42,31 +91,8 @@ page.contact.submit.text:
   other: "Send Message"
 
 # ###########################
-# Partials / Components
+# Partials / Components / Search
 # ###########################
-comps.social.follow.github:
-  other: "Find me on Github"
-comps.social.follow.hackernews:
-  other: "Find me on HackerNews"
-comps.social.follow.instagram:
-  other: "Find me on Instagram"
-comps.social.follow.linkedin:
-  other: "Find me on LinkedIn"
-comps.social.follow.rss:
-  other: "Find me on RSS"
-comps.social.follow.stackoverflow:
-  other: "Find me on Stackoverflow"
-
-comps.social.share.github:
-  other: "Share on Github"
-comps.social.share.hackernews:
-  other: "Share on HackerNews"
-comps.social.share.instagram:
-  other: "Share on Instagram"
-comps.social.share.linkedin:
-  other: "Share on LinkedIn"
-comps.social.share.stackoverflow:
-  other: "Share on Stackoverflow"
 
 comps.search.placeholder:
   other: "Search.."

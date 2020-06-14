@@ -1,0 +1,7 @@
+{{- with .PrevInSection -}}
+	<a class="pager prev has-text-centered" href="{{- .RelPermalink -}}">
+		<i class="fas fa-fw fa-2x fa-chevron-left"></i>
+	</a>
+{{- else -}}
+	<span class="pager prev" aria-hidden="true"></span>
+{{- end -}}

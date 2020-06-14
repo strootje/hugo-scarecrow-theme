@@ -1,5 +1,4 @@
-<nav class="container has-text-centered">
-	<ul>
-		<li>articles</li>
-	</ul>
-</nav>
+<div class="container has-text-centered">
+	{{- $sections := (where .Site.Sections ".Layout" "!=" "wall") -}}
+	{{- partial "comps/menu/sections" (dict "Scope" . "Sections" $sections "Class" "container has-text-centered") -}}
+</div>

@@ -1,0 +1,9 @@
+.pagers {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+}
+
+.pager {
+	margin: var(--spacing-wide) 0;
+	display: block;
+}

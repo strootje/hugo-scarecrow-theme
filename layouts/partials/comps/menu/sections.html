@@ -1,0 +1,17 @@
+{{- if not (reflect.IsMap .) -}}{{- errorf "follow: args not of type map" -}}{{- end -}}
+{{- if not (isset . "Scope") -}}{{- errorf "follow: Scope is not found" -}}{{- end -}}
+
+{{- $scope := (index . "Scope") -}}
+{{- $class := (index . "Class") -}}
+{{- $sections := (index . "Sections") | default $scope.Site.Sections -}}
+
+{{- if (gt (len $sections) 0) -}}
+	<nav class="{{- $class -}}" aria-label="Sections">
+		{{- $items := (slice) -}}
+		{{- range $sections -}}
+			{{- $items = $items | append (dict "Title" .Title "Permalink" .RelPermalink) -}}
+		{{- end -}}
+
+		{{- partial "mods/list" (dict "Scope" $scope "Items" $items "Orientation" "horizontal") -}}
+	</nav>
+{{- end -}}

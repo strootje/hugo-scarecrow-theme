@@ -1,0 +1,16 @@
+<article class="wall__post post">
+	{{- $link := .RelPermalink -}}
+	<header class="post__header is-primary has-text-centered">
+		<h2 class="title"><a href="{{- $link -}}" title="{{- .Title -}}">{{- .Title -}}</a></h2>
+	</header>
+
+	<aside class="post__aside"></aside>
+
+	<div class="is-grow">
+		{{- .Summary -}}
+	</div>
+
+	<footer class="post__footer is-dark has-text-centered">
+		<a href="{{- $link -}}">{{- T "base.list.more.text" -}}</a>
+	</footer>
+</article>

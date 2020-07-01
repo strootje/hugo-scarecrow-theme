@@ -1,0 +1,17 @@
+{{- $files := (slice) -}}
+
+{{- $files = $files | append "lambda" -}}
+
+{{- $sources := (slice) -}}
+{{- range $files -}}
+	{{- $fullpath := printf "scripts/%s.js" . -}}
+	{{- $sources = $sources | append (resources.Get $fullpath | resources.ExecuteAsTemplate $fullpath $) -}}
+{{- end -}}
+
+{{- $bundle := $sources | resources.Concat "bundle.js" | minify | fingerprint "sha512" -}}
+
+<!-- <script defer src="https://cdn.jsdelivr.net/npm/domready@1.0.8/ready.min.js" integrity="sha256-z7v8HmIeZylwLaPn0X0Ym8dFyV0vkFVe4BkVW/iuwmQ=" crossorigin="anonymous"></script> -->
+<!-- <script defer src="https://cdn.jsdelivr.net/npm/qwery@4.0.0/qwery.min.js" integrity="sha256-8Oztt0hxFE363IpBBeqMJQ34+fA58mCbjNlTs52iGxI=" crossorigin="anonymous"></script> -->
+<!-- <script defer src="https://cdn.jsdelivr.net/npm/bonzo@2.0.0/bonzo.min.js" integrity="sha256-KpCyT03Psy5nMjsrXfeRdtct/FHsE1Hnaix70nW/DfY=" crossorigin="anonymous"></script> -->
+<script defer src="https://cdn.jsdelivr.net/npm/fuse.js@6.0.0/dist/fuse.min.js" integrity="sha256-wvDwaRXtGl2Wy4BidfDDQ6zif+jF5/eePviHz8GCpII=" crossorigin="anonymous"></script>
+<script defer src="{{- $bundle.Permalink -}}" integrity="{{- $bundle.Data.Integrity -}}"></script>

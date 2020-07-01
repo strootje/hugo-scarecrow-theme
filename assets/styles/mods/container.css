@@ -1,0 +1,12 @@
+.container {
+	width: 100%;
+	max-width: 960px;
+	margin: 0 auto;
+	position: relative;
+}
+
+@media (min-width: 550px) {
+	.container {
+		width: 60%;
+	}
+}

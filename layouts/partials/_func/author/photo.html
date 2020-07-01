@@ -9,7 +9,7 @@
 {{- $type := "PNG" -}}
 {{- $alt := .Site.Params.Author.LogoAlt -}}
 
-{{- with .Site.Params.Author.Logo -}}
+{{- with .Site.Params.Author.LogoSrc -}}
 	{{- with resources.Get . -}}
 		{{- $img := .Fit (printf "%dx%d %s" $size $size $type) -}}
 		{{- $permalink = $img.RelPermalink -}}

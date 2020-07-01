@@ -4,15 +4,13 @@
 
 {{- $scope := (index . "Scope") -}}
 {{- $menu := (index . "Menu") -}}
-{{- $class := (index . "Class") -}}
 
-<nav class="{{- $class -}}" aria-label="Pages">
-	{{- $entries := (index $scope.Site.Menus $menu) -}}
+<nav class="container">
+	{{- $pages := (index $scope.Site.Menus $menu) -}}
 
-	{{- $items := (slice) -}}
-	{{- range $entries -}}
-		{{- $items = $items | append (dict "Title" .Title "Permalink" .URL) -}}
-	{{- end -}}
-
-	{{- partial "mods/list" (dict "Scope" $scope "Items" $items) -}}
+	<ul class="pilar has-centered">
+		{{- range $pages -}}
+			<li><a rel="noopener" href="{{- .URL -}}">{{- .Title -}}</a></li>
+		{{- end -}}
+	</ul>
 </nav>

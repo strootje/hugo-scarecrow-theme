@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		{{- partial "head/meta/meta" . -}}
-		{{- partial "head/meta/title" . -}}
-		{{- partial "head/meta/locale" . -}}
-		{{- partial "head/meta/links" . -}}
+		{{- partial "_head/meta/meta" . -}}
+		{{- partial "_head/meta/title" . -}}
+		{{- partial "_head/meta/links" . -}}
+		{{- partial "_head/meta/social" . -}}
 
 		{{- block "opengraph:type" . -}}
 			<meta property="og:type" content="website" />
 		{{- end -}}
 
-		{{- partial "head/assets/styles" . -}}
-		{{- partial "head/assets/scripts" . -}}
+		{{- block "twitter:type" . -}}
+			<meta property="twitter:card" content="summary" />
+		{{- end -}}
+
+		{{- partial "_head/assets/styles" . -}}
+		{{- partial "_head/assets/scripts" . -}}
 	</head>
 
-	{{- $pageclass := partialCached "_func/classnames" (dict "l-page" true "pilar" true "is-x3" true "is-home" .Page.IsHome) .Page.IsHome -}}
+	{{- $pageclass := partialCached "_func/classnames" (dict "l-page" true "pilar" true "is-home" .Page.IsHome) .Page.IsHome -}}
 	<body class="{{- $pageclass -}}">
-		<article class="l-content pilar is-grow">
+		<div class="l-content pilar is-grow">
 			{{- block "content" . -}}
 				<!-- place content here -->
 			{{- end -}}
-		</article>
+		</div>
 
 		<footer class="l-footer is-small">
 			{{- partial "layout/footer/sections" . -}}

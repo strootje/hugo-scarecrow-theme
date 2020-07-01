@@ -6,4 +6,8 @@
 .pager {
 	margin: var(--spacing-wide) 0;
 	display: block;
+	color: hsl(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l));
 }
+
+.pager:hover,
+.pager:active { color: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) - var(--shade-dark))); }

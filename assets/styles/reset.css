@@ -1,12 +1,10 @@
 html {
 	box-sizing: border-box;
+	font-size: 62.5%;
 }
 
-body {
-	font-size: var(--font-size);
-	font-family: var(--font-family);
-	color: var(--color-text);
-	background-color: var(--color-background);
+*, *:before, *:after {
+	box-sizing: inherit;
 }
 
 html, body {
@@ -14,13 +12,31 @@ html, body {
 	min-height: 100%;
 }
 
-
-*, *:before, *:after {
-	box-sizing: inherit;
+body {
+	font-weight: 400;
+	font-size: var(--font-size);
+	font-family: var(--font-family);
+	color: hsl(var(--color-text-h), var(--color-text-s), var(--color-text-l));
+	/* background-color: hsl(var(--color-background-h), var(--color-background-s), var(--color-background-l)); */
 }
 
-a { color: var(--color-link); text-decoration: none; }
-a[disabled] { cursor: default; pointer-events: none; }
-a:hover { color: var(--color-link-hover); }
-a:active { color: var(--color-link-active); }
-a:visited { color: var(--color-link-visited); }
+a {
+	text-decoration: none;
+	color: hsl(var(--color-link-h), var(--color-link-s), var(--color-link-l));
+}
+
+a:hover, a:active { color: hsl(var(--color-link-h), var(--color-link-s), calc(var(--color-link-l) + var(--darken))); }
+a:disabled, a[disabled] {
+	color: inherit;
+	cursor: default;
+	pointer-events: none;
+}
+
+:not(.content) ul {
+	list-style-type: none;
+}
+
+figure, h1, h2, h3, h4, h5, h6, ul {
+	margin: 0;
+	padding: 0;
+}

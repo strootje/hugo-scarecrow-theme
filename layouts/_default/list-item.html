@@ -1,16 +1,21 @@
-<article class="wall__post post">
+<article class="wall__item post pilar">
 	{{- $link := .RelPermalink -}}
-	<header class="post__header is-primary has-text-centered">
-		<h2 class="title"><a href="{{- $link -}}" title="{{- .Title -}}">{{- .Title -}}</a></h2>
+	<header class="post__header has-text-centered">
+		<h2 class="title"><a rel="noopener" href="{{- $link -}}" title="{{- .Title -}}">{{- .Title -}}</a></h2>
 	</header>
 
-	<aside class="post__aside"></aside>
+	<aside class="post__aside pilar is-horizontal is-small has-centered">
+		{{- partial "comps/aside/category" . -}}
+		{{- partial "comps/aside/reading" . -}}
+	</aside>
 
 	<div class="is-grow">
 		{{- .Summary -}}
 	</div>
 
 	<footer class="post__footer is-dark has-text-centered">
-		<a href="{{- $link -}}">{{- T "base.list.more.text" -}}</a>
+		{{- if .Truncated -}}
+			<a rel="noopener" class="u-full-width" href="{{- $link -}}">{{- T "base.list.more.text" -}}</a>
+		{{- end -}}
 	</footer>
 </article>

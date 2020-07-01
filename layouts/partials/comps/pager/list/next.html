@@ -1,5 +1,6 @@
 {{- if (.HasNext) -}}
-	<a class="pager next has-text-centered" href="{{- .Next.URL -}}">
-		<i class="fas fa-fw fa-2x fa-chevron-down"></i>
+	<a rel="noopener" class="pager next has-text-centered" href="{{- .Next.URL -}}">
+		<i class="fas fa-fw fa-2x fa-chevron-down" aria-hidden="true"></i>
+		<span class="is-sr-only">{{- T "comps.pager.list.next.title" .Next.PageNumber -}}</span>
 	</a>
 {{- end -}}

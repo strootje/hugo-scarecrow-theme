@@ -1,6 +1,7 @@
-{{- with .PrevInSection -}}
-	<a class="pager prev has-text-centered" href="{{- .RelPermalink -}}">
-		<i class="fas fa-fw fa-2x fa-chevron-left"></i>
+{{- with .NextInSection -}}
+	<a rel="noopener" class="pager prev has-text-centered" href="{{- .RelPermalink -}}">
+		<i class="fas fa-fw fa-2x fa-chevron-left" aria-hidden="true"></i>
+		<span class="is-sr-only">{{- T "comps.pager.page.prev.title" (dict "Title" .Title) -}}</span>
 	</a>
 {{- else -}}
 	<span class="pager prev" aria-hidden="true"></span>

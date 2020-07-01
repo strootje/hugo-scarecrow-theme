@@ -8,7 +8,7 @@
 		{{- partialCached "comps/search" . -}}
 	</aside>
 
-	<div class="container is-grow">
+	<div class="container pilar is-grow">
 		{{- $pages := .RegularPages -}}
 		{{- if (eq .Layout "wall")  -}}
 			{{- $pages = (where .Site.RegularPages ".Type" "!=" "page") -}}
@@ -16,18 +16,22 @@
 
 		{{- $paginator := .Paginate $pages -}}
 
-		<div class="pagers">
-			{{- partial "comps/pager/list/prev" $paginator -}}
-		</div>
+		{{- if $paginator.HasPrev -}}
+			<div class="pagers">
+				{{- partial "comps/pager/list/prev" $paginator -}}
+			</div>
+		{{- end -}}
 
-		<div class="wall">
+		<div class="wall pilar">
 			{{- range $paginator.Pages -}}
 				{{- .Render "list-item" -}}
 			{{- end -}}
 		</div>
 
-		<div class="pagers">
-			{{- partial "comps/pager/list/next" $paginator -}}
-		</div>
+		{{- if $paginator.HasNext -}}
+			<div class="pagers">
+				{{- partial "comps/pager/list/next" $paginator -}}
+			</div>
+		{{- end -}}
 	</div>
 {{- end -}}

@@ -7,14 +7,21 @@
 		{{- partialCached "comps/avatar" . .Page.IsHome -}}
 	</header>
 
-	<aside class="is-small has-text-centered">
+	<aside class="is-small pilar is-horizontal has-centered">
 		{{- partial "comps/aside/category" . -}}
 		{{- partial "comps/aside/reading" . -}}
 	</aside>
 
-	<div class="container is-grow">{{- .Content -}}</div>
+	<div class="container is-grow">
+		{{- .Content -}}
+	</div>
 
-	<footer class="container">
+	<aside class="container pilar">
+		{{- partial "comps/aside/tags" . -}}
+		{{- partial "comps/menu/share" (dict "Scope" .) -}}
+	</aside>
+
+	<footer class="container pilar">
 		<div class="pagers">
 			{{- partial "comps/pager/page/prev" . -}}
 			{{- partial "comps/pager/back" . -}}

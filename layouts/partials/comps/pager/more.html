@@ -1,9 +1,9 @@
 {{- $pages := (where .Site.Pages ".Layout" "=" "wall") -}}
-{{- if not (eq (len $pages) 1) -}}{{- errorf "wall: unable to find page with 'wall' layout" -}}{{- end -}}
 
 {{- with (index $pages 0) -}}
 	{{- $title := T "comps.pager.more.title" -}}
-	<a class="pager more has-text-centered" href="{{- .RelPermalink -}}" title="{{- $title -}}" aria-label="{{- $title -}}">
-		<i class="fas fa-fw fa-2x fa-chevron-down"></i>
+	<a rel="noopener" class="pager more has-text-centered" href="{{- .RelPermalink -}}" aria-label="{{- $title -}}">
+		<i class="fas fa-fw fa-2x fa-chevron-down" aria-hidden="true"></i>
+		<span class="is-sr-only">{{- $title -}}</span>
 	</a>
 {{- end -}}

@@ -1,22 +1,18 @@
 @keyframes avatar-pulse {
-	from { border-color: var(--color-secondary); }
-	95% { border-color: var(--color-secondary); }
-	to { border-color: var(--color-secondary-light); }
-}
-
-.avatar {
-	margin: 0;
+	from { border-color: hsl(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l)); }
+	95% { border-color: hsl(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l)); }
+	to { border-color: hsl(var(--color-primary-h), var(--color-primary-s), calc(var(--color-primary-l) + var(--shade-dark))); }
 }
 
 .avatar .avatar__link {
-	text-decoration: none;
+	display: block;
 	color: inherit;
 }
 
-.avatar .avatar__image {
+.avatar .avatar__photo {
 	border-radius: 50%;
 	background-clip: padding-box;
-	border: var(--border-size-wide) solid var(--color-secondary);
+	border: var(--border-size) solid hsl(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l));
 	animation: avatar-pulse 12s ease-out 20s infinite alternate;
 }
 

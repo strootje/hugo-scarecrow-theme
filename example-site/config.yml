@@ -1,6 +1,12 @@
 title: Scarecrow
 baseURL: https://strootje.github.com/
-paginate: 9
+paginate: 3
+
+defaultContentLanguage: en
+languages:
+  en:
+    languageName: English
+    contentDir: content/en
 
 params:
   Author:
@@ -8,8 +14,9 @@ params:
     Lastname: Stroosnijder
     Firstname: Bastiaan
     Gender: male
-    Logo: https://placekitten.com/g/180/180
+    LogoSrc: https://placekitten.com/g/180/180
     LogoAlt: testing
+    Tagline: ":bike: this is my tagline"
   Social:
     github: strootje
     linkedin: bas-stroosnijder

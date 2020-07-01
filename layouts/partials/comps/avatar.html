@@ -2,22 +2,15 @@
 	{{- $link := .Site.Home.Permalink -}}
 	{{- $name := partialCached "_func/author/name" . -}}
 	{{- $photo := partialCached "_func/author/photo" . .Page.IsHome -}}
-	{{- $linkDisabled := "" -}}
-	{{- if .IsHome -}}
-		{{- $linkDisabled = "disabled" -}}
-	{{- end -}}
+	{{- $disabled := "" -}}{{- if .Page.IsHome -}}{{- $disabled = "disabled" -}}{{- end -}}
 
-	<a class="avatar__link u-url" href="{{- $link -}}" {{- $linkDisabled -}}>
-		{{/*  <span class="avatar__photo">
-			<img class="u-photo" src="{{- $photo.Permalink -}}" alt="{{- $photo.Alt -}}" width="{{- $photo.Width -}}" height="{{- $photo.Height -}}" />
-		</span>  */}}
-
-		<img class="avatar__image u-photo" src="{{- $photo.Permalink -}}" alt="{{- $photo.Alt -}}" width="{{- $photo.Width -}}" height="{{- $photo.Height -}}" />
+	<a rel="noopener" class="avatar__link u-url" href="{{- $link -}}" {{- $disabled | safeHTMLAttr -}}>
+		<img class="avatar__photo u-photo" src="{{- $photo.Permalink -}}" alt="{{- $photo.Alt -}}" width="{{- $photo.Width -}}" height="{{- $photo.Height -}}" />
 
 		<figcaption class="avatar__caption">
 			{{- if .Page.IsHome -}}
 				<h1 class="avatar__name title is-3 p-name">{{- $name -}}</h1>
-				<h3 class="avatar__tagline subtitle is-5">{{- printf ":bike: this is my tagline" | emojify -}}</h3>
+				{{- with .Site.Params.Author.Tagline -}}<h2 class="avatar__tagline subtitle is-5">{{- . | emojify -}}</h2>{{- end -}}
 			{{- else -}}
 				<span class="avatar__name title is-5 p-name">{{- $name -}}</span>
 			{{- end -}}

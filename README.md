@@ -21,6 +21,7 @@ View a demo of this theme [here][demopage]
 - [ ] Implements [Indieweb][indieweb] best practices
 - [ ] Implements [Open Graph][opgme] protocol
 - [ ] Implements [Twitter Cards][twittercard] tags
+- [ ] Implements Microdata: https://scottvinkle.me/blogs/blog/how-html-microdata-helps-with-accessibility
 - [ ] search with [fuse](https://fusejs.io/)
 - [ ] open source tracker (akee?)
 - [ ] i18n & a11y

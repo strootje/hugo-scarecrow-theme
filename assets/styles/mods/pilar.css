@@ -1,7 +1,17 @@
 .pilar {
 	display: flex;
-	flex-flow: column nowrap;
+	flex-wrap: nowrap;
 }
 
-.pilar > :not(:first-child) { margin-top: var(--spacing-wide); }
-.pilar.is-x3 > :not(:first-child) { margin-top: calc(3 * var(--spacing-wide)); }
+.pilar.is-horizontal { flex-direction: row; }
+.pilar.pilar.is-horizontal.has-centered { justify-content: center; }
+.pilar.is-horizontal > :not(:first-child) { margin-left: var(--spacing); }
+
+.pilar.is-vertical, .pilar:not(.is-horizontal) { flex-direction: column; }
+.pilar.is-vertical.has-centered, .pilar:not(.is-horizontal).has-centered { align-items: center; }
+.pilar.is-vertical > :not(:first-child),
+.pilar:not(.is-horizontal) > :not(:first-child) { margin-top: var(--spacing); }
+
+.pilar > .is-grow {
+	flex-grow: 1;
+}

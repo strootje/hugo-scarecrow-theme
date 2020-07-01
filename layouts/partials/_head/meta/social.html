@@ -1,0 +1,15 @@
+{{- $siteName := partialCached "_func/site/name" . -}}
+<meta property="og:site_name" value="{{- $siteName -}}" />
+<meta property="twitter:site" value="{{- $siteName -}}" />
+
+{{- $title := partialCached "_func/site/title" . -}}
+<meta property="og:title" value="{{- $title -}}" />
+<meta property="twitter:title" value="{{- $title -}}" />
+
+<meta property="og:locale" value="" />
+<meta property="og:locale:alternate" value="" />
+
+<meta property="og:url" value="{{- .Permalink -}}" />
+<meta property="twitter:url" value="{{- .Permalink -}}" />
+<meta property="og:description" value="{{- .Summary | plainify -}}" />
+<meta property="twitter:description" value="{{- .Summary | plainify -}}" />

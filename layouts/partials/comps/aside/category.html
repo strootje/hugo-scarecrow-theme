@@ -1,4 +1,8 @@
-<span>
-	<i class="fas fa-hashtag"></i>
-	{{- T "comps.aside.category.text" . -}}
-</span>
+{{- with .GetTerms "categories" -}}
+	{{- $first := (index . 0) -}}
+
+	<span>
+		<i class="fas fa-hashtag" aria-hidden="true"></i>
+		<a href="{{- $first.RelPermalink -}}">{{- $first.LinkTitle -}}</a>
+	</span>
+{{- end -}}

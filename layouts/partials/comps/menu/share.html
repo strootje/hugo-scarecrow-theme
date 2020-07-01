@@ -1,0 +1,27 @@
+<!-- mail should be for a newsletter -->
+{{- if not (reflect.IsMap .) -}}{{- errorf "follow: args not of type map" -}}{{- end -}}
+{{- if not (isset . "Scope") -}}{{- errorf "follow: Scope is not found" -}}{{- end -}}
+
+{{- $scope := (index . "Scope") -}}
+
+<nav aria-label="Share this on Social">
+	{{- $data := $scope.Site.Data.Social -}}
+
+	<ul class="pilar is-horizontal has-centered">
+		{{- range $type, $entry := $data -}}
+			{{- if (isset $entry "share") -}}
+				{{- $title := (T (printf "comps.social.share.%s.text" $type)) | default (T "comps.social.share.text" (dict "Name" ($type | title))) -}}
+				{{- $link := $entry.share -}}
+				{{- $link = replace $link "%permalink%" $scope.Permalink -}}
+				{{- $link = replace $link "%title%" ($scope.Title) -}}
+				{{- $link = replace $link "%summary%" ($scope.Summary | plainify) -}}
+				{{- $link = replace $link "%source%" ($scope.Site.Home.Permalink) -}}
+
+				<li><a rel="noopener" href="{{- $link | safeURL -}}" target="_blank">
+					<i class="{{- $entry.icon -}}" aria-hidden="true"></i>
+					<span class="is-sr-only">{{- $title -}}</span>
+				</a></li>
+			{{- end -}}
+		{{- end -}}
+	</ul>
+</nav>

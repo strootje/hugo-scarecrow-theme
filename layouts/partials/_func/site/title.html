@@ -1,0 +1,2 @@
+{{- $siteName := partialCached "_func/site/name" . -}}
+{{- return (printf "test | %s" $siteName) -}}

@@ -1,5 +1,5 @@
 .l-page {
-	padding-top: calc(var(--spacing-wide) * 3);
+	padding-top: calc(var(--spacing) * 3);
 	position: relative;
 }
 
@@ -9,5 +9,5 @@
 
 .l-page .l-content > *,
 .l-page .l-footer {
-	margin-bottom: calc(var(--spacing-wide) * 3);
+	margin-bottom: calc(var(--spacing) * 3);
 }

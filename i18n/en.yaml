@@ -2,58 +2,25 @@
 # Global
 # ###########################
 app.title:
-  other: "Powered by Scarecrow"
-
-
-
-# ###########################
-# Base / List
-# ###########################
-base.list.more.text:
-  other: "Read more"
+  other: "Scarecrow"
 
 
 
 # ###########################
 # Partials / Layout / Footer
 # ###########################
-layout.footer.cookie.text:
-  other: "No :cookie: were used in the creation of this page"
 layout.footer.legal.text:
   other: "{{ .Year }} :copyright: {{ .Name }}"
-layout.footer.privacy.text:
-  other: "privacy"
-layout.footer.powered.text:
-  other: "Powered by <a href=\"https://gohugo.io/\" target=\"blank\">Hugo</a> and <a href=\"https://github.com/strootje/hugo-scarecrow-theme\" target=\"blank\">Scarecrow</a>"
 
 
 
 # ###########################
 # Partials / Components / Social
 # ###########################
-comps.social.follow.github.text:
-  other: "Find me on Github"
-comps.social.follow.hackernews.text:
-  other: "Find me on HackerNews"
-comps.social.follow.instagram.text:
-  other: "Find me on Instagram"
-comps.social.follow.linkedin.text:
-  other: "Find me on LinkedIn"
-comps.social.follow.rss.text:
-  other: "Find me on RSS"
-comps.social.follow.stackoverflow.text:
-  other: "Find me on Stackoverflow"
-
-comps.social.share.github.text:
-  other: "Share on Github"
-comps.social.share.hackernews.text:
-  other: "Share on HackerNews"
-comps.social.share.instagram.text:
-  other: "Share on Instagram"
-comps.social.share.linkedin.text:
-  other: "Share on LinkedIn"
-comps.social.share.stackoverflow.text:
-  other: "Share on Stackoverflow"
+comps.social.follow.text:
+  other: "Find me on {{ .Name }}"
+comps.social.share.text:
+  other: "Share this on {{ .Name }}"
 
 
 
@@ -61,52 +28,35 @@ comps.social.share.stackoverflow.text:
 # Partials / Components / Pager
 # ###########################
 comps.pager.more.title:
-  other: Show more articles
+  other: Show more posts
+comps.pager.back.title:
+  other: Go back to the overview
+comps.pager.list.next.title:
+  other: "Go to page {{ .Count }}"
+comps.pager.list.prev.title:
+  other: "Go back to page {{ .Count }}"
+
+comps.pager.page.next.title:
+  other: "Read about '{{ .Title }}' in the next post"
+comps.pager.page.prev.title:
+  other: "Read about '{{ .Title }}' in the previous post"
 
 
 
 # ###########################
 # Partials / Components / Aside
 # ###########################
-comps.aside.category.text:
-  other: "asdasdasd"
 comps.aside.reading.text:
   one: "{{ .Count }} minute"
   other: "{{ .Count }} minutes"
+comps.aside.reading.title:
+  one: "{{ .Count }} word"
+  other: "{{ .Count }} words"
 
 
-
-# ###########################
-# Pages
-# ###########################
-page.contact.email.label:
-  other: "Email"
-page.contact.email.placeholder:
-  other: "someone@example.com"
-page.contact.message.label:
-  other: "Message"
-page.contact.message.placeholder:
-  other: "..."
-page.contact.submit.text:
-  other: "Send Message"
 
 # ###########################
 # Partials / Components / Search
 # ###########################
-
 comps.search.placeholder:
   other: "Search.."
-
-
-
-# ###########################
-# Partials / Social
-# ###########################
-social.cta.text:
-  other: "Get in touch"
-
-social.related.title:
-  other: "Related Posts"
-
-social.share.title:
-  other: "Share"

@@ -1,0 +1,10 @@
+{{- with .GetTerms "tags" -}}
+	<div class="tags pilar is-horizontal has-centered">
+		{{- range . -}}
+			<span class="tag is-primary">
+				{{/*  <i class="fas fa-hashtag"></i>  */}}
+				<a href="{{- .RelPermalink -}}">{{- .LinkTitle -}}</a>
+			</span>
+		{{- end -}}
+	</div>
+{{- end -}}

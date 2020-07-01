@@ -6,7 +6,7 @@
 	"scripts": {
 		"clean": "rimraf ./example-site/public ./example-site/resources",
 		"build": "(cd ./example-site && hugo -v --minify --themesDir ../.. -t hugo-scarecrow-theme)",
-		"serve": "(cd ./example-site && hugo server -v --watch --minify --themesDir ../.. -t hugo-scarecrow-theme)",
+		"serve": "(cd ./example-site && hugo server --verbose --bind 0.0.0.0 --baseURL http://10.0.0.127:1313 --watch --minify --themesDir ../.. -t hugo-scarecrow-theme)",
 		"pretest": "pnpm run build",
 		"test": "mocha"
 	},

@@ -1,4 +1,9 @@
-<div class="container has-text-centered">
+<nav class="container">
 	{{- $sections := (where .Site.Sections ".Layout" "!=" "wall") -}}
-	{{- partial "comps/menu/sections" (dict "Scope" . "Sections" $sections "Class" "container has-text-centered") -}}
-</div>
+
+	<ul class="pilar is-horizontal has-centered">
+		{{- range $sections -}}
+			<li><a rel="noopener" href="{{- .Permalink -}}">{{- .Title -}}<sup>{{- .Pages | len -}}</sup></a></li>
+		{{- end -}}
+	</ul>
+</nav>

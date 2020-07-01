@@ -1,4 +1,6 @@
-<span>
-	<i class="fas fa-clock"></i>
+{{- $wordcount := T "comps.aside.reading.title" .WordCount -}}
+
+<span title="{{- $wordcount -}}">
+	<i class="fas fa-clock" aria-hidden="true"></i>
 	{{- T "comps.aside.reading.text" .ReadingTime | emojify -}}
 </span>

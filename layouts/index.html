@@ -6,11 +6,30 @@
 		{{- with .Firstname -}}<meta property="og:profile:first_name" value="{{- . -}}" />{{- end -}}
 		{{- with .Gender -}}<meta property="og:profile:gender" value="{{- . -}}" />{{- end -}}
 	{{- end -}}
+
+	{{- $photo := partialCached "_func/author/photo" . .Page.IsHome -}}
+	{{- with $photo -}}
+		<meta property="og:image" value="{{- $photo.Permalink -}}" />
+		<meta property="og:image:type" value="image/{{- $photo.Type -}}" />
+		<meta property="og:image:width" value="{{- $photo.Width -}}" />
+		<meta property="og:image:height" value="{{- $photo.Height -}}" />
+		<meta property="og:image:alt" value="{{- $photo.Alt -}}" />
+	{{- end -}}
+{{- end -}}
+
+{{- define "twitter:type" -}}
+	<meta property="twitter:card" value="summary" />
+
+	{{- $photo := partialCached "_func/author/photo" . .Page.IsHome -}}
+	{{- with $photo -}}
+		<meta property="twitter:image" value="{{- $photo.Permalink -}}" />
+		<meta property="twitter:image:alt" value="{{- $photo.Alt -}}" />
+	{{- end -}}
 {{- end -}}
 
 {{- define "content" -}}
 	{{- partialCached "comps/avatar" . .Page.IsHome -}}
-	{{- partialCached "comps/social/follow" (dict "Scope" .) -}}
-	{{- partialCached "comps/menu/pages" (dict "Scope" . "Menu" "pages" "Class" "has-text-centered") -}}
+	{{- partialCached "comps/menu/follow" (dict "Scope" .) -}}
+	{{- partialCached "comps/menu/pages" (dict "Scope" . "Menu" "pages") -}}
 	{{- partialCached "comps/pager/more" . -}}
 {{- end -}}

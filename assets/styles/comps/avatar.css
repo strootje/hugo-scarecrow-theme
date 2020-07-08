@@ -12,7 +12,7 @@
 .avatar .avatar__photo {
 	border-radius: 50%;
 	background-clip: padding-box;
-	border: var(--border-size) solid hsl(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l));
+	border: calc(var(--border-size) * 3) solid hsl(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l));
 	animation: avatar-pulse 12s ease-out 20s infinite alternate;
 }
 

@@ -17,7 +17,7 @@ body {
 	font-size: var(--font-size);
 	font-family: var(--font-family);
 	color: hsl(var(--color-text-h), var(--color-text-s), var(--color-text-l));
-	/* background-color: hsl(var(--color-background-h), var(--color-background-s), var(--color-background-l)); */
+	position: relative;
 }
 
 a {

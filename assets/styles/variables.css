@@ -24,9 +24,6 @@
 	--color-text-h: var(--shade-h);
 	--color-text-s: var(--shade-s);
 	--color-text-l: var(--shade-dark-l);
-	--color-background-h: var(--shade-h);
-	--color-background-s: var(--shade-s);
-	--color-background-l: var(--shade-light-l);
 	--color-link-h: var(--color-complement-h);
 	--color-link-s: var(--color-complement-s);
 	--color-link-l: var(--color-complement-l);
@@ -40,5 +37,5 @@
 	--spacing: 1rem;
 
 	/* Borders */
-	--border-size: 3px;
+	--border-size: 1px;
 }

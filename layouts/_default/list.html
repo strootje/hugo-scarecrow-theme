@@ -1,7 +1,7 @@
 {{- define "content" -}}
 	<header class="pilar has-text-centered">
-		<h1 class="title is-2">{{- .Title -}}</h1>
-		{{- partialCached "comps/avatar" . -}}
+		<h1 class="title is-1">{{- .Title -}}</h1>
+		{{- partialCached "comps/avatar" . .Page.IsHome -}}
 	</header>
 
 	<aside class="container">

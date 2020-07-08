@@ -20,11 +20,11 @@
 
 	{{- $pageclass := partialCached "_func/classnames" (dict "l-page" true "pilar" true "is-home" .Page.IsHome) .Page.IsHome -}}
 	<body class="{{- $pageclass -}}">
-		<div class="l-content pilar is-grow">
+		<main class="l-content pilar is-grow">
 			{{- block "content" . -}}
 				<!-- place content here -->
 			{{- end -}}
-		</div>
+		</main>
 
 		<footer class="l-footer is-small">
 			{{- partial "layout/footer/sections" . -}}

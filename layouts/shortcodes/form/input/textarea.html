@@ -1,0 +1,8 @@
+{{- $name := (.Get 0) | default (.Get "name") -}}
+{{- $label := (.Get 1) | default (.Get "label") -}}
+{{- $placeholder := (.Get "placeholder") | default "" -}}
+
+<label class="control">
+	{{- (T $label) | default $label -}}
+	<textarea name="{{- $name -}}" class="input" placeholder="{{- $placeholder -}}"></textarea>
+</label>

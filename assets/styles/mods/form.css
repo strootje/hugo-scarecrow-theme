@@ -1,0 +1,24 @@
+.row {
+	width: 100%;
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.control {
+	width: 100%;
+	padding: calc(var(--spacing) * .3);
+	display: block;
+}
+
+.row:not(:last-child),
+:not(.row) > .control:not(:last-child) {
+	margin-bottom: var(--spacing);
+}
+
+.input,
+.button {
+	width: 100%;
+	padding: calc(var(--spacing) * .5) calc(var(--spacing) * .8);
+	border: var(--border-size) solid hsl(var(--color-complement-h), var(--color-complement-s), var(--color-complement-l));
+	border-radius: 5px;
+}

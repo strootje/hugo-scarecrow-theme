@@ -19,6 +19,7 @@ params:
     Tagline: ":bike: this is my tagline"
   Social:
     github: strootje
+    itchio: strootje
     linkedin: bas-stroosnijder
     instagram: strootje
     rss: posts

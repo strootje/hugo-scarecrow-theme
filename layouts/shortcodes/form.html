@@ -1,0 +1,6 @@
+{{- $action := (.Get "action") | default (.Get 0) -}}
+{{- $method := (.Get "method") | default "POST" -}}
+
+<form method="{{- $method -}}" action="{{- $action -}}">
+	{{- .Inner -}}
+</form>

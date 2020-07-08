@@ -1,0 +1,10 @@
+{{/*  {{- if not (isset . "Parent") -}}{{- errorf "no parent found" -}}{{- end -}}  */}}
+
+{{- $name := (.Get 0) | default (.Get "name") -}}
+{{- $label := (.Get 1) | default (.Get "label") -}}
+{{- $placeholder := (.Get "placeholder") | default "" -}}
+
+<label class="control">
+	{{- (T $label) | default $label -}}
+	<input class="input" name="{{- $name -}}" type="text" placeholder="{{- $placeholder -}}" />
+</label>

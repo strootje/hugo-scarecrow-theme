@@ -1,0 +1,5 @@
+{{- $label := (.Get 1) | default (.Get "label") -}}
+
+<label class="control">
+	<input class="button" type="submit" value="{{- $label -}}" />
+</label>

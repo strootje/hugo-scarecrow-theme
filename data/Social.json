@@ -65,6 +65,11 @@
 		"share": "https://telegram.me/share/url?text=%title%&url=%permalink%"
 	},
 
+	"itchio": {
+		"icon": "fab fa-fw fa-itch-io",
+		"follow": "https://%user%.itch.io"
+	},
+
 	"twitter": {
 		"icon": "fab fa-fw fa-twitter",
 		"follow": "https://www.twitter.com/%user%",

@@ -1,5 +1,11 @@
 .title,
-.subtitle {
+.subtitle,
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
 	width: 100%;
 	margin-bottom: 0;
 	font-family: var(--font-family-title);
@@ -7,22 +13,22 @@
 }
 
 :root {
-	--font-size-1: calc(var(--font-size) * 2);
-	--font-size-2: calc(var(--font-size) * 1.8);
-	--font-size-3: calc(var(--font-size) * 1.5);
-	--font-size-4: calc(var(--font-size) * 1.4);
-	--font-size-5: calc(var(--font-size) * 1.2);
-	--font-size-6: calc(var(--font-size) * 1);
-	--font-size-7: calc(var(--font-size) * .8);
+	--font-size-1: calc(var(--font-size) * 1.8);
+	--font-size-2: calc(var(--font-size) * 1.5);
+	--font-size-3: calc(var(--font-size) * 1.4);
+	--font-size-4: calc(var(--font-size) * 1.2);
+	--font-size-5: calc(var(--font-size) * 1);
+	--font-size-6: calc(var(--font-size) * .8);
+	--font-size-7: calc(var(--font-size) * .7);
 }
 
 .title + .subtitle { margin-top: -.6rem; }
-.title.is-1, .subtitle.is-1 { font-size: var(--font-size-1); }
-.title.is-2, .subtitle.is-2 { font-size: var(--font-size-2); }
-.title.is-3, .subtitle.is-3 { font-size: var(--font-size-3); }
-.title.is-4, .subtitle.is-4 { font-size: var(--font-size-4); }
-.title.is-5, .subtitle.is-5 { font-size: var(--font-size-5); }
-.title.is-6, .subtitle.is-6 { font-size: var(--font-size-6); }
+.title.is-1, .subtitle.is-1, .content h1 { font-size: var(--font-size-1); }
+.title.is-2, .subtitle.is-2, .content h2 { font-size: var(--font-size-2); }
+.title.is-3, .subtitle.is-3, .content h3 { font-size: var(--font-size-3); }
+.title.is-4, .subtitle.is-4, .content h4 { font-size: var(--font-size-4); }
+.title.is-5, .subtitle.is-5, .content h5 { font-size: var(--font-size-5); }
+.title.is-6, .subtitle.is-6, .content h6 { font-size: var(--font-size-6); }
 .subtitle.is-7 { font-size: var(--font-size-7); }
 
 .title + .subtitle.is-1 { font-size: var(--font-size-2); }

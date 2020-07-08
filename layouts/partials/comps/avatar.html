@@ -9,10 +9,10 @@
 
 		<figcaption class="avatar__caption">
 			{{- if .Page.IsHome -}}
-				<h1 class="avatar__name title is-3 p-name">{{- $name -}}</h1>
-				{{- with .Site.Params.Author.Tagline -}}<h2 class="avatar__tagline subtitle is-5">{{- . | emojify -}}</h2>{{- end -}}
+				<h1 class="avatar__name title is-2 p-name">{{- $name -}}</h1>
+				{{- with .Site.Params.Author.Tagline -}}<h2 class="avatar__tagline subtitle is-4">{{- . | emojify -}}</h2>{{- end -}}
 			{{- else -}}
-				<span class="avatar__name title is-5 p-name">{{- $name -}}</span>
+				<span class="avatar__name title is-4 p-name">{{- $name -}}</span>
 			{{- end -}}
 		</figcaption>
 	</a>
